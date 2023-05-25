@@ -5,17 +5,18 @@
 #include "Disk_store.h"
 #define DATA_PATH "../data/"
 #define FILE_PREFIX "level-"
+#define DELETE_VAL "~DELETED~"
 
-
+/*
+ * @brief KVStore
+ * @details 对外接口的实现，控制time stamp的更新
+ *          调用SkipList的接口，实现memtable存储
+ *          调用DiskStore的接口，磁盘中每层的控制，存储sstable
+ * */
 class KVStore : public KVStoreAPI {
     // You can add your implementation here
 private:
     SkipList* memtable;
-    SkipList* sstable;
-    std::string dir;
-    const int MAX_SIZE = 2097152;
-    vector<int> level_size; //每层大小
-    int level_num; //最大层数
     uint64_t timestamp;
     DiskStore* disk_store;
 

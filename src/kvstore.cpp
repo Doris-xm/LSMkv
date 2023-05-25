@@ -6,18 +6,16 @@
 KVStore::KVStore(const std::string &dir): KVStoreAPI(dir)
 {
     memtable = new SkipList();
-    sstable = new SkipList();
     disk_store = new DiskStore();
-    memtable->Size = 10272; // Header:32 , Bloom filter:10240
-    level_size.push_back(0);
-    level_num = 0;
     timestamp = 0;
 }
 
 KVStore::~KVStore()
 {
+    if(memtable ) {
+        dump();
+    }
     delete memtable;
-    delete sstable;
     delete disk_store;
 }
 
@@ -27,19 +25,10 @@ KVStore::~KVStore()
  */
 void KVStore::put(uint64_t key, const std::string &s)
 {
-    //insert & calculate size
-    string old_value = memtable->insert(key, s);
-    if(old_value.empty())
-        memtable->Size += s.size() + 13; // 1 + 8 + 4: '\0' + key + offset
-    else
-        memtable->Size += s.size() - old_value.size();
-
-    if(memtable->Size > MAX_SIZE) {
-        //write memtable to sstable
-        sstable = memtable;
+    if(memtable == nullptr)
         memtable = new SkipList();
-        memtable->Size = 10272;
-        write_to_L0();
+    if(!memtable->insert(key, s)) {
+        dump();
     }
 }
 /**
@@ -48,9 +37,18 @@ void KVStore::put(uint64_t key, const std::string &s)
  */
 std::string KVStore::get(uint64_t key)
 {
-    string res = memtable->search(key);
-    if(res == "~DELETED~")
+    string res="";
+    if( !memtable)
+        memtable = new SkipList();
+    else
+        res = memtable->search(key);
+    // 被删除
+    if(res == (string)DELETE_VAL)
         return "";
+
+    //不在memtable中
+    if(res.empty())
+        res = disk_store->get(key);
     return res;
 }
 /**
@@ -61,7 +59,7 @@ bool KVStore::del(uint64_t key)
 {
     if(get(key).empty())
         return false;
-    memtable->insert(key,"~DELETED~");
+    memtable->insert(key, (string)DELETE_VAL);
     return true;
 }
 
@@ -72,9 +70,7 @@ bool KVStore::del(uint64_t key)
 void KVStore::reset()
 {
     delete memtable;
-    delete sstable;
     memtable = new SkipList();
-    sstable = new SkipList();
 }
 
 /**
@@ -88,19 +84,19 @@ void KVStore::scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, s
 }
 
 void KVStore::write_to_L0() {
-    string directory = string(DATA_PATH )+string(FILE_PREFIX) + "0";
-    string filename = directory + '/' + to_string(timestamp) + ".sst";
-    level_size[0] ++;
-    timestamp++;
-
-    struct stat st{};
-    int rc = stat(directory.c_str(), &st); // 使用 c_str() 将 string 转换为字符数组类型char*
-    if ( !(rc == 0 && S_ISDIR(st.st_mode))) {
-        // 目录不存在
-//        mkdir(directory.c_str());
-    }
-
-    sstable->store(filename, timestamp);
+//    string directory = string(DATA_PATH )+string(FILE_PREFIX) + "0";
+//    string filename = directory + '/' + to_string(timestamp) + ".sst";
+//    level_size[0] ++;
+//    timestamp++;
+//
+//    struct stat st{};
+//    int rc = stat(directory.c_str(), &st); // 使用 c_str() 将 string 转换为字符数组类型char*
+//    if ( !(rc == 0 && S_ISDIR(st.st_mode))) {
+//        // 目录不存在
+////        mkdir(directory.c_str());
+//    }
+//
+//    ss_table->store(filename, timestamp);
 
 }
 void KVStore::init() {
@@ -129,13 +125,16 @@ void KVStore::dump() {
             disk_store->add_level(DiskLevel::TIERING);
         }
     }
-    uint64_t time_stamp = 0;
-    SSTable ss_table(memtable, time_stamp); // 这个函数会设置时间戳
-    // 保存成文件
-//    string file = "0"
-//    dump_info(file_name, ss_table.buff_table_, ss_table.data_zone_);
-//    all_buffs[0][{time_stamp, TAG++}] = ss_table.buff_table_;
-//    // delete skip list
-//    delete list_;
-//    list_ = nullptr;
+    SSTable ss_table(memtable, timestamp);
+    uint64_t serial =  disk_store->add_sstable(ss_table, 0);
+    if(serial >= 0) {
+        // 保存成文件
+        string file = directory + '/' +  to_string(timestamp) + '-' + to_string(serial) + ".sst";
+        ss_table.save_file(file);
+    }
+    timestamp++;
+
+    // 清空memtable
+    delete memtable;
+    memtable = new SkipList();
 }

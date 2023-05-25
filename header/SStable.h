@@ -9,6 +9,7 @@
 #include "SkipList.h"
 #include "utils.h"
 #include "MurmurHash3.h"
+#include "kvstore.h"
 
 //void dump_info(const std::string &file_name, const BuffTable &buff_table, const DataZone &data_zone);
 //void split_file_name(const std::string &file,
@@ -19,7 +20,7 @@
 const uint32_t BLOOM_SIZE = 81920;
 const uint64_t HEADER_BYTE_SIZE = 10272;
 const uint64_t OVERFLOW_SIZE = 2097152;
-static uint64_t TIME_STAMP = 0;
+
 
 
 class BloomFilter
@@ -46,6 +47,10 @@ public:
         }
         return true;
     }
+    void getBit(bitset<BLOOM_SIZE> &bitset){
+        for(int i = 0;i < BLOOM_SIZE; ++i)
+            bitset[i] = Bit[i];
+    }
 };
 struct Header {
     uint64_t time_stamp; //时间戳
@@ -68,11 +73,12 @@ class SSTable {
     BloomFilter* bloom_filter;
     vector<Indexer> index_area;
     vector<string> data_area;
+    uint64_t Serial; //序列号,用于区分同一时间戳的SSTable（文件命名）
 public:
     SSTable();
     ~SSTable();
-    SSTable(SkipList *skip_list, uint64_t &time_stamp);
-    string get(uint64_t key) const;
+    SSTable(SkipList *skip_list, uint64_t time_stamp);
+    bool get(uint64_t key, uint32_t & offset, uint32_t & size);
     bool find(uint64_t key) const{
         return bloom_filter->find(key);
     }
@@ -82,6 +88,21 @@ public:
     uint64_t get_max_key() const {
         return header->max_key;
     }
+    void save_file(const string &file_name);
+    void set_serial(const uint64_t serial) {
+        Serial = serial;
+    }
+    uint64_t get_serial() const {
+        return Serial;
+    }
+    uint64_t get_time_stamp() const {
+        return header->time_stamp;
+    }
+
+private:
+    int binary_search(uint64_t key) const;
+//    string read_file(const uint32_t offset, const uint32_t size) const;
+//    string make_file_name();
 
 };
 

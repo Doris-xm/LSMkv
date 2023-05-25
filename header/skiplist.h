@@ -7,6 +7,8 @@
 #include <list>
 #include "MurmurHash3.h"
 using namespace std;
+#define CAPACITY 2097152
+
 
 struct node{
     uint64_t key;
@@ -27,21 +29,22 @@ private:
     unsigned int key_num;
     uint64_t max_key;
     uint64_t min_key;
-    int max_level;
+    uint64_t Size;
     void clear(node *&h);
 
 public:
     std::bitset<81920> bits;
-    uint64_t Size;
+
     SkipList();
     ~SkipList();
-    std::string insert(uint64_t key, const std::string &s);
+    bool insert(uint64_t key, const std::string &s);
     std::string search(uint64_t key);
     void scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list);
-    void store(const string &path, uint64_t timestamp);
+//    void store(const string &path, uint64_t timestamp);
     node* get_head() { return head; }
     node* get_tail() { return tail; }
     unsigned int get_key_num() const { return key_num; }
+    uint64_t get_size() const { return Size; }
     uint64_t get_max_key() const { return max_key; }
     uint64_t get_min_key() const { return min_key; }
 };
