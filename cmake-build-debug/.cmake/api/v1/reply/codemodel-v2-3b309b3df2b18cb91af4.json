@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "LSMkv",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "LSMkv_correct::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-LSMkv_correct-Debug-83061a665073c2038951.json",
+					"name" : "LSMkv_correct",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "LSMkv_main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-LSMkv_main-Debug-1a5f13ddbf7cc4ba5a9c.json",
+					"name" : "LSMkv_main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "LSMkv_persist::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-LSMkv_persist-Debug-5ef1010b573289c83216.json",
+					"name" : "LSMkv_persist",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "E:/CppProject/dataStruct2023/LSMkv/cmake-build-debug",
+		"source" : "E:/CppProject/dataStruct2023/LSMkv"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

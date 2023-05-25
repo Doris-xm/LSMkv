@@ -1,0 +1,25 @@
+# ninja log v5
+2	526	7066605135366237	CMakeFiles/LSMkv.dir/main.cpp.obj	6a4e9ab73c7064d9
+8	444	7066603866347955	CMakeFiles/LSMkv.dir/test/correctness.cpp.obj	6c0da8dd8bb300e8
+15	1930	7067227906013850	CMakeFiles/LSMkv_correct.dir/src/kvstore.cpp.obj	1b5932c3eb040efb
+8	408	7066605134186053	CMakeFiles/LSMkv.dir/test/persistence.cpp.obj	1e0a4dc1b3101b1c
+13	589	7066596022243446	CMakeFiles/LSMkv.dir/src/kvstore.cpp.obj	d5f8a25c1d62b9a2
+5	1953	7067227906359927	CMakeFiles/LSMkv_correct.dir/test/correctness.cpp.obj	1227c82b5678c7c5
+17	635	7066596022713478	CMakeFiles/LSMkv.dir/src/skiplist.cpp.obj	1feee61672dd2446
+7	888	7067227647599413	CMakeFiles/LSMkv_correct.dir/src/skiplist.cpp.obj	14d96b0e549e0fa1
+518	668	7066639907895123	LSMkv_correct.exe	24ce06b8c47f025a
+18	1965	7067227658416305	CMakeFiles/LSMkv_correct.dir/src/SStable.cpp.obj	e1606ed1bfad1d92
+10	2002	7067227906777632	CMakeFiles/LSMkv_correct.dir/src/Disk_store.cpp.obj	4f6c9091cb3634a9
+10	1752	7067229881363686	CMakeFiles/LSMkv_correct.dir/test/correctness.cpp.obj	1227c82b5678c7c5
+3	1813	7067229882018897	CMakeFiles/LSMkv_correct.dir/src/Disk_store.cpp.obj	4f6c9091cb3634a9
+7	1824	7067229882135315	CMakeFiles/LSMkv_correct.dir/src/SStable.cpp.obj	e1606ed1bfad1d92
+14	1825	7067229882135315	CMakeFiles/LSMkv_correct.dir/src/kvstore.cpp.obj	1b5932c3eb040efb
+10	2638	7067230123504579	CMakeFiles/LSMkv_correct.dir/test/correctness.cpp.obj	1227c82b5678c7c5
+20	2651	7067230123595176	CMakeFiles/LSMkv_correct.dir/src/SStable.cpp.obj	e1606ed1bfad1d92
+16	2663	7067230123695196	CMakeFiles/LSMkv_correct.dir/src/kvstore.cpp.obj	1b5932c3eb040efb
+5	2738	7067230124497965	CMakeFiles/LSMkv_correct.dir/src/Disk_store.cpp.obj	4f6c9091cb3634a9
+16	2364	7067231558491718	CMakeFiles/LSMkv_correct.dir/src/SStable.cpp.obj	e1606ed1bfad1d92
+12	2387	7067231558747955	CMakeFiles/LSMkv_correct.dir/test/correctness.cpp.obj	1227c82b5678c7c5
+20	2422	7067231559096385	CMakeFiles/LSMkv_correct.dir/src/Disk_store.cpp.obj	4f6c9091cb3634a9
+5	2423	7067231559116375	CMakeFiles/LSMkv_correct.dir/src/kvstore.cpp.obj	1b5932c3eb040efb
+2423	2649	7067231561347222	LSMkv_correct.exe	ad56063310056497
