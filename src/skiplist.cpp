@@ -114,7 +114,8 @@ bool SkipList::scan(uint64_t key1, uint64_t key2, list<std::pair<uint64_t, std::
     return true;
 }
 
-bool SkipList::del(uint64_t key) {
+
+int SkipList::del(uint64_t key) {
     return false;
 }
 

@@ -79,20 +79,22 @@ void DiskStore::add_level(DiskLevel::LEVEL_MODE mode) {
 /*
  * @brief: add sstable to disk store
  * @param: sstable: the sstable to be added
- * @param: level: the level to be added
+ * @param: flag: true 需要compaction
  * @return: serial > 0: success sstable的序列号
- *         -1: need to dump to next level
- *         -2: level is out of range
+ *         -1: level is out of range
  * */
-uint64_t DiskStore::add_sstable(SSTable* sstable, uint32_t level) {
-    if (level > level_num) {
-        return -2;
+uint64_t DiskStore::add_sstable(SSTable* sstable, uint32_t level, bool &flag) {
+    if (level > level_num || level < 0 ) {
+        return -1;
+    }
+    if(level == level_num) {
+        add_level(DiskLevel::LEVEL_MODE::LEVELING);
     }
     DiskLevel* curr_level = level_list[level];
     uint64_t serial = curr_level->add_sstable(sstable);
 
-    if(curr_level->max_num <= curr_level->sstable_num)
-        return -1;
+    if(curr_level->max_num < curr_level->sstable_num)
+        flag = true;
 
     return serial;
 }
@@ -182,9 +184,9 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
     //从dump_to_level - 1层中选取
     //若 Level x 层为 Tiering，则该层所有文件被选取
     if(level_list[dump_to_level - 1]->mode == DiskLevel::TIERING)
-        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,-1,-1);
+        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0,1);
     else
-        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0);
+        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0,2);
 
     //遍历last_level_chosen中的文件，检查最大时间戳和键值范围
     uint64_t latest_timestamp = 0, min_key = -1, max_key = -1;
@@ -199,7 +201,7 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
 
     //从dump_to_level层中选取
     if(level_list[dump_to_level]->mode == DiskLevel::LEVELING) {
-        level_list[dump_to_level]->choose_sstables(this_level_chosen, min_key, max_key);
+        level_list[dump_to_level]->choose_sstables(this_level_chosen, min_key, max_key,3);
         for(SSTable* sstable: this_level_chosen) {
             if(sstable->get_time_stamp() > latest_timestamp)
                 latest_timestamp = sstable->get_time_stamp();
@@ -244,7 +246,7 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
         if(size + date_sorted[i].second.size() + 12 > 2097152) {
             size = 10272;
             SSTable* sstable = new SSTable(data_dump, latest_timestamp);
-            uint64_t serial = level_list[dump_to_level]->add_sstable(sstable);
+            int64_t serial = level_list[dump_to_level]->add_sstable(sstable);
             string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
             sstable->save_file(filename);
             data_dump.clear();
@@ -254,7 +256,7 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
     }
     if(!data_dump.empty()) {
         SSTable* sstable = new SSTable(data_dump, latest_timestamp);
-        uint64_t serial = level_list[dump_to_level]->add_sstable(sstable);
+        int64_t serial = level_list[dump_to_level]->add_sstable(sstable);
         string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
         sstable->save_file(filename);
     }
@@ -296,12 +298,10 @@ void DiskStore::mergeSort(vector<pair<uint64_t, string>> data1, vector<pair<uint
 /*
  * @brief: 每一层的结构DiskLevel按规则选择sstable
  * @param: sstable_list 返回的sstable列表
- * @param: min_key: 最小key，如果为-1，则选择全部
- * @param: max_key: 最大key，如果为-1，则选择全部
- *                  最大key，如果为0,表示选择时间戳最小(时间戳相等选择键最小)的多余文件
+ * @param: mode  : 1:全部选择 2:按时间选择多余的 3:选择key有重叠的
  * */
-void DiskLevel::choose_sstables(vector<SSTable *> &chosen_list, uint64_t min_key, uint64_t max_key) {
-    if(max_key < 0) { //选择全部
+void DiskLevel::choose_sstables(vector<SSTable *> &chosen_list, uint64_t min_key, uint64_t max_key,int mode) {
+    if(mode == 1) { //选择全部
         for(SSTable* sstable: sstable_list) {
             chosen_list.push_back(sstable);
         }
@@ -309,7 +309,7 @@ void DiskLevel::choose_sstables(vector<SSTable *> &chosen_list, uint64_t min_key
         sstable_num = 0;
         return;
     }
-    if(max_key == 0) {
+    if(mode == 2) {
         //选择时间戳最小(时间戳相等选择键最小)的多余文件
         //按照时间戳排序
         vector<uint64_t> indices(sstable_num);// 用于记录sstable_list下标的 vector

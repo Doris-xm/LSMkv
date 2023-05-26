@@ -1,5 +1,5 @@
 #include "../header/kvstore.h"
-#include "../header/utils.h"
+#include "../utils.h"
 #include <string>
 #include <sys/stat.h>
 string DATA_PATH = "";
@@ -9,8 +9,8 @@ KVStore::KVStore(const std::string &dir ): KVStoreAPI(dir)
     memtable = new SkipList();
     disk_store = new DiskStore((string)CONFIG_DIR);
     timestamp = 1;
-    DATA_PATH = dir + "/";
-    FILE_PREFIX = dir + "/level-";
+    DATA_PATH = dir;
+    FILE_PREFIX = "/level-";
     init();
 }
 
@@ -66,15 +66,17 @@ std::string KVStore::get(uint64_t key)
 bool KVStore::del(uint64_t key)
 {
     // 先去memtable删除
-    if (memtable->del(key))
-        return true;
-    // 说明memtable中没有
-    if(disk_store->get_level_num() == 0) // 没有磁盘文件
+    string res = memtable->search(key);
+    if (res == (string)DELETE_VAL)// 重复删除
         return false;
-    // 去磁盘中找
-    if(get(key).empty())
-        return false;
-
+    if ( res.empty()) {
+        // 说明memtable中没有
+        if(disk_store->get_level_num() == 0) // 没有磁盘文件
+            return false;
+        // 去磁盘中找
+        if(get(key).empty())
+            return false;
+    }
     put(key, (string)DELETE_VAL);
     return true;
 }
@@ -88,7 +90,7 @@ void KVStore::reset()
     vector<string> directories;
     utils::scanDir(DATA_PATH, directories);
     for (auto &dir : directories) {
-        string dir_path = DATA_PATH + dir;
+        string dir_path = DATA_PATH +'/'+ dir;
         vector<string> files;
         utils::scanDir(dir_path, files);
         for (auto &file : files) {
@@ -132,10 +134,13 @@ void KVStore::init() {
             string file_path = dir_path + "/" + file;
             uint32_t level;
             sscanf(dir.c_str(), "level-%u", &level);
-            uint64_t time_stamp, serial;
+            uint64_t time_stamp;
+            uint64_t serial;
             sscanf(file.c_str(), "%lu-%lu.sst",&time_stamp, &serial);
             SSTable* ssTable = new SSTable(file_path, time_stamp, serial);
-            disk_store->add_sstable(ssTable, level);
+            bool flag = false;
+            disk_store->add_sstable(ssTable, level,flag);
+            //TODO:未检查合并（默认文件无损坏）
         }
     }
 }
@@ -144,7 +149,7 @@ void KVStore::init() {
  * file_name: timestamp-serial.sst
  * */
 void KVStore::dump() {
-    string directory = string(DATA_PATH )+string(FILE_PREFIX) + "0";
+    string directory = DATA_PATH + FILE_PREFIX + "0";
     if (!utils::dirExists(directory)) {
         utils::mkdir(directory.c_str());
         if( (disk_store->get_level_num() == 0)) {
@@ -153,11 +158,15 @@ void KVStore::dump() {
         }
     }
     SSTable *ss_table = new SSTable(memtable, timestamp);
-    uint64_t serial =  disk_store->add_sstable(ss_table, 0);
-    if(serial >= 0) {
-        // 保存成文件
-        string file = directory + '/' +  to_string(timestamp) + '-' + to_string(serial) + ".sst";
-        ss_table->save_file(file);
+    bool compaction_flag = false;
+    uint64_t serial =  disk_store->add_sstable(ss_table, 0,compaction_flag);
+
+    // 保存成文件
+    string file = directory + '/' +  to_string(timestamp) + '-' + to_string(serial) + ".sst";
+    ss_table->save_file(file);
+
+    if(compaction_flag) {
+        compaction(1);
     }
     timestamp++;
 

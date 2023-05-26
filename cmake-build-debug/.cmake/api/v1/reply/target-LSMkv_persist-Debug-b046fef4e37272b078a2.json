@@ -144,7 +144,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "header/utils.h",
+			"path" : "utils.h",
 			"sourceGroupIndex" : 1
 		},
 		{

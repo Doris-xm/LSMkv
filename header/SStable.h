@@ -1,7 +1,7 @@
 #pragma once
 
 #include "skiplist.h"
-#include "utils.h"
+#include "../utils.h"
 #include "MurmurHash3.h"
 #include "Constant.h"
 #include <bitset>

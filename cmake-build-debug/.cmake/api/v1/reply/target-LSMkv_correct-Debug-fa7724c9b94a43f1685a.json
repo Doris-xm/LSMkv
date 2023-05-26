@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "LSMkv_main.exe"
+			"path" : "LSMkv_correct.exe"
 		},
 		{
-			"path" : "LSMkv_main.pdb"
+			"path" : "LSMkv_correct.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 10,
+				"line" : 8,
 				"parent" : 0
 			}
 		]
@@ -63,7 +63,7 @@
 			]
 		}
 	],
-	"id" : "LSMkv_main::@6890427a1f51a3e7e1df",
+	"id" : "LSMkv_correct::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -83,8 +83,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "LSMkv_main",
-	"nameOnDisk" : "LSMkv_main.exe",
+	"name" : "LSMkv_correct",
+	"nameOnDisk" : "LSMkv_correct.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -124,7 +124,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.cpp",
+			"path" : "test/correctness.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -144,7 +144,7 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "header/utils.h",
+			"path" : "utils.h",
 			"sourceGroupIndex" : 1
 		},
 		{

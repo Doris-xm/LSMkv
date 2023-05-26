@@ -10,7 +10,7 @@ SSTable::SSTable(SkipList *skip_list, const uint64_t time_stamp) {
                         skip_list->get_max_key(),
                         skip_list->get_min_key());
     uint32_t offset = 32 + 10240 + header->total_num * 12; // 32: header size, 10240: bloom_filter size, 12 = 8+4: index_area size
-    node* curr = skip_list->get_head();
+    node* curr = skip_list->get_head()->point_list[0];
     node* tail = skip_list->get_tail();
     while (curr != tail) {
         Indexer indexer(curr->key, offset);
@@ -52,10 +52,10 @@ void SSTable::save_file(const string &file_name) {
         return;
     }
     // write header
-    out.write((char*)header->time_stamp, 8);
-    out.write((char*)header->total_num, 8);
-    out.write((char*)header->min_key, 8);
-    out.write((char*)header->max_key, 8);
+    out.write((char*)(&header->time_stamp), 8);
+    out.write((char*)(&header->total_num), 8);
+    out.write((char*)(&header->min_key), 8);
+    out.write((char*)(&header->max_key), 8);
 
     // write bloom_filter
     std::bitset<BLOOM_SIZE> filter;
@@ -162,23 +162,33 @@ void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string>
 
     for (int i = 0; i < header->total_num - 1; ++i) {
         len = index_area[i + 1].offset - index_area[i].offset;
-        char *value = new char[len + 1];
-        in.read((char*)&value, len);
-        value[len] = '\0';
-        if(!is_end || strcasecmp(value, "~DELETE~") != 0)
-            data.emplace_back(make_pair(index_area[i].key, string(value, len)));
-        delete[] value;
+//        char *value = new char[len + 1];
+//        in.read((char*)&value, len);
+//        value[len] = '\0';
+//        if(!is_end || strcasecmp(value, "~DELETE~") != 0)
+//            data.emplace_back(make_pair(index_area[i].key, string(value, len)));
+//        delete[] value;
+        string ans(len+1, ' ');
+        in.read(&(*ans.begin()), sizeof(char) * len);
+        ans[len] = '\0';
+        if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
+            data.emplace_back(make_pair(index_area[i].key, ans));
     }
     streampos start = in.tellg(); //获取当前位置
     in.seekg(0, std::ios::end); //定位到文件末尾
     streampos end = in.tellg(); //获取当前位置
     len = end - start;
-    char *value = new char[len + 1];
-    in.read((char*)&value, len);
-    value[len] = '\0';
-    if(!is_end || strcasecmp(value, "~DELETE~") != 0)
-        data.emplace_back(make_pair(index_area[header->total_num - 1].key, string(value, len)));
-    delete[] value;
+//    char *value = new char[len + 1];
+//    in.read((char*)&value, len);
+//    value[len] = '\0';
+//    if(!is_end || strcasecmp(value, "~DELETE~") != 0)
+//        data.emplace_back(make_pair(index_area[header->total_num - 1].key, string(value, len)));
+//    delete[] value;
+    string ans(len+1, ' ');
+    in.read(&(*ans.begin()), sizeof(char) * len);
+    ans[len] = '\0';
+    if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
+        data.emplace_back(make_pair(index_area[header->total_num - 1].key, ans));
 }
 
 

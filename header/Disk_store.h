@@ -27,7 +27,7 @@ struct DiskLevel {
         sstable_num++;
         return Serial++;
     }
-    void choose_sstables(vector<SSTable*> &sstable_list, uint64_t min_key, uint64_t max_key);
+    void choose_sstables(vector<SSTable*> &sstable_list, uint64_t min_key, uint64_t max_key,int mode);
 private:
     uint64_t Serial;
 
@@ -48,7 +48,7 @@ public:
         return level_num;
     }
     void add_level( DiskLevel::LEVEL_MODE mode);
-    uint64_t add_sstable(SSTable* sstable, uint32_t level);
+    uint64_t add_sstable(SSTable* sstable, uint32_t level,bool &flag);
     std::string get(const uint64_t key,const string & dir_prefix)const;
 
     void compaction(uint32_t dump_to_level, const string & dir);
