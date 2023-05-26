@@ -101,14 +101,15 @@ uint64_t DiskStore::add_sstable(SSTable* sstable, uint32_t level, bool &flag) {
 
 std::string DiskStore::get(const uint64_t key,const string & dir_prefix) const{
     string res = "";
-    uint64_t timestamp = -1;
+    uint64_t timestamp = 0;
     for(int i = 0; i < level_num; i++) {
         for(SSTable* sstable: level_list[i]->sstable_list) {
             if(sstable->get_min_key() > key || sstable->get_max_key() < key
                     || sstable->get_time_stamp() <= timestamp)
                 continue;
             //在文件中找，需要DiskStore寻找，sstable不知道自己在哪一层
-            uint32_t offset,len;
+            uint32_t offset;
+            int len;
             if( sstable->get(key,offset,len)) {
                 timestamp = sstable->get_time_stamp();
                 //读取文件
@@ -128,7 +129,7 @@ std::string DiskStore::get(const uint64_t key,const string & dir_prefix) const{
  * @param: len: 读取的长度，如果为-1说明读到文件尾
  * @return: 读取的数据
  * */
-string DiskStore::read_file(const string &file_name, uint32_t offset, uint32_t len) const {
+string DiskStore::read_file(const string &file_name, uint32_t offset, int len) const {
     fstream in;
     in.open(file_name, std::ios_base::binary | std::ios_base::in);
     in.seekg(offset, std::ios::beg); //定位到文件的第offset个字节
@@ -140,12 +141,15 @@ string DiskStore::read_file(const string &file_name, uint32_t offset, uint32_t l
         in.seekg(offset, std::ios::beg); //定位回到文件的第offset个字节,准备读
     }
 
-    char *tmp = new char[len + 1];
-    in.read(tmp, len);
-    tmp[len] = '\0';
-    string res = tmp;
+//    char *tmp = new char[len + 1];
+//    in.read(tmp, len);
+//    tmp[len] = '\0';
+//    string res = tmp;
+//    delete[]tmp;
+    string res(len+1, ' ');
+    in.read(&(*res.begin()), sizeof(char) * len);
+    res[len] = '\0';
     in.close();
-    delete[]tmp;
     return res;
 }
 /*

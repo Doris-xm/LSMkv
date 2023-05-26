@@ -1,0 +1,789 @@
+        -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/test/correctness.cpp
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\test\correctness.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\test\correctness.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <iostream>
+        -:    2:#include <cstdint>
+        -:    3:#include <string>
+        -:    4:
+        -:    5:#include "test.h"
+        -:    6:
+        -:    7:class CorrectnessTest : public Test {
+        -:    8:private:
+        -:    9:    const uint64_t SIMPLE_TEST_MAX = 512;
+        -:   10:    const uint64_t LARGE_TEST_MAX = 1024 * 2; // 1024 * 64;
+        -:   11:
+function _ZN15CorrectnessTest12regular_testEy called 2 returned 100% blocks executed 51%
+        2:   12:    void regular_test(uint64_t max)
+        -:   13:    {
+        -:   14:        uint64_t i;
+        -:   15:
+        -:   16:        // Test a single key
+        2:   17:        EXPECT(not_found, store.get(1));
+        2:   17-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   17-block  1
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:   17-block  2
+call    7 returned 2
+branch  8 taken 2 (fallthrough)
+branch  9 taken 0 (throw)
+        2:   17-block  3
+call   10 returned 2
+call   11 returned 2
+call   12 returned 2
+    $$$$$:   17-block  4
+call   13 never executed
+    $$$$$:   17-block  5
+    $$$$$:   17-block  6
+call   14 never executed
+    $$$$$:   17-block  7
+    $$$$$:   17-block  8
+call   15 never executed
+    $$$$$:   17-block  9
+        2:   18:        store.put(1, "SE");
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   18-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:   18-block  1
+call    7 returned 2
+call    8 returned 2
+    $$$$$:   18-block  2
+call    9 never executed
+    $$$$$:   18-block  3
+    $$$$$:   18-block  4
+call   10 never executed
+    $$$$$:   18-block  5
+        2:   19:        EXPECT("SE", store.get(1));
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   19-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:   19-block  1
+call    7 returned 2
+call    8 returned 2
+branch  9 taken 2 (fallthrough)
+branch 10 taken 0 (throw)
+        2:   19-block  2
+call   11 returned 2
+branch 12 taken 2 (fallthrough)
+branch 13 taken 0 (throw)
+        2:   19-block  3
+call   14 returned 2
+call   15 returned 2
+call   16 returned 2
+call   17 returned 2
+call   18 returned 2
+    $$$$$:   19-block  4
+call   19 never executed
+    $$$$$:   19-block  5
+    $$$$$:   19-block  6
+call   20 never executed
+    $$$$$:   19-block  7
+    $$$$$:   19-block  8
+call   21 never executed
+    $$$$$:   19-block  9
+    $$$$$:   19-block 10
+call   22 never executed
+    $$$$$:   19-block 11
+    $$$$$:   19-block 12
+call   23 never executed
+    $$$$$:   19-block 13
+        2:   20:        EXPECT(true, store.del(1));
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   20-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:   20-block  1
+call    7 returned 2
+branch  8 taken 2 (fallthrough)
+branch  9 taken 0 (throw)
+        2:   20-block  2
+call   10 returned 2
+call   11 returned 2
+    $$$$$:   20-block  3
+    $$$$$:   20-block  4
+    $$$$$:   20-block  5
+call   12 never executed
+    $$$$$:   20-block  6
+    $$$$$:   20-block  7
+call   13 never executed
+    $$$$$:   20-block  8
+        2:   21:        EXPECT(not_found, store.get(1));
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   21-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:   21-block  1
+call    7 returned 2
+branch  8 taken 2 (fallthrough)
+branch  9 taken 0 (throw)
+        2:   21-block  2
+call   10 returned 2
+call   11 returned 2
+call   12 returned 2
+    $$$$$:   21-block  3
+call   13 never executed
+    $$$$$:   21-block  4
+    $$$$$:   21-block  5
+call   14 never executed
+    $$$$$:   21-block  6
+    $$$$$:   21-block  7
+call   15 never executed
+    $$$$$:   21-block  8
+        2:   22:        EXPECT(false, store.del(1));
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   22-block  0
+call    4 returned 2
+branch  5 taken 2 (fallthrough)
+branch  6 taken 0 (throw)
+        2:   22-block  1
+call    7 returned 2
+branch  8 taken 2 (fallthrough)
+branch  9 taken 0 (throw)
+        2:   22-block  2
+call   10 returned 2
+call   11 returned 2
+    $$$$$:   22-block  3
+    $$$$$:   22-block  4
+    $$$$$:   22-block  5
+call   12 never executed
+    $$$$$:   22-block  6
+    $$$$$:   22-block  7
+call   13 never executed
+    $$$$$:   22-block  8
+        -:   23:
+        2:   24:        phase();
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   25:
+        -:   26:        // Test multiple key-value pairs
+     2562:   27:        for (i = 0; i < max; ++i) {
+        2:   27-block  0
+     2562:   27-block  1
+branch  0 taken 2560
+branch  1 taken 2 (fallthrough)
+     2560:   28:            store.put(i, std::string(i+1, 's'));
+     2560:   28-block  0
+call    0 returned 2560
+call    1 returned 2560
+branch  2 taken 2560 (fallthrough)
+branch  3 taken 0 (throw)
+     2560:   28-block  1
+call    4 returned 2560
+branch  5 taken 2560 (fallthrough)
+branch  6 taken 0 (throw)
+     2560:   28-block  2
+call    7 returned 2560
+call    8 returned 2560
+    $$$$$:   28-block  3
+call    9 never executed
+    $$$$$:   28-block  4
+    $$$$$:   28-block  5
+call   10 never executed
+    $$$$$:   28-block  6
+     2560:   29:            EXPECT(std::string(i+1, 's'), store.get(i));
+call    0 returned 2560
+call    1 returned 2560
+branch  2 taken 2560 (fallthrough)
+branch  3 taken 0 (throw)
+     2560:   29-block  0
+call    4 returned 2560
+branch  5 taken 2560 (fallthrough)
+branch  6 taken 0 (throw)
+     2560:   29-block  1
+call    7 returned 2560
+call    8 returned 2560
+branch  9 taken 2560 (fallthrough)
+branch 10 taken 0 (throw)
+     2560:   29-block  2
+call   11 returned 2560
+branch 12 taken 2560 (fallthrough)
+branch 13 taken 0 (throw)
+     2560:   29-block  3
+call   14 returned 2560
+call   15 returned 2560
+call   16 returned 2560
+call   17 returned 2560
+call   18 returned 2560
+    $$$$$:   29-block  4
+call   19 never executed
+    $$$$$:   29-block  5
+    $$$$$:   29-block  6
+call   20 never executed
+    $$$$$:   29-block  7
+    $$$$$:   29-block  8
+call   21 never executed
+    $$$$$:   29-block  9
+    $$$$$:   29-block 10
+call   22 never executed
+    $$$$$:   29-block 11
+    $$$$$:   29-block 12
+call   23 never executed
+    $$$$$:   29-block 13
+        -:   30:        }
+        2:   31:        phase();
+        2:   31-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   32:
+        -:   33:        // Test after all insertions
+     2562:   34:        for (i = 0; i < max; ++i)
+        2:   34-block  0
+     2562:   34-block  1
+branch  0 taken 2560
+branch  1 taken 2 (fallthrough)
+     2560:   35:            EXPECT(std::string(i+1, 's'), store.get(i));
+     2560:   35-block  0
+call    0 returned 2560
+call    1 returned 2560
+branch  2 taken 2560 (fallthrough)
+branch  3 taken 0 (throw)
+     2560:   35-block  1
+call    4 returned 2560
+branch  5 taken 2560 (fallthrough)
+branch  6 taken 0 (throw)
+     2560:   35-block  2
+call    7 returned 2560
+call    8 returned 2560
+branch  9 taken 2560 (fallthrough)
+branch 10 taken 0 (throw)
+     2560:   35-block  3
+call   11 returned 2560
+branch 12 taken 2560 (fallthrough)
+branch 13 taken 0 (throw)
+     2560:   35-block  4
+call   14 returned 2560
+call   15 returned 2560
+call   16 returned 2560
+call   17 returned 2560
+call   18 returned 2560
+    $$$$$:   35-block  5
+call   19 never executed
+    $$$$$:   35-block  6
+    $$$$$:   35-block  7
+call   20 never executed
+    $$$$$:   35-block  8
+    $$$$$:   35-block  9
+call   21 never executed
+    $$$$$:   35-block 10
+    $$$$$:   35-block 11
+call   22 never executed
+    $$$$$:   35-block 12
+    $$$$$:   35-block 13
+call   23 never executed
+    $$$$$:   35-block 14
+        2:   36:        phase();
+        2:   36-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   37:
+        -:   38:        // Test scan
+        2:   39:        std::list<std::pair<uint64_t, std::string> > list_ans;
+        2:   39-block  0
+call    0 returned 2
+        2:   40:        std::list<std::pair<uint64_t, std::string> > list_stu;
+call    0 returned 2
+        -:   41:
+     1282:   42:        for (i = 0; i < max / 2; ++i) {
+     1282:   42-block  0
+branch  0 taken 1280
+branch  1 taken 2 (fallthrough)
+     1280:   43:            list_ans.emplace_back(std::make_pair(i, std::string(i+1, 's')));
+     1280:   43-block  0
+call    0 returned 1280
+call    1 returned 1280
+branch  2 taken 1280 (fallthrough)
+branch  3 taken 0 (throw)
+     1280:   43-block  1
+call    4 returned 1280
+branch  5 taken 1280 (fallthrough)
+branch  6 taken 0 (throw)
+     1280:   43-block  2
+call    7 returned 1280
+branch  8 taken 1280 (fallthrough)
+branch  9 taken 0 (throw)
+     1280:   43-block  3
+call   10 returned 1280
+call   11 returned 1280
+call   12 returned 1280
+    $$$$$:   43-block  4
+call   13 never executed
+    $$$$$:   43-block  5
+    $$$$$:   43-block  6
+call   14 never executed
+    $$$$$:   43-block  7
+    $$$$$:   43-block  8
+call   15 never executed
+    $$$$$:   43-block  9
+        -:   44:        }
+        -:   45:
+        2:   46:        store.scan(0, max / 2 - 1, list_stu);
+        2:   46-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   47:        EXPECT(list_ans.size(), list_stu.size());
+        2:   47-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   47-block  1
+call    4 returned 2
+call    5 returned 2
+call    6 returned 2
+branch  7 taken 2 (fallthrough)
+branch  8 taken 0 (throw)
+        2:   47-block  2
+call    9 returned 2
+call   10 returned 2
+    $$$$$:   47-block  3
+    $$$$$:   47-block  4
+    $$$$$:   47-block  5
+call   11 never executed
+    $$$$$:   47-block  6
+    $$$$$:   47-block  7
+call   12 never executed
+    $$$$$:   47-block  8
+        -:   48:
+        2:   49:        auto ap = list_ans.begin();
+call    0 returned 2
+        2:   50:        auto sp = list_stu.begin();
+call    0 returned 2
+     1282:   51:        while(ap != list_ans.end()) {
+     1282:   51-block  0
+call    0 returned 1282
+call    1 returned 1282
+branch  2 taken 1280
+branch  3 taken 2 (fallthrough)
+     1280:   52:            if (sp == list_stu.end()) {
+     1280:   52-block  0
+call    0 returned 1280
+call    1 returned 1280
+branch  2 taken 1024 (fallthrough)
+branch  3 taken 256
+     1024:   53:                EXPECT((*ap).first, -1);
+     1024:   53-block  0
+call    0 returned 1024
+call    1 returned 1024
+branch  2 taken 1024 (fallthrough)
+branch  3 taken 0 (throw)
+     1024:   53-block  1
+call    4 returned 1024
+call    5 returned 1024
+branch  6 taken 1024 (fallthrough)
+branch  7 taken 0 (throw)
+     1024:   53-block  2
+call    8 returned 1024
+call    9 returned 1024
+    $$$$$:   53-block  3
+    $$$$$:   53-block  4
+    $$$$$:   53-block  5
+call   10 never executed
+    $$$$$:   53-block  6
+    $$$$$:   53-block  7
+call   11 never executed
+    $$$$$:   53-block  8
+     1024:   54:                EXPECT((*ap).second, not_found);
+call    0 returned 1024
+call    1 returned 1024
+branch  2 taken 1024 (fallthrough)
+branch  3 taken 0 (throw)
+     1024:   54-block  0
+call    4 returned 1024
+call    5 returned 1024
+branch  6 taken 1024 (fallthrough)
+branch  7 taken 0 (throw)
+     1024:   54-block  1
+call    8 returned 1024
+call    9 returned 1024
+    $$$$$:   54-block  2
+call   10 never executed
+    $$$$$:   54-block  3
+    $$$$$:   54-block  4
+call   11 never executed
+    $$$$$:   54-block  5
+     1024:   55:                ap++;
+call    0 returned 1024
+        -:   56:            }
+        -:   57:            else {
+      256:   58:                EXPECT((*ap).first, (*sp).first);
+      256:   58-block  0
+call    0 returned 256
+call    1 returned 256
+branch  2 taken 256 (fallthrough)
+branch  3 taken 0 (throw)
+      256:   58-block  1
+call    4 returned 256
+call    5 returned 256
+call    6 returned 256
+branch  7 taken 256 (fallthrough)
+branch  8 taken 0 (throw)
+      256:   58-block  2
+call    9 returned 256
+call   10 returned 256
+    $$$$$:   58-block  3
+call   11 never executed
+    $$$$$:   58-block  4
+    $$$$$:   58-block  5
+call   12 never executed
+    $$$$$:   58-block  6
+      256:   59:                EXPECT((*ap).second, (*sp).second);
+call    0 returned 256
+call    1 returned 256
+branch  2 taken 256 (fallthrough)
+branch  3 taken 0 (throw)
+      256:   59-block  0
+call    4 returned 256
+call    5 returned 256
+call    6 returned 256
+branch  7 taken 256 (fallthrough)
+branch  8 taken 0 (throw)
+      256:   59-block  1
+call    9 returned 256
+call   10 returned 256
+    $$$$$:   59-block  2
+call   11 never executed
+    $$$$$:   59-block  3
+    $$$$$:   59-block  4
+call   12 never executed
+    $$$$$:   59-block  5
+      256:   60:                ap++;
+call    0 returned 256
+      256:   61:                sp++;
+call    0 returned 256
+        -:   62:            }
+        -:   63:        }
+        -:   64:
+        2:   65:        phase();
+        2:   65-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   66:
+        -:   67:        // Test deletions
+     1282:   68:        for (i = 0; i < max; i+=2)
+        2:   68-block  0
+     1282:   68-block  1
+branch  0 taken 1280
+branch  1 taken 2 (fallthrough)
+     1280:   69:            EXPECT(true, store.del(i));
+     1280:   69-block  0
+call    0 returned 1280
+call    1 returned 1280
+branch  2 taken 1280 (fallthrough)
+branch  3 taken 0 (throw)
+     1280:   69-block  1
+call    4 returned 1280
+branch  5 taken 1280 (fallthrough)
+branch  6 taken 0 (throw)
+     1280:   69-block  2
+call    7 returned 1280
+branch  8 taken 1280 (fallthrough)
+branch  9 taken 0 (throw)
+     1280:   69-block  3
+call   10 returned 1280
+call   11 returned 1280
+    $$$$$:   69-block  4
+    $$$$$:   69-block  5
+    $$$$$:   69-block  6
+call   12 never executed
+    $$$$$:   69-block  7
+    $$$$$:   69-block  8
+call   13 never executed
+    $$$$$:   69-block  9
+        -:   70:
+     2562:   71:        for (i = 0; i < max; ++i)
+        2:   71-block  0
+     2562:   71-block  1
+branch  0 taken 2560
+branch  1 taken 2 (fallthrough)
+     2560:   72:            EXPECT((i & 1) ? std::string(i+1, 's') : not_found,
+     2560:   72-block  0
+call    0 returned 2560
+call    1 returned 2560
+branch  2 taken 2560 (fallthrough)
+branch  3 taken 0 (throw)
+     2560:   72-block  1
+call    4 returned 2560
+branch  5 taken 2560 (fallthrough)
+branch  6 taken 0 (throw)
+     2560:   72-block  2
+branch  7 taken 1280 (fallthrough)
+branch  8 taken 1280
+     1280:   72-block  3
+call    9 returned 1280
+call   10 returned 1280
+branch 11 taken 1280 (fallthrough)
+branch 12 taken 0 (throw)
+     1280:   72-block  4
+call   13 returned 1280
+branch 14 taken 1280 (fallthrough)
+branch 15 taken 0 (throw)
+     2560:   72-block  5
+call   16 returned 2560
+branch 17 taken 2560 (fallthrough)
+branch 18 taken 0 (throw)
+     2560:   72-block  6
+call   19 returned 2560
+branch 20 taken 1280 (fallthrough)
+branch 21 taken 1280
+     1280:   72-block  7
+call   22 returned 1280
+     2560:   72-block  8
+call   23 returned 2560
+call   24 returned 2560
+call   25 returned 2560
+    $$$$$:   72-block  9
+call   26 never executed
+    $$$$$:   72-block 10
+    $$$$$:   72-block 11
+branch 27 never executed
+branch 28 never executed
+    $$$$$:   72-block 12
+call   29 never executed
+    $$$$$:   72-block 13
+    $$$$$:   72-block 14
+call   30 never executed
+    $$$$$:   72-block 15
+    $$$$$:   72-block 16
+call   31 never executed
+    $$$$$:   72-block 17
+    $$$$$:   72-block 18
+call   32 never executed
+    $$$$$:   72-block 19
+        -:   73:                   store.get(i));
+        -:   74:
+     2560:   75:        for (i = 1; i < max; ++i)
+        2:   75-block  0
+     2560:   75-block  1
+branch  0 taken 2558
+branch  1 taken 2 (fallthrough)
+     2558:   76:            EXPECT(i & 1, store.del(i));
+     2558:   76-block  0
+call    0 returned 2558
+call    1 returned 2558
+branch  2 taken 2558 (fallthrough)
+branch  3 taken 0 (throw)
+     2558:   76-block  1
+call    4 returned 2558
+branch  5 taken 2558 (fallthrough)
+branch  6 taken 0 (throw)
+     2558:   76-block  2
+call    7 returned 2558
+branch  8 taken 2558 (fallthrough)
+branch  9 taken 0 (throw)
+     2558:   76-block  3
+call   10 returned 2558
+call   11 returned 2558
+    $$$$$:   76-block  4
+    $$$$$:   76-block  5
+    $$$$$:   76-block  6
+call   12 never executed
+    $$$$$:   76-block  7
+    $$$$$:   76-block  8
+call   13 never executed
+    $$$$$:   76-block  9
+        -:   77:
+        2:   78:        phase();
+        2:   78-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   79:
+        2:   80:        report();
+        2:   80-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   81:    }
+        2:   81-block  0
+call    0 returned 2
+call    1 returned 2
+    $$$$$:   81-block  1
+call    2 never executed
+    $$$$$:   81-block  2
+call    3 never executed
+        -:   82:
+        -:   83:public:
+function _ZN15CorrectnessTestC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb called 1 returned 100% blocks executed 100%
+        1:   84:    CorrectnessTest(const std::string &dir, bool v=true) : Test(dir, v)
+        1:   84-block  0
+call    0 returned 1
+        -:   85:    {
+        1:   86:    }
+        -:   87:
+function _ZN15CorrectnessTest10start_testEPv called 1 returned 100% blocks executed 100%
+        1:   88:    void start_test(void *args = NULL) override
+        -:   89:    {
+        1:   90:        std::cout << "KVStore Correctness Test" << std::endl;
+        1:   90-block  0
+call    0 returned 1
+call    1 returned 1
+        -:   91:
+        1:   92:        store.reset();
+call    0 returned 1
+        -:   93:
+        1:   94:        std::cout << "[Simple Test]" << std::endl;
+call    0 returned 1
+call    1 returned 1
+        1:   95:        regular_test(SIMPLE_TEST_MAX);
+call    0 returned 1
+        -:   96:
+        1:   97:        store.reset();
+call    0 returned 1
+        -:   98:
+        1:   99:        std::cout << "[Large Test]" << std::endl;
+call    0 returned 1
+call    1 returned 1
+        1:  100:        regular_test(LARGE_TEST_MAX);
+call    0 returned 1
+        1:  101:    }
+        -:  102:};
+        -:  103:
+function main called 1 returned 100% blocks executed 52%
+        1:  104:int main(int argc, char *argv[])
+        -:  105:{
+       1*:  106:    bool verbose = (argc == 2 && std::string(argv[1]) == "-v");
+        1:  106-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  106-block  1
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  106-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  106-block  3
+        1:  106-block  4
+        1:  106-block  5
+branch  9 taken 0 (fallthrough)
+branch 10 taken 1
+    %%%%%:  106-block  6
+call   11 never executed
+        1:  106-block  7
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  106-block  8
+call   14 never executed
+    $$$$$:  106-block  9
+branch 15 never executed
+branch 16 never executed
+    $$$$$:  106-block 10
+call   17 never executed
+    $$$$$:  106-block 11
+    $$$$$:  106-block 12
+branch 18 never executed
+branch 19 never executed
+    $$$$$:  106-block 13
+call   20 never executed
+    $$$$$:  106-block 14
+        1:  107:    verbose = true;
+        1:  108:    std::cout << "Usage: " << argv[0] << " [-v]" << std::endl;
+        1:  108-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  108-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  108-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  108-block  3
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:  109:    std::cout << "  -v: print extra info for failed tests [currently ";
+        1:  109-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  110:    std::cout << (verbose ? "ON" : "OFF")<< "]" << std::endl;
+        1:  110-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  110-block  1
+    %%%%%:  110-block  2
+        1:  110-block  3
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+        1:  110-block  4
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:  110-block  5
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:  111:    std::cout << std::endl;
+        1:  111-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  112:    std::cout.flush();
+        1:  112-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  113:
+        2:  114:    CorrectnessTest test("./data", verbose);
+        1:  114-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  114-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+    $$$$$:  114-block  2
+    $$$$$:  114-block  3
+        -:  115:
+        1:  116:    test.start_test();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  117:
+        1:  118:    return 0;
+        1:  119:}
+        1:  119-block  0
+call    0 returned 1
+    $$$$$:  119-block  1
+call    1 never executed

@@ -74,7 +74,7 @@ public:
     SSTable(SkipList *skip_list, uint64_t time_stamp);
     SSTable(const vector<pair<uint64_t,string>>& data, const uint64_t time_stamp);
     SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial);
-    bool get(uint64_t key, uint32_t & offset, uint32_t & size);
+    bool get(uint64_t key, uint32_t & offset, int & size);
     bool find(uint64_t key) const{
         return bloom_filter->find(key);
     }

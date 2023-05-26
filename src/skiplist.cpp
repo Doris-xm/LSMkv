@@ -13,12 +13,12 @@ SkipList::~SkipList() {
 
 SkipList::SkipList() {
     P = 368; // probability = 1/e
-    tail = new node(INT_MAX);
-    head = new node(INT_MIN,"",tail);
+    tail = new node(-1);//origin used INT_MAX
+    head = new node(0,"",tail);
     Max_level = 0;
     key_num = 0;
-    max_key = INT_MIN;
-    min_key = INT_MAX;
+    max_key = 0;
+    min_key = -1;
     Size = 10272; //Header + BloomFilter
 }
 

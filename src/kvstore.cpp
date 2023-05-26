@@ -1,6 +1,7 @@
 #include "../header/kvstore.h"
 #include "../utils.h"
 #include <string>
+#include "iostream"
 #include <sys/stat.h>
 string DATA_PATH = "";
 string FILE_PREFIX = "";
@@ -33,7 +34,9 @@ void KVStore::put(uint64_t key, const std::string &s)
         memtable = new SkipList();
     if(!memtable->insert(key, s)) {
         dump();
+        memtable->insert(key, s);
     }
+
 }
 /**
  * Returns the (string) value of the given key.

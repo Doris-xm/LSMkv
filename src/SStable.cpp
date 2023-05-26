@@ -46,7 +46,7 @@ SSTable::SSTable() {
 }
 
 void SSTable::save_file(const string &file_name) {
-    ofstream out(file_name, ios_base::binary | ios_base::out);
+    ofstream out(file_name, ios_base::binary | ios_base::app);
     if (!out.is_open()) {
         cout << "open file error: "<<file_name << endl;
         return;
@@ -77,7 +77,7 @@ void SSTable::save_file(const string &file_name) {
     vector<string>().swap(data_area); //释放data_area的内存
 }
 
-bool SSTable::get(const uint64_t key, uint32_t & offset, uint32_t & size) {
+bool SSTable::get(const uint64_t key, uint32_t & offset, int & size) {
     // 现在BloomFilter中查找,如果没有，就一定没有
     if ( ! bloom_filter->find(key))
         return false;

@@ -1,0 +1,7 @@
+# ninja log v5
+8	828	7068274195135515	CMakeFiles/LSMkv_correct.dir/src/skiplist.cpp.obj	4cbb8030b46fac73
+0	2199	7068274208918213	CMakeFiles/LSMkv_correct.dir/test/correctness.cpp.obj	675cafeb87996785
+4	2261	7068274209518187	CMakeFiles/LSMkv_correct.dir/src/kvstore.cpp.obj	ba5a005944ca5058
+12	2459	7068274211482650	CMakeFiles/LSMkv_correct.dir/src/SStable.cpp.obj	52de715b2108d71f
+16	2867	7068274215582371	CMakeFiles/LSMkv_correct.dir/src/Disk_store.cpp.obj	cb997b77191079d7
+2868	3193	7068274218788498	LSMkv_correct.exe	c1b306423ea5915c

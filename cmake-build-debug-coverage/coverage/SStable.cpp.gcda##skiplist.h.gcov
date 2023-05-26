@@ -1,0 +1,59 @@
+        -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/header/skiplist.h
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\SStable.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\SStable.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include "MurmurHash3.h"
+        -:    4:#include "Constant.h"
+        -:    5:using namespace std;
+        -:    6:
+        -:    7:
+        -:    8:
+        -:    9:struct node{
+        -:   10:    uint64_t key;
+        -:   11:    string s;
+        -:   12:    int level;
+        -:   13:    vector<node*> point_list;
+        -:   14:    node(int k = 0,string S = "",node* n = nullptr,int l = 0):key(k),level(l),s(S) {
+        -:   15:        point_list.push_back(n);
+        -:   16:    }
+        -:   17:};
+        -:   18:
+        -:   19:class SkipList {
+        -:   20:private:
+        -:   21:    int Max_level;
+        -:   22:    node* head;
+        -:   23:    node* tail;
+        -:   24:    int P;
+        -:   25:    unsigned int key_num;
+        -:   26:    uint64_t max_key;
+        -:   27:    uint64_t min_key;
+        -:   28:    uint64_t Size;
+        -:   29:    void clear(node *&h);
+        -:   30:
+        -:   31:public:
+        -:   32:    SkipList();
+        -:   33:    ~SkipList();
+        -:   34:    bool insert(uint64_t key, const std::string &s);
+        -:   35:    int del(uint64_t key);
+        -:   36:    std::string search(uint64_t key);
+        -:   37:    bool scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list);
+function _ZN8SkipList8get_headEv called 2 returned 100% blocks executed 100%
+        2:   38:    node* get_head() { return head; }
+        2:   38-block  0
+function _ZN8SkipList8get_tailEv called 2 returned 100% blocks executed 100%
+        2:   39:    node* get_tail() { return tail; }
+        2:   39-block  0
+function _ZNK8SkipList11get_key_numEv called 2 returned 100% blocks executed 100%
+        2:   40:    unsigned int get_key_num() const { return key_num; }
+        2:   40-block  0
+        -:   41:    uint64_t get_size() const { return Size; }
+function _ZNK8SkipList11get_max_keyEv called 2 returned 100% blocks executed 100%
+        2:   42:    uint64_t get_max_key() const { return max_key; }
+        2:   42-block  0
+function _ZNK8SkipList11get_min_keyEv called 2 returned 100% blocks executed 100%
+        2:   43:    uint64_t get_min_key() const { return min_key; }
+        2:   43-block  0
+        -:   44:};
+        -:   45:

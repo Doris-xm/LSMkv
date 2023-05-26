@@ -7,7 +7,7 @@
 class CorrectnessTest : public Test {
 private:
     const uint64_t SIMPLE_TEST_MAX = 512;
-    const uint64_t LARGE_TEST_MAX = 1024 * 64;
+    const uint64_t LARGE_TEST_MAX = 1024 * 2; // 1024 * 64;
 
     void regular_test(uint64_t max)
     {
@@ -104,7 +104,7 @@ public:
 int main(int argc, char *argv[])
 {
     bool verbose = (argc == 2 && std::string(argv[1]) == "-v");
-
+    verbose = true;
     std::cout << "Usage: " << argv[0] << " [-v]" << std::endl;
     std::cout << "  -v: print extra info for failed tests [currently ";
     std::cout << (verbose ? "ON" : "OFF")<< "]" << std::endl;

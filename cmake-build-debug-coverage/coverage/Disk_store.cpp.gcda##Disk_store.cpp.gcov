@@ -1,0 +1,1570 @@
+        -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/src/Disk_store.cpp
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcda
+        -:    0:Runs:1
+        -:    1:
+        -:    2:#include "../header/Disk_store.h"
+        -:    3:#include <iostream>
+        -:    4:#include <numeric>
+        -:    5:#include <algorithm>
+        -:    6:#include "queue"
+        -:    7:
+function _ZN9DiskStoreC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 3 returned 100% blocks executed 57%
+        3:    8:DiskStore::DiskStore(const string &config_dir) {
+        3:    8-block  0
+call    0 returned 3
+call    1 returned 3
+        3:    9:    ifstream in(config_dir, std::ios::in);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   10:    if(!in.is_open()) {
+        3:   10-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   10-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 3
+    #####:   11:        cout << "open file error: "<<config_dir << endl;
+    %%%%%:   11-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   11-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   11-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    #####:   12:        return;
+    %%%%%:   12-block  0
+        -:   13:    }
+        3:   14:    string line;
+        3:   14-block  0
+call    0 returned 3
+        3:   15:    int i = 0; //检验config中的下标是否连续
+       18:   16:    while (getline(in, line)) {
+       18:   16-block  0
+call    0 returned 18
+branch  1 taken 18 (fallthrough)
+branch  2 taken 0 (throw)
+       18:   16-block  1
+call    3 returned 18
+branch  4 taken 18 (fallthrough)
+branch  5 taken 0 (throw)
+       18:   16-block  2
+branch  6 taken 15
+branch  7 taken 3 (fallthrough)
+       15:   17:        istringstream iss(line); // 从string读取数据的流
+       15:   17-block  0
+call    0 returned 15
+branch  1 taken 15 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   18:        int index, max_size;
+       15:   19:        string mode;
+       15:   19-block  0
+call    0 returned 15
+        -:   20:        DiskLevel::LEVEL_MODE MODE;
+       15:   21:        if (iss >> index >> max_size >> mode) {
+call    0 returned 15
+branch  1 taken 15 (fallthrough)
+branch  2 taken 0 (throw)
+       15:   21-block  0
+call    3 returned 15
+branch  4 taken 15 (fallthrough)
+branch  5 taken 0 (throw)
+       15:   21-block  1
+call    6 returned 15
+branch  7 taken 15 (fallthrough)
+branch  8 taken 0 (throw)
+       15:   21-block  2
+call    9 returned 15
+branch 10 taken 15 (fallthrough)
+branch 11 taken 0 (throw)
+       15:   21-block  3
+branch 12 taken 15 (fallthrough)
+branch 13 taken 0
+       15:   22:            if(strcasecmp(mode.c_str(),"Tiering") == 0)
+       15:   22-block  0
+call    0 returned 15
+call    1 returned 15
+branch  2 taken 15 (fallthrough)
+branch  3 taken 0 (throw)
+       15:   22-block  1
+branch  4 taken 3 (fallthrough)
+branch  5 taken 12
+        3:   23:                MODE = DiskLevel::LEVEL_MODE::TIERING;
+        3:   23-block  0
+        -:   24:            else
+       12:   25:                MODE = DiskLevel::LEVEL_MODE::LEVELING; //错误处理默认为leveling
+       12:   25-block  0
+       15:   26:            if(index < i) {
+       15:   26-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 15
+    #####:   27:                config[index].first = max_size;
+    %%%%%:   27-block  0
+call    0 never executed
+    #####:   28:                config[index].second = MODE;
+call    0 never executed
+        -:   29:            }
+       15:   30:            else if(index > i) {
+       15:   30-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 15
+    #####:   31:                for(i; i < index; i++) {
+    %%%%%:   31-block  0
+    %%%%%:   31-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   32:                    config.emplace_back(make_pair(-1,DiskLevel::LEVEL_MODE::LEVELING)); //-1表示没有设置max_size，默认为leveling
+    %%%%%:   32-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   32-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   32-block  2
+    $$$$$:   32-block  3
+    $$$$$:   32-block  4
+    $$$$$:   32-block  5
+        -:   33:                }
+        -:   34:            }
+       15:   35:            config.emplace_back(make_pair(max_size,MODE));
+       15:   35-block  0
+call    0 returned 15
+branch  1 taken 15 (fallthrough)
+branch  2 taken 0 (throw)
+       15:   35-block  1
+call    3 returned 15
+branch  4 taken 15 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:   35-block  2
+       15:   36:            i++;
+       15:   36-block  0
+        -:   37:        }
+       15:   38:    }
+       15:   38-block  0
+call    0 returned 15
+call    1 returned 15
+    $$$$$:   38-block  1
+call    2 never executed
+    $$$$$:   38-block  2
+call    3 never executed
+        -:   39:
+        3:   40:    in.close();
+        3:   40-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   41:    level_num = 0;
+        3:   42:}
+        3:   42-block  0
+call    0 returned 3
+        3:   42-block  1
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0
+    $$$$$:   42-block  2
+call    4 never executed
+    $$$$$:   42-block  3
+call    5 never executed
+    $$$$$:   42-block  4
+call    6 never executed
+    $$$$$:   42-block  5
+call    7 never executed
+        -:   43:
+        -:   44:/*
+        -:   45: * @brief: 向磁盘中添加一个level
+        -:   46: * @param: mode: level的模式
+        -:   47: * @detail: 先检查config,如果config中有定义，则按照config中的定义添加
+        -:   48: *         如果config中没有定义，则按照默认的规则添加: max_size = 上一层的max_size * 2
+        -:   49: *         其中level0 必须是tiering
+        -:   50: * */
+function _ZN9DiskStore9add_levelEN9DiskLevel10LEVEL_MODEE called 1 returned 100% blocks executed 36%
+        1:   51:void DiskStore::add_level(DiskLevel::LEVEL_MODE mode) {
+        -:   52:    uint32_t max_size;
+        1:   53:    if(level_num == 0) { //level0 必须是tiering
+        1:   53-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+       1*:   54:        if(!config.empty() && config[0].first > 0)
+        1:   54-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:   54-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0
+        1:   54-block  2
+    %%%%%:   54-block  3
+        1:   54-block  4
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0
+        1:   55:            max_size = config[0].first;
+        1:   55-block  0
+call    0 returned 1
+        -:   56:        else
+    #####:   57:            max_size = 2;
+    %%%%%:   57-block  0
+        1:   58:        level_list.emplace_back(new DiskLevel(max_size, DiskLevel::LEVEL_MODE::TIERING));
+        1:   58-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 0 (throw)
+    $$$$$:   58-block  1
+call    5 never executed
+        1:   59:        level_num++;
+        1:   60:        return;
+        1:   60-block  0
+        -:   61:    }
+        -:   62:
+    #####:   63:    if((level_num  + 1) <= config.size()) { //config 里有定义
+    %%%%%:   63-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   64:        if(config[level_num].first == -1) { //没有设置max_size,默认增加两倍
+    %%%%%:   64-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   65:            level_list.emplace_back(new DiskLevel(level_list[level_num - 1]->max_num * 2,
+    %%%%%:   65-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   65-block  1
+    $$$$$:   65-block  2
+call    4 never executed
+    #####:   66:                                                  config[level_num].second));
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   67:        }
+        -:   68:        else
+    #####:   69:            level_list.emplace_back( new DiskLevel(config[level_num].first, config[level_num].second));
+    %%%%%:   69-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:   69-block  1
+    $$$$$:   69-block  2
+call    7 never executed
+    #####:   70:        level_num++;
+    #####:   71:        return;
+    %%%%%:   71-block  0
+        -:   72:    }
+        -:   73:
+        -:   74:    //config 里无定义
+    #####:   75:    level_list.emplace_back(new DiskLevel(level_list[level_num - 1]->max_num * 2, mode));
+    %%%%%:   75-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   76:    level_num++;
+    %%%%%:   76-block  0
+        -:   77:}
+        -:   78:
+        -:   79:/*
+        -:   80: * @brief: add sstable to disk store
+        -:   81: * @param: sstable: the sstable to be added
+        -:   82: * @param: flag: true 需要compaction
+        -:   83: * @return: serial > 0: success sstable的序列号
+        -:   84: *         -1: level is out of range
+        -:   85: * */
+function _ZN9DiskStore11add_sstableEP7SSTablejRb called 2 returned 100% blocks executed 70%
+        2:   86:uint64_t DiskStore::add_sstable(SSTable* sstable, uint32_t level, bool &flag) {
+        2:   87:    if (level > level_num || level < 0 ) {
+        2:   87-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:   88:        return -1;
+    %%%%%:   88-block  0
+        -:   89:    }
+        2:   90:    if(level == level_num) {
+        2:   90-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:   91:        add_level(DiskLevel::LEVEL_MODE::LEVELING);
+    %%%%%:   91-block  0
+call    0 never executed
+        -:   92:    }
+        2:   93:    DiskLevel* curr_level = level_list[level];
+        2:   93-block  0
+call    0 returned 2
+        2:   94:    uint64_t serial = curr_level->add_sstable(sstable);
+call    0 returned 2
+        -:   95:
+        2:   96:    if(curr_level->max_num < curr_level->sstable_num)
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:   97:        flag = true;
+    %%%%%:   97-block  0
+        -:   98:
+        2:   99:    return serial;
+        2:   99-block  0
+        -:  100:}
+        -:  101:
+function _ZNK9DiskStore3getEyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 5074 returned 100% blocks executed 60%
+     5074:  102:std::string DiskStore::get(const uint64_t key,const string & dir_prefix) const{
+     5074:  103:    string res = "";
+     5074:  103-block  0
+call    0 returned 5074
+call    1 returned 5074
+branch  2 taken 5074 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  103-block  1
+call    4 never executed
+     5074:  104:    uint64_t timestamp = 0;
+    10146:  105:    for(int i = 0; i < level_num; i++) {
+     5072:  105-block  0
+    10146:  105-block  1
+branch  0 taken 5072
+branch  1 taken 5074 (fallthrough)
+    10144:  106:        for(SSTable* sstable: level_list[i]->sstable_list) {
+     5072:  106-block  0
+call    0 returned 5072
+call    1 returned 5072
+call    2 returned 5072
+     5072:  106-block  1
+call    3 returned 5072
+     5072:  106-block  2
+call    4 returned 5072
+    10144:  106-block  3
+call    5 returned 10144
+branch  6 taken 5072
+branch  7 taken 5072 (fallthrough)
+   10144*:  107:            if(sstable->get_min_key() > key || sstable->get_max_key() < key
+call    0 returned 5072
+     5072:  107-block  0
+call    1 returned 5072
+branch  2 taken 5072 (fallthrough)
+branch  3 taken 0
+   10144*:  108:                    || sstable->get_time_stamp() <= timestamp)
+branch  0 taken 5072 (fallthrough)
+branch  1 taken 0
+     5072:  108-block  0
+call    2 returned 5072
+branch  3 taken 0 (fallthrough)
+branch  4 taken 5072
+    %%%%%:  108-block  1
+     5072:  108-block  2
+     5072:  108-block  3
+branch  5 taken 0 (fallthrough)
+branch  6 taken 5072
+    #####:  109:                continue;
+    %%%%%:  109-block  0
+        -:  110:            //在文件中找，需要DiskStore寻找，sstable不知道自己在哪一层
+        -:  111:            uint32_t offset;
+        -:  112:            int len;
+     5072:  113:            if( sstable->get(key,offset,len)) {
+     5072:  113-block  0
+call    0 returned 5072
+branch  1 taken 5072 (fallthrough)
+branch  2 taken 0 (throw)
+     5072:  113-block  1
+branch  3 taken 5072 (fallthrough)
+branch  4 taken 0
+     5072:  114:                timestamp = sstable->get_time_stamp();
+     5072:  114-block  0
+call    0 returned 5072
+        -:  115:                //读取文件
+     5072:  116:                string directory = dir_prefix + to_string(i);
+call    0 returned 5072
+branch  1 taken 5072 (fallthrough)
+branch  2 taken 0 (throw)
+     5072:  116-block  0
+call    3 returned 5072
+branch  4 taken 5072 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:  116-block  1
+    10144:  117:                string file = directory + '/' +  to_string(timestamp) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 returned 5072
+call    1 returned 5072
+branch  2 taken 5072 (fallthrough)
+branch  3 taken 0 (throw)
+     5072:  117-block  0
+call    4 returned 5072
+branch  5 taken 5072 (fallthrough)
+branch  6 taken 0 (throw)
+     5072:  117-block  1
+call    7 returned 5072
+branch  8 taken 5072 (fallthrough)
+branch  9 taken 0 (throw)
+     5072:  117-block  2
+call   10 returned 5072
+branch 11 taken 5072 (fallthrough)
+branch 12 taken 0 (throw)
+     5072:  117-block  3
+call   13 returned 5072
+branch 14 taken 5072 (fallthrough)
+branch 15 taken 0 (throw)
+     5072:  117-block  4
+call   16 returned 5072
+branch 17 taken 5072 (fallthrough)
+branch 18 taken 0 (throw)
+     5072:  117-block  5
+call   19 returned 5072
+branch 20 taken 5072 (fallthrough)
+branch 21 taken 0 (throw)
+call   22 returned 5072
+call   23 returned 5072
+call   24 returned 5072
+call   25 returned 5072
+call   26 returned 5072
+    $$$$$:  117-block  6
+    $$$$$:  117-block  7
+    $$$$$:  117-block  8
+    $$$$$:  117-block  9
+    $$$$$:  117-block 10
+    $$$$$:  117-block 11
+     5072:  118:                res = read_file(file,offset,len);
+call    0 returned 5072
+branch  1 taken 5072 (fallthrough)
+branch  2 taken 0 (throw)
+     5072:  118-block  0
+call    3 returned 5072
+call    4 returned 5072
+     5072:  119:            }
+call    0 returned 5072
+call    1 returned 5072
+    $$$$$:  119-block  0
+call    2 never executed
+    $$$$$:  119-block  1
+call    3 never executed
+        -:  120:        }
+        -:  121:    }
+     5074:  122:    return res;
+     5074:  122-block  0
+     5074:  122-block  1
+    =====:  123:}
+    $$$$$:  123-block  0
+call    0 never executed
+        -:  124:
+        -:  125:/*
+        -:  126: * @brief: 从文件中读取某个数据
+        -:  127: * @param: file_name: 文件名
+        -:  128: * @param: offset: 从文件的第offset个字节开始读
+        -:  129: * @param: len: 读取的长度，如果为-1说明读到文件尾
+        -:  130: * @return: 读取的数据
+        -:  131: * */
+function _ZNK9DiskStore9read_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEji called 5072 returned 100% blocks executed 73%
+     5072:  132:string DiskStore::read_file(const string &file_name, uint32_t offset, int len) const {
+     5072:  133:    fstream in;
+     5072:  133-block  0
+call    0 returned 5072
+branch  1 taken 5072 (fallthrough)
+branch  2 taken 0 (throw)
+     5072:  134:    in.open(file_name, std::ios_base::binary | std::ios_base::in);
+     5072:  134-block  0
+call    0 returned 5072
+call    1 returned 5072
+branch  2 taken 5072 (fallthrough)
+branch  3 taken 0 (throw)
+     5072:  135:    in.seekg(offset, std::ios::beg); //定位到文件的第offset个字节
+     5072:  135-block  0
+call    0 returned 5072
+branch  1 taken 5072 (fallthrough)
+branch  2 taken 0 (throw)
+     5072:  136:    streampos start = in.tellg(); //获取当前位置
+     5072:  136-block  0
+call    0 returned 5072
+branch  1 taken 5072 (fallthrough)
+branch  2 taken 0 (throw)
+     5072:  137:    if (len < 0) {
+     5072:  137-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 5070
+        2:  138:        in.seekg(0, std::ios::end); //定位到文件末尾
+        2:  138-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  139:        std::streampos end = in.tellg(); //获取当前位置
+        2:  139-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  140:        len = end - start;
+        2:  140-block  0
+call    0 returned 2
+        2:  141:        in.seekg(offset, std::ios::beg); //定位回到文件的第offset个字节,准备读
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  142:    }
+        -:  143:
+        -:  144://    char *tmp = new char[len + 1];
+        -:  145://    in.read(tmp, len);
+        -:  146://    tmp[len] = '\0';
+        -:  147://    string res = tmp;
+        -:  148://    delete[]tmp;
+     5072:  149:    string res(len+1, ' ');
+     5072:  149-block  0
+call    0 returned 5072
+call    1 returned 5072
+branch  2 taken 5072 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  149-block  1
+     5072:  150:    in.read(&(*res.begin()), sizeof(char) * len);
+call    0 returned 5072
+call    1 returned 5072
+call    2 returned 5072
+branch  3 taken 5072 (fallthrough)
+branch  4 taken 0 (throw)
+    $$$$$:  150-block  0
+     5072:  151:    res[len] = '\0';
+     5072:  151-block  0
+call    0 returned 5072
+branch  1 taken 5072 (fallthrough)
+branch  2 taken 0 (throw)
+     5072:  152:    in.close();
+     5072:  152-block  0
+call    0 returned 5072
+branch  1 taken 5072 (fallthrough)
+branch  2 taken 0 (throw)
+    10144:  153:    return res;
+     5072:  153-block  0
+     5072:  153-block  1
+     5072:  154:}
+     5072:  154-block  0
+call    0 returned 5072
+    $$$$$:  154-block  1
+call    1 never executed
+    $$$$$:  154-block  2
+call    2 never executed
+        -:  155:/*
+        -:  156: * @brief: 检查level是否溢出
+        -:  157: * @return: true: 溢出
+        -:  158: *         false: 未溢出（正好等于max_num）
+        -:  159: * */
+function _ZNK9DiskStore20check_level_overflowEj called 0 returned 0% blocks executed 0%
+    #####:  160:bool DiskStore::check_level_overflow(uint32_t level)const {
+    #####:  161:    if(level >= level_num)
+    %%%%%:  161-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  162:        return false;
+    %%%%%:  162-block  0
+    #####:  163:    if(level_list[level]->max_num < level_list[level]->sstable_num)
+    %%%%%:  163-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  164:        return true;
+    %%%%%:  164-block  0
+    #####:  165:    return false;
+    %%%%%:  165-block  0
+        -:  166:}
+        -:  167:
+function _ZN9DiskStore10compactionEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:  168:void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
+        -:  169:    // 递归终止条件：上一层文件数小于max_size，不需要dump to 下一层
+    #####:  170:    if( ! check_level_overflow(dump_to_level - 1))
+    %%%%%:  170-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  171:        return;
+    %%%%%:  171-block  0
+        -:  172:
+        -:  173:    // 创建目录,检验是否是最后一行
+    #####:  174:    string directory = dir_prefix + to_string(dump_to_level);
+    %%%%%:  174-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  174-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  174-block  2
+    #####:  175:    if(!utils::dirExists(directory)) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  175-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  175-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    $$$$$:  175-block  2
+call    9 never executed
+    $$$$$:  175-block  3
+    #####:  176:        utils::mkdir(directory.c_str());
+    %%%%%:  176-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+        -:  177:    }
+    #####:  178:    bool is_end = false;
+    #####:  179:    if(dump_to_level == level_num) {
+    %%%%%:  179-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  180:        add_level(DiskLevel::LEVELING);
+    %%%%%:  180-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  181:        is_end = true;
+    %%%%%:  181-block  0
+        -:  182:    }
+        -:  183:
+        -:  184:    // SSTable 选取,同时记录要被删除的文件
+    #####:  185:    vector<SSTable*> last_level_chosen;
+    %%%%%:  185-block  0
+call    0 never executed
+    #####:  186:    vector<SSTable*> this_level_chosen;
+call    0 never executed
+        -:  187:
+        -:  188:    //从dump_to_level - 1层中选取
+        -:  189:    //若 Level x 层为 Tiering，则该层所有文件被选取
+    #####:  190:    if(level_list[dump_to_level - 1]->mode == DiskLevel::TIERING)
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  191:        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0,1);
+    %%%%%:  191-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+        -:  192:    else
+    #####:  193:        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0,2);
+    %%%%%:  193-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+        -:  194:
+        -:  195:    //遍历last_level_chosen中的文件，检查最大时间戳和键值范围
+    #####:  196:    uint64_t latest_timestamp = 0, min_key = -1, max_key = -1;
+    #####:  197:    for(SSTable* sstable: last_level_chosen) {
+    %%%%%:  197-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  197-block  1
+call    2 never executed
+    %%%%%:  197-block  2
+call    3 never executed
+    %%%%%:  197-block  3
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  198:        if(sstable->get_time_stamp() > latest_timestamp)
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  199:            latest_timestamp = sstable->get_time_stamp();
+    %%%%%:  199-block  0
+call    0 never executed
+    #####:  200:        if(min_key == -1 || sstable->get_min_key() < min_key)
+    %%%%%:  200-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  200-block  1
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:  200-block  2
+    %%%%%:  200-block  3
+    %%%%%:  200-block  4
+branch  5 never executed
+branch  6 never executed
+    #####:  201:            min_key = sstable->get_min_key();
+    %%%%%:  201-block  0
+call    0 never executed
+    #####:  202:        if(max_key == -1 || sstable->get_max_key() > max_key)
+    %%%%%:  202-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  202-block  1
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:  202-block  2
+    %%%%%:  202-block  3
+    %%%%%:  202-block  4
+branch  5 never executed
+branch  6 never executed
+    #####:  203:            max_key = sstable->get_max_key();
+    %%%%%:  203-block  0
+call    0 never executed
+        -:  204:    }
+        -:  205:
+        -:  206:    //从dump_to_level层中选取
+    #####:  207:    if(level_list[dump_to_level]->mode == DiskLevel::LEVELING) {
+    %%%%%:  207-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  208:        level_list[dump_to_level]->choose_sstables(this_level_chosen, min_key, max_key,3);
+    %%%%%:  208-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  209:        for(SSTable* sstable: this_level_chosen) {
+    %%%%%:  209-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  209-block  1
+call    2 never executed
+    %%%%%:  209-block  2
+call    3 never executed
+    %%%%%:  209-block  3
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  210:            if(sstable->get_time_stamp() > latest_timestamp)
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  211:                latest_timestamp = sstable->get_time_stamp();
+    %%%%%:  211-block  0
+call    0 never executed
+        -:  212:        }
+        -:  213:    }
+        -:  214:
+        -:  215:    //把选中的文件读入内存
+    #####:  216:    queue< vector< pair<uint64_t, string> > > data_all;
+    %%%%%:  216-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  217:    for(SSTable* sstable: last_level_chosen) {
+    %%%%%:  217-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  217-block  1
+call    2 never executed
+call    3 never executed
+    %%%%%:  217-block  2
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  218:        vector< pair<uint64_t, string> > data;
+call    0 never executed
+    #####:  219:        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  219-block  0
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  219-block  1
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  219-block  2
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  219-block  3
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  219-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  219-block  5
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  219-block  6
+call   23 never executed
+branch 24 never executed
+branch 25 never executed
+    %%%%%:  219-block  7
+call   26 never executed
+branch 27 never executed
+branch 28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+call   34 never executed
+call   35 never executed
+    $$$$$:  219-block  8
+    $$$$$:  219-block  9
+    $$$$$:  219-block 10
+    $$$$$:  219-block 11
+    $$$$$:  219-block 12
+    $$$$$:  219-block 13
+    $$$$$:  219-block 14
+    $$$$$:  219-block 15
+    #####:  220:        sstable->read_to_mem(filename,data,is_end);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  221:        data_all.push(data);
+    %%%%%:  221-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  222:    }
+    %%%%%:  222-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  222-block  1
+call    2 never executed
+    $$$$$:  222-block  2
+call    3 never executed
+    #####:  223:    for(SSTable* sstable: this_level_chosen) {
+    %%%%%:  223-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  223-block  1
+call    2 never executed
+call    3 never executed
+    %%%%%:  223-block  2
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  224:        vector< pair<uint64_t, string> > data;
+call    0 never executed
+    #####:  225:        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  225-block  0
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  225-block  1
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  225-block  2
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  225-block  3
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  225-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  225-block  5
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  225-block  6
+call   23 never executed
+branch 24 never executed
+branch 25 never executed
+    %%%%%:  225-block  7
+call   26 never executed
+branch 27 never executed
+branch 28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+call   34 never executed
+call   35 never executed
+    $$$$$:  225-block  8
+    $$$$$:  225-block  9
+    $$$$$:  225-block 10
+    $$$$$:  225-block 11
+    $$$$$:  225-block 12
+    $$$$$:  225-block 13
+    $$$$$:  225-block 14
+    $$$$$:  225-block 15
+    #####:  226:        sstable->read_to_mem(filename,data,is_end);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  227:        data_all.push(data);
+    %%%%%:  227-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  228:    }
+    %%%%%:  228-block  0
+call    0 never executed
+call    1 never executed
+    $$$$$:  228-block  1
+call    2 never executed
+    $$$$$:  228-block  2
+call    3 never executed
+        -:  229:
+        -:  230:    //两两归并
+    #####:  231:    while( data_all.size() > 1) {
+    %%%%%:  231-block  0
+    %%%%%:  231-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  232:        vector< pair<uint64_t, string> > data1 = data_all.front();
+    %%%%%:  232-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  233:        data_all.pop();
+    %%%%%:  233-block  0
+call    0 never executed
+    #####:  234:        vector< pair<uint64_t, string> > data2 = data_all.front();
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  235:        data_all.pop();
+    %%%%%:  235-block  0
+call    0 never executed
+    #####:  236:        vector<pair<uint64_t, string> > date_sorted;
+call    0 never executed
+    #####:  237:        mergeSort(data1, data2, date_sorted);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  237-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  237-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  237-block  2
+call    9 never executed
+call   10 never executed
+    $$$$$:  237-block  3
+call   11 never executed
+    $$$$$:  237-block  4
+    $$$$$:  237-block  5
+call   12 never executed
+    $$$$$:  237-block  6
+    #####:  238:        data_all.push(date_sorted);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  239:    }
+    %%%%%:  239-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    $$$$$:  239-block  1
+call    3 never executed
+    $$$$$:  239-block  2
+call    4 never executed
+    $$$$$:  239-block  3
+call    5 never executed
+        -:  240:
+        -:  241:    //得到一个大的有序数组data_sorted
+    #####:  242:    vector<pair<uint64_t, string> > date_sorted = data_all.front();
+    %%%%%:  242-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  243:    data_all.pop();
+    %%%%%:  243-block  0
+call    0 never executed
+        -:  244:
+        -:  245:    //创建新的SSTable
+    #####:  246:    uint64_t len_all = date_sorted.size();
+call    0 never executed
+    #####:  247:    uint64_t size = 10272;
+    #####:  248:    vector<pair<uint64_t, string> > data_dump;
+call    0 never executed
+    #####:  249:    for(uint64_t i = 0; i < len_all; ++i) {
+    %%%%%:  249-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  250:        if(size + date_sorted[i].second.size() + 12 > 2097152) {
+    %%%%%:  250-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  251:            size = 10272;
+    #####:  252:            SSTable* sstable = new SSTable(data_dump, latest_timestamp);
+    %%%%%:  252-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  252-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  252-block  2
+call    6 never executed
+    #####:  253:            int64_t serial = level_list[dump_to_level]->add_sstable(sstable);
+    %%%%%:  253-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  254:            string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
+    %%%%%:  254-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  254-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  254-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  254-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  254-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:  254-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:  254-block  6
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    %%%%%:  254-block  7
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  254-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+call   27 never executed
+call   28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+    $$$$$:  254-block  9
+    $$$$$:  254-block 10
+    $$$$$:  254-block 11
+    $$$$$:  254-block 12
+    $$$$$:  254-block 13
+    $$$$$:  254-block 14
+    $$$$$:  254-block 15
+    $$$$$:  254-block 16
+    #####:  255:            sstable->save_file(filename);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  256:            data_dump.clear();
+    %%%%%:  256-block  0
+call    0 never executed
+    #####:  257:        }
+call    0 never executed
+    $$$$$:  257-block  0
+call    1 never executed
+    #####:  258:        data_dump.push_back(date_sorted[i]);
+    %%%%%:  258-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  259:        size += date_sorted[i].second.size() + 12;
+    %%%%%:  259-block  0
+call    0 never executed
+call    1 never executed
+        -:  260:    }
+    #####:  261:    if(!data_dump.empty()) {
+    %%%%%:  261-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  262:        SSTable* sstable = new SSTable(data_dump, latest_timestamp);
+    %%%%%:  262-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  262-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  262-block  2
+call    6 never executed
+    #####:  263:        int64_t serial = level_list[dump_to_level]->add_sstable(sstable);
+    %%%%%:  263-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  264:        string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
+    %%%%%:  264-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  264-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  264-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  264-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  264-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:  264-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:  264-block  6
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    %%%%%:  264-block  7
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  264-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+call   27 never executed
+call   28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+    $$$$$:  264-block  9
+    $$$$$:  264-block 10
+    $$$$$:  264-block 11
+    $$$$$:  264-block 12
+    $$$$$:  264-block 13
+    $$$$$:  264-block 14
+    $$$$$:  264-block 15
+    $$$$$:  264-block 16
+    #####:  265:        sstable->save_file(filename);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  266:    }
+    %%%%%:  266-block  0
+call    0 never executed
+    $$$$$:  266-block  1
+call    1 never executed
+        -:  267:
+        -:  268:    // 删除之前的文件
+    #####:  269:    for(SSTable* sstable: last_level_chosen) {
+    %%%%%:  269-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  269-block  1
+call    2 never executed
+call    3 never executed
+    %%%%%:  269-block  2
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  270:        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  270-block  0
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  270-block  1
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  270-block  2
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  270-block  3
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  270-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  270-block  5
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  270-block  6
+call   23 never executed
+branch 24 never executed
+branch 25 never executed
+    %%%%%:  270-block  7
+call   26 never executed
+branch 27 never executed
+branch 28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+call   34 never executed
+call   35 never executed
+    $$$$$:  270-block  8
+    $$$$$:  270-block  9
+    $$$$$:  270-block 10
+    $$$$$:  270-block 11
+    $$$$$:  270-block 12
+    $$$$$:  270-block 13
+    $$$$$:  270-block 14
+    $$$$$:  270-block 15
+    #####:  271:        utils::rmfile(filename.data());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  272:    }
+    %%%%%:  272-block  0
+call    0 never executed
+    $$$$$:  272-block  1
+call    1 never executed
+    #####:  273:    for(SSTable* sstable: this_level_chosen) {
+    %%%%%:  273-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  273-block  1
+call    2 never executed
+call    3 never executed
+    %%%%%:  273-block  2
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  274:        string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  274-block  0
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  274-block  1
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  274-block  2
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  274-block  3
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  274-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  274-block  5
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  274-block  6
+call   23 never executed
+branch 24 never executed
+branch 25 never executed
+    %%%%%:  274-block  7
+call   26 never executed
+branch 27 never executed
+branch 28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+call   34 never executed
+call   35 never executed
+    $$$$$:  274-block  8
+    $$$$$:  274-block  9
+    $$$$$:  274-block 10
+    $$$$$:  274-block 11
+    $$$$$:  274-block 12
+    $$$$$:  274-block 13
+    $$$$$:  274-block 14
+    $$$$$:  274-block 15
+    #####:  275:        utils::rmfile(filename.data());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  276:    }
+    %%%%%:  276-block  0
+call    0 never executed
+    $$$$$:  276-block  1
+call    1 never executed
+        -:  277:
+        -:  278:    //递归检查下一层
+    #####:  279:    compaction(dump_to_level + 1,dir_prefix);
+    %%%%%:  279-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  280:}
+    %%%%%:  280-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+    $$$$$:  280-block  1
+call    6 never executed
+    $$$$$:  280-block  2
+call    7 never executed
+    $$$$$:  280-block  3
+call    8 never executed
+    $$$$$:  280-block  4
+call    9 never executed
+    $$$$$:  280-block  5
+call   10 never executed
+    $$$$$:  280-block  6
+call   11 never executed
+        -:  281:
+        -:  282:/*
+        -:  283: * @biref: 两个有序数组归并:从小到大
+        -:  284: * @param: data_sorted 归并后的数组
+        -:  285: * */
+function _ZN9DiskStore9mergeSortESt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESA_RSA_ called 0 returned 0% blocks executed 0%
+    #####:  286:void DiskStore::mergeSort(vector<pair<uint64_t, string>> data1, vector<pair<uint64_t, string>> data2,
+        -:  287:                          vector<pair<uint64_t, string>> &data_sorted) {
+    #####:  288:    int i = 0, j = 0;
+    #####:  289:    int len1 = data1.size(), len2 = data2.size();
+    %%%%%:  289-block  0
+call    0 never executed
+call    1 never executed
+    #####:  290:    while(i < len1 && j < len2) {
+    %%%%%:  290-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  290-block  1
+branch  2 never executed
+branch  3 never executed
+    #####:  291:        if(data1[i].first < data2[j].first) {
+    %%%%%:  291-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  292:            data_sorted.push_back(data1[i]);
+    %%%%%:  292-block  0
+call    0 never executed
+call    1 never executed
+    #####:  293:            i++;
+        -:  294:        }
+        -:  295:        else {
+    #####:  296:            data_sorted.push_back(data2[j]);
+    %%%%%:  296-block  0
+call    0 never executed
+call    1 never executed
+    #####:  297:            j++;
+        -:  298:        }
+        -:  299:    }
+    #####:  300:}
+        -:  301:
+        -:  302:/*
+        -:  303: * @brief: 每一层的结构DiskLevel按规则选择sstable
+        -:  304: * @param: sstable_list 返回的sstable列表
+        -:  305: * @param: mode  : 1:全部选择 2:按时间选择多余的 3:选择key有重叠的
+        -:  306: * */
+function _ZN9DiskLevel15choose_sstablesERSt6vectorIP7SSTableSaIS2_EEyyi called 0 returned 0% blocks executed 0%
+    #####:  307:void DiskLevel::choose_sstables(vector<SSTable *> &chosen_list, uint64_t min_key, uint64_t max_key,int mode) {
+    #####:  308:    if(mode == 1) { //选择全部
+    %%%%%:  308-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  309:        for(SSTable* sstable: sstable_list) {
+    %%%%%:  309-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  309-block  1
+call    2 never executed
+    %%%%%:  309-block  2
+call    3 never executed
+    %%%%%:  309-block  3
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  310:            chosen_list.push_back(sstable);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  311:        }
+    #####:  312:        sstable_list.clear(); //这一行清空但是不释放内存
+    %%%%%:  312-block  0
+call    0 never executed
+    #####:  313:        sstable_num = 0;
+    #####:  314:        return;
+        -:  315:    }
+    #####:  316:    if(mode == 2) {
+    %%%%%:  316-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  317:        //选择时间戳最小(时间戳相等选择键最小)的多余文件
+        -:  318:        //按照时间戳排序
+    #####:  319:        vector<uint64_t> indices(sstable_num);// 用于记录sstable_list下标的 vector
+    %%%%%:  319-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  319-block  1
+    #####:  320:        iota(indices.begin(), indices.end(), 0); // 初始化
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:  321:        // 按照时间戳从小到大排序，时间戳相等按照键从小到大排序
+function _ZZN9DiskLevel15choose_sstablesERSt6vectorIP7SSTableSaIS2_EEyyiENKUlyyE_clEyy called 0 returned 0% blocks executed 0%
+    #####:  322:        sort(indices.begin(), indices.end(), [&](uint64_t i1, uint64_t i2) {
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    #####:  323:            if(sstable_list[i1]->get_time_stamp() == sstable_list[i2]->get_time_stamp())
+    %%%%%:  323-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  324:                return sstable_list[i1]->get_total_num() < sstable_list[i2]->get_total_num();
+    %%%%%:  324-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:  325:            return sstable_list[i1]->get_time_stamp() < sstable_list[i2]->get_time_stamp();
+    %%%%%:  325-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+        -:  326:        });
+        -:  327:
+        -:  328:        // 选择多余的文件,indices中的前select_num个（下标）
+    #####:  329:        uint64_t select_num = sstable_num - max_num;
+    #####:  330:        for(uint64_t i = 0; i < select_num; ++i) {
+    %%%%%:  330-block  0
+    %%%%%:  330-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:  331:            chosen_list.push_back(sstable_list[indices[i]]);
+    %%%%%:  331-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    #####:  332:            sstable_list.erase(sstable_list.begin() + (int)indices[i]);
+    %%%%%:  332-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    $$$$$:  332-block  1
+    $$$$$:  332-block  2
+    $$$$$:  332-block  3
+    #####:  333:            --sstable_num;
+    %%%%%:  333-block  0
+        -:  334:        }
+    #####:  335:        return;
+    #####:  336:    }
+    %%%%%:  336-block  0
+call    0 never executed
+    $$$$$:  336-block  1
+call    1 never executed
+    #####:  337:    uint64_t origin_size = sstable_num;
+    #####:  338:    for(uint64_t i = 0; i < origin_size; ++i) {
+    %%%%%:  338-block  0
+    %%%%%:  338-block  1
+    %%%%%:  338-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:  339:        SSTable* sstable = sstable_list[i];
+    %%%%%:  339-block  0
+call    0 never executed
+    #####:  340:        if(sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) //不在范围内
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  340-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  340-block  1
+    %%%%%:  340-block  2
+    %%%%%:  340-block  3
+branch  6 never executed
+branch  7 never executed
+    #####:  341:            continue;
+    %%%%%:  341-block  0
+    #####:  342:        chosen_list.push_back(sstable);
+    %%%%%:  342-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  343:        sstable_list.erase(sstable_list.begin() + (int)i);
+    %%%%%:  343-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  343-block  1
+    $$$$$:  343-block  2
+    $$$$$:  343-block  3
+    #####:  344:        --sstable_num;
+    %%%%%:  344-block  0
+        -:  345:    }
+        -:  346:
+        -:  347:}

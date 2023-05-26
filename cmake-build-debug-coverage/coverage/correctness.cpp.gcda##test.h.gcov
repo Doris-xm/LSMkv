@@ -1,0 +1,295 @@
+        -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/test/test.h
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\test\correctness.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\test\correctness.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include <iostream>
+        -:    4:#include <cstdint>
+        -:    5:#include <string>
+        -:    6:
+        -:    7:#include "../header/kvstore.h"
+        -:    8:
+        -:    9:class Test {
+        -:   10:protected:
+        -:   11:    static const std::string not_found;
+        -:   12:
+        -:   13:    uint64_t nr_tests;
+        -:   14:    uint64_t nr_passed_tests;
+        -:   15:    uint64_t nr_phases;
+        -:   16:    uint64_t nr_passed_phases;
+        -:   17:
+        -:   18:#define EXPECT(exp, got) expect<decltype(got)>((exp), (got), __FILE__, __LINE__)
+        -:   19:    template<typename T>
+    14090:   20:    void expect(const T &exp, const T &got,
+        -:   21:                const std::string &file, int line)
+        -:   22:    {
+    14090:   23:        ++nr_tests;
+    14090:   24:        if (exp == got) {
+    8998*:   25:            ++nr_passed_tests;
+    8998*:   26:            return;
+        -:   27:        }
+    5092*:   28:        if (verbose) {
+    5092*:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+    5092*:   30:            std::cerr << ", expected " << exp;
+    5092*:   31:            std::cerr << ", got " << got << std::endl;
+        -:   32:        }
+        -:   33:    }
+------------------
+_ZN4Test6expectIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_SA_RS7_i:
+function _ZN4Test6expectIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_SA_RS7_i called 1024 returned 100% blocks executed 93%
+     1024:   20:    void expect(const T &exp, const T &got,
+        -:   21:                const std::string &file, int line)
+        -:   22:    {
+     1024:   23:        ++nr_tests;
+     1024:   24:        if (exp == got) {
+     1024:   24-block  0
+call    0 returned 1024
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1024
+    #####:   25:            ++nr_passed_tests;
+    #####:   26:            return;
+    %%%%%:   26-block  0
+        -:   27:        }
+     1024:   28:        if (verbose) {
+     1024:   28-block  0
+branch  0 taken 1024 (fallthrough)
+branch  1 taken 0
+     1024:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+     1024:   29-block  0
+call    0 returned 1024
+call    1 returned 1024
+call    2 returned 1024
+call    3 returned 1024
+     1024:   30:            std::cerr << ", expected " << exp;
+call    0 returned 1024
+call    1 returned 1024
+     1024:   31:            std::cerr << ", got " << got << std::endl;
+call    0 returned 1024
+call    1 returned 1024
+call    2 returned 1024
+        -:   32:        }
+        -:   33:    }
+------------------
+_ZN4Test6expectIiEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi:
+function _ZN4Test6expectIiEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 1024 returned 100% blocks executed 92%
+     1024:   20:    void expect(const T &exp, const T &got,
+        -:   21:                const std::string &file, int line)
+        -:   22:    {
+     1024:   23:        ++nr_tests;
+     1024:   24:        if (exp == got) {
+     1024:   24-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1024
+    #####:   25:            ++nr_passed_tests;
+    #####:   26:            return;
+    %%%%%:   26-block  0
+        -:   27:        }
+     1024:   28:        if (verbose) {
+     1024:   28-block  0
+branch  0 taken 1024 (fallthrough)
+branch  1 taken 0
+     1024:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+     1024:   29-block  0
+call    0 returned 1024
+call    1 returned 1024
+call    2 returned 1024
+call    3 returned 1024
+     1024:   30:            std::cerr << ", expected " << exp;
+call    0 returned 1024
+call    1 returned 1024
+     1024:   31:            std::cerr << ", got " << got << std::endl;
+call    0 returned 1024
+call    1 returned 1024
+call    2 returned 1024
+        -:   32:        }
+        -:   33:    }
+------------------
+_ZN4Test6expectIyEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi:
+function _ZN4Test6expectIyEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 258 returned 100% blocks executed 100%
+      258:   20:    void expect(const T &exp, const T &got,
+        -:   21:                const std::string &file, int line)
+        -:   22:    {
+      258:   23:        ++nr_tests;
+      258:   24:        if (exp == got) {
+      258:   24-block  0
+branch  0 taken 257 (fallthrough)
+branch  1 taken 1
+      257:   25:            ++nr_passed_tests;
+      257:   26:            return;
+      257:   26-block  0
+        -:   27:        }
+        1:   28:        if (verbose) {
+        1:   28-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+        1:   29-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+        1:   30:            std::cerr << ", expected " << exp;
+call    0 returned 1
+call    1 returned 1
+        1:   31:            std::cerr << ", got " << got << std::endl;
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+        -:   32:        }
+        -:   33:    }
+------------------
+_ZN4Test6expectIbEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi:
+function _ZN4Test6expectIbEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 3842 returned 100% blocks executed 23%
+     3842:   20:    void expect(const T &exp, const T &got,
+        -:   21:                const std::string &file, int line)
+        -:   22:    {
+     3842:   23:        ++nr_tests;
+     3842:   24:        if (exp == got) {
+     3842:   24-block  0
+branch  0 taken 3842 (fallthrough)
+branch  1 taken 0
+     3842:   25:            ++nr_passed_tests;
+     3842:   26:            return;
+     3842:   26-block  0
+        -:   27:        }
+    #####:   28:        if (verbose) {
+    %%%%%:   28-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+    %%%%%:   29-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:   30:            std::cerr << ", expected " << exp;
+call    0 never executed
+call    1 never executed
+    #####:   31:            std::cerr << ", got " << got << std::endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   32:        }
+        -:   33:    }
+------------------
+_ZN4Test6expectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_S9_RKS6_i:
+function _ZN4Test6expectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_S9_RKS6_i called 7942 returned 100% blocks executed 100%
+     7942:   20:    void expect(const T &exp, const T &got,
+        -:   21:                const std::string &file, int line)
+        -:   22:    {
+     7942:   23:        ++nr_tests;
+     7942:   24:        if (exp == got) {
+     7942:   24-block  0
+call    0 returned 7942
+branch  1 taken 4899 (fallthrough)
+branch  2 taken 3043
+     4899:   25:            ++nr_passed_tests;
+     4899:   26:            return;
+     4899:   26-block  0
+        -:   27:        }
+     3043:   28:        if (verbose) {
+     3043:   28-block  0
+branch  0 taken 3043 (fallthrough)
+branch  1 taken 0
+     3043:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+     3043:   29-block  0
+call    0 returned 3043
+call    1 returned 3043
+call    2 returned 3043
+call    3 returned 3043
+     3043:   30:            std::cerr << ", expected " << exp;
+call    0 returned 3043
+call    1 returned 3043
+     3043:   31:            std::cerr << ", got " << got << std::endl;
+call    0 returned 3043
+call    1 returned 3043
+call    2 returned 3043
+        -:   32:        }
+        -:   33:    }
+------------------
+        -:   34:
+function _ZN4Test5phaseEv called 10 returned 100% blocks executed 100%
+       10:   35:    void phase(void)
+        -:   36:    {
+        -:   37:        // Report
+       10:   38:        std::cout << "  Phase " << (nr_phases+1) << ": ";
+       10:   38-block  0
+call    0 returned 10
+call    1 returned 10
+call    2 returned 10
+       10:   39:        std::cout << nr_passed_tests << "/" << nr_tests << " ";
+call    0 returned 10
+call    1 returned 10
+call    2 returned 10
+call    3 returned 10
+        -:   40:
+        -:   41:        // Count
+       10:   42:        ++nr_phases;
+       10:   43:        if (nr_tests == nr_passed_tests) {
+branch  0 taken 7 (fallthrough)
+branch  1 taken 3
+        7:   44:            ++nr_passed_phases;
+        7:   45:            std::cout << "[PASS]" << std::endl;
+        7:   45-block  0
+call    0 returned 7
+call    1 returned 7
+        -:   46:        } else
+        3:   47:            std::cout << "[FAIL]" << std::endl;
+        3:   47-block  0
+call    0 returned 3
+call    1 returned 3
+        -:   48:
+       10:   49:        std::cout.flush();
+       10:   49-block  0
+call    0 returned 10
+        -:   50:
+        -:   51:        // Reset
+       10:   52:        nr_tests = 0;
+       10:   53:        nr_passed_tests = 0;
+       10:   54:    }
+        -:   55:
+function _ZN4Test6reportEv called 2 returned 100% blocks executed 100%
+        2:   56:    void report(void)
+        -:   57:    {
+        2:   58:        std::cout << nr_passed_phases << "/" << nr_phases << " passed.";
+        2:   58-block  0
+call    0 returned 2
+call    1 returned 2
+call    2 returned 2
+call    3 returned 2
+        2:   59:        std::cout << std::endl;
+call    0 returned 2
+        2:   60:        std::cout.flush();
+call    0 returned 2
+        -:   61:
+        2:   62:        nr_phases = 0;
+        2:   63:        nr_passed_phases = 0;
+        2:   64:    }
+        -:   65:
+        -:   66:    class KVStore store;
+        -:   67:    bool verbose;
+        -:   68:
+        -:   69:public:
+function _ZN4TestC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb called 1 returned 100% blocks executed 100%
+        1:   70:    Test(const std::string &dir, bool v=true): store(dir), verbose(v)
+        1:   70-block  0
+call    0 returned 1
+        -:   71:    {
+        1:   72:        nr_tests = 0;
+        1:   73:        nr_passed_tests = 0;
+        1:   74:        nr_phases = 0;
+        1:   75:        nr_passed_phases = 0;
+        1:   76:    }
+        -:   77:
+function _ZN4Test10start_testEPv called 0 returned 0% blocks executed 0%
+    #####:   78:    virtual void start_test(void *args = NULL)
+        -:   79:    {
+    #####:   80:        std::cout << "No test is implemented." << std::endl;
+    %%%%%:   80-block  0
+call    0 never executed
+call    1 never executed
+    #####:   81:    }
+        -:   82:
+        -:   83:};
+        -:   84:const std::string Test::not_found = "";

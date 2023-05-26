@@ -37,7 +37,7 @@ class DiskStore {
     vector<pair<uint32_t,DiskLevel::LEVEL_MODE>> config;
     uint32_t level_num;
     vector<DiskLevel*> level_list;
-    string read_file(const string& file_name, uint32_t offset, uint32_t len)const;
+    string read_file(const string& file_name, uint32_t offset, int len)const;
     bool check_level_overflow(uint32_t level)const;
     void mergeSort(vector<pair<uint64_t,string>> data1, vector<pair<uint64_t,string>> data2, vector<pair<uint64_t,string>> &data_sorted);
 public:

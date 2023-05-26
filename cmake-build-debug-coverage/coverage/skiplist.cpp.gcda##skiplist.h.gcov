@@ -1,0 +1,61 @@
+        -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/header/skiplist.h
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\skiplist.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\skiplist.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include "MurmurHash3.h"
+        -:    4:#include "Constant.h"
+        -:    5:using namespace std;
+        -:    6:
+        -:    7:
+        -:    8:
+        -:    9:struct node{
+        -:   10:    uint64_t key;
+        -:   11:    string s;
+        -:   12:    int level;
+        -:   13:    vector<node*> point_list;
+function _ZN4nodeC1EiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS_i called 4599 returned 100% blocks executed 62%
+     4599:   14:    node(int k = 0,string S = "",node* n = nullptr,int l = 0):key(k),level(l),s(S) {
+     4599:   14-block  0
+call    0 returned 4599
+call    1 returned 4599
+     4599:   15:        point_list.push_back(n);
+call    0 returned 4599
+branch  1 taken 4599 (fallthrough)
+branch  2 taken 0 (throw)
+     4599:   16:    }
+     4599:   16-block  0
+    $$$$$:   16-block  1
+call    0 never executed
+    $$$$$:   16-block  2
+call    1 never executed
+        -:   17:};
+        -:   18:
+        -:   19:class SkipList {
+        -:   20:private:
+        -:   21:    int Max_level;
+        -:   22:    node* head;
+        -:   23:    node* tail;
+        -:   24:    int P;
+        -:   25:    unsigned int key_num;
+        -:   26:    uint64_t max_key;
+        -:   27:    uint64_t min_key;
+        -:   28:    uint64_t Size;
+        -:   29:    void clear(node *&h);
+        -:   30:
+        -:   31:public:
+        -:   32:    SkipList();
+        -:   33:    ~SkipList();
+        -:   34:    bool insert(uint64_t key, const std::string &s);
+        -:   35:    int del(uint64_t key);
+        -:   36:    std::string search(uint64_t key);
+        -:   37:    bool scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list);
+        -:   38:    node* get_head() { return head; }
+        -:   39:    node* get_tail() { return tail; }
+        -:   40:    unsigned int get_key_num() const { return key_num; }
+        -:   41:    uint64_t get_size() const { return Size; }
+        -:   42:    uint64_t get_max_key() const { return max_key; }
+        -:   43:    uint64_t get_min_key() const { return min_key; }
+        -:   44:};
+        -:   45:

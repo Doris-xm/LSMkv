@@ -1,0 +1,67 @@
+        -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/header/Disk_store.h
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include "SStable.h"
+        -:    3:#include "Constant.h"
+        -:    4:using namespace std;
+        -:    5:
+        -:    6:
+        -:    7:struct DiskLevel {
+        -:    8:    enum LEVEL_MODE {
+        -:    9:        TIERING,
+        -:   10:        LEVELING,
+        -:   11:    };
+        -:   12:    uint64_t sstable_num;
+        -:   13:    uint64_t max_num;
+        -:   14:    vector<SSTable*> sstable_list;
+        -:   15:    LEVEL_MODE mode;
+        -:   16:
+        -:   17:    DiskLevel(uint64_t max_num, LEVEL_MODE mode):
+        -:   18:            max_num(max_num), mode(mode), sstable_num(0),Serial(0) {}
+        -:   19:    ~DiskLevel(){
+        -:   20:        for(SSTable* sstable: sstable_list) {
+        -:   21:            delete sstable;
+        -:   22:        }
+        -:   23:    }
+        -:   24:    uint64_t add_sstable(SSTable* sstable) {
+        -:   25:        sstable_list.push_back(sstable);
+        -:   26:        sstable->set_serial(Serial);
+        -:   27:        sstable_num++;
+        -:   28:        return Serial++;
+        -:   29:    }
+        -:   30:    void choose_sstables(vector<SSTable*> &sstable_list, uint64_t min_key, uint64_t max_key,int mode);
+        -:   31:private:
+        -:   32:    uint64_t Serial;
+        -:   33:
+        -:   34:};
+        -:   35:
+        -:   36:class DiskStore {
+        -:   37:    vector<pair<uint32_t,DiskLevel::LEVEL_MODE>> config;
+        -:   38:    uint32_t level_num;
+        -:   39:    vector<DiskLevel*> level_list;
+        -:   40:    string read_file(const string& file_name, uint32_t offset, int len)const;
+        -:   41:    bool check_level_overflow(uint32_t level)const;
+        -:   42:    void mergeSort(vector<pair<uint64_t,string>> data1, vector<pair<uint64_t,string>> data2, vector<pair<uint64_t,string>> &data_sorted);
+        -:   43:public:
+        -:   44:    DiskStore(const string &config_dir);
+        -:   45:    DiskStore(){}
+function _ZN9DiskStoreD1Ev called 3 returned 100% blocks executed 100%
+        3:   46:    ~DiskStore() { }
+        3:   46-block  0
+call    0 returned 3
+call    1 returned 3
+function _ZNK9DiskStore13get_level_numEv called 2030 returned 100% blocks executed 100%
+     2030:   47:    uint32_t get_level_num()const {
+     2030:   48:        return level_num;
+     2030:   48-block  0
+        -:   49:    }
+        -:   50:    void add_level( DiskLevel::LEVEL_MODE mode);
+        -:   51:    uint64_t add_sstable(SSTable* sstable, uint32_t level,bool &flag);
+        -:   52:    std::string get(const uint64_t key,const string & dir_prefix)const;
+        -:   53:
+        -:   54:    void compaction(uint32_t dump_to_level, const string & dir);
+        -:   55:};
+        -:   56:
+        -:   57:

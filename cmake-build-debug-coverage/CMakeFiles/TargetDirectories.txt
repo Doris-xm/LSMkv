@@ -1,0 +1,5 @@
+E:/CppProject/dataStruct2023/LSMkv/cmake-build-debug-coverage/CMakeFiles/LSMkv_persist.dir
+E:/CppProject/dataStruct2023/LSMkv/cmake-build-debug-coverage/CMakeFiles/LSMkv_correct.dir
+E:/CppProject/dataStruct2023/LSMkv/cmake-build-debug-coverage/CMakeFiles/LSMkv_main.dir
+E:/CppProject/dataStruct2023/LSMkv/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+E:/CppProject/dataStruct2023/LSMkv/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
