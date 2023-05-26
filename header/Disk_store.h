@@ -26,6 +26,7 @@ struct DiskLevel {
         sstable_num++;
         return Serial++;
     }
+    void choose_sstables(vector<SSTable*> &sstable_list, uint64_t min_key, uint64_t max_key);
 private:
     uint64_t Serial;
 
@@ -36,6 +37,7 @@ class DiskStore {
     uint32_t level_num;
     vector<DiskLevel*> level_list;
     string read_file(const string& file_name, uint32_t offset, uint32_t len)const;
+    bool check_level_overflow(uint32_t level)const;
 public:
     DiskStore(const string &config_dir);
     ~DiskStore() { }
@@ -44,11 +46,10 @@ public:
     }
     void add_level( DiskLevel::LEVEL_MODE mode);
     uint64_t add_sstable(SSTable* sstable, uint32_t level);
-    void put(uint64_t key, const std::string &s);
     std::string get(const uint64_t key)const;
-    bool del(uint64_t key);
-    void reset();
-    void scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list);
+
+    void compaction(uint32_t dump_to_level, const string & dir);
 };
 
 #endif //LSMKV_DISK_STORE_H
+

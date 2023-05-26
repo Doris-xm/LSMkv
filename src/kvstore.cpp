@@ -99,7 +99,7 @@ void KVStore::reset()
     delete memtable;
     delete disk_store;
     memtable = new SkipList();
-    disk_store = new DiskStore();
+    disk_store = new DiskStore((string)CONFIG_DIR);
     timestamp = 1;
 }
 
@@ -110,25 +110,12 @@ void KVStore::reset()
  */
 void KVStore::scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list)
 {
+    // 先去memtable中找
     memtable->scan(key1, key2, list);
+    //TODO: 去磁盘中找
 }
 
-void KVStore::write_to_L0() {
-//    string directory = string(DATA_PATH )+string(FILE_PREFIX) + "0";
-//    string filename = directory + '/' + to_string(timestamp) + ".sst";
-//    level_size[0] ++;
-//    timestamp++;
-//
-//    struct stat st{};
-//    int rc = stat(directory.c_str(), &st); // 使用 c_str() 将 string 转换为字符数组类型char*
-//    if ( !(rc == 0 && S_ISDIR(st.st_mode))) {
-//        // 目录不存在
-////        mkdir(directory.c_str());
-//    }
-//
-//    ss_table->store(filename, timestamp);
 
-}
 /*
  * @brief:扫描目录，将文件加载到内存中
  * */
@@ -175,4 +162,20 @@ void KVStore::dump() {
     // 清空memtable
     delete memtable;
     memtable = new SkipList();
+}
+
+/*
+ *
+ * @param dump_to_level: dump的目标层
+ * */
+void KVStore::compaction(uint32_t dump_to_level) {
+    if(dump_to_level <= 0 || dump_to_level > disk_store->get_level_num()) { // 错误情况
+        return;
+    }
+
+    // 创建目录前缀，让disk解决compaction
+    string directory = string(DATA_PATH )+string(FILE_PREFIX);
+    disk_store->compaction(dump_to_level, directory);
+
+
 }

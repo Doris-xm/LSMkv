@@ -1,5 +1,7 @@
 #include "../header/Disk_store.h"
 #include <iostream>
+#include <numeric>
+#include <algorithm>
 
 DiskStore::DiskStore(const string &config_dir) {
     ifstream in(config_dir, std::ios::in);
@@ -134,4 +136,113 @@ string DiskStore::read_file(const string &file_name, uint32_t offset, uint32_t l
     in.close();
     delete[]tmp;
     return res;
+}
+/*
+ * @brief: 检查level是否溢出
+ * @return: true: 溢出
+ *         false: 未溢出（正好等于max_num）
+ * */
+bool DiskStore::check_level_overflow(uint32_t level)const {
+    if(level >= level_num)
+        return false;
+    if(level_list[level]->max_num < level_list[level]->sstable_num)
+        return true;
+    return false;
+}
+
+void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
+    // 递归终止条件：上一层文件数小于max_size，不需要dump to 下一层
+    if( ! check_level_overflow(dump_to_level - 1))
+        return;
+
+    // 创建目录,检验是否是最后一行
+    string directory = dir_prefix + to_string(dump_to_level);
+    if(!utils::dirExists(directory)) {
+        utils::mkdir(directory.c_str());
+    }
+    bool is_end = false;
+    if(dump_to_level == level_num) {
+        add_level(DiskLevel::LEVELING);
+        is_end = true;
+    }
+
+    // SSTable 选取,同时记录要被删除的文件
+    vector<SSTable*> last_level_chosen;
+    vector<SSTable*> this_level_chosen;
+
+    //从dump_to_level - 1层中选取
+    //若 Level x 层为 Tiering，则该层所有文件被选取
+    if(level_list[dump_to_level - 1]->mode == DiskLevel::TIERING)
+        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,-1,-1);
+    else
+        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0);
+
+    //遍历last_level_chosen中的文件，检查最大时间戳和键值范围
+    uint64_t latest_timestamp = 0, min_key = -1, max_key = -1;
+    for(SSTable* sstable: last_level_chosen) {
+        if(sstable->get_time_stamp() > latest_timestamp)
+            latest_timestamp = sstable->get_time_stamp();
+        if(min_key == -1 || sstable->get_min_key() < min_key)
+            min_key = sstable->get_min_key();
+        if(max_key == -1 || sstable->get_max_key() > max_key)
+            max_key = sstable->get_max_key();
+    }
+
+    //从dump_to_level层中选取
+    if(level_list[dump_to_level]->mode == DiskLevel::LEVELING) {
+        level_list[dump_to_level]->choose_sstables(this_level_chosen, min_key, max_key);
+        for(SSTable* sstable: this_level_chosen) {
+            if(sstable->get_time_stamp() > latest_timestamp)
+                latest_timestamp = sstable->get_time_stamp();
+        }
+    }
+
+}
+/*
+ * @brief: 每一层的结构DiskLevel按规则选择sstable
+ * @param: sstable_list 返回的sstable列表
+ * @param: min_key: 最小key，如果为-1，则选择全部
+ * @param: max_key: 最大key，如果为-1，则选择全部
+ *                  最大key，如果为0,表示选择时间戳最小(时间戳相等选择键最小)的多余文件
+ * */
+void DiskLevel::choose_sstables(vector<SSTable *> &chosen_list, uint64_t min_key, uint64_t max_key) {
+    if(max_key < 0) { //选择全部
+        for(SSTable* sstable: sstable_list) {
+            chosen_list.push_back(sstable);
+        }
+        sstable_list.clear(); //这一行清空但是不释放内存
+        sstable_num = 0;
+        return;
+    }
+    if(max_key == 0) {
+        //选择时间戳最小(时间戳相等选择键最小)的多余文件
+        //按照时间戳排序
+        vector<uint64_t> indices(sstable_num);// 用于记录sstable_list下标的 vector
+        iota(indices.begin(), indices.end(), 0); // 初始化
+        // 按照时间戳从小到大排序，时间戳相等按照键从小到大排序
+        sort(indices.begin(), indices.end(), [&](uint64_t i1, uint64_t i2) {
+            if(sstable_list[i1]->get_time_stamp() == sstable_list[i2]->get_time_stamp())
+                return sstable_list[i1]->get_total_num() < sstable_list[i2]->get_total_num();
+            return sstable_list[i1]->get_time_stamp() < sstable_list[i2]->get_time_stamp();
+        });
+
+        // 选择多余的文件,indices中的前select_num个（下标）
+        uint64_t select_num = sstable_num - max_num;
+        for(uint64_t i = 0; i < select_num; ++i) {
+            chosen_list.push_back(sstable_list[indices[i]]);
+            sstable_list.erase(sstable_list.begin() + (int)indices[i]);
+            --sstable_num;
+        }
+        return;
+    }
+    uint64_t origin_size = sstable_num;
+    for(uint64_t i = 0; i < origin_size; ++i) {
+        SSTable* sstable = sstable_list[i];
+        if(sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) //不在范围内
+            continue;
+        chosen_list.push_back(sstable);
+        sstable_list.erase(sstable_list.begin() + (int)i);
+        --sstable_num;
+    }
+
 }

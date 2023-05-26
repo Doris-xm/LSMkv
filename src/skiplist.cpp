@@ -104,10 +104,10 @@ std::string SkipList::search(uint64_t key) {
     return "";
 }
 
-void SkipList::scan(uint64_t key1, uint64_t key2, list<std::pair<uint64_t, std::string>> &list) {
+bool SkipList::scan(uint64_t key1, uint64_t key2, list<std::pair<uint64_t, std::string>> &list) {
     for(int i = key1; i <= key2; ++i) {
-        std::string tmp = search(i);
-        if(tmp != "")
+        string tmp = search(i);
+        if( ! tmp.empty())
             list.emplace_back(std::make_pair(i, tmp));
     }
 }

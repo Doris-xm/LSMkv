@@ -40,7 +40,7 @@ public:
     bool insert(uint64_t key, const std::string &s);
     bool del(uint64_t key);
     std::string search(uint64_t key);
-    void scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list);
+    bool scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list);
     node* get_head() { return head; }
     node* get_tail() { return tail; }
     unsigned int get_key_num() const { return key_num; }

@@ -78,6 +78,7 @@ class SSTable {
     vector<Indexer> index_area;
     vector<string> data_area; //dump的时候暂存数据
     uint64_t Serial; //序列号,用于区分同一时间戳的SSTable（文件命名）
+
 public:
     SSTable();
     ~SSTable();
@@ -92,6 +93,9 @@ public:
     }
     uint64_t get_max_key() const {
         return header->max_key;
+    }
+    uint64_t get_total_num() const {
+        return header->total_num;
     }
     void save_file(const string &file_name);
     void set_serial(const uint64_t serial) {

@@ -3,7 +3,6 @@
 //SSTable
 
 SSTable::SSTable(SkipList *skip_list, const uint64_t time_stamp) {
-    node* skip_header = skip_list->get_head();
     // create buff_table_global_info
     bloom_filter = new BloomFilter();
     header = new Header(time_stamp,
