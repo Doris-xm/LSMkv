@@ -2,6 +2,7 @@
 #include <iostream>
 #include <numeric>
 #include <algorithm>
+#include "queue"
 
 DiskStore::DiskStore(const string &config_dir) {
     ifstream in(config_dir, std::ios::in);
@@ -117,11 +118,18 @@ std::string DiskStore::get(const uint64_t key) const{
     return res;
 }
 
+/*
+ * @brief: 从文件中读取某个数据
+ * @param: file_name: 文件名
+ * @param: offset: 从文件的第offset个字节开始读
+ * @param: len: 读取的长度，如果为-1说明读到文件尾
+ * @return: 读取的数据
+ * */
 string DiskStore::read_file(const string &file_name, uint32_t offset, uint32_t len) const {
     fstream in;
     in.open(file_name, std::ios_base::binary | std::ios_base::in);
     in.seekg(offset, std::ios::beg); //定位到文件的第offset个字节
-    std::streampos start = in.tellg(); //获取当前位置
+    streampos start = in.tellg(); //获取当前位置
     if (len < 0) {
         in.seekg(0, std::ios::end); //定位到文件末尾
         std::streampos end = in.tellg(); //获取当前位置
@@ -197,7 +205,93 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
         }
     }
 
+    //把选中的文件读入内存
+    queue< vector< pair<uint64_t, string> > > data_all;
+    for(SSTable* sstable: last_level_chosen) {
+        vector< pair<uint64_t, string> > data;
+        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+        sstable->read_to_mem(filename,data);
+        data_all.push(data);
+    }
+    for(SSTable* sstable: this_level_chosen) {
+        vector< pair<uint64_t, string> > data;
+        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+        sstable->read_to_mem(filename,data);
+        data_all.push(data);
+    }
+
+    //两两归并
+    while( data_all.size() > 1) {
+        vector< pair<uint64_t, string> > data1 = data_all.front();
+        data_all.pop();
+        vector< pair<uint64_t, string> > data2 = data_all.front();
+        data_all.pop();
+        vector<pair<uint64_t, string> > date_sorted;
+        mergeSort(data1, data2, date_sorted);
+        data_all.push(date_sorted);
+    }
+
+    //得到一个大的有序数组data_sorted
+    vector<pair<uint64_t, string> > date_sorted = data_all.front();
+    data_all.pop();
+
+    //创建新的SSTable
+    uint64_t len_all = date_sorted.size();
+    uint64_t size = 10272;
+    vector<pair<uint64_t, string> > data_dump;
+    for(uint64_t i = 0; i < len_all; ++i) {
+        if(size + date_sorted[i].second.size() + 12 > 2097152) {
+            size = 10272;
+            SSTable* sstable = new SSTable(data_dump, latest_timestamp);
+            uint64_t serial = level_list[dump_to_level]->add_sstable(sstable);
+            string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
+            sstable->save_file(filename);
+            data_dump.clear();
+        }
+        data_dump.push_back(date_sorted[i]);
+        size += date_sorted[i].second.size() + 12;
+    }
+    if(!data_dump.empty()) {
+        SSTable* sstable = new SSTable(data_dump, latest_timestamp);
+        uint64_t serial = level_list[dump_to_level]->add_sstable(sstable);
+        string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
+        sstable->save_file(filename);
+    }
+
+    // 删除之前的文件
+    for(SSTable* sstable: last_level_chosen) {
+        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+        utils::rmfile(filename.data());
+    }
+    for(SSTable* sstable: this_level_chosen) {
+        string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+        utils::rmfile(filename.data());
+    }
+
+    //递归检查下一层
+    compaction(dump_to_level + 1,dir_prefix);
 }
+
+/*
+ * @biref: 两个有序数组归并:从小到大
+ * @param: data_sorted 归并后的数组
+ * */
+void DiskStore::mergeSort(vector<pair<uint64_t, string>> data1, vector<pair<uint64_t, string>> data2,
+                          vector<pair<uint64_t, string>> &data_sorted) {
+    int i = 0, j = 0;
+    int len1 = data1.size(), len2 = data2.size();
+    while(i < len1 && j < len2) {
+        if(data1[i].first < data2[j].first) {
+            data_sorted.push_back(data1[i]);
+            i++;
+        }
+        else {
+            data_sorted.push_back(data2[j]);
+            j++;
+        }
+    }
+}
+
 /*
  * @brief: 每一层的结构DiskLevel按规则选择sstable
  * @param: sstable_list 返回的sstable列表

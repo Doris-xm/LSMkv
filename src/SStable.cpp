@@ -22,6 +22,20 @@ SSTable::SSTable(SkipList *skip_list, const uint64_t time_stamp) {
     }
 }
 
+SSTable::SSTable(const vector<pair<uint64_t,string>>& data, const uint64_t time_stamp) {
+    bloom_filter = new BloomFilter();
+    uint64_t key_num = data.size(), max_key = data[key_num - 1].first, min_key = data[0].first;
+    header = new Header(time_stamp, key_num, max_key, min_key);
+    uint32_t offset = 32 + 10240 + header->total_num * 12; // 32: header size, 10240: bloom_filter size, 12 = 8+4: index_area size
+    for (auto iter : data) {
+        Indexer indexer(iter.first, offset);
+        index_area.emplace_back(indexer);
+        bloom_filter->insert(iter.first);
+        data_area.emplace_back(iter.second);
+        offset += iter.second.size();
+    }
+}
+
 SSTable::~SSTable() {
     delete header;
     delete bloom_filter;
@@ -130,6 +144,38 @@ SSTable::SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial) {
     in.close();
     header->time_stamp = time_stamp;
     Serial = serial;
+}
+/*
+ * @brief:将SSTable中的数据区读取到内存中
+ * @param:file_path:文件路径
+ * @param:返回一个包含键值对的vector:data
+ * */
+void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data) {
+    ifstream in(file_path, ios_base::binary | ios_base::in);
+     if (!in.is_open()) {
+        cout << "open file error: "<<file_path << endl;
+        return;
+    }
+    in.seekg(index_area[0].offset, ios_base::beg);
+    uint32_t len;
+
+    for (int i = 0; i < header->total_num - 1; ++i) {
+        len = index_area[i + 1].offset - index_area[i].offset;
+        char *value = new char[len + 1];
+        in.read((char*)&value, len);
+        value[len] = '\0';
+        data.emplace_back(make_pair(index_area[i].key, string(value, len)));
+        delete[] value;
+    }
+    streampos start = in.tellg(); //获取当前位置
+    in.seekg(0, std::ios::end); //定位到文件末尾
+    streampos end = in.tellg(); //获取当前位置
+    len = end - start;
+    char *value = new char[len + 1];
+    in.read((char*)&value, len);
+    value[len] = '\0';
+    data.emplace_back(make_pair(index_area[header->total_num - 1].key, string(value, len)));
+    delete[] value;
 }
 
 

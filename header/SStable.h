@@ -83,6 +83,7 @@ public:
     SSTable();
     ~SSTable();
     SSTable(SkipList *skip_list, uint64_t time_stamp);
+    SSTable(const vector<pair<uint64_t,string>>& data, const uint64_t time_stamp);
     SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial);
     bool get(uint64_t key, uint32_t & offset, uint32_t & size);
     bool find(uint64_t key) const{
@@ -107,6 +108,7 @@ public:
     uint64_t get_time_stamp() const {
         return header->time_stamp;
     }
+    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data);
 
 private:
     int binary_search(uint64_t key) const;
