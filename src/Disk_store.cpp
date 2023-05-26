@@ -1,3 +1,4 @@
+
 #include "../header/Disk_store.h"
 #include <iostream>
 #include <numeric>
@@ -96,7 +97,7 @@ uint64_t DiskStore::add_sstable(SSTable* sstable, uint32_t level) {
     return serial;
 }
 
-std::string DiskStore::get(const uint64_t key) const{
+std::string DiskStore::get(const uint64_t key,const string & dir_prefix) const{
     string res = "";
     uint64_t timestamp = -1;
     for(int i = 0; i < level_num; i++) {
@@ -109,7 +110,7 @@ std::string DiskStore::get(const uint64_t key) const{
             if( sstable->get(key,offset,len)) {
                 timestamp = sstable->get_time_stamp();
                 //读取文件
-                string directory = string(DATA_PATH )+string(FILE_PREFIX) + to_string(i);
+                string directory = dir_prefix + to_string(i);
                 string file = directory + '/' +  to_string(timestamp) + '-' + to_string(sstable->get_serial()) + ".sst";
                 res = read_file(file,offset,len);
             }
@@ -210,13 +211,13 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
     for(SSTable* sstable: last_level_chosen) {
         vector< pair<uint64_t, string> > data;
         string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
-        sstable->read_to_mem(filename,data);
+        sstable->read_to_mem(filename,data,is_end);
         data_all.push(data);
     }
     for(SSTable* sstable: this_level_chosen) {
         vector< pair<uint64_t, string> > data;
         string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
-        sstable->read_to_mem(filename,data);
+        sstable->read_to_mem(filename,data,is_end);
         data_all.push(data);
     }
 

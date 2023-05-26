@@ -105,11 +105,13 @@ std::string SkipList::search(uint64_t key) {
 }
 
 bool SkipList::scan(uint64_t key1, uint64_t key2, list<std::pair<uint64_t, std::string>> &list) {
+    if(key1 > max_key || key2 < min_key) return false;
     for(int i = key1; i <= key2; ++i) {
         string tmp = search(i);
         if( ! tmp.empty())
             list.emplace_back(std::make_pair(i, tmp));
     }
+    return true;
 }
 
 bool SkipList::del(uint64_t key) {

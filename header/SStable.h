@@ -1,25 +1,14 @@
-#ifndef LSMKV__SSTABLE_H_
-#define LSMKV__SSTABLE_H_
 #pragma once
-#include <cstdio>
-#include <vector>
-#include <fstream>
-#include <bitset>
-#include <string>
-#include "SkipList.h"
+
+#include "skiplist.h"
 #include "utils.h"
 #include "MurmurHash3.h"
-#include "kvstore.h"
+#include "Constant.h"
+#include <bitset>
 
-//void dump_info(const std::string &file_name, const BuffTable &buff_table, const DataZone &data_zone);
-//void split_file_name(const std::string &file,
-//                     uint64_t &n_time_stamp,
-//                     uint64_t &n_tag);
-//void split_file_path(const std::string &file_path, uint64_t &level, uint64_t &time_stamp, uint64_t &tag);
-
-const uint32_t BLOOM_SIZE = 81920;
-const uint64_t HEADER_BYTE_SIZE = 10272;
-const uint64_t OVERFLOW_SIZE = 2097152;
+//const uint32_t BLOOM_SIZE = 81920;
+//const uint64_t HEADER_BYTE_SIZE = 10272;
+//const uint64_t TWO_MB = 2097152;
 
 
 
@@ -108,7 +97,7 @@ public:
     uint64_t get_time_stamp() const {
         return header->time_stamp;
     }
-    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data);
+    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end);
 
 private:
     int binary_search(uint64_t key) const;
@@ -116,5 +105,3 @@ private:
 //    string make_file_name();
 
 };
-
-#endif //LSMKV__SSTABLE_H_

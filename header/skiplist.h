@@ -1,13 +1,9 @@
 #pragma once
 
-#include <vector>
-#include <climits>
-#include <fstream>
-#include <bitset>
-#include <list>
 #include "MurmurHash3.h"
+#include "Constant.h"
 using namespace std;
-#define CAPACITY 2097152
+
 
 
 struct node{
@@ -33,8 +29,6 @@ private:
     void clear(node *&h);
 
 public:
-    std::bitset<81920> bits;
-
     SkipList();
     ~SkipList();
     bool insert(uint64_t key, const std::string &s);

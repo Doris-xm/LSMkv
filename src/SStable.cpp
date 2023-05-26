@@ -149,8 +149,9 @@ SSTable::SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial) {
  * @brief:将SSTable中的数据区读取到内存中
  * @param:file_path:文件路径
  * @param:返回一个包含键值对的vector:data
+ * @param:is_end:是否是最后一行，最后一行需要删除所有的~DELETE~标记
  * */
-void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data) {
+void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end) {
     ifstream in(file_path, ios_base::binary | ios_base::in);
      if (!in.is_open()) {
         cout << "open file error: "<<file_path << endl;
@@ -164,7 +165,8 @@ void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string>
         char *value = new char[len + 1];
         in.read((char*)&value, len);
         value[len] = '\0';
-        data.emplace_back(make_pair(index_area[i].key, string(value, len)));
+        if(!is_end || strcasecmp(value, "~DELETE~") != 0)
+            data.emplace_back(make_pair(index_area[i].key, string(value, len)));
         delete[] value;
     }
     streampos start = in.tellg(); //获取当前位置
@@ -174,7 +176,8 @@ void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string>
     char *value = new char[len + 1];
     in.read((char*)&value, len);
     value[len] = '\0';
-    data.emplace_back(make_pair(index_area[header->total_num - 1].key, string(value, len)));
+    if(!is_end || strcasecmp(value, "~DELETE~") != 0)
+        data.emplace_back(make_pair(index_area[header->total_num - 1].key, string(value, len)));
     delete[] value;
 }
 

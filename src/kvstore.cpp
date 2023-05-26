@@ -51,8 +51,10 @@ std::string KVStore::get(uint64_t key)
         return "";
 
     //不在memtable中
-    if(res.empty())
-        res = disk_store->get(key);
+    if(res.empty()) {
+        string directory = string(DATA_PATH )+string(FILE_PREFIX);
+        res = disk_store->get(key,directory);
+    }
     if(res == (string)DELETE_VAL)
         return "";
     return res;
@@ -176,6 +178,5 @@ void KVStore::compaction(uint32_t dump_to_level) {
     // 创建目录前缀，让disk解决compaction
     string directory = string(DATA_PATH )+string(FILE_PREFIX);
     disk_store->compaction(dump_to_level, directory);
-
 
 }
