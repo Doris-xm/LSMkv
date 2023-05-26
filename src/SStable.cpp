@@ -102,5 +102,36 @@ int SSTable::binary_search(const uint64_t key) const {
     return -1; // 没有找到指定的 key 值
 }
 
+SSTable::SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial) {
+    ifstream in(file_path, ios_base::binary | ios_base::in);
+    if (!in.is_open()) {
+        cout << "open file error: "<<file_path << endl;
+        return;
+    }
+    // read header
+    header = new Header();
+    in.read((char*)header->time_stamp, 8);
+    in.read((char*)header->total_num, 8);
+    in.read((char*)header->min_key, 8);
+    in.read((char*)header->max_key, 8);
+
+    // read bloom_filter
+    bitset<BLOOM_SIZE> filter;
+    in.read((char *)(&filter), sizeof(filter));
+    bloom_filter = new BloomFilter(filter);
+
+    // read index_area
+    for (int i = 0; i < header->total_num; ++i) {
+        Indexer indexer;
+        in.read((char*)&indexer.key, 8);
+        in.read((char*)&indexer.offset, 4);
+        index_area.emplace_back(indexer);
+    }
+
+    in.close();
+    header->time_stamp = time_stamp;
+    Serial = serial;
+}
+
 
 

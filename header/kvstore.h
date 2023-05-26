@@ -3,10 +3,11 @@
 #include "kvstore_api.h"
 #include "skiplist.h"
 #include "Disk_store.h"
-#define DATA_PATH "../data/"
-#define FILE_PREFIX "level-"
-#define DELETE_VAL "~DELETED~"
 
+#define DELETE_VAL "~DELETED~"
+#define CONFIG_DIR "../config/config.txt"
+extern string DATA_PATH;
+extern string FILE_PREFIX;
 /*
  * @brief KVStore
  * @details 对外接口的实现，控制time stamp的更新
@@ -21,7 +22,7 @@ private:
     DiskStore* disk_store;
 
 public:
-    KVStore(const std::string &dir);
+    KVStore(const std::string &dir = "../data");
 
     ~KVStore();
 

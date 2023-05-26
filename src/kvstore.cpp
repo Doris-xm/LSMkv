@@ -2,12 +2,16 @@
 #include "../header/utils.h"
 #include <string>
 #include <sys/stat.h>
-
-KVStore::KVStore(const std::string &dir): KVStoreAPI(dir)
+string DATA_PATH = "";
+string FILE_PREFIX = "";
+KVStore::KVStore(const std::string &dir ): KVStoreAPI(dir)
 {
     memtable = new SkipList();
-    disk_store = new DiskStore();
-    timestamp = 0;
+    disk_store = new DiskStore((string)CONFIG_DIR);
+    timestamp = 1;
+    DATA_PATH = dir + "/";
+    FILE_PREFIX = dir + "/level-";
+    init();
 }
 
 KVStore::~KVStore()
@@ -49,6 +53,8 @@ std::string KVStore::get(uint64_t key)
     //不在memtable中
     if(res.empty())
         res = disk_store->get(key);
+    if(res == (string)DELETE_VAL)
+        return "";
     return res;
 }
 /**
@@ -57,9 +63,17 @@ std::string KVStore::get(uint64_t key)
  */
 bool KVStore::del(uint64_t key)
 {
+    // 先去memtable删除
+    if (memtable->del(key))
+        return true;
+    // 说明memtable中没有
+    if(disk_store->get_level_num() == 0) // 没有磁盘文件
+        return false;
+    // 去磁盘中找
     if(get(key).empty())
         return false;
-    memtable->insert(key, (string)DELETE_VAL);
+
+    put(key, (string)DELETE_VAL);
     return true;
 }
 
@@ -69,8 +83,24 @@ bool KVStore::del(uint64_t key)
  */
 void KVStore::reset()
 {
+    vector<string> directories;
+    utils::scanDir(DATA_PATH, directories);
+    for (auto &dir : directories) {
+        string dir_path = DATA_PATH + dir;
+        vector<string> files;
+        utils::scanDir(dir_path, files);
+        for (auto &file : files) {
+            string file_path = dir_path + "/" + file;
+            utils::rmfile(file_path.c_str());
+        }
+        utils::rmdir(dir_path.c_str());
+    }
+
     delete memtable;
+    delete disk_store;
     memtable = new SkipList();
+    disk_store = new DiskStore();
+    timestamp = 1;
 }
 
 /**
@@ -99,23 +129,31 @@ void KVStore::write_to_L0() {
 //    ss_table->store(filename, timestamp);
 
 }
+/*
+ * @brief:扫描目录，将文件加载到内存中
+ * */
 void KVStore::init() {
-//    std::fstream config;
-//    config.open(CONFIG_PATH, std::ios::in);
-//    std::istringstream iss;
-//    uint64_t level = 0, num = 0;
-//    std::string info, mode;
-//    MODE m;
-//    while (std::getline(config, info)) {
-//        iss.clear();
-//        iss.str(info);
-//        iss >> level >> num >> mode;
-//        if (mode == "Tiering") m = TIERING;
-//        else m = LEVELING;
-//        config_[level] = std::make_pair(num, m);
-//    }
-//    config.close();
+    vector<string> directories;
+    utils::scanDir(DATA_PATH, directories);
+    for (auto &dir : directories) {
+        string dir_path = DATA_PATH + dir;
+        vector<string> files;
+        utils::scanDir(dir_path, files);
+        for (auto &file : files) {
+            string file_path = dir_path + "/" + file;
+            uint32_t level;
+            sscanf(dir.c_str(), "level-%u", &level);
+            uint64_t time_stamp, serial;
+            sscanf(file.c_str(), "%lu-%lu.sst",&time_stamp, &serial);
+            SSTable* ssTable = new SSTable(file_path, time_stamp, serial);
+            disk_store->add_sstable(ssTable, level);
+        }
+    }
 }
+
+/*
+ * file_name: timestamp-serial.sst
+ * */
 void KVStore::dump() {
     string directory = string(DATA_PATH )+string(FILE_PREFIX) + "0";
     if (!utils::dirExists(directory)) {
@@ -125,12 +163,12 @@ void KVStore::dump() {
             disk_store->add_level(DiskLevel::TIERING);
         }
     }
-    SSTable ss_table(memtable, timestamp);
+    SSTable *ss_table = new SSTable(memtable, timestamp);
     uint64_t serial =  disk_store->add_sstable(ss_table, 0);
     if(serial >= 0) {
         // 保存成文件
         string file = directory + '/' +  to_string(timestamp) + '-' + to_string(serial) + ".sst";
-        ss_table.save_file(file);
+        ss_table->save_file(file);
     }
     timestamp++;
 

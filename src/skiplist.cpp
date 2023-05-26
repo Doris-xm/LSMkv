@@ -112,6 +112,10 @@ void SkipList::scan(uint64_t key1, uint64_t key2, list<std::pair<uint64_t, std::
     }
 }
 
+bool SkipList::del(uint64_t key) {
+    return false;
+}
+
 //void SkipList::store(const string &path, const uint64_t timestamp) {
 //    ofstream out(path, ios::binary | ios::app);
 //

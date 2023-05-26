@@ -31,6 +31,10 @@ public:
         for(int i = 0;i < BLOOM_SIZE; ++i)
             Bit[i] = 0;
     }
+    BloomFilter( bitset<BLOOM_SIZE> &bit) {
+        for(int i = 0;i < BLOOM_SIZE; ++i)
+            Bit[i] = bit[i];
+    }
     ~BloomFilter() {}
     void insert(uint64_t key) {
         unsigned int hash[4] = {0};
@@ -65,19 +69,20 @@ struct Header {
 struct Indexer {
     uint64_t key;
     uint32_t offset;
-    Indexer() = default;
+    Indexer() { };
     Indexer(uint64_t k, uint32_t o): key(k), offset(o) {}
 };
 class SSTable {
     Header* header;
     BloomFilter* bloom_filter;
     vector<Indexer> index_area;
-    vector<string> data_area;
+    vector<string> data_area; //dump的时候暂存数据
     uint64_t Serial; //序列号,用于区分同一时间戳的SSTable（文件命名）
 public:
     SSTable();
     ~SSTable();
     SSTable(SkipList *skip_list, uint64_t time_stamp);
+    SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial);
     bool get(uint64_t key, uint32_t & offset, uint32_t & size);
     bool find(uint64_t key) const{
         return bloom_filter->find(key);
