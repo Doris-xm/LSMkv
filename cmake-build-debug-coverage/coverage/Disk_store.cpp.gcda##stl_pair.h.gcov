@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_pair.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcda
         -:    0:Runs:1
         -:    1:// Pair implementation -*- C++ -*-
         -:    2:
@@ -319,10 +319,20 @@ function _ZNSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS
     #####:  314:      constexpr pair(const pair&) = default;	///< Copy constructor
     %%%%%:  314-block  0
 call    0 never executed
+       4*:  315:      constexpr pair(pair&&) = default;		///< Move constructor
+------------------
+_ZNSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EOS6_:
 function _ZNSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EOS6_ called 0 returned 0% blocks executed 0%
     #####:  315:      constexpr pair(pair&&) = default;		///< Move constructor
     %%%%%:  315-block  0
 call    0 never executed
+------------------
+_ZNSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEC1EOSA_:
+function _ZNSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEC1EOSA_ called 4 returned 100% blocks executed 100%
+        4:  315:      constexpr pair(pair&&) = default;		///< Move constructor
+        4:  315-block  0
+call    0 returned 4
+------------------
         -:  316:
         -:  317:      // DR 811.
         -:  318:      template<typename _U1, typename
@@ -359,16 +369,34 @@ call    0 never executed
         -:  349:			  && _PCCP::template
         -:  350:			   _ImplicitlyMoveConvertiblePair<_U1, _U2>(),
         -:  351:                         bool>::type=true>
-      15*:  352:	constexpr pair(_U1&& __x, _U2&& __y)
-      15*:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+      14*:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+      14*:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+------------------
+_ZNSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEyEC1IRS9_RyLb1EEEOT_OT0_:
+function _ZNSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEyEC1IRS9_RyLb1EEEOT_OT0_ called 1 returned 100% blocks executed 100%
+        1:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+        1:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+        1:  353-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+------------------
+_ZNSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEyEC1IRS9_yLb1EEEOT_OT0_:
+function _ZNSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEyEC1IRS9_yLb1EEEOT_OT0_ called 3 returned 100% blocks executed 100%
+        3:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+        3:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+        3:  353-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
 ------------------
 _ZNSt4pairIiN9DiskLevel10LEVEL_MODEEEC1IRiRS1_Lb1EEEOT_OT0_:
-function _ZNSt4pairIiN9DiskLevel10LEVEL_MODEEEC1IRiRS1_Lb1EEEOT_OT0_ called 15 returned 100% blocks executed 100%
-       15:  352:	constexpr pair(_U1&& __x, _U2&& __y)
-       15:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
-       15:  353-block  0
-call    0 returned 15
-call    1 returned 15
+function _ZNSt4pairIiN9DiskLevel10LEVEL_MODEEEC1IRiRS1_Lb1EEEOT_OT0_ called 10 returned 100% blocks executed 100%
+       10:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+       10:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+       10:  353-block  0
+call    0 returned 10
+call    1 returned 10
 ------------------
 _ZNSt4pairIiN9DiskLevel10LEVEL_MODEEEC1IiS1_Lb1EEEOT_OT0_:
 function _ZNSt4pairIiN9DiskLevel10LEVEL_MODEEEC1IiS1_Lb1EEEOT_OT0_ called 0 returned 0% blocks executed 0%
@@ -395,13 +423,29 @@ call    1 never executed
         -:  368:			  && _PCCFP<_U1, _U2>::template
         -:  369:			   _ImplicitlyMoveConvertiblePair<_U1, _U2>(),
         -:  370:                         bool>::type=true>
-function _ZNSt4pairIjN9DiskLevel10LEVEL_MODEEEC1IiS1_Lb1EEEOS_IT_T0_E called 15 returned 100% blocks executed 100%
-       15:  371:	constexpr pair(pair<_U1, _U2>&& __p)
-       15:  372:	: first(std::forward<_U1>(__p.first)),
-       15:  372-block  0
-call    0 returned 15
-       15:  373:	  second(std::forward<_U2>(__p.second)) { }
-call    0 returned 15
+       14:  371:	constexpr pair(pair<_U1, _U2>&& __p)
+       14:  372:	: first(std::forward<_U1>(__p.first)),
+       14:  373:	  second(std::forward<_U2>(__p.second)) { }
+------------------
+_ZNSt4pairIjN9DiskLevel10LEVEL_MODEEEC1IiS1_Lb1EEEOS_IT_T0_E:
+function _ZNSt4pairIjN9DiskLevel10LEVEL_MODEEEC1IiS1_Lb1EEEOS_IT_T0_E called 10 returned 100% blocks executed 100%
+       10:  371:	constexpr pair(pair<_U1, _U2>&& __p)
+       10:  372:	: first(std::forward<_U1>(__p.first)),
+       10:  372-block  0
+call    0 returned 10
+       10:  373:	  second(std::forward<_U2>(__p.second)) { }
+call    0 returned 10
+------------------
+_ZNSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEC1IS9_yLb1EEEOS_IT_T0_E:
+function _ZNSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEC1IS9_yLb1EEEOS_IT_T0_E called 4 returned 100% blocks executed 100%
+        4:  371:	constexpr pair(pair<_U1, _U2>&& __p)
+        4:  372:	: first(std::forward<_U1>(__p.first)),
+        4:  372-block  0
+call    0 returned 4
+call    1 returned 4
+        4:  373:	  second(std::forward<_U2>(__p.second)) { }
+call    0 returned 4
+------------------
         -:  374:
         -:  375:      template<typename _U1, typename _U2, typename
         -:  376:	       enable_if<_PCCFP<_U1, _U2>::template
@@ -595,12 +639,12 @@ call    0 returned 15
         -:  564:  template<typename _T1, typename _T2>
         -:  565:    constexpr pair<typename __decay_and_strip<_T1>::__type,
         -:  566:                   typename __decay_and_strip<_T2>::__type>
-      15*:  567:    make_pair(_T1&& __x, _T2&& __y)
+      14*:  567:    make_pair(_T1&& __x, _T2&& __y)
         -:  568:    {
         -:  569:      typedef typename __decay_and_strip<_T1>::__type __ds_type1;
         -:  570:      typedef typename __decay_and_strip<_T2>::__type __ds_type2;
         -:  571:      typedef pair<__ds_type1, __ds_type2> 	      __pair_type;
-      15*:  572:      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y));
+      14*:  572:      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y));
         -:  573:    }
         -:  574:#else
         -:  575:  template<typename _T1, typename _T2>

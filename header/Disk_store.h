@@ -40,11 +40,13 @@ class DiskStore {
 public://TODO
     string read_file(const string& file_name, uint32_t offset, int len)const;
     bool check_level_overflow(uint32_t level)const;
-    void mergeSort(vector<pair<uint64_t,string>> data1, vector<pair<uint64_t,string>> data2, vector<pair<uint64_t,string>> &data_sorted);
+    void mergeSort(vector<pair<uint64_t,string>> data1, vector<pair<uint64_t,string>> data2,
+                   uint64_t time_stamp1, uint64_t time_stamp2,
+                   vector<pair<uint64_t,string>> &data_sorted,bool is_end);
 public:
     DiskStore(const string &config_dir);
     DiskStore(){}
-    ~DiskStore() { }
+    ~DiskStore() ;
     uint32_t get_level_num()const {
         return level_num;
     }

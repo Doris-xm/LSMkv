@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcda
         -:    0:Runs:1
         -:    1:// Core algorithmic facilities -*- C++ -*-
         -:    2:
@@ -231,20 +231,20 @@
         -:  227:  template<typename _Tp>
         -:  228:    _GLIBCXX14_CONSTEXPR
         -:  229:    inline const _Tp&
-function _ZSt3minIyERKT_S2_S2_ called 55554 returned 100% blocks executed 75%
-    55554:  230:    min(const _Tp& __a, const _Tp& __b)
+function _ZSt3minIyERKT_S2_S2_ called 16102 returned 100% blocks executed 75%
+    16102:  230:    min(const _Tp& __a, const _Tp& __b)
         -:  231:    {
         -:  232:      // concept requirements
         -:  233:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
         -:  234:      //return __b < __a ? __b : __a;
-    55554:  235:      if (__b < __a)
-    55554:  235-block  0
+    16102:  235:      if (__b < __a)
+    16102:  235-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 55554
+branch  1 taken 16102
     #####:  236:	return __b;
     %%%%%:  236-block  0
-    55554:  237:      return __a;
-    55554:  237-block  0
+    16102:  237:      return __a;
+    16102:  237-block  0
         -:  238:    }
         -:  239:
         -:  240:  /**
@@ -261,20 +261,20 @@ branch  1 taken 55554
         -:  251:  template<typename _Tp>
         -:  252:    _GLIBCXX14_CONSTEXPR
         -:  253:    inline const _Tp&
-function _ZSt3maxIyERKT_S2_S2_ called 27785 returned 100% blocks executed 100%
-    27785:  254:    max(const _Tp& __a, const _Tp& __b)
+function _ZSt3maxIyERKT_S2_S2_ called 8052 returned 100% blocks executed 100%
+     8052:  254:    max(const _Tp& __a, const _Tp& __b)
         -:  255:    {
         -:  256:      // concept requirements
         -:  257:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
         -:  258:      //return  __a < __b ? __b : __a;
-    27785:  259:      if (__a < __b)
-    27785:  259-block  0
-branch  0 taken 17117 (fallthrough)
-branch  1 taken 10668
-    17117:  260:	return __b;
-    17117:  260-block  0
-    10668:  261:      return __a;
-    10668:  261-block  0
+     8052:  259:      if (__a < __b)
+     8052:  259-block  0
+branch  0 taken 5199 (fallthrough)
+branch  1 taken 2853
+     5199:  260:	return __b;
+     5199:  260-block  0
+     2853:  261:      return __a;
+     2853:  261-block  0
         -:  262:    }
         -:  263:
         -:  264:  /**
@@ -326,11 +326,11 @@ branch  1 taken 10668
         -:  310:  template<typename _Iterator>
         -:  311:    _GLIBCXX20_CONSTEXPR
         -:  312:    inline _Iterator
-function _ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_ called 3474 returned 100% blocks executed 100%
-     3474:  313:    __niter_base(_Iterator __it)
+function _ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_ called 258 returned 100% blocks executed 100%
+      258:  313:    __niter_base(_Iterator __it)
         -:  314:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-     3474:  315:    { return __it; }
-     3474:  315-block  0
+      258:  315:    { return __it; }
+      258:  315-block  0
         -:  316:
         -:  317:  template<typename _Ite, typename _Seq>
         -:  318:    _Ite

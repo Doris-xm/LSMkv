@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocator.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcda
         -:    0:Runs:1
         -:    1:// Allocators -*- C++ -*-
         -:    2:
@@ -169,10 +169,10 @@
         -:  165:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  166:      // 3035. std::allocator's constructors should be constexpr
         -:  167:      _GLIBCXX20_CONSTEXPR
-function _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev called 125 returned 100% blocks executed 100%
-      125:  168:      allocator() _GLIBCXX_NOTHROW { }
-      125:  168-block  0
-call    0 returned 125
+function _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev called 12 returned 100% blocks executed 100%
+       12:  168:      allocator() _GLIBCXX_NOTHROW { }
+       12:  168-block  0
+call    0 returned 12
         -:  169:
         -:  170:      _GLIBCXX20_CONSTEXPR
         -:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
@@ -190,26 +190,10 @@ call    0 returned 125
         -:  183:#if __cpp_constexpr_dynamic_alloc
         -:  184:      constexpr
         -:  185:#endif
-       74:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-------------------
-_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev:
-function _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev called 68 returned 100% blocks executed 100%
-       68:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-       68:  186-block  0
-call    0 returned 68
-------------------
-_ZNSaIP9DiskLevelED2Ev:
-function _ZNSaIP9DiskLevelED2Ev called 3 returned 100% blocks executed 100%
-        3:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-        3:  186-block  0
-call    0 returned 3
-------------------
-_ZNSaISt4pairIjN9DiskLevel10LEVEL_MODEEEED2Ev:
-function _ZNSaISt4pairIjN9DiskLevel10LEVEL_MODEEEED2Ev called 3 returned 100% blocks executed 100%
-        3:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-        3:  186-block  0
-call    0 returned 3
-------------------
+function _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev called 9 returned 100% blocks executed 100%
+        9:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+        9:  186-block  0
+call    0 returned 9
         -:  187:
         -:  188:#if __cplusplus > 201703L
         -:  189:      [[nodiscard,__gnu__::__always_inline__]]

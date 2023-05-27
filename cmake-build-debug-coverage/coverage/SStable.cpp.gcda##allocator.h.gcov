@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocator.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\SStable.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\SStable.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\SStable.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\SStable.cpp.gcda
         -:    0:Runs:1
         -:    1:// Allocators -*- C++ -*-
         -:    2:
@@ -169,7 +169,7 @@
         -:  165:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  166:      // 3035. std::allocator's constructors should be constexpr
         -:  167:      _GLIBCXX20_CONSTEXPR
-      57*:  168:      allocator() _GLIBCXX_NOTHROW { }
+       3*:  168:      allocator() _GLIBCXX_NOTHROW { }
 ------------------
 _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev:
 function _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev called 0 returned 0% blocks executed 0%
@@ -178,10 +178,10 @@ function _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev called 
 call    0 never executed
 ------------------
 _ZNSaI7IndexerEC2Ev:
-function _ZNSaI7IndexerEC2Ev called 57 returned 100% blocks executed 100%
-       57:  168:      allocator() _GLIBCXX_NOTHROW { }
-       57:  168-block  0
-call    0 returned 57
+function _ZNSaI7IndexerEC2Ev called 3 returned 100% blocks executed 100%
+        3:  168:      allocator() _GLIBCXX_NOTHROW { }
+        3:  168-block  0
+call    0 returned 3
 ------------------
         -:  169:
         -:  170:      _GLIBCXX20_CONSTEXPR

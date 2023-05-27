@@ -53,6 +53,7 @@ struct Header {
     Header():time_stamp(0), total_num(0), max_key(0), min_key(0) {}
     Header(uint64_t t_s, uint64_t num, uint64_t Max, uint64_t Min):
         time_stamp(t_s), total_num(num), max_key(Max), min_key(Min) {}
+    ~Header() {}
 };
 
 struct Indexer {
@@ -97,7 +98,7 @@ public:
     uint64_t get_time_stamp() const {
         return header->time_stamp;
     }
-    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end);
+    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data);
 
 private:
     int binary_search(uint64_t key) const;

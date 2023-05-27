@@ -7,7 +7,7 @@
 
 class PersistenceTest : public Test {
 private:
-    const uint64_t TEST_MAX = 1024 * 32;
+    const uint64_t TEST_MAX = 1024 * 32;//1024 * 32
     void prepare(uint64_t max)
     {
         uint64_t i;
@@ -28,9 +28,11 @@ private:
         phase();
 
         // Test deletions
-        for (i = 0; i < max; i+=2)
+        for (i = 0; i < max; i+=2) {
+            if(i == 2650)
+                std::cout << "i = " << i << std::endl;
             EXPECT(true, store.del(i));
-
+        }
         // Prepare data for Test Mode
         for (i = 0; i < max; ++i) {
             switch (i & 3) {
@@ -177,7 +179,8 @@ int main(int argc, char *argv[])
     }
     usage(argv[0], verbose ? "ON" : "OFF",
           testmode ? "Test Mode" : "Preparation Mode");
-
+verbose = true;
+//testmode = true;
     PersistenceTest test("./data", verbose);
 
     test.start_test(static_cast<void *>(&testmode));

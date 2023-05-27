@@ -1,6 +1,6 @@
         -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/src/Disk_store.cpp
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcda
         -:    0:Runs:1
         -:    1:
         -:    2:#include "../header/Disk_store.h"
@@ -9,23 +9,23 @@
         -:    5:#include <algorithm>
         -:    6:#include "queue"
         -:    7:
-function _ZN9DiskStoreC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 3 returned 100% blocks executed 57%
-        3:    8:DiskStore::DiskStore(const string &config_dir) {
-        3:    8-block  0
-call    0 returned 3
-call    1 returned 3
-        3:    9:    ifstream in(config_dir, ios::in);
-call    0 returned 3
-branch  1 taken 3 (fallthrough)
+function _ZN9DiskStoreC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2 returned 100% blocks executed 57%
+        2:    8:DiskStore::DiskStore(const string &config_dir) {
+        2:    8-block  0
+call    0 returned 2
+call    1 returned 2
+        2:    9:    ifstream in(config_dir, ios::in);
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-        3:   10:    if(!in.is_open()) {
-        3:   10-block  0
-call    0 returned 3
-branch  1 taken 3 (fallthrough)
+        2:   10:    if(!in.is_open()) {
+        2:   10-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-        3:   10-block  1
+        2:   10-block  1
 branch  3 taken 0 (fallthrough)
-branch  4 taken 3
+branch  4 taken 2
     #####:   11:        cout << "open file error: "<<config_dir << endl;
     %%%%%:   11-block  0
 call    0 never executed
@@ -42,79 +42,79 @@ branch  8 never executed
     #####:   12:        return;
     %%%%%:   12-block  0
         -:   13:    }
-        3:   14:    string line;
-        3:   14-block  0
-call    0 returned 3
-        3:   15:    int i = 0; //检验config中的下标是否连续
-       18:   16:    while (getline(in, line)) {
-       18:   16-block  0
-call    0 returned 18
-branch  1 taken 18 (fallthrough)
+        2:   14:    string line;
+        2:   14-block  0
+call    0 returned 2
+        2:   15:    int i = 0; //检验config中的下标是否连续
+       12:   16:    while (getline(in, line)) {
+       12:   16-block  0
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
 branch  2 taken 0 (throw)
-       18:   16-block  1
-call    3 returned 18
-branch  4 taken 18 (fallthrough)
+       12:   16-block  1
+call    3 returned 12
+branch  4 taken 12 (fallthrough)
 branch  5 taken 0 (throw)
-       18:   16-block  2
-branch  6 taken 15
-branch  7 taken 3 (fallthrough)
-       15:   17:        istringstream iss(line); // 从string读取数据的流
-       15:   17-block  0
-call    0 returned 15
-branch  1 taken 15 (fallthrough)
+       12:   16-block  2
+branch  6 taken 10
+branch  7 taken 2 (fallthrough)
+       10:   17:        istringstream iss(line); // 从string读取数据的流
+       10:   17-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
 branch  2 taken 0 (throw)
         -:   18:        int index, max_size;
-       15:   19:        string mode;
-       15:   19-block  0
-call    0 returned 15
+       10:   19:        string mode;
+       10:   19-block  0
+call    0 returned 10
         -:   20:        DiskLevel::LEVEL_MODE MODE;
-       15:   21:        if (iss >> index >> max_size >> mode) {
-call    0 returned 15
-branch  1 taken 15 (fallthrough)
+       10:   21:        if (iss >> index >> max_size >> mode) {
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
 branch  2 taken 0 (throw)
-       15:   21-block  0
-call    3 returned 15
-branch  4 taken 15 (fallthrough)
+       10:   21-block  0
+call    3 returned 10
+branch  4 taken 10 (fallthrough)
 branch  5 taken 0 (throw)
-       15:   21-block  1
-call    6 returned 15
-branch  7 taken 15 (fallthrough)
+       10:   21-block  1
+call    6 returned 10
+branch  7 taken 10 (fallthrough)
 branch  8 taken 0 (throw)
-       15:   21-block  2
-call    9 returned 15
-branch 10 taken 15 (fallthrough)
+       10:   21-block  2
+call    9 returned 10
+branch 10 taken 10 (fallthrough)
 branch 11 taken 0 (throw)
-       15:   21-block  3
-branch 12 taken 15 (fallthrough)
+       10:   21-block  3
+branch 12 taken 10 (fallthrough)
 branch 13 taken 0
-       15:   22:            if(strcasecmp(mode.c_str(),"Tiering") == 0)
-       15:   22-block  0
-call    0 returned 15
-call    1 returned 15
-branch  2 taken 15 (fallthrough)
+       10:   22:            if(strcasecmp(mode.c_str(),"Tiering") == 0)
+       10:   22-block  0
+call    0 returned 10
+call    1 returned 10
+branch  2 taken 10 (fallthrough)
 branch  3 taken 0 (throw)
-       15:   22-block  1
-branch  4 taken 3 (fallthrough)
-branch  5 taken 12
-        3:   23:                MODE = DiskLevel::LEVEL_MODE::TIERING;
-        3:   23-block  0
+       10:   22-block  1
+branch  4 taken 2 (fallthrough)
+branch  5 taken 8
+        2:   23:                MODE = DiskLevel::LEVEL_MODE::TIERING;
+        2:   23-block  0
         -:   24:            else
-       12:   25:                MODE = DiskLevel::LEVEL_MODE::LEVELING; //错误处理默认为leveling
-       12:   25-block  0
-       15:   26:            if(index < i) {
-       15:   26-block  0
+        8:   25:                MODE = DiskLevel::LEVEL_MODE::LEVELING; //错误处理默认为leveling
+        8:   25-block  0
+       10:   26:            if(index < i) {
+       10:   26-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 15
+branch  1 taken 10
     #####:   27:                config[index].first = max_size;
     %%%%%:   27-block  0
 call    0 never executed
     #####:   28:                config[index].second = MODE;
 call    0 never executed
         -:   29:            }
-       15:   30:            else if(index > i) {
-       15:   30-block  0
+       10:   30:            else if(index > i) {
+       10:   30-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 15
+branch  1 taken 10
     #####:   31:                for(i; i < index; i++) {
     %%%%%:   31-block  0
     %%%%%:   31-block  1
@@ -135,40 +135,40 @@ branch  5 never executed
     $$$$$:   32-block  5
         -:   33:                }
         -:   34:            }
-       15:   35:            config.emplace_back(make_pair(max_size,MODE));
-       15:   35-block  0
-call    0 returned 15
-branch  1 taken 15 (fallthrough)
+       10:   35:            config.emplace_back(make_pair(max_size,MODE));
+       10:   35-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
 branch  2 taken 0 (throw)
-       15:   35-block  1
-call    3 returned 15
-branch  4 taken 15 (fallthrough)
+       10:   35-block  1
+call    3 returned 10
+branch  4 taken 10 (fallthrough)
 branch  5 taken 0 (throw)
     $$$$$:   35-block  2
-       15:   36:            i++;
-       15:   36-block  0
+       10:   36:            i++;
+       10:   36-block  0
         -:   37:        }
-       15:   38:    }
-       15:   38-block  0
-call    0 returned 15
-call    1 returned 15
+       10:   38:    }
+       10:   38-block  0
+call    0 returned 10
+call    1 returned 10
     $$$$$:   38-block  1
 call    2 never executed
     $$$$$:   38-block  2
 call    3 never executed
         -:   39:
-        3:   40:    in.close();
-        3:   40-block  0
-call    0 returned 3
-branch  1 taken 3 (fallthrough)
+        2:   40:    in.close();
+        2:   40-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-        3:   41:    level_num = 0;
-        3:   42:}
-        3:   42-block  0
-call    0 returned 3
-        3:   42-block  1
-call    1 returned 3
-branch  2 taken 3 (fallthrough)
+        2:   41:    level_num = 0;
+        2:   42:}
+        2:   42-block  0
+call    0 returned 2
+        2:   42-block  1
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
 branch  3 taken 0
     $$$$$:   42-block  2
 call    4 never executed
@@ -178,1448 +178,1565 @@ call    5 never executed
 call    6 never executed
     $$$$$:   42-block  5
 call    7 never executed
-        -:   43:
-        -:   44:/*
-        -:   45: * @brief: 向磁盘中添加一个level
-        -:   46: * @param: mode: level的模式
-        -:   47: * @detail: 先检查config,如果config中有定义，则按照config中的定义添加
-        -:   48: *         如果config中没有定义，则按照默认的规则添加: max_size = 上一层的max_size * 2
-        -:   49: *         其中level0 必须是tiering
-        -:   50: * */
-function _ZN9DiskStore9add_levelEN9DiskLevel10LEVEL_MODEE called 4 returned 100% blocks executed 62%
-        4:   51:void DiskStore::add_level(DiskLevel::LEVEL_MODE mode) {
-        -:   52:    uint32_t max_size;
-        4:   53:    if(level_num == 0) { //level0 必须是tiering
-        4:   53-block  0
+function _ZN9DiskStoreD2Ev called 1 returned 100% blocks executed 58%
+        1:   43:DiskStore::~DiskStore() {
+       1*:   44:    for(auto level:level_list){
+        1:   44-block  0
+call    0 returned 1
+call    1 returned 1
+    %%%%%:   44-block  1
+call    2 never executed
+    %%%%%:   44-block  2
+call    3 never executed
+        1:   44-block  3
+call    4 returned 1
+branch  5 taken 0
+branch  6 taken 1 (fallthrough)
+    #####:   45:        delete level;
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   45-block  0
+call    2 never executed
+call    3 never executed
+        -:   46:    }
+        1:   47:}
+        1:   47-block  0
+call    0 returned 1
+call    1 returned 1
+        -:   48:/*
+        -:   49: * @brief: 向磁盘中添加一个level
+        -:   50: * @param: mode: level的模式
+        -:   51: * @detail: 先检查config,如果config中有定义，则按照config中的定义添加
+        -:   52: *         如果config中没有定义，则按照默认的规则添加: max_size = 上一层的max_size * 2
+        -:   53: *         其中level0 必须是tiering
+        -:   54: * */
+function _ZN9DiskStore9add_levelEN9DiskLevel10LEVEL_MODEE called 2 returned 100% blocks executed 62%
+        2:   55:void DiskStore::add_level(DiskLevel::LEVEL_MODE mode) {
+        -:   56:    uint32_t max_size;
+        2:   57:    if(level_num == 0) { //level0 必须是tiering
+        2:   57-block  0
 branch  0 taken 1 (fallthrough)
-branch  1 taken 3
-       1*:   54:        if(!config.empty() && config[0].first > 0)
-        1:   54-block  0
+branch  1 taken 1
+       1*:   58:        if(!config.empty() && config[0].first > 0)
+        1:   58-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0
-        1:   54-block  1
+        1:   58-block  1
 call    3 returned 1
 branch  4 taken 1 (fallthrough)
 branch  5 taken 0
-        1:   54-block  2
-    %%%%%:   54-block  3
-        1:   54-block  4
+        1:   58-block  2
+    %%%%%:   58-block  3
+        1:   58-block  4
 branch  6 taken 1 (fallthrough)
 branch  7 taken 0
-        1:   55:            max_size = config[0].first;
-        1:   55-block  0
+        1:   59:            max_size = config[0].first;
+        1:   59-block  0
 call    0 returned 1
-        -:   56:        else
-    #####:   57:            max_size = 2;
-    %%%%%:   57-block  0
-        1:   58:        level_list.emplace_back(new DiskLevel(max_size, DiskLevel::LEVEL_MODE::TIERING));
-        1:   58-block  0
+        -:   60:        else
+    #####:   61:            max_size = 2;
+    %%%%%:   61-block  0
+        1:   62:        level_list.emplace_back(new DiskLevel(max_size, DiskLevel::LEVEL_MODE::TIERING));
+        1:   62-block  0
 call    0 returned 1
 call    1 returned 1
 call    2 returned 1
 branch  3 taken 1 (fallthrough)
 branch  4 taken 0 (throw)
-    $$$$$:   58-block  1
+    $$$$$:   62-block  1
 call    5 never executed
-        1:   59:        level_num++;
-        1:   60:        return;
-        1:   60-block  0
-        -:   61:    }
-        -:   62:
-        3:   63:    if((level_num  + 1) <= config.size()) { //config 里有定义
-        3:   63-block  0
-call    0 returned 3
-branch  1 taken 3 (fallthrough)
+        1:   63:        level_num++;
+        1:   64:        return;
+        1:   64-block  0
+        -:   65:    }
+        -:   66:
+        1:   67:    if((level_num  + 1) <= config.size()) { //config 里有定义
+        1:   67-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0
-        3:   64:        if(config[level_num].first == -1) { //没有设置max_size,默认增加两倍
-        3:   64-block  0
-call    0 returned 3
+        1:   68:        if(config[level_num].first == -1) { //没有设置max_size,默认增加两倍
+        1:   68-block  0
+call    0 returned 1
 branch  1 taken 0 (fallthrough)
-branch  2 taken 3
-    #####:   65:            level_list.emplace_back(new DiskLevel(level_list[level_num - 1]->max_num * 2,
-    %%%%%:   65-block  0
+branch  2 taken 1
+    #####:   69:            level_list.emplace_back(new DiskLevel(level_list[level_num - 1]->max_num * 2,
+    %%%%%:   69-block  0
 call    0 never executed
 call    1 never executed
 branch  2 never executed
 branch  3 never executed
-    %%%%%:   65-block  1
-    $$$$$:   65-block  2
+    %%%%%:   69-block  1
+    $$$$$:   69-block  2
 call    4 never executed
-    #####:   66:                                                  config[level_num].second));
+    #####:   70:                                                  config[level_num].second));
 call    0 never executed
 call    1 never executed
 call    2 never executed
-        -:   67:        }
-        -:   68:        else
-        3:   69:            level_list.emplace_back( new DiskLevel(config[level_num].first, config[level_num].second));
-        3:   69-block  0
-call    0 returned 3
-call    1 returned 3
-call    2 returned 3
-call    3 returned 3
-call    4 returned 3
-branch  5 taken 3 (fallthrough)
+        -:   71:        }
+        -:   72:        else
+        1:   73:            level_list.emplace_back( new DiskLevel(config[level_num].first, config[level_num].second));
+        1:   73-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
 branch  6 taken 0 (throw)
-        3:   69-block  1
-    $$$$$:   69-block  2
+        1:   73-block  1
+    $$$$$:   73-block  2
 call    7 never executed
-        3:   70:        level_num++;
-        3:   71:        return;
-        3:   71-block  0
-        -:   72:    }
-        -:   73:
-        -:   74:    //config 里无定义
-    #####:   75:    level_list.emplace_back(new DiskLevel(level_list[level_num - 1]->max_num * 2, mode));
-    %%%%%:   75-block  0
+        1:   74:        level_num++;
+        1:   75:        return;
+        1:   75-block  0
+        -:   76:    }
+        -:   77:
+        -:   78:    //config 里无定义
+    #####:   79:    level_list.emplace_back(new DiskLevel(level_list[level_num - 1]->max_num * 2, mode));
+    %%%%%:   79-block  0
 call    0 never executed
 call    1 never executed
 call    2 never executed
 call    3 never executed
 branch  4 never executed
 branch  5 never executed
-    #####:   76:    level_num++;
-    %%%%%:   76-block  0
-        -:   77:}
-        -:   78:
-        -:   79:/*
-        -:   80: * @brief: add sstable to disk store
-        -:   81: * @param: sstable: the sstable to be added
-        -:   82: * @param: flag: true 需要compaction
-        -:   83: * @return: serial > 0: success sstable的序列号
-        -:   84: *         -1: level is out of range
-        -:   85: * */
-function _ZN9DiskStore11add_sstableEP7SSTablejRb called 17 returned 100% blocks executed 80%
-       17:   86:uint64_t DiskStore::add_sstable(SSTable* sstable, uint32_t level, bool &flag) {
-       17:   87:    if (level > level_num || level < 0 ) {
-       17:   87-block  0
+    #####:   80:    level_num++;
+    %%%%%:   80-block  0
+        -:   81:}
+        -:   82:
+        -:   83:/*
+        -:   84: * @brief: add sstable to disk store
+        -:   85: * @param: sstable: the sstable to be added
+        -:   86: * @param: flag: true 需要compaction
+        -:   87: * @return: serial > 0: success sstable的序列号
+        -:   88: *         -1: level is out of range
+        -:   89: * */
+function _ZN9DiskStore11add_sstableEP7SSTablejRb called 3 returned 100% blocks executed 80%
+        3:   90:uint64_t DiskStore::add_sstable(SSTable* sstable, uint32_t level, bool &flag) {
+        3:   91:    if (level > level_num || level < 0 ) {
+        3:   91-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 17
-    #####:   88:        return -1;
-    %%%%%:   88-block  0
-        -:   89:    }
-       17:   90:    if(level == level_num) {
-       17:   90-block  0
+branch  1 taken 3
+    #####:   92:        return -1;
+    %%%%%:   92-block  0
+        -:   93:    }
+        3:   94:    if(level == level_num) {
+        3:   94-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 17
-    #####:   91:        add_level(DiskLevel::LEVEL_MODE::LEVELING);
-    %%%%%:   91-block  0
+branch  1 taken 3
+    #####:   95:        add_level(DiskLevel::LEVEL_MODE::LEVELING);
+    %%%%%:   95-block  0
 call    0 never executed
-        -:   92:    }
-       17:   93:    DiskLevel* curr_level = level_list[level];
-       17:   93-block  0
-call    0 returned 17
-       17:   94:    uint64_t serial = curr_level->add_sstable(sstable);
-call    0 returned 17
-        -:   95:
-       17:   96:    if(curr_level->max_num < curr_level->sstable_num)
-branch  0 taken 5 (fallthrough)
-branch  1 taken 12
-        5:   97:        flag = true;
-        5:   97-block  0
-        -:   98:
-       17:   99:    return serial;
-       17:   99-block  0
-        -:  100:}
-        -:  101:
-function _ZNK9DiskStore3getEyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 20387 returned 100% blocks executed 62%
-    20387:  102:std::string DiskStore::get(const uint64_t key,const string & dir_prefix) const{
-    20387:  103:    string res = "";
-    20387:  103-block  0
-call    0 returned 20387
-call    1 returned 20387
-branch  2 taken 20387 (fallthrough)
+        -:   96:    }
+        3:   97:    DiskLevel* curr_level = level_list[level];
+        3:   97-block  0
+call    0 returned 3
+        3:   98:    uint64_t serial = curr_level->add_sstable(sstable);
+call    0 returned 3
+        -:   99:
+        3:  100:    if(curr_level->max_num < curr_level->sstable_num)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:  101:        flag = true;
+        1:  101-block  0
+        -:  102:
+        3:  103:    return serial;
+        3:  103-block  0
+        -:  104:}
+        -:  105:
+function _ZNK9DiskStore3getEyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 5637 returned 100% blocks executed 62%
+     5637:  106:std::string DiskStore::get(const uint64_t key,const string & dir_prefix) const{
+     5637:  107:    string res = "";
+     5637:  107-block  0
+call    0 returned 5637
+call    1 returned 5637
+branch  2 taken 5637 (fallthrough)
 branch  3 taken 0 (throw)
-    $$$$$:  103-block  1
+    $$$$$:  107-block  1
 call    4 never executed
-    20387:  104:    uint64_t timestamp = 0;
-   101927:  105:    for(int i = 0; i < level_num; i++) {
-    81540:  105-block  0
-   101927:  105-block  1
-branch  0 taken 81540
-branch  1 taken 20387 (fallthrough)
-   448470:  106:        for(SSTable* sstable: level_list[i]->sstable_list) {
-    81540:  106-block  0
-call    0 returned 81540
-call    1 returned 81540
-call    2 returned 81540
-   366930:  106-block  1
-call    3 returned 366930
-   366930:  106-block  2
-call    4 returned 366930
-   448470:  106-block  3
-call    5 returned 448470
-branch  6 taken 366930
-branch  7 taken 81540 (fallthrough)
-   501352:  107:            if(sstable->get_min_key() > key || sstable->get_max_key() < key
-call    0 returned 366930
-   134422:  107-block  0
-call    1 returned 134422
-branch  2 taken 28286 (fallthrough)
-branch  3 taken 106136
-   501352:  108:                    || sstable->get_time_stamp() <= timestamp)
-branch  0 taken 134422 (fallthrough)
-branch  1 taken 232508
-    28286:  108-block  0
-call    2 returned 28286
-branch  3 taken 1655 (fallthrough)
-branch  4 taken 26631
-   340299:  108-block  1
-    26631:  108-block  2
-   366930:  108-block  3
-branch  5 taken 340299 (fallthrough)
-branch  6 taken 26631
-   340299:  109:                continue;
-   340299:  109-block  0
-        -:  110:            //在文件中找，需要DiskStore寻找，sstable不知道自己在哪一层
-        -:  111:            uint32_t offset;
-        -:  112:            int len;
-    26631:  113:            if( sstable->get(key,offset,len)) {
-    26631:  113-block  0
-call    0 returned 26631
-branch  1 taken 26631 (fallthrough)
+     5637:  108:    uint64_t timestamp = 0;
+    11274:  109:    for(int i = 0; i < level_num; i++) {
+     5637:  109-block  0
+    11274:  109-block  1
+branch  0 taken 5637
+branch  1 taken 5637 (fallthrough)
+    16911:  110:        for(SSTable* sstable: level_list[i]->sstable_list) {
+     5637:  110-block  0
+call    0 returned 5637
+call    1 returned 5637
+call    2 returned 5637
+    11274:  110-block  1
+call    3 returned 11274
+    11274:  110-block  2
+call    4 returned 11274
+    16911:  110-block  3
+call    5 returned 16911
+branch  6 taken 11274
+branch  7 taken 5637 (fallthrough)
+    18490:  111:            if(sstable->get_min_key() > key || sstable->get_max_key() < key
+call    0 returned 11274
+     7216:  111-block  0
+call    1 returned 7216
+branch  2 taken 5637 (fallthrough)
+branch  3 taken 1579
+    18490:  112:                    || sstable->get_time_stamp() <= timestamp)
+branch  0 taken 7216 (fallthrough)
+branch  1 taken 4058
+     5637:  112-block  0
+call    2 returned 5637
+branch  3 taken 0 (fallthrough)
+branch  4 taken 5637
+     5637:  112-block  1
+     5637:  112-block  2
+    11274:  112-block  3
+branch  5 taken 5637 (fallthrough)
+branch  6 taken 5637
+     5637:  113:                continue;
+     5637:  113-block  0
+        -:  114:            //在文件中找，需要DiskStore寻找，sstable不知道自己在哪一层
+        -:  115:            uint32_t offset;
+        -:  116:            int len;
+     5637:  117:            if( sstable->get(key,offset,len)) {
+     5637:  117-block  0
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
 branch  2 taken 0 (throw)
-    26631:  113-block  1
-branch  3 taken 20385 (fallthrough)
-branch  4 taken 6246
-    20385:  114:                timestamp = sstable->get_time_stamp();
-    20385:  114-block  0
-call    0 returned 20385
-        -:  115:                //读取文件
-    20385:  116:                string directory = dir_prefix + to_string(i);
-call    0 returned 20385
-branch  1 taken 20385 (fallthrough)
+     5637:  117-block  1
+branch  3 taken 5637 (fallthrough)
+branch  4 taken 0
+     5637:  118:                timestamp = sstable->get_time_stamp();
+     5637:  118-block  0
+call    0 returned 5637
+        -:  119:                //读取文件
+     5637:  120:                string directory = dir_prefix + to_string(i);
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
 branch  2 taken 0 (throw)
-    20385:  116-block  0
-call    3 returned 20385
-branch  4 taken 20385 (fallthrough)
+     5637:  120-block  0
+call    3 returned 5637
+branch  4 taken 5637 (fallthrough)
 branch  5 taken 0 (throw)
-    $$$$$:  116-block  1
-    40770:  117:                string file = directory + '/' +  to_string(timestamp) + '-' + to_string(sstable->get_serial()) + ".sst";
-call    0 returned 20385
-call    1 returned 20385
-branch  2 taken 20385 (fallthrough)
+    $$$$$:  120-block  1
+    11274:  121:                string file = directory + '/' +  to_string(timestamp) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 returned 5637
+call    1 returned 5637
+branch  2 taken 5637 (fallthrough)
 branch  3 taken 0 (throw)
-    20385:  117-block  0
-call    4 returned 20385
-branch  5 taken 20385 (fallthrough)
+     5637:  121-block  0
+call    4 returned 5637
+branch  5 taken 5637 (fallthrough)
 branch  6 taken 0 (throw)
-    20385:  117-block  1
-call    7 returned 20385
-branch  8 taken 20385 (fallthrough)
+     5637:  121-block  1
+call    7 returned 5637
+branch  8 taken 5637 (fallthrough)
 branch  9 taken 0 (throw)
-    20385:  117-block  2
-call   10 returned 20385
-branch 11 taken 20385 (fallthrough)
+     5637:  121-block  2
+call   10 returned 5637
+branch 11 taken 5637 (fallthrough)
 branch 12 taken 0 (throw)
-    20385:  117-block  3
-call   13 returned 20385
-branch 14 taken 20385 (fallthrough)
+     5637:  121-block  3
+call   13 returned 5637
+branch 14 taken 5637 (fallthrough)
 branch 15 taken 0 (throw)
-    20385:  117-block  4
-call   16 returned 20385
-branch 17 taken 20385 (fallthrough)
+     5637:  121-block  4
+call   16 returned 5637
+branch 17 taken 5637 (fallthrough)
 branch 18 taken 0 (throw)
-    20385:  117-block  5
-call   19 returned 20385
-branch 20 taken 20385 (fallthrough)
+     5637:  121-block  5
+call   19 returned 5637
+branch 20 taken 5637 (fallthrough)
 branch 21 taken 0 (throw)
-call   22 returned 20385
-call   23 returned 20385
-call   24 returned 20385
-call   25 returned 20385
-call   26 returned 20385
-    $$$$$:  117-block  6
-    $$$$$:  117-block  7
-    $$$$$:  117-block  8
-    $$$$$:  117-block  9
-    $$$$$:  117-block 10
-    $$$$$:  117-block 11
-    20385:  118:                res = read_file(file,offset,len);
-call    0 returned 20385
-branch  1 taken 20385 (fallthrough)
+call   22 returned 5637
+call   23 returned 5637
+call   24 returned 5637
+call   25 returned 5637
+call   26 returned 5637
+    $$$$$:  121-block  6
+    $$$$$:  121-block  7
+    $$$$$:  121-block  8
+    $$$$$:  121-block  9
+    $$$$$:  121-block 10
+    $$$$$:  121-block 11
+     5637:  122:                res = read_file(file,offset,len);
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
 branch  2 taken 0 (throw)
-    20385:  118-block  0
-call    3 returned 20385
-call    4 returned 20385
-    20385:  119:            }
-call    0 returned 20385
-call    1 returned 20385
-    $$$$$:  119-block  0
-call    2 never executed
-    $$$$$:  119-block  1
-call    3 never executed
-        -:  120:        }
-        -:  121:    }
-    20387:  122:    return res;
-    20387:  122-block  0
-    20387:  122-block  1
-    =====:  123:}
+     5637:  122-block  0
+call    3 returned 5637
+call    4 returned 5637
+     5637:  123:            }
+call    0 returned 5637
+call    1 returned 5637
     $$$$$:  123-block  0
-call    0 never executed
-        -:  124:
-        -:  125:/*
-        -:  126: * @brief: 从文件中读取某个数据
-        -:  127: * @param: file_name: 文件名
-        -:  128: * @param: offset: 从文件的第offset个字节开始读
-        -:  129: * @param: len: 读取的长度，如果为-1说明读到文件尾
-        -:  130: * @return: 读取的数据
-        -:  131: * */
-function _ZNK9DiskStore9read_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEji called 20385 returned 100% blocks executed 73%
-    20385:  132:string DiskStore::read_file(const string &file_name, uint32_t offset, int len) const {
-    20385:  133:    fstream in;
-    20385:  133-block  0
-call    0 returned 20385
-branch  1 taken 20385 (fallthrough)
-branch  2 taken 0 (throw)
-    20385:  134:    in.open(file_name, ios::binary | ios::in);
-    20385:  134-block  0
-call    0 returned 20385
-call    1 returned 20385
-branch  2 taken 20385 (fallthrough)
-branch  3 taken 0 (throw)
-    20385:  135:    in.seekg(offset, ios::beg); //定位到文件的第offset个字节
-    20385:  135-block  0
-call    0 returned 20385
-branch  1 taken 20385 (fallthrough)
-branch  2 taken 0 (throw)
-    20385:  136:    streampos start = in.tellg(); //获取当前位置
-    20385:  136-block  0
-call    0 returned 20385
-branch  1 taken 20385 (fallthrough)
-branch  2 taken 0 (throw)
-    20385:  137:    if (len < 0) {
-    20385:  137-block  0
-branch  0 taken 47 (fallthrough)
-branch  1 taken 20338
-       47:  138:        in.seekg(0, ios::end); //定位到文件末尾
-       47:  138-block  0
-call    0 returned 47
-branch  1 taken 47 (fallthrough)
-branch  2 taken 0 (throw)
-       47:  139:        std::streampos end = in.tellg(); //获取当前位置
-       47:  139-block  0
-call    0 returned 47
-branch  1 taken 47 (fallthrough)
-branch  2 taken 0 (throw)
-       47:  140:        len = end - start;
-       47:  140-block  0
-call    0 returned 47
-       47:  141:        in.seekg(offset, ios::beg); //定位回到文件的第offset个字节,准备读
-call    0 returned 47
-branch  1 taken 47 (fallthrough)
-branch  2 taken 0 (throw)
-        -:  142:    }
-        -:  143:
-        -:  144://    char *tmp = new char[len + 1];
-        -:  145://    in.read(tmp, len);
-        -:  146://    tmp[len] = '\0';
-        -:  147://    string res = tmp;
-        -:  148://    delete[]tmp;
-    20385:  149:    string res(len, ' ');
-    20385:  149-block  0
-call    0 returned 20385
-call    1 returned 20385
-branch  2 taken 20385 (fallthrough)
-branch  3 taken 0 (throw)
-    $$$$$:  149-block  1
-    20385:  150:    in.read(&(*res.begin()), sizeof(char) * len);
-call    0 returned 20385
-call    1 returned 20385
-call    2 returned 20385
-branch  3 taken 20385 (fallthrough)
-branch  4 taken 0 (throw)
-    $$$$$:  150-block  0
-    20385:  151:    res[len] = '\0';
-    20385:  151-block  0
-call    0 returned 20385
-branch  1 taken 20385 (fallthrough)
-branch  2 taken 0 (throw)
-    20385:  152:    in.close();
-    20385:  152-block  0
-call    0 returned 20385
-branch  1 taken 20385 (fallthrough)
-branch  2 taken 0 (throw)
-    40770:  153:    return res;
-    20385:  153-block  0
-    20385:  153-block  1
-    20385:  154:}
-    20385:  154-block  0
-call    0 returned 20385
-    $$$$$:  154-block  1
-call    1 never executed
-    $$$$$:  154-block  2
 call    2 never executed
-        -:  155:/*
-        -:  156: * @brief: 检查level是否溢出
-        -:  157: * @return: true: 溢出
-        -:  158: *         false: 未溢出（正好等于max_num）
-        -:  159: * */
-function _ZNK9DiskStore20check_level_overflowEj called 16 returned 100% blocks executed 88%
-       16:  160:bool DiskStore::check_level_overflow(uint32_t level)const {
-       16:  161:    if(level >= level_num)
-       16:  161-block  0
+    $$$$$:  123-block  1
+call    3 never executed
+        -:  124:        }
+        -:  125:    }
+     5637:  126:    return res;
+     5637:  126-block  0
+     5637:  126-block  1
+    =====:  127:}
+    $$$$$:  127-block  0
+call    0 never executed
+        -:  128:
+        -:  129:/*
+        -:  130: * @brief: 从文件中读取某个数据
+        -:  131: * @param: file_name: 文件名
+        -:  132: * @param: offset: 从文件的第offset个字节开始读
+        -:  133: * @param: len: 读取的长度，如果为-1说明读到文件尾
+        -:  134: * @return: 读取的数据
+        -:  135: * */
+function _ZNK9DiskStore9read_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEji called 5637 returned 100% blocks executed 73%
+     5637:  136:string DiskStore::read_file(const string &file_name, uint32_t offset, int len) const {
+     5637:  137:    fstream in;
+     5637:  137-block  0
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
+branch  2 taken 0 (throw)
+     5637:  138:    in.open(file_name, ios::binary | ios::in);
+     5637:  138-block  0
+call    0 returned 5637
+call    1 returned 5637
+branch  2 taken 5637 (fallthrough)
+branch  3 taken 0 (throw)
+     5637:  139:    in.seekg(offset, ios::beg); //定位到文件的第offset个字节
+     5637:  139-block  0
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
+branch  2 taken 0 (throw)
+     5637:  140:    streampos start = in.tellg(); //获取当前位置
+     5637:  140-block  0
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
+branch  2 taken 0 (throw)
+     5637:  141:    if (len < 0) {
+     5637:  141-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 5633
+        4:  142:        in.seekg(0, ios::end); //定位到文件末尾
+        4:  142-block  0
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+        4:  143:        std::streampos end = in.tellg(); //获取当前位置
+        4:  143-block  0
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+        4:  144:        len = end - start;
+        4:  144-block  0
+call    0 returned 4
+        4:  145:        in.seekg(offset, ios::beg); //定位回到文件的第offset个字节,准备读
+call    0 returned 4
+branch  1 taken 4 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  146:    }
+        -:  147:
+        -:  148://    char *tmp = new char[len + 1];
+        -:  149://    in.read(tmp, len);
+        -:  150://    tmp[len] = '\0';
+        -:  151://    string res = tmp;
+        -:  152://    delete[]tmp;
+     5637:  153:    string res(len, ' ');
+     5637:  153-block  0
+call    0 returned 5637
+call    1 returned 5637
+branch  2 taken 5637 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  153-block  1
+     5637:  154:    in.read(&(*res.begin()), sizeof(char) * len);
+call    0 returned 5637
+call    1 returned 5637
+call    2 returned 5637
+branch  3 taken 5637 (fallthrough)
+branch  4 taken 0 (throw)
+    $$$$$:  154-block  0
+     5637:  155:    res[len] = '\0';
+     5637:  155-block  0
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
+branch  2 taken 0 (throw)
+     5637:  156:    in.close();
+     5637:  156-block  0
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
+branch  2 taken 0 (throw)
+    11274:  157:    return res;
+     5637:  157-block  0
+     5637:  157-block  1
+     5637:  158:}
+     5637:  158-block  0
+call    0 returned 5637
+    $$$$$:  158-block  1
+call    1 never executed
+    $$$$$:  158-block  2
+call    2 never executed
+        -:  159:/*
+        -:  160: * @brief: 检查level是否溢出
+        -:  161: * @return: true: 溢出
+        -:  162: *         false: 未溢出（正好等于max_num）
+        -:  163: * */
+function _ZNK9DiskStore20check_level_overflowEj called 1 returned 100% blocks executed 75%
+        1:  164:bool DiskStore::check_level_overflow(uint32_t level)const {
+        1:  165:    if(level >= level_num)
+        1:  165-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 16
-    #####:  162:        return false;
-    %%%%%:  162-block  0
-       16:  163:    if(level_list[level]->max_num < level_list[level]->sstable_num)
-       16:  163-block  0
-call    0 returned 16
-call    1 returned 16
-branch  2 taken 11 (fallthrough)
-branch  3 taken 5
-       11:  164:        return true;
-       11:  164-block  0
-        5:  165:    return false;
-        5:  165-block  0
-        -:  166:}
-        -:  167:
-function _ZN9DiskStore10compactionEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 16 returned 100% blocks executed 57%
-       16:  168:void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
-        -:  169:    // 递归终止条件：上一层文件数小于max_size，不需要dump to 下一层
-       16:  170:    if( ! check_level_overflow(dump_to_level - 1))
-       16:  170-block  0
-call    0 returned 16
-branch  1 taken 5 (fallthrough)
-branch  2 taken 11
-        5:  171:        return;
-        5:  171-block  0
-        -:  172:
-        -:  173:    // 创建目录,检验是否是最后一行
-       11:  174:    string directory = dir_prefix + to_string(dump_to_level);
-       11:  174-block  0
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
+branch  1 taken 1
+    #####:  166:        return false;
+    %%%%%:  166-block  0
+        1:  167:    if(level_list[level]->max_num < level_list[level]->sstable_num)
+        1:  167-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  168:        return true;
+        1:  168-block  0
+    #####:  169:    return false;
+    %%%%%:  169-block  0
+        -:  170:}
+        -:  171:
+function _ZN9DiskStore10compactionEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 1 returned 0% blocks executed 23%
+        1:  172:void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
+        -:  173:    // 递归终止条件：上一层文件数小于max_size，不需要dump to 下一层
+        1:  174:    if( ! check_level_overflow(dump_to_level - 1))
+        1:  174-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    #####:  175:        return;
+    %%%%%:  175-block  0
+        -:  176:
+        -:  177:    // 创建目录,检验是否是最后一行
+        1:  178:    string directory = dir_prefix + to_string(dump_to_level);
+        1:  178-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-       11:  174-block  1
-call    3 returned 11
-branch  4 taken 11 (fallthrough)
+        1:  178-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
-    $$$$$:  174-block  2
-       11:  175:    if(!utils::dirExists(directory)) {
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
+    $$$$$:  178-block  2
+        1:  179:    if(!utils::dirExists(directory)) {
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-       11:  175-block  0
-call    3 returned 11
-branch  4 taken 11 (fallthrough)
+        1:  179-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
-       11:  175-block  1
-call    6 returned 11
-branch  7 taken 3 (fallthrough)
-branch  8 taken 8
-    $$$$$:  175-block  2
+        1:  179-block  1
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+    $$$$$:  179-block  2
 call    9 never executed
-    $$$$$:  175-block  3
-        3:  176:        utils::mkdir(directory.c_str());
-        3:  176-block  0
+    $$$$$:  179-block  3
+        1:  180:        utils::mkdir(directory.c_str());
+        1:  180-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        -:  181:    }
+        1:  182:    bool is_end = false;
+        1:  183:    if(dump_to_level == level_num) {
+        1:  183-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:  184:        add_level(DiskLevel::LEVELING);
+        1:  184-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  185:        is_end = true;
+        1:  185-block  0
+        -:  186:    }
+        -:  187:
+        -:  188:    // SSTable 选取,同时记录要被删除的文件
+        1:  189:    vector<SSTable*> last_level_chosen;
+        1:  189-block  0
+call    0 returned 1
+        1:  190:    vector<SSTable*> this_level_chosen;
+call    0 returned 1
+        -:  191:
+        -:  192:    //从dump_to_level - 1层中选取
+        -:  193:    //若 Level x 层为 Tiering，则该层所有文件被选取
+        1:  194:    if(level_list[dump_to_level - 1]->mode == DiskLevel::TIERING)
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:  195:        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0,1);
+        1:  195-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        -:  196:    else
+    #####:  197:        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0,2);
+    %%%%%:  197-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+        -:  198:
+        -:  199:    //遍历last_level_chosen中的文件，检查最大时间戳和键值范围
+        1:  200:    uint64_t latest_timestamp = 0, min_key = -1, max_key = -1;
+        4:  201:    for(SSTable* sstable: last_level_chosen) {
+        1:  201-block  0
+call    0 returned 1
+call    1 returned 1
+        3:  201-block  1
+call    2 returned 3
+        3:  201-block  2
+call    3 returned 3
+        4:  201-block  3
+call    4 returned 4
+branch  5 taken 3
+branch  6 taken 1 (fallthrough)
+        3:  202:        if(sstable->get_time_stamp() > latest_timestamp)
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0
+        3:  203:            latest_timestamp = sstable->get_time_stamp();
+        3:  203-block  0
+call    0 returned 3
+        3:  204:        if(min_key == -1 || sstable->get_min_key() < min_key)
+        3:  204-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 1
+        2:  204-block  1
+call    2 returned 2
+branch  3 taken 0 (fallthrough)
+branch  4 taken 2
+        1:  204-block  2
+        2:  204-block  3
+        3:  204-block  4
+branch  5 taken 1 (fallthrough)
+branch  6 taken 2
+        1:  205:            min_key = sstable->get_min_key();
+        1:  205-block  0
+call    0 returned 1
+       3*:  206:        if(max_key == -1 || sstable->get_max_key() > max_key)
+        3:  206-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 1
+        2:  206-block  1
+call    2 returned 2
+branch  3 taken 2 (fallthrough)
+branch  4 taken 0
+        3:  206-block  2
+    %%%%%:  206-block  3
+        3:  206-block  4
+branch  5 taken 3 (fallthrough)
+branch  6 taken 0
+        3:  207:            max_key = sstable->get_max_key();
+        3:  207-block  0
+call    0 returned 3
+        -:  208:    }
+        -:  209:
+        -:  210:    //从dump_to_level层中选取
+        1:  211:    if(level_list[dump_to_level]->mode == DiskLevel::LEVELING) {
+        1:  211-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:  212:        level_list[dump_to_level]->choose_sstables(this_level_chosen, min_key, max_key,3);
+        1:  212-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+       1*:  213:        for(SSTable* sstable: this_level_chosen) {
+        1:  213-block  0
+call    0 returned 1
+call    1 returned 1
+    %%%%%:  213-block  1
+call    2 never executed
+    %%%%%:  213-block  2
+call    3 never executed
+        1:  213-block  3
+call    4 returned 1
+branch  5 taken 0
+branch  6 taken 1 (fallthrough)
+    #####:  214:            if(sstable->get_time_stamp() > latest_timestamp)
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  215:                latest_timestamp = sstable->get_time_stamp();
+    %%%%%:  215-block  0
+call    0 never executed
+        -:  216:        }
+        -:  217:    }
+        -:  218:
+        -:  219:    //把选中的文件读入内存,同时记录时间戳,用于合并相同的key
+        1:  220:    queue< pair<vector< pair<uint64_t, string> > ,int> > data_all;
+        1:  220-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        4:  221:    for(SSTable* sstable: last_level_chosen) {
+        1:  221-block  0
+call    0 returned 1
+call    1 returned 1
+        3:  221-block  1
+call    2 returned 3
+call    3 returned 3
+        4:  221-block  2
+call    4 returned 4
+branch  5 taken 3
+branch  6 taken 1 (fallthrough)
+        3:  222:        vector< pair<uint64_t, string> > data;
+call    0 returned 3
+        6:  223:        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
 call    0 returned 3
 call    1 returned 3
 branch  2 taken 3 (fallthrough)
 branch  3 taken 0 (throw)
-        -:  177:    }
-       11:  178:    bool is_end = false;
-       11:  179:    if(dump_to_level == level_num) {
-       11:  179-block  0
-branch  0 taken 3 (fallthrough)
-branch  1 taken 8
-        3:  180:        add_level(DiskLevel::LEVELING);
-        3:  180-block  0
+        3:  223-block  0
+call    4 returned 3
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+        3:  223-block  1
+call    8 returned 3
+branch  9 taken 3 (fallthrough)
+branch 10 taken 0 (throw)
+        3:  223-block  2
+call   11 returned 3
+branch 12 taken 3 (fallthrough)
+branch 13 taken 0 (throw)
+        3:  223-block  3
+call   14 returned 3
+branch 15 taken 3 (fallthrough)
+branch 16 taken 0 (throw)
+        3:  223-block  4
+call   17 returned 3
+branch 18 taken 3 (fallthrough)
+branch 19 taken 0 (throw)
+        3:  223-block  5
+call   20 returned 3
+branch 21 taken 3 (fallthrough)
+branch 22 taken 0 (throw)
+        3:  223-block  6
+call   23 returned 3
+branch 24 taken 3 (fallthrough)
+branch 25 taken 0 (throw)
+        3:  223-block  7
+call   26 returned 3
+branch 27 taken 3 (fallthrough)
+branch 28 taken 0 (throw)
+call   29 returned 3
+call   30 returned 3
+call   31 returned 3
+call   32 returned 3
+call   33 returned 3
+call   34 returned 3
+call   35 returned 3
+    $$$$$:  223-block  8
+    $$$$$:  223-block  9
+    $$$$$:  223-block 10
+    $$$$$:  223-block 11
+    $$$$$:  223-block 12
+    $$$$$:  223-block 13
+    $$$$$:  223-block 14
+    $$$$$:  223-block 15
+        3:  224:        sstable->read_to_mem(filename,data);
 call    0 returned 3
 branch  1 taken 3 (fallthrough)
 branch  2 taken 0 (throw)
-        3:  181:        is_end = true;
-        3:  181-block  0
-        -:  182:    }
-        -:  183:
-        -:  184:    // SSTable 选取,同时记录要被删除的文件
-       11:  185:    vector<SSTable*> last_level_chosen;
-       11:  185-block  0
-call    0 returned 11
-       11:  186:    vector<SSTable*> this_level_chosen;
-call    0 returned 11
-        -:  187:
-        -:  188:    //从dump_to_level - 1层中选取
-        -:  189:    //若 Level x 层为 Tiering，则该层所有文件被选取
-       11:  190:    if(level_list[dump_to_level - 1]->mode == DiskLevel::TIERING)
-call    0 returned 11
-branch  1 taken 5 (fallthrough)
-branch  2 taken 6
-        5:  191:        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0,1);
-        5:  191-block  0
-call    0 returned 5
-call    1 returned 5
-branch  2 taken 5 (fallthrough)
+        3:  225:        data_all.push(make_pair(data, sstable->get_time_stamp()));
+        3:  225-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
 branch  3 taken 0 (throw)
-        -:  192:    else
-        6:  193:        level_list[dump_to_level - 1]->choose_sstables(last_level_chosen,0,0,2);
-        6:  193-block  0
-call    0 returned 6
-call    1 returned 6
-branch  2 taken 6 (fallthrough)
-branch  3 taken 0 (throw)
-        -:  194:
-        -:  195:    //遍历last_level_chosen中的文件，检查最大时间戳和键值范围
-       11:  196:    uint64_t latest_timestamp = 0, min_key = -1, max_key = -1;
-       41:  197:    for(SSTable* sstable: last_level_chosen) {
-       11:  197-block  0
-call    0 returned 11
-call    1 returned 11
-       30:  197-block  1
-call    2 returned 30
-       30:  197-block  2
-call    3 returned 30
-       41:  197-block  3
-call    4 returned 41
-branch  5 taken 30
-branch  6 taken 11 (fallthrough)
-       30:  198:        if(sstable->get_time_stamp() > latest_timestamp)
-call    0 returned 30
-branch  1 taken 25 (fallthrough)
-branch  2 taken 5
-       25:  199:            latest_timestamp = sstable->get_time_stamp();
-       25:  199-block  0
-call    0 returned 25
-       30:  200:        if(min_key == -1 || sstable->get_min_key() < min_key)
-       30:  200-block  0
-branch  0 taken 19 (fallthrough)
-branch  1 taken 11
-       19:  200-block  1
-call    2 returned 19
-branch  3 taken 4 (fallthrough)
-branch  4 taken 15
-       15:  200-block  2
-       15:  200-block  3
-       30:  200-block  4
-branch  5 taken 15 (fallthrough)
-branch  6 taken 15
-       15:  201:            min_key = sstable->get_min_key();
-       15:  201-block  0
-call    0 returned 15
-       30:  202:        if(max_key == -1 || sstable->get_max_key() > max_key)
-       30:  202-block  0
-branch  0 taken 19 (fallthrough)
-branch  1 taken 11
-       19:  202-block  1
-call    2 returned 19
-branch  3 taken 14 (fallthrough)
-branch  4 taken 5
-       25:  202-block  2
-        5:  202-block  3
-       30:  202-block  4
-branch  5 taken 25 (fallthrough)
-branch  6 taken 5
-       25:  203:            max_key = sstable->get_max_key();
-       25:  203-block  0
-call    0 returned 25
-        -:  204:    }
-        -:  205:
-        -:  206:    //从dump_to_level层中选取
-       11:  207:    if(level_list[dump_to_level]->mode == DiskLevel::LEVELING) {
-       11:  207-block  0
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
-branch  2 taken 0
-       11:  208:        level_list[dump_to_level]->choose_sstables(this_level_chosen, min_key, max_key,3);
-       11:  208-block  0
-call    0 returned 11
-call    1 returned 11
-branch  2 taken 11 (fallthrough)
-branch  3 taken 0 (throw)
-       19:  209:        for(SSTable* sstable: this_level_chosen) {
-       11:  209-block  0
-call    0 returned 11
-call    1 returned 11
-        8:  209-block  1
-call    2 returned 8
-        8:  209-block  2
-call    3 returned 8
-       19:  209-block  3
-call    4 returned 19
-branch  5 taken 8
-branch  6 taken 11 (fallthrough)
-        8:  210:            if(sstable->get_time_stamp() > latest_timestamp)
-call    0 returned 8
-branch  1 taken 0 (fallthrough)
-branch  2 taken 8
-    #####:  211:                latest_timestamp = sstable->get_time_stamp();
-    %%%%%:  211-block  0
-call    0 never executed
-        -:  212:        }
-        -:  213:    }
-        -:  214:
-        -:  215:    //把选中的文件读入内存
-       11:  216:    queue< vector< pair<uint64_t, string> > > data_all;
-       11:  216-block  0
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
-branch  2 taken 0 (throw)
-       41:  217:    for(SSTable* sstable: last_level_chosen) {
-       11:  217-block  0
-call    0 returned 11
-call    1 returned 11
-       30:  217-block  1
-call    2 returned 30
-call    3 returned 30
-       41:  217-block  2
-call    4 returned 41
-branch  5 taken 30
-branch  6 taken 11 (fallthrough)
-       30:  218:        vector< pair<uint64_t, string> > data;
-call    0 returned 30
-       60:  219:        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
-call    0 returned 30
-call    1 returned 30
-branch  2 taken 30 (fallthrough)
-branch  3 taken 0 (throw)
-       30:  219-block  0
-call    4 returned 30
-call    5 returned 30
-branch  6 taken 30 (fallthrough)
+        3:  225-block  1
+call    4 returned 3
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
 branch  7 taken 0 (throw)
-       30:  219-block  1
-call    8 returned 30
-branch  9 taken 30 (fallthrough)
-branch 10 taken 0 (throw)
-       30:  219-block  2
-call   11 returned 30
-branch 12 taken 30 (fallthrough)
-branch 13 taken 0 (throw)
-       30:  219-block  3
-call   14 returned 30
-branch 15 taken 30 (fallthrough)
-branch 16 taken 0 (throw)
-       30:  219-block  4
-call   17 returned 30
-branch 18 taken 30 (fallthrough)
-branch 19 taken 0 (throw)
-       30:  219-block  5
-call   20 returned 30
-branch 21 taken 30 (fallthrough)
-branch 22 taken 0 (throw)
-       30:  219-block  6
-call   23 returned 30
-branch 24 taken 30 (fallthrough)
-branch 25 taken 0 (throw)
-       30:  219-block  7
-call   26 returned 30
-branch 27 taken 30 (fallthrough)
-branch 28 taken 0 (throw)
-call   29 returned 30
-call   30 returned 30
-call   31 returned 30
-call   32 returned 30
-call   33 returned 30
-call   34 returned 30
-call   35 returned 30
-    $$$$$:  219-block  8
-    $$$$$:  219-block  9
-    $$$$$:  219-block 10
-    $$$$$:  219-block 11
-    $$$$$:  219-block 12
-    $$$$$:  219-block 13
-    $$$$$:  219-block 14
-    $$$$$:  219-block 15
-       30:  220:        sstable->read_to_mem(filename,data,is_end);
-call    0 returned 30
-branch  1 taken 30 (fallthrough)
-branch  2 taken 0 (throw)
-       30:  221:        data_all.push(data);
-       30:  221-block  0
-call    0 returned 30
-branch  1 taken 30 (fallthrough)
-branch  2 taken 0 (throw)
-       30:  222:    }
-       30:  222-block  0
-call    0 returned 30
-call    1 returned 30
-    $$$$$:  222-block  1
-call    2 never executed
-    $$$$$:  222-block  2
-call    3 never executed
-       19:  223:    for(SSTable* sstable: this_level_chosen) {
-       11:  223-block  0
-call    0 returned 11
-call    1 returned 11
-        8:  223-block  1
-call    2 returned 8
-call    3 returned 8
-       19:  223-block  2
-call    4 returned 19
-branch  5 taken 8
-branch  6 taken 11 (fallthrough)
-        8:  224:        vector< pair<uint64_t, string> > data;
-call    0 returned 8
-       16:  225:        string filename = dir_prefix + to_string(dump_to_level ) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
-call    0 returned 8
-call    1 returned 8
-branch  2 taken 8 (fallthrough)
-branch  3 taken 0 (throw)
-        8:  225-block  0
-call    4 returned 8
-call    5 returned 8
-branch  6 taken 8 (fallthrough)
-branch  7 taken 0 (throw)
-        8:  225-block  1
-call    8 returned 8
-branch  9 taken 8 (fallthrough)
-branch 10 taken 0 (throw)
-        8:  225-block  2
-call   11 returned 8
-branch 12 taken 8 (fallthrough)
-branch 13 taken 0 (throw)
-        8:  225-block  3
-call   14 returned 8
-branch 15 taken 8 (fallthrough)
-branch 16 taken 0 (throw)
-        8:  225-block  4
-call   17 returned 8
-branch 18 taken 8 (fallthrough)
-branch 19 taken 0 (throw)
-        8:  225-block  5
-call   20 returned 8
-branch 21 taken 8 (fallthrough)
-branch 22 taken 0 (throw)
-        8:  225-block  6
-call   23 returned 8
-branch 24 taken 8 (fallthrough)
-branch 25 taken 0 (throw)
-        8:  225-block  7
-call   26 returned 8
-branch 27 taken 8 (fallthrough)
-branch 28 taken 0 (throw)
-call   29 returned 8
-call   30 returned 8
-call   31 returned 8
-call   32 returned 8
-call   33 returned 8
-call   34 returned 8
-call   35 returned 8
-    $$$$$:  225-block  8
-    $$$$$:  225-block  9
-    $$$$$:  225-block 10
-    $$$$$:  225-block 11
-    $$$$$:  225-block 12
-    $$$$$:  225-block 13
-    $$$$$:  225-block 14
-    $$$$$:  225-block 15
-        8:  226:        sstable->read_to_mem(filename,data,is_end);
-call    0 returned 8
-branch  1 taken 8 (fallthrough)
-branch  2 taken 0 (throw)
-        8:  227:        data_all.push(data);
-        8:  227-block  0
-call    0 returned 8
-branch  1 taken 8 (fallthrough)
-branch  2 taken 0 (throw)
-        8:  228:    }
-        8:  228-block  0
-call    0 returned 8
-call    1 returned 8
-    $$$$$:  228-block  1
-call    2 never executed
-    $$$$$:  228-block  2
-call    3 never executed
-        -:  229:
-        -:  230:    //两两归并
-       38:  231:    while( data_all.size() > 1) {
-       11:  231-block  0
-       38:  231-block  1
-call    0 returned 38
-branch  1 taken 27
-branch  2 taken 11 (fallthrough)
-       27:  232:        vector< pair<uint64_t, string> > data1 = data_all.front();
-       27:  232-block  0
-call    0 returned 27
-call    1 returned 27
-branch  2 taken 27 (fallthrough)
-branch  3 taken 0 (throw)
-       27:  233:        data_all.pop();
-       27:  233-block  0
-call    0 returned 27
-       27:  234:        vector< pair<uint64_t, string> > data2 = data_all.front();
-call    0 returned 27
-call    1 returned 27
-branch  2 taken 27 (fallthrough)
-branch  3 taken 0 (throw)
-       27:  235:        data_all.pop();
-       27:  235-block  0
-call    0 returned 27
-       27:  236:        vector<pair<uint64_t, string> > date_sorted;
-call    0 returned 27
-       27:  237:        mergeSort(data1, data2, date_sorted);
-call    0 returned 27
-branch  1 taken 27 (fallthrough)
-branch  2 taken 0 (throw)
-       27:  237-block  0
-call    3 returned 27
-branch  4 taken 27 (fallthrough)
-branch  5 taken 0 (throw)
-       27:  237-block  1
-call    6 returned 27
-branch  7 taken 27 (fallthrough)
-branch  8 taken 0 (throw)
-       27:  237-block  2
-call    9 returned 27
-call   10 returned 27
-    $$$$$:  237-block  3
-call   11 never executed
-    $$$$$:  237-block  4
-    $$$$$:  237-block  5
-call   12 never executed
-    $$$$$:  237-block  6
-       27:  238:        data_all.push(date_sorted);
-call    0 returned 27
-branch  1 taken 27 (fallthrough)
-branch  2 taken 0 (throw)
-       27:  239:    }
-       27:  239-block  0
-call    0 returned 27
-call    1 returned 27
-call    2 returned 27
-    $$$$$:  239-block  1
-call    3 never executed
-    $$$$$:  239-block  2
-call    4 never executed
-    $$$$$:  239-block  3
-call    5 never executed
-        -:  240:
-        -:  241:    //得到一个大的有序数组data_sorted
-       11:  242:    vector<pair<uint64_t, string> > date_sorted = data_all.front();
-       11:  242-block  0
-call    0 returned 11
-call    1 returned 11
-branch  2 taken 11 (fallthrough)
-branch  3 taken 0 (throw)
-       11:  243:    data_all.pop();
-       11:  243-block  0
-call    0 returned 11
-        -:  244:
-        -:  245:    //创建新的SSTable
-       11:  246:    uint64_t len_all = date_sorted.size();
-call    0 returned 11
-       11:  247:    uint64_t size = 10272;
-       11:  248:    vector<pair<uint64_t, string> > data_dump;
-call    0 returned 11
-    21783:  249:    for(uint64_t i = 0; i < len_all; ++i) {
-    21783:  249-block  0
-branch  0 taken 21772
-branch  1 taken 11 (fallthrough)
-    21772:  250:        if(size + date_sorted[i].second.size() + 12 > 2097152) {
-    21772:  250-block  0
-call    0 returned 21772
-call    1 returned 21772
-branch  2 taken 29 (fallthrough)
-branch  3 taken 21743
-       29:  251:            size = 10272;
-       29:  252:            SSTable* sstable = new SSTable(data_dump, latest_timestamp);
-       29:  252-block  0
-call    0 returned 29
-branch  1 taken 29 (fallthrough)
-branch  2 taken 0 (throw)
-       29:  252-block  1
-call    3 returned 29
-branch  4 taken 29 (fallthrough)
-branch  5 taken 0 (throw)
-    $$$$$:  252-block  2
-call    6 never executed
-       29:  253:            int64_t serial = level_list[dump_to_level]->add_sstable(sstable);
-       29:  253-block  0
-call    0 returned 29
-call    1 returned 29
-branch  2 taken 29 (fallthrough)
-branch  3 taken 0 (throw)
-       58:  254:            string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
-       29:  254-block  0
-call    0 returned 29
-branch  1 taken 29 (fallthrough)
-branch  2 taken 0 (throw)
-       29:  254-block  1
-call    3 returned 29
-branch  4 taken 29 (fallthrough)
-branch  5 taken 0 (throw)
-       29:  254-block  2
-call    6 returned 29
-branch  7 taken 29 (fallthrough)
-branch  8 taken 0 (throw)
-       29:  254-block  3
-call    9 returned 29
-branch 10 taken 29 (fallthrough)
-branch 11 taken 0 (throw)
-       29:  254-block  4
-call   12 returned 29
-branch 13 taken 29 (fallthrough)
-branch 14 taken 0 (throw)
-       29:  254-block  5
-call   15 returned 29
-branch 16 taken 29 (fallthrough)
-branch 17 taken 0 (throw)
-       29:  254-block  6
-call   18 returned 29
-branch 19 taken 29 (fallthrough)
-branch 20 taken 0 (throw)
-       29:  254-block  7
-call   21 returned 29
-branch 22 taken 29 (fallthrough)
-branch 23 taken 0 (throw)
-       29:  254-block  8
-call   24 returned 29
-branch 25 taken 29 (fallthrough)
-branch 26 taken 0 (throw)
-call   27 returned 29
-call   28 returned 29
-call   29 returned 29
-call   30 returned 29
-call   31 returned 29
-call   32 returned 29
-call   33 returned 29
-    $$$$$:  254-block  9
-    $$$$$:  254-block 10
-    $$$$$:  254-block 11
-    $$$$$:  254-block 12
-    $$$$$:  254-block 13
-    $$$$$:  254-block 14
-    $$$$$:  254-block 15
-    $$$$$:  254-block 16
-       29:  255:            sstable->save_file(filename);
-call    0 returned 29
-branch  1 taken 29 (fallthrough)
-branch  2 taken 0 (throw)
-       29:  256:            data_dump.clear();
-       29:  256-block  0
-call    0 returned 29
-       29:  257:        }
-call    0 returned 29
-    $$$$$:  257-block  0
-call    1 never executed
-    21772:  258:        data_dump.push_back(date_sorted[i]);
-    21772:  258-block  0
-call    0 returned 21772
-call    1 returned 21772
-branch  2 taken 21772 (fallthrough)
-branch  3 taken 0 (throw)
-    21772:  259:        size += date_sorted[i].second.size() + 12;
-    21772:  259-block  0
-call    0 returned 21772
-call    1 returned 21772
-        -:  260:    }
-       11:  261:    if(!data_dump.empty()) {
-       11:  261-block  0
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
-branch  2 taken 0
-       11:  262:        SSTable* sstable = new SSTable(data_dump, latest_timestamp);
-       11:  262-block  0
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
-branch  2 taken 0 (throw)
-       11:  262-block  1
-call    3 returned 11
-branch  4 taken 11 (fallthrough)
-branch  5 taken 0 (throw)
-    $$$$$:  262-block  2
-call    6 never executed
-       11:  263:        int64_t serial = level_list[dump_to_level]->add_sstable(sstable);
-       11:  263-block  0
-call    0 returned 11
-call    1 returned 11
-branch  2 taken 11 (fallthrough)
-branch  3 taken 0 (throw)
-       22:  264:        string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
-       11:  264-block  0
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
-branch  2 taken 0 (throw)
-       11:  264-block  1
-call    3 returned 11
-branch  4 taken 11 (fallthrough)
-branch  5 taken 0 (throw)
-       11:  264-block  2
-call    6 returned 11
-branch  7 taken 11 (fallthrough)
-branch  8 taken 0 (throw)
-       11:  264-block  3
-call    9 returned 11
-branch 10 taken 11 (fallthrough)
-branch 11 taken 0 (throw)
-       11:  264-block  4
-call   12 returned 11
-branch 13 taken 11 (fallthrough)
-branch 14 taken 0 (throw)
-       11:  264-block  5
-call   15 returned 11
-branch 16 taken 11 (fallthrough)
-branch 17 taken 0 (throw)
-       11:  264-block  6
-call   18 returned 11
-branch 19 taken 11 (fallthrough)
-branch 20 taken 0 (throw)
-       11:  264-block  7
-call   21 returned 11
-branch 22 taken 11 (fallthrough)
-branch 23 taken 0 (throw)
-       11:  264-block  8
-call   24 returned 11
-branch 25 taken 11 (fallthrough)
-branch 26 taken 0 (throw)
-call   27 returned 11
-call   28 returned 11
-call   29 returned 11
-call   30 returned 11
-call   31 returned 11
-call   32 returned 11
-call   33 returned 11
-    $$$$$:  264-block  9
-    $$$$$:  264-block 10
-    $$$$$:  264-block 11
-    $$$$$:  264-block 12
-    $$$$$:  264-block 13
-    $$$$$:  264-block 14
-    $$$$$:  264-block 15
-    $$$$$:  264-block 16
-       11:  265:        sstable->save_file(filename);
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
-branch  2 taken 0 (throw)
-       11:  266:    }
-       11:  266-block  0
-call    0 returned 11
-    $$$$$:  266-block  1
-call    1 never executed
-        -:  267:
-        -:  268:    // 删除之前的文件
-       41:  269:    for(SSTable* sstable: last_level_chosen) {
-       11:  269-block  0
-call    0 returned 11
-call    1 returned 11
-       30:  269-block  1
-call    2 returned 30
-call    3 returned 30
-       41:  269-block  2
-call    4 returned 41
-branch  5 taken 30
-branch  6 taken 11 (fallthrough)
-       60:  270:        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
-call    0 returned 30
-call    1 returned 30
-branch  2 taken 30 (fallthrough)
-branch  3 taken 0 (throw)
-       30:  270-block  0
-call    4 returned 30
-call    5 returned 30
-branch  6 taken 30 (fallthrough)
-branch  7 taken 0 (throw)
-       30:  270-block  1
-call    8 returned 30
-branch  9 taken 30 (fallthrough)
-branch 10 taken 0 (throw)
-       30:  270-block  2
-call   11 returned 30
-branch 12 taken 30 (fallthrough)
-branch 13 taken 0 (throw)
-       30:  270-block  3
-call   14 returned 30
-branch 15 taken 30 (fallthrough)
-branch 16 taken 0 (throw)
-       30:  270-block  4
-call   17 returned 30
-branch 18 taken 30 (fallthrough)
-branch 19 taken 0 (throw)
-       30:  270-block  5
-call   20 returned 30
-branch 21 taken 30 (fallthrough)
-branch 22 taken 0 (throw)
-       30:  270-block  6
-call   23 returned 30
-branch 24 taken 30 (fallthrough)
-branch 25 taken 0 (throw)
-       30:  270-block  7
-call   26 returned 30
-branch 27 taken 30 (fallthrough)
-branch 28 taken 0 (throw)
-call   29 returned 30
-call   30 returned 30
-call   31 returned 30
-call   32 returned 30
-call   33 returned 30
-call   34 returned 30
-call   35 returned 30
-    $$$$$:  270-block  8
-    $$$$$:  270-block  9
-    $$$$$:  270-block 10
-    $$$$$:  270-block 11
-    $$$$$:  270-block 12
-    $$$$$:  270-block 13
-    $$$$$:  270-block 14
-    $$$$$:  270-block 15
-       30:  271:        utils::rmfile(filename.data());
-call    0 returned 30
-call    1 returned 30
-branch  2 taken 30 (fallthrough)
-branch  3 taken 0 (throw)
-       30:  272:    }
-       30:  272-block  0
-call    0 returned 30
-    $$$$$:  272-block  1
-call    1 never executed
-       19:  273:    for(SSTable* sstable: this_level_chosen) {
-       11:  273-block  0
-call    0 returned 11
-call    1 returned 11
-        8:  273-block  1
-call    2 returned 8
-call    3 returned 8
-       19:  273-block  2
-call    4 returned 19
-branch  5 taken 8
-branch  6 taken 11 (fallthrough)
-       16:  274:        string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
-call    0 returned 8
-call    1 returned 8
-branch  2 taken 8 (fallthrough)
-branch  3 taken 0 (throw)
-        8:  274-block  0
-call    4 returned 8
-call    5 returned 8
-branch  6 taken 8 (fallthrough)
-branch  7 taken 0 (throw)
-        8:  274-block  1
-call    8 returned 8
-branch  9 taken 8 (fallthrough)
-branch 10 taken 0 (throw)
-        8:  274-block  2
-call   11 returned 8
-branch 12 taken 8 (fallthrough)
-branch 13 taken 0 (throw)
-        8:  274-block  3
-call   14 returned 8
-branch 15 taken 8 (fallthrough)
-branch 16 taken 0 (throw)
-        8:  274-block  4
-call   17 returned 8
-branch 18 taken 8 (fallthrough)
-branch 19 taken 0 (throw)
-        8:  274-block  5
-call   20 returned 8
-branch 21 taken 8 (fallthrough)
-branch 22 taken 0 (throw)
-        8:  274-block  6
-call   23 returned 8
-branch 24 taken 8 (fallthrough)
-branch 25 taken 0 (throw)
-        8:  274-block  7
-call   26 returned 8
-branch 27 taken 8 (fallthrough)
-branch 28 taken 0 (throw)
-call   29 returned 8
-call   30 returned 8
-call   31 returned 8
-call   32 returned 8
-call   33 returned 8
-call   34 returned 8
-call   35 returned 8
-    $$$$$:  274-block  8
-    $$$$$:  274-block  9
-    $$$$$:  274-block 10
-    $$$$$:  274-block 11
-    $$$$$:  274-block 12
-    $$$$$:  274-block 13
-    $$$$$:  274-block 14
-    $$$$$:  274-block 15
-        8:  275:        utils::rmfile(filename.data());
-call    0 returned 8
-call    1 returned 8
-branch  2 taken 8 (fallthrough)
-branch  3 taken 0 (throw)
-        8:  276:    }
-        8:  276-block  0
-call    0 returned 8
-    $$$$$:  276-block  1
-call    1 never executed
-        -:  277:
-        -:  278:    //递归检查下一层
-       11:  279:    compaction(dump_to_level + 1,dir_prefix);
-       11:  279-block  0
-call    0 returned 11
-branch  1 taken 11 (fallthrough)
-branch  2 taken 0 (throw)
-       11:  280:}
-       11:  280-block  0
-call    0 returned 11
-call    1 returned 11
-call    2 returned 11
-call    3 returned 11
-call    4 returned 11
-call    5 returned 11
-    $$$$$:  280-block  1
-call    6 never executed
-    $$$$$:  280-block  2
-call    7 never executed
-    $$$$$:  280-block  3
-call    8 never executed
-    $$$$$:  280-block  4
-call    9 never executed
-    $$$$$:  280-block  5
+        3:  225-block  2
+call    8 returned 3
+call    9 returned 3
+    $$$$$:  225-block  3
 call   10 never executed
-    $$$$$:  280-block  6
+    $$$$$:  225-block  4
+    $$$$$:  225-block  5
 call   11 never executed
-        -:  281:
-        -:  282:/*
-        -:  283: * @biref: 两个有序数组归并:从小到大
-        -:  284: * @param: data_sorted 归并后的数组
-        -:  285: * */
-function _ZN9DiskStore9mergeSortESt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESA_RSA_ called 27 returned 100% blocks executed 100%
-       27:  286:void DiskStore::mergeSort(vector<pair<uint64_t, string>> data1, vector<pair<uint64_t, string>> data2,
-        -:  287:                          vector<pair<uint64_t, string>> &data_sorted) {
-       27:  288:    int i = 0, j = 0;
-       27:  289:    int len1 = data1.size(), len2 = data2.size();
-       27:  289-block  0
-call    0 returned 27
-call    1 returned 27
-    31440:  290:    while(i < len1 && j < len2) {
-    31440:  290-block  0
-branch  0 taken 31429 (fallthrough)
-branch  1 taken 11
-    31429:  290-block  1
-branch  2 taken 31413
-branch  3 taken 16 (fallthrough)
-    31413:  291:        if(data1[i].first < data2[j].first) {
-    31413:  291-block  0
-call    0 returned 31413
-call    1 returned 31413
-branch  2 taken 12298 (fallthrough)
-branch  3 taken 19115
-    12298:  292:            data_sorted.push_back(data1[i]);
-    12298:  292-block  0
-call    0 returned 12298
-call    1 returned 12298
-    12298:  293:            i++;
-        -:  294:        }
-        -:  295:        else {
-    19115:  296:            data_sorted.push_back(data2[j]);
-    19115:  296-block  0
-call    0 returned 19115
-call    1 returned 19115
-    19115:  297:            j++;
-        -:  298:        }
-        -:  299:    }
-        -:  300:    // 将剩余的元素添加到结果向量中
-     6731:  301:    while (i < len1) {
-       27:  301-block  0
-     6731:  301-block  1
-branch  0 taken 6704
-branch  1 taken 27 (fallthrough)
-     6704:  302:        data_sorted.push_back(data1[i]);
-     6704:  302-block  0
-call    0 returned 6704
-call    1 returned 6704
-     6704:  303:        i++;
-        -:  304:    }
-     5155:  305:    while (j < len2) {
-       27:  305-block  0
-     5155:  305-block  1
-branch  0 taken 5128
-branch  1 taken 27 (fallthrough)
-     5128:  306:        data_sorted.push_back(data2[j]);
-     5128:  306-block  0
-call    0 returned 5128
-call    1 returned 5128
-     5128:  307:        j++;
-        -:  308:    }
-       27:  309:}
-        -:  310:
-        -:  311:/*
-        -:  312: * @brief: 每一层的结构DiskLevel按规则选择sstable
-        -:  313: * @param: sstable_list 返回的sstable列表
-        -:  314: * @param: mode  : 1:全部选择 2:按时间选择多余的 3:选择key有重叠的
-        -:  315: * */
-function _ZN9DiskLevel15choose_sstablesERSt6vectorIP7SSTableSaIS2_EEyyi called 22 returned 100% blocks executed 78%
-       22:  316:void DiskLevel::choose_sstables(vector<SSTable *> &chosen_list, uint64_t min_key, uint64_t max_key,int mode) {
-       22:  317:    if(mode == 1) { //选择全部
-       22:  317-block  0
-branch  0 taken 5 (fallthrough)
-branch  1 taken 17
-       20:  318:        for(SSTable* sstable: sstable_list) {
-        5:  318-block  0
-call    0 returned 5
-call    1 returned 5
-       15:  318-block  1
-call    2 returned 15
-       15:  318-block  2
-call    3 returned 15
-       20:  318-block  3
-call    4 returned 20
-branch  5 taken 15
-branch  6 taken 5 (fallthrough)
-       15:  319:            chosen_list.push_back(sstable);
-call    0 returned 15
-branch  1 taken 15 (fallthrough)
-branch  2 taken 0 (throw)
-        -:  320:        }
-        5:  321:        sstable_list.clear(); //这一行清空但是不释放内存
-        5:  321-block  0
-call    0 returned 5
-        5:  322:        sstable_num = 0;
-        5:  323:        return;
-        -:  324:    }
-       17:  325:    if(mode == 2) {
-       17:  325-block  0
-branch  0 taken 6 (fallthrough)
-branch  1 taken 11
-        -:  326:        //选择时间戳最小(时间戳相等选择键最小)的多余文件
-        -:  327:        //按照时间戳排序
-        6:  328:        vector<uint64_t> indices(sstable_num);// 用于记录sstable_list下标的 vector
-        6:  328-block  0
-call    0 returned 6
-call    1 returned 6
-branch  2 taken 6 (fallthrough)
-branch  3 taken 0 (throw)
-    $$$$$:  328-block  1
-        6:  329:        iota(indices.begin(), indices.end(), 0); // 初始化
-call    0 returned 6
-call    1 returned 6
-call    2 returned 6
-        -:  330:        // 按照时间戳从小到大排序，时间戳相等按照键从小到大排序
-function _ZZN9DiskLevel15choose_sstablesERSt6vectorIP7SSTableSaIS2_EEyyiENKUlyyE_clEyy called 123 returned 100% blocks executed 100%
-        6:  331:        sort(indices.begin(), indices.end(), [&](uint64_t i1, uint64_t i2) {
-call    0 returned 6
-call    1 returned 6
-call    2 returned 6
-branch  3 taken 6 (fallthrough)
-branch  4 taken 0 (throw)
-      123:  332:            if(sstable_list[i1]->get_time_stamp() == sstable_list[i2]->get_time_stamp())
-      123:  332-block  0
-call    0 returned 123
-call    1 returned 123
-call    2 returned 123
-call    3 returned 123
-branch  4 taken 55 (fallthrough)
-branch  5 taken 68
-       55:  333:                return sstable_list[i1]->get_total_num() < sstable_list[i2]->get_total_num();
-       55:  333-block  0
-call    0 returned 55
-call    1 returned 55
-call    2 returned 55
-call    3 returned 55
-       68:  334:            return sstable_list[i1]->get_time_stamp() < sstable_list[i2]->get_time_stamp();
-       68:  334-block  0
-call    0 returned 68
-call    1 returned 68
-call    2 returned 68
-call    3 returned 68
-        -:  335:        });
-        -:  336:
-        -:  337:        // 选择多余的文件,indices中的前select_num个（下标）
-        6:  338:        uint64_t select_num = sstable_num - max_num;
-       21:  339:        for(uint64_t i = 0; i < select_num; ++i) {
-        6:  339-block  0
-       21:  339-block  1
-branch  0 taken 15
-branch  1 taken 6 (fallthrough)
-       15:  340:            chosen_list.push_back(sstable_list[indices[i]]);
-       15:  340-block  0
-call    0 returned 15
-call    1 returned 15
-call    2 returned 15
-branch  3 taken 15 (fallthrough)
-branch  4 taken 0 (throw)
-       15:  341:            sstable_list.erase(sstable_list.begin() + (int)indices[i]);
-       15:  341-block  0
-call    0 returned 15
-call    1 returned 15
-call    2 returned 15
-call    3 returned 15
-call    4 returned 15
-branch  5 taken 15 (fallthrough)
-branch  6 taken 0 (throw)
-    $$$$$:  341-block  1
-    $$$$$:  341-block  2
-    $$$$$:  341-block  3
-       15:  342:            --sstable_num;
-       15:  342-block  0
-        -:  343:        }
-        6:  344:        return;
-        6:  345:    }
-        6:  345-block  0
-call    0 returned 6
-    $$$$$:  345-block  1
+    $$$$$:  225-block  6
+    $$$$$:  225-block  7
+        3:  226:    }
+call    0 returned 3
+call    1 returned 3
+    $$$$$:  226-block  0
+call    2 never executed
+    $$$$$:  226-block  1
+call    3 never executed
+       1*:  227:    for(SSTable* sstable: this_level_chosen) {
+        1:  227-block  0
+call    0 returned 1
+call    1 returned 1
+    %%%%%:  227-block  1
+call    2 never executed
+call    3 never executed
+        1:  227-block  2
+call    4 returned 1
+branch  5 taken 0
+branch  6 taken 1 (fallthrough)
+    #####:  228:        vector< pair<uint64_t, string> > data;
+call    0 never executed
+    #####:  229:        string filename = dir_prefix + to_string(dump_to_level ) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 never executed
 call    1 never executed
-       11:  346:    uint64_t origin_size = sstable_num;
-        -:  347:    /*BUG CODE: erase change the index i*/
-        -:  348://    for(uint64_t i = 0; i < origin_size; ++i) {
-        -:  349://        SSTable* sstable = sstable_list[i];
-        -:  350://        if(sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) //不在范围内
-        -:  351://            continue;
-        -:  352://        chosen_list.push_back(sstable);
-        -:  353://        sstable_list.erase(sstable_list.begin() + (int)i);
-        -:  354://        --sstable_num;
-        -:  355://    }
-        -:  356:    /*FIX BUG: 逆向迭代器*/
-       43:  357:    for (auto it = sstable_list.rbegin(); it != sstable_list.rend(); ++it) {
-       11:  357-block  0
-call    0 returned 11
-       32:  357-block  1
-call    1 returned 32
-       43:  357-block  2
-call    2 returned 43
-call    3 returned 43
-branch  4 taken 43 (fallthrough)
-branch  5 taken 0 (throw)
-       43:  357-block  3
-branch  6 taken 32
-branch  7 taken 11 (fallthrough)
-    $$$$$:  357-block  4
-       32:  358:        SSTable* sstable = *it;
-       32:  358-block  0
-call    0 returned 32
-       32:  359:        if (sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) {
-call    0 returned 32
-branch  1 taken 32 (fallthrough)
-branch  2 taken 0
-       32:  359-block  0
-call    3 returned 32
-branch  4 taken 24 (fallthrough)
-branch  5 taken 8
-       24:  359-block  1
-        8:  359-block  2
-       32:  359-block  3
-branch  6 taken 24 (fallthrough)
-branch  7 taken 8
-       24:  360:            continue;
-       24:  360-block  0
-        -:  361:        }
-        8:  362:        chosen_list.push_back(sstable);
-        8:  362-block  0
-call    0 returned 8
-branch  1 taken 8 (fallthrough)
-branch  2 taken 0 (throw)
-        -:  363:        /*
-        -:  364:        * 逆向迭代器不能直接使用 erase()删除，因为该函数要求传入的是正向迭代器。
-        -:  365:        * 需要将逆向迭代器转换为正向迭代器
-        -:  366:        * std::next(it) 返回的是 it 的下一个迭代器，即正向迭代器，
-        -:  367:        * 通过调用 base() 函数将其转换回逆向迭代器的形式，以便在 erase() 函数中使用。
-        -:  368:        * */
-        8:  369:        sstable_list.erase(std::next(it).base());  // 使用逆向迭代器删除元素
-        8:  369-block  0
-call    0 returned 8
-call    1 returned 8
-branch  2 taken 8 (fallthrough)
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  229-block  0
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  229-block  1
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  229-block  2
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  229-block  3
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  229-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  229-block  5
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  229-block  6
+call   23 never executed
+branch 24 never executed
+branch 25 never executed
+    %%%%%:  229-block  7
+call   26 never executed
+branch 27 never executed
+branch 28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+call   34 never executed
+call   35 never executed
+    $$$$$:  229-block  8
+    $$$$$:  229-block  9
+    $$$$$:  229-block 10
+    $$$$$:  229-block 11
+    $$$$$:  229-block 12
+    $$$$$:  229-block 13
+    $$$$$:  229-block 14
+    $$$$$:  229-block 15
+    #####:  230:        sstable->read_to_mem(filename,data);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  231:        data_all.push(make_pair(data, sstable->get_time_stamp()));
+    %%%%%:  231-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  231-block  1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  231-block  2
+call    8 never executed
+call    9 never executed
+    $$$$$:  231-block  3
+call   10 never executed
+    $$$$$:  231-block  4
+    $$$$$:  231-block  5
+call   11 never executed
+    $$$$$:  231-block  6
+    $$$$$:  231-block  7
+    #####:  232:    }
+call    0 never executed
+call    1 never executed
+    $$$$$:  232-block  0
+call    2 never executed
+    $$$$$:  232-block  1
+call    3 never executed
+        -:  233:
+        -:  234:    //两两归并
+        2:  235:    while( data_all.size() > 1) {
+        1:  235-block  0
+        2:  235-block  1
+call    0 returned 2
+branch  1 taken 2
+branch  2 taken 0 (fallthrough)
+        2:  236:        vector< pair<uint64_t, string> > data1 = data_all.front().first;
+        2:  236-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
 branch  3 taken 0 (throw)
-        8:  369-block  1
-call    4 returned 8
-call    5 returned 8
-call    6 returned 8
-branch  7 taken 8 (fallthrough)
+        2:  237:        uint64_t time_stamp1 = data_all.front().second;
+        2:  237-block  0
+call    0 returned 2
+        2:  238:        data_all.pop();
+call    0 returned 2
+        2:  239:        vector< pair<uint64_t, string> > data2 = data_all.front().first;
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:  240:        uint64_t time_stamp2 = data_all.front().second;
+        2:  240-block  0
+call    0 returned 2
+        2:  241:        data_all.pop();
+call    0 returned 2
+        2:  242:        vector<pair<uint64_t, string> > date_sorted;
+call    0 returned 2
+        2:  243:        mergeSort(data1, data2, time_stamp1,time_stamp2, date_sorted,is_end);
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:  243-block  0
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
+branch  5 taken 0 (throw)
+        2:  243-block  1
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
 branch  8 taken 0 (throw)
-    $$$$$:  369-block  2
-    $$$$$:  369-block  3
-    $$$$$:  369-block  4
-    $$$$$:  369-block  5
-        -:  370:
-        8:  371:        --sstable_num;
-        8:  371-block  0
-        -:  372:    }
-        -:  373:
-        -:  374:
-        -:  375:}
+        1:  243-block  2
+call    9 returned 1
+call   10 returned 1
+    $$$$$:  243-block  3
+call   11 never executed
+    $$$$$:  243-block  4
+    $$$$$:  243-block  5
+call   12 never executed
+    $$$$$:  243-block  6
+       1*:  244:        uint64_t time_stamp = time_stamp1 > time_stamp2 ? time_stamp1 : time_stamp2;
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  244-block  0
+        1:  244-block  1
+        1:  245:        data_all.push(make_pair(date_sorted, time_stamp));
+        1:  245-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  245-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  245-block  2
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  245-block  3
+call    9 never executed
+    $$$$$:  245-block  4
+    $$$$$:  245-block  5
+call   10 never executed
+    $$$$$:  245-block  6
+        1:  246:    }
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+    $$$$$:  246-block  0
+call    3 never executed
+    $$$$$:  246-block  1
+call    4 never executed
+    $$$$$:  246-block  2
+call    5 never executed
+        -:  247:
+        -:  248:    //得到一个大的有序数组data_sorted
+    #####:  249:    vector<pair<uint64_t, string> > date_sorted = data_all.front().first;
+    %%%%%:  249-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  250:    data_all.pop();
+    %%%%%:  250-block  0
+call    0 never executed
+        -:  251:
+        -:  252:    //创建新的SSTable
+    #####:  253:    uint64_t len_all = date_sorted.size();
+call    0 never executed
+    #####:  254:    uint64_t size = 10272;
+    #####:  255:    vector<pair<uint64_t, string> > data_dump;
+call    0 never executed
+    #####:  256:    for(uint64_t i = 0; i < len_all; ++i) {
+    %%%%%:  256-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  257:        if(size + date_sorted[i].second.size() + 12 > 2097152) {
+    %%%%%:  257-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  258:            size = 10272;
+    #####:  259:            SSTable* sstable = new SSTable(data_dump, latest_timestamp);
+    %%%%%:  259-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  259-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  259-block  2
+call    6 never executed
+    #####:  260:            int64_t serial = level_list[dump_to_level]->add_sstable(sstable);
+    %%%%%:  260-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  261:            string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
+    %%%%%:  261-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  261-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  261-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  261-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  261-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:  261-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:  261-block  6
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    %%%%%:  261-block  7
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  261-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+call   27 never executed
+call   28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+    $$$$$:  261-block  9
+    $$$$$:  261-block 10
+    $$$$$:  261-block 11
+    $$$$$:  261-block 12
+    $$$$$:  261-block 13
+    $$$$$:  261-block 14
+    $$$$$:  261-block 15
+    $$$$$:  261-block 16
+    #####:  262:            sstable->save_file(filename);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  263:            data_dump.clear();
+    %%%%%:  263-block  0
+call    0 never executed
+    #####:  264:        }
+call    0 never executed
+    $$$$$:  264-block  0
+call    1 never executed
+    #####:  265:        data_dump.push_back(date_sorted[i]);
+    %%%%%:  265-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  266:        size += date_sorted[i].second.size() + 12;
+    %%%%%:  266-block  0
+call    0 never executed
+call    1 never executed
+        -:  267:    }
+    #####:  268:    if(!data_dump.empty()) {
+    %%%%%:  268-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  269:        SSTable* sstable = new SSTable(data_dump, latest_timestamp);
+    %%%%%:  269-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  269-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    $$$$$:  269-block  2
+call    6 never executed
+    #####:  270:        int64_t serial = level_list[dump_to_level]->add_sstable(sstable);
+    %%%%%:  270-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  271:        string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(latest_timestamp) + '-' + to_string(serial) + ".sst";
+    %%%%%:  271-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  271-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  271-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  271-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  271-block  4
+call   12 never executed
+branch 13 never executed
+branch 14 never executed
+    %%%%%:  271-block  5
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:  271-block  6
+call   18 never executed
+branch 19 never executed
+branch 20 never executed
+    %%%%%:  271-block  7
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  271-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+call   27 never executed
+call   28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+    $$$$$:  271-block  9
+    $$$$$:  271-block 10
+    $$$$$:  271-block 11
+    $$$$$:  271-block 12
+    $$$$$:  271-block 13
+    $$$$$:  271-block 14
+    $$$$$:  271-block 15
+    $$$$$:  271-block 16
+    #####:  272:        sstable->save_file(filename);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  273:    }
+    %%%%%:  273-block  0
+call    0 never executed
+    $$$$$:  273-block  1
+call    1 never executed
+        -:  274:
+        -:  275:    // 删除之前的文件
+    #####:  276:    for(SSTable* sstable: last_level_chosen) {
+    %%%%%:  276-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  276-block  1
+call    2 never executed
+call    3 never executed
+    %%%%%:  276-block  2
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  277:        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  277-block  0
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  277-block  1
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  277-block  2
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  277-block  3
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  277-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  277-block  5
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  277-block  6
+call   23 never executed
+branch 24 never executed
+branch 25 never executed
+    %%%%%:  277-block  7
+call   26 never executed
+branch 27 never executed
+branch 28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+call   34 never executed
+call   35 never executed
+    $$$$$:  277-block  8
+    $$$$$:  277-block  9
+    $$$$$:  277-block 10
+    $$$$$:  277-block 11
+    $$$$$:  277-block 12
+    $$$$$:  277-block 13
+    $$$$$:  277-block 14
+    $$$$$:  277-block 15
+    #####:  278:        utils::rmfile(filename.data());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  279:    }
+    %%%%%:  279-block  0
+call    0 never executed
+    $$$$$:  279-block  1
+call    1 never executed
+    #####:  280:    for(SSTable* sstable: this_level_chosen) {
+    %%%%%:  280-block  0
+call    0 never executed
+call    1 never executed
+    %%%%%:  280-block  1
+call    2 never executed
+call    3 never executed
+    %%%%%:  280-block  2
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    #####:  281:        string filename = dir_prefix + to_string(dump_to_level) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  281-block  0
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+    %%%%%:  281-block  1
+call    8 never executed
+branch  9 never executed
+branch 10 never executed
+    %%%%%:  281-block  2
+call   11 never executed
+branch 12 never executed
+branch 13 never executed
+    %%%%%:  281-block  3
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  281-block  4
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  281-block  5
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  281-block  6
+call   23 never executed
+branch 24 never executed
+branch 25 never executed
+    %%%%%:  281-block  7
+call   26 never executed
+branch 27 never executed
+branch 28 never executed
+call   29 never executed
+call   30 never executed
+call   31 never executed
+call   32 never executed
+call   33 never executed
+call   34 never executed
+call   35 never executed
+    $$$$$:  281-block  8
+    $$$$$:  281-block  9
+    $$$$$:  281-block 10
+    $$$$$:  281-block 11
+    $$$$$:  281-block 12
+    $$$$$:  281-block 13
+    $$$$$:  281-block 14
+    $$$$$:  281-block 15
+    #####:  282:        utils::rmfile(filename.data());
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    #####:  283:    }
+    %%%%%:  283-block  0
+call    0 never executed
+    $$$$$:  283-block  1
+call    1 never executed
+        -:  284:
+        -:  285:    //递归检查下一层
+    #####:  286:    compaction(dump_to_level + 1,dir_prefix);
+    %%%%%:  286-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  287:}
+    %%%%%:  287-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+call    5 never executed
+    $$$$$:  287-block  1
+call    6 never executed
+    $$$$$:  287-block  2
+call    7 never executed
+    $$$$$:  287-block  3
+call    8 never executed
+    $$$$$:  287-block  4
+call    9 never executed
+    $$$$$:  287-block  5
+call   10 never executed
+    $$$$$:  287-block  6
+call   11 never executed
+        -:  288:
+        -:  289:/*
+        -:  290: * @biref: 两个有序数组归并:从小到大
+        -:  291: * @param: data_sorted 归并后的数组
+        -:  292: * */
+function _ZN9DiskStore9mergeSortESt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESA_yyRSA_b called 2 returned 50% blocks executed 88%
+        2:  293:void DiskStore::mergeSort(vector<pair<uint64_t, string>> data1, vector<pair<uint64_t, string>> data2,
+        -:  294:                          uint64_t time_stamp1, uint64_t time_stamp2,
+        -:  295:                          vector<pair<uint64_t, string>> &data_sorted, bool is_end) {
+        2:  296:    int i = 0, j = 0;
+        2:  297:    int len1 = data1.size(), len2 = data2.size();
+        2:  297-block  0
+call    0 returned 2
+call    1 returned 2
+     4328:  298:    while(i < len1 && j < len2) {
+     4328:  298-block  0
+branch  0 taken 4327 (fallthrough)
+branch  1 taken 1
+     4327:  298-block  1
+branch  2 taken 4327
+branch  3 taken 0 (fallthrough)
+     4327:  299:        if(data1[i].first < data2[j].first) {
+     4327:  299-block  0
+call    0 returned 4327
+call    1 returned 4327
+branch  2 taken 2029 (fallthrough)
+branch  3 taken 2298
+     2029:  300:            data_sorted.push_back(data1[i]);
+     2029:  300-block  0
+call    0 returned 2029
+call    1 returned 2029
+     2029:  301:            i++;
+     2298:  302:        } else if(data1[i].first == data2[j].first) { // key相同,比较时间戳
+     2298:  302-block  0
+call    0 returned 2298
+call    1 returned 2298
+branch  2 taken 1724 (fallthrough)
+branch  3 taken 574
+     1724:  303:            if(time_stamp1 < time_stamp2)
+     1724:  303-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1724
+    #####:  304:                data_sorted.push_back(data2[i]);
+    %%%%%:  304-block  0
+call    0 never executed
+call    1 never executed
+        -:  305:            else
+     1724:  306:                data_sorted.push_back(data1[j]);
+     1724:  306-block  0
+call    0 returned 1724
+call    1 returned 1723
+     1723:  307:            j++;i++;
+     1723:  307-block  0
+        -:  308:        }
+        -:  309:        else {
+      574:  310:            data_sorted.push_back(data2[j]);
+      574:  310-block  0
+call    0 returned 574
+call    1 returned 574
+      574:  311:            j++;
+        -:  312:        }
+     4326:  313:        if(is_end && data_sorted.back().second == DELETE_VAL) {
+     4326:  313-block  0
+branch  0 taken 4326 (fallthrough)
+branch  1 taken 0
+     4326:  313-block  1
+call    2 returned 4326
+call    3 returned 4326
+branch  4 taken 631 (fallthrough)
+branch  5 taken 3695
+      631:  313-block  2
+     3695:  313-block  3
+     4326:  313-block  4
+branch  6 taken 631 (fallthrough)
+branch  7 taken 3695
+      631:  314:            data_sorted.pop_back();
+      631:  314-block  0
+call    0 returned 631
+        -:  315:        }
+        -:  316:    }
+        -:  317:    // 将剩余的元素添加到结果向量中
+        1:  318:    while (i < len1) {
+        1:  318-block  0
+        1:  318-block  1
+branch  0 taken 0
+branch  1 taken 1 (fallthrough)
+    #####:  319:        data_sorted.push_back(data1[i]);
+    %%%%%:  319-block  0
+call    0 never executed
+call    1 never executed
+    #####:  320:        i++;
+        -:  321:    }
+      847:  322:    while (j < len2) {
+        1:  322-block  0
+      847:  322-block  1
+branch  0 taken 846
+branch  1 taken 1 (fallthrough)
+      846:  323:        data_sorted.push_back(data2[j]);
+      846:  323-block  0
+call    0 returned 846
+call    1 returned 846
+      846:  324:        j++;
+        -:  325:    }
+        1:  326:}
+        -:  327:
+        -:  328:/*
+        -:  329: * @brief: 每一层的结构DiskLevel按规则选择sstable
+        -:  330: * @param: sstable_list 返回的sstable列表
+        -:  331: * @param: mode  : 1:全部选择 2:按时间选择多余的 3:选择key有重叠的
+        -:  332: * */
+function _ZN9DiskLevel15choose_sstablesERSt6vectorIP7SSTableSaIS2_EEyyi called 2 returned 100% blocks executed 25%
+        2:  333:void DiskLevel::choose_sstables(vector<SSTable *> &chosen_list, uint64_t min_key, uint64_t max_key,int mode) {
+        2:  334:    if(mode == 1) { //选择全部
+        2:  334-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 1
+        4:  335:        for(SSTable* sstable: sstable_list) {
+        1:  335-block  0
+call    0 returned 1
+call    1 returned 1
+        3:  335-block  1
+call    2 returned 3
+        3:  335-block  2
+call    3 returned 3
+        4:  335-block  3
+call    4 returned 4
+branch  5 taken 3
+branch  6 taken 1 (fallthrough)
+        3:  336:            chosen_list.push_back(sstable);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  337:        }
+        1:  338:        sstable_list.clear(); //这一行清空但是不释放内存
+        1:  338-block  0
+call    0 returned 1
+        1:  339:        sstable_num = 0;
+        1:  340:        return;
+        -:  341:    }
+        1:  342:    if(mode == 2) {
+        1:  342-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:  343:        //选择时间戳最小(时间戳相等选择键最小)的多余文件
+        -:  344:        //按照时间戳排序
+    #####:  345:        vector<uint64_t> indices(sstable_num);// 用于记录sstable_list下标的 vector
+    %%%%%:  345-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:  345-block  1
+    #####:  346:        iota(indices.begin(), indices.end(), 0); // 初始化
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:  347:        // 按照时间戳从小到大排序，时间戳相等按照键从小到大排序
+function _ZZN9DiskLevel15choose_sstablesERSt6vectorIP7SSTableSaIS2_EEyyiENKUlyyE_clEyy called 0 returned 0% blocks executed 0%
+    #####:  348:        sort(indices.begin(), indices.end(), [&](uint64_t i1, uint64_t i2) {
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    #####:  349:            if(sstable_list[i1]->get_time_stamp() == sstable_list[i2]->get_time_stamp())
+    %%%%%:  349-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:  350:                return sstable_list[i1]->get_total_num() < sstable_list[i2]->get_total_num();
+    %%%%%:  350-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:  351:            return sstable_list[i1]->get_time_stamp() < sstable_list[i2]->get_time_stamp();
+    %%%%%:  351-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+        -:  352:        });
+        -:  353:
+        -:  354:        // 选择多余的文件,indices中的前select_num个（下标）
+    #####:  355:        uint64_t select_num = sstable_num - max_num;
+    #####:  356:        for(uint64_t i = 0; i < select_num; ++i) {
+    %%%%%:  356-block  0
+    %%%%%:  356-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:  357:            chosen_list.push_back(sstable_list[indices[i]]);
+    %%%%%:  357-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    #####:  358:            sstable_list.erase(sstable_list.begin() + (int)indices[i]);
+    %%%%%:  358-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    $$$$$:  358-block  1
+    $$$$$:  358-block  2
+    $$$$$:  358-block  3
+    #####:  359:            --sstable_num;
+    %%%%%:  359-block  0
+        -:  360:        }
+    #####:  361:        return;
+    #####:  362:    }
+    %%%%%:  362-block  0
+call    0 never executed
+    $$$$$:  362-block  1
+call    1 never executed
+        1:  363:    uint64_t origin_size = sstable_num;
+        -:  364:    /*BUG CODE: erase change the index i*/
+        -:  365://    for(uint64_t i = 0; i < origin_size; ++i) {
+        -:  366://        SSTable* sstable = sstable_list[i];
+        -:  367://        if(sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) //不在范围内
+        -:  368://            continue;
+        -:  369://        chosen_list.push_back(sstable);
+        -:  370://        sstable_list.erase(sstable_list.begin() + (int)i);
+        -:  371://        --sstable_num;
+        -:  372://    }
+        -:  373:    /*FIX BUG: 逆向迭代器*/
+       1*:  374:    for (auto it = sstable_list.rbegin(); it != sstable_list.rend(); ++it) {
+        1:  374-block  0
+call    0 returned 1
+    %%%%%:  374-block  1
+call    1 never executed
+        1:  374-block  2
+call    2 returned 1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  374-block  3
+branch  6 taken 0
+branch  7 taken 1 (fallthrough)
+    $$$$$:  374-block  4
+    #####:  375:        SSTable* sstable = *it;
+    %%%%%:  375-block  0
+call    0 never executed
+    #####:  376:        if (sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  376-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  376-block  1
+    %%%%%:  376-block  2
+    %%%%%:  376-block  3
+branch  6 never executed
+branch  7 never executed
+    #####:  377:            continue;
+    %%%%%:  377-block  0
+        -:  378:        }
+    #####:  379:        chosen_list.push_back(sstable);
+    %%%%%:  379-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  380:        /*
+        -:  381:        * 逆向迭代器不能直接使用 erase()删除，因为该函数要求传入的是正向迭代器。
+        -:  382:        * 需要将逆向迭代器转换为正向迭代器
+        -:  383:        * std::next(it) 返回的是 it 的下一个迭代器，即正向迭代器，
+        -:  384:        * 通过调用 base() 函数将其转换回逆向迭代器的形式，以便在 erase() 函数中使用。
+        -:  385:        * */
+    #####:  386:        sstable_list.erase(std::next(it).base());  // 使用逆向迭代器删除元素
+    %%%%%:  386-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  386-block  1
+call    4 never executed
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    $$$$$:  386-block  2
+    $$$$$:  386-block  3
+    $$$$$:  386-block  4
+    $$$$$:  386-block  5
+        -:  387:
+    #####:  388:        --sstable_num;
+    %%%%%:  388-block  0
+        -:  389:    }
+        -:  390:
+        -:  391:
+        -:  392:}

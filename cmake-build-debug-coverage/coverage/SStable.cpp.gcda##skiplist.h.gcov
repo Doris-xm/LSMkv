@@ -1,6 +1,6 @@
         -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/header/skiplist.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\SStable.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\SStable.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\SStable.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\SStable.cpp.gcda
         -:    0:Runs:1
         -:    1:#pragma once
         -:    2:
@@ -39,21 +39,21 @@
         -:   35:    int del(uint64_t key);
         -:   36:    std::string search(uint64_t key);
         -:   37:    bool scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list);
-function _ZN8SkipList8get_headEv called 17 returned 100% blocks executed 100%
-       17:   38:    node* get_head() { return head; }
-       17:   38-block  0
-function _ZN8SkipList8get_tailEv called 17 returned 100% blocks executed 100%
-       17:   39:    node* get_tail() { return tail; }
-       17:   39-block  0
-function _ZNK8SkipList11get_key_numEv called 17 returned 100% blocks executed 100%
-       17:   40:    unsigned int get_key_num() const { return key_num; }
-       17:   40-block  0
+function _ZN8SkipList8get_headEv called 3 returned 100% blocks executed 100%
+        3:   38:    node* get_head() { return head; }
+        3:   38-block  0
+function _ZN8SkipList8get_tailEv called 3 returned 100% blocks executed 100%
+        3:   39:    node* get_tail() { return tail; }
+        3:   39-block  0
+function _ZNK8SkipList11get_key_numEv called 3 returned 100% blocks executed 100%
+        3:   40:    unsigned int get_key_num() const { return key_num; }
+        3:   40-block  0
         -:   41:    uint64_t get_size() const { return Size; }
-function _ZNK8SkipList11get_max_keyEv called 17 returned 100% blocks executed 100%
-       17:   42:    uint64_t get_max_key() const { return max_key; }
-       17:   42-block  0
-function _ZNK8SkipList11get_min_keyEv called 17 returned 100% blocks executed 100%
-       17:   43:    uint64_t get_min_key() const { return min_key; }
-       17:   43-block  0
+function _ZNK8SkipList11get_max_keyEv called 3 returned 100% blocks executed 100%
+        3:   42:    uint64_t get_max_key() const { return max_key; }
+        3:   42-block  0
+function _ZNK8SkipList11get_min_keyEv called 3 returned 100% blocks executed 100%
+        3:   43:    uint64_t get_min_key() const { return min_key; }
+        3:   43-block  0
         -:   44:};
         -:   45:

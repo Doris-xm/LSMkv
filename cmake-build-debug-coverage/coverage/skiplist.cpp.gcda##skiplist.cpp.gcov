@@ -1,57 +1,57 @@
         -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/src/skiplist.cpp
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\skiplist.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\skiplist.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\skiplist.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\skiplist.cpp.gcda
         -:    0:Runs:1
         -:    1:#include "../header/skiplist.h"
         -:    2:
-function _ZN8SkipList5clearERP4node called 16918 returned 100% blocks executed 100%
-    16918:    3:void SkipList::clear(node *&h) {
-    16918:    4:    if( !h ) return;
-    16918:    4-block  0
-branch  0 taken 20 (fallthrough)
-branch  1 taken 16898
-       20:    4-block  1
-    16898:    5:    clear(h->point_list[0]);
-    16898:    5-block  0
-call    0 returned 16898
-call    1 returned 16898
-    16898:    6:    delete h;
-branch  0 taken 16898 (fallthrough)
+function _ZN8SkipList5clearERP4node called 2884 returned 100% blocks executed 100%
+     2884:    3:void SkipList::clear(node *&h) {
+     2884:    4:    if( !h ) return;
+     2884:    4-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 2881
+        3:    4-block  1
+     2881:    5:    clear(h->point_list[0]);
+     2881:    5-block  0
+call    0 returned 2881
+call    1 returned 2881
+     2881:    6:    delete h;
+branch  0 taken 2881 (fallthrough)
 branch  1 taken 0
-    16898:    6-block  0
-call    2 returned 16898
-call    3 returned 16898
-    16898:    7:    h = nullptr;
-    16898:    7-block  0
+     2881:    6-block  0
+call    2 returned 2881
+call    3 returned 2881
+     2881:    7:    h = nullptr;
+     2881:    7-block  0
         -:    8:}
         -:    9:
-function _ZN8SkipListD2Ev called 20 returned 100% blocks executed 100%
-       20:   10:SkipList::~SkipList() {
-       20:   11:    clear(head);
-       20:   11-block  0
-call    0 returned 20
-       20:   12:}
+function _ZN8SkipListD2Ev called 3 returned 100% blocks executed 100%
+        3:   10:SkipList::~SkipList() {
+        3:   11:    clear(head);
+        3:   11-block  0
+call    0 returned 3
+        3:   12:}
         -:   13:
-function _ZN8SkipListC2Ev called 20 returned 100% blocks executed 48%
-       20:   14:SkipList::SkipList() {
-       20:   15:    P = 368; // probability = 1/e
-       20:   16:    tail = new node(-1);//origin used INT_MAX
-       20:   16-block  0
-call    0 returned 20
-call    1 returned 20
-branch  2 taken 20 (fallthrough)
+function _ZN8SkipListC2Ev called 4 returned 100% blocks executed 48%
+        4:   14:SkipList::SkipList() {
+        4:   15:    P = 368; // probability = 1/e
+        4:   16:    tail = new node(-1);//origin used INT_MAX
+        4:   16-block  0
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 4 (fallthrough)
 branch  3 taken 0 (throw)
-       20:   16-block  1
-call    4 returned 20
-branch  5 taken 20 (fallthrough)
+        4:   16-block  1
+call    4 returned 4
+branch  5 taken 4 (fallthrough)
 branch  6 taken 0 (throw)
-       20:   16-block  2
-call    7 returned 20
-branch  8 taken 20 (fallthrough)
+        4:   16-block  2
+call    7 returned 4
+branch  8 taken 4 (fallthrough)
 branch  9 taken 0 (throw)
-       20:   16-block  3
-call   10 returned 20
-call   11 returned 20
+        4:   16-block  3
+call   10 returned 4
+call   11 returned 4
     $$$$$:   16-block  4
 call   12 never executed
     $$$$$:   16-block  5
@@ -61,22 +61,22 @@ call   13 never executed
 call   14 never executed
     $$$$$:   16-block  8
 call   15 never executed
-       20:   17:    head = new node(0,"",tail);
-call    0 returned 20
-call    1 returned 20
-branch  2 taken 20 (fallthrough)
+        4:   17:    head = new node(0,"",tail);
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 4 (fallthrough)
 branch  3 taken 0 (throw)
-       20:   17-block  0
-call    4 returned 20
-branch  5 taken 20 (fallthrough)
+        4:   17-block  0
+call    4 returned 4
+branch  5 taken 4 (fallthrough)
 branch  6 taken 0 (throw)
-       20:   17-block  1
-call    7 returned 20
-branch  8 taken 20 (fallthrough)
+        4:   17-block  1
+call    7 returned 4
+branch  8 taken 4 (fallthrough)
 branch  9 taken 0 (throw)
-       20:   17-block  2
-call   10 returned 20
-call   11 returned 20
+        4:   17-block  2
+call   10 returned 4
+call   11 returned 4
     $$$$$:   17-block  3
 call   12 never executed
     $$$$$:   17-block  4
@@ -84,12 +84,12 @@ call   13 never executed
     $$$$$:   17-block  5
     $$$$$:   17-block  6
 call   14 never executed
-       20:   18:    Max_level = 0;
-       20:   19:    key_num = 0;
-       20:   20:    max_key = 0;
-       20:   21:    min_key = -1;
-       20:   22:    Size = 10272; //Header + BloomFilter
-       20:   23:}
+        4:   18:    Max_level = 0;
+        4:   19:    key_num = 0;
+        4:   20:    max_key = 0;
+        4:   21:    min_key = -1;
+        4:   22:    Size = 10272; //Header + BloomFilter
+        4:   23:}
         -:   24:
         -:   25:/*
         -:   26: * @brief: insert a node into the skiplist,update the Size
@@ -99,329 +99,287 @@ call   14 never executed
         -:   30: *         false: skipList is full
         -:   31: * //TODO: if delete twice?
         -:   32: * */
-function _ZN8SkipList6insertEyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 17428 returned 100% blocks executed 86%
-    17428:   33:bool SkipList::insert(uint64_t key, const string &s) {
-    17428:   34:    int curr_level = Max_level;
-    17428:   35:    node* next = head;
-   17428*:   36:    node** update_list = new node*[Max_level + 1];
-    17428:   36-block  0
-branch  0 taken 17428 (fallthrough)
+function _ZN8SkipList6insertEyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 5935 returned 100% blocks executed 88%
+     5935:   33:bool SkipList::insert(uint64_t key, const string &s) {
+     5935:   34:    int curr_level = Max_level;
+     5935:   35:    node* next = head;
+    5935*:   36:    node** update_list = new node*[Max_level + 1];
+     5935:   36-block  0
+branch  0 taken 5935 (fallthrough)
 branch  1 taken 0
-    17428:   36-block  1
+     5935:   36-block  1
     %%%%%:   36-block  2
 call    2 never executed
-    17428:   36-block  3
-call    3 returned 17428
-branch  4 taken 17428 (fallthrough)
+     5935:   36-block  3
+call    3 returned 5935
+branch  4 taken 5935 (fallthrough)
 branch  5 taken 0 (throw)
         -:   37:
         -:   38:
-   328191:   39:    while(curr_level >= 0) {
-    17428:   39-block  0
-   328191:   39-block  1
-branch  0 taken 311317
-branch  1 taken 16874 (fallthrough)
-   311317:   40:        if( key < next->point_list[curr_level]->key) {
-   311317:   40-block  0
-call    0 returned 311317
-branch  1 taken 124947 (fallthrough)
-branch  2 taken 186370
-   124947:   41:            update_list[curr_level] = next;//后续可能需要更新
-   124947:   42:            curr_level--;
-   124947:   43:            continue;
-   124947:   43-block  0
+   109580:   39:    while(curr_level >= 0) {
+     5935:   39-block  0
+   109580:   39-block  1
+branch  0 taken 104406
+branch  1 taken 5174 (fallthrough)
+   104406:   40:        if( key < next->point_list[curr_level]->key) {
+   104406:   40-block  0
+call    0 returned 104406
+branch  1 taken 39118 (fallthrough)
+branch  2 taken 65288
+    39118:   41:            update_list[curr_level] = next;//后续可能需要更新
+    39118:   42:            curr_level--;
+    39118:   43:            continue;
+    39118:   43-block  0
         -:   44:        }
-   186370:   45:        if( key == next->point_list[curr_level]->key){
-   186370:   45-block  0
-call    0 returned 186370
-branch  1 taken 554 (fallthrough)
-branch  2 taken 185816
-      554:   46:            delete []update_list;
-      554:   46-block  0
-branch  0 taken 554 (fallthrough)
+    65288:   45:        if( key == next->point_list[curr_level]->key){
+    65288:   45-block  0
+call    0 returned 65288
+branch  1 taken 761 (fallthrough)
+branch  2 taken 64527
+      761:   46:            delete []update_list;
+      761:   46-block  0
+branch  0 taken 761 (fallthrough)
 branch  1 taken 0
-      554:   46-block  1
-call    2 returned 554
-      554:   47:            string old = next->point_list[curr_level]->s;
-      554:   47-block  0
-call    0 returned 554
-call    1 returned 554
-branch  2 taken 554 (fallthrough)
+      761:   46-block  1
+call    2 returned 761
+      761:   47:            string old = next->point_list[curr_level]->s;
+      761:   47-block  0
+call    0 returned 761
+call    1 returned 761
+branch  2 taken 761 (fallthrough)
 branch  3 taken 0 (throw)
-      554:   48:            if(Size + s.size() - old.size() > CAPACITY)
-      554:   48-block  0
-call    0 returned 554
-call    1 returned 554
-branch  2 taken 0 (fallthrough)
-branch  3 taken 554
-    #####:   49:                return false;
-    %%%%%:   49-block  0
-      554:   50:            next->point_list[curr_level]->s = s;
-      554:   50-block  0
-call    0 returned 554
-call    1 returned 554
-branch  2 taken 554 (fallthrough)
+      761:   48:            if(Size + s.size() - old.size() > CAPACITY) //替换旧值时超出容量，不替换，dump后插入新的memtable
+      761:   48-block  0
+call    0 returned 761
+call    1 returned 761
+branch  2 taken 1 (fallthrough)
+branch  3 taken 760
+        1:   49:                return false;
+        1:   49-block  0
+      760:   50:            next->point_list[curr_level]->s = s;
+      760:   50-block  0
+call    0 returned 760
+call    1 returned 760
+branch  2 taken 760 (fallthrough)
 branch  3 taken 0 (throw)
-      554:   51:            Size += s.size() - old.size();
-      554:   51-block  0
-call    0 returned 554
-call    1 returned 554
-      554:   52:            return true;
-      554:   53:        }
-      554:   53-block  0
-call    0 returned 554
+      760:   51:            Size += s.size() - old.size();
+      760:   51-block  0
+call    0 returned 760
+call    1 returned 760
+      760:   52:            return true;
+      761:   53:        }
+      761:   53-block  0
+call    0 returned 761
     $$$$$:   53-block  1
 call    1 never executed
-   185816:   54:        if( key > next->point_list[curr_level]->key)
-   185816:   54-block  0
-call    0 returned 185816
-branch  1 taken 185816 (fallthrough)
+    64527:   54:        if( key > next->point_list[curr_level]->key)
+    64527:   54-block  0
+call    0 returned 64527
+branch  1 taken 64527 (fallthrough)
 branch  2 taken 0
-   185816:   55:            next = next->point_list[curr_level];
-   185816:   55-block  0
-call    0 returned 185816
+    64527:   55:            next = next->point_list[curr_level];
+    64527:   55-block  0
+call    0 returned 64527
         -:   56:    }
         -:   57:
-    16874:   58:    if(Size + s.size() + 13 > CAPACITY) {
-    16874:   58-block  0
-call    0 returned 16874
-branch  1 taken 16 (fallthrough)
-branch  2 taken 16858
-       16:   59:        delete []update_list;
-       16:   59-block  0
-branch  0 taken 16 (fallthrough)
+     5174:   58:    if(Size + s.size() + 13 > CAPACITY) {
+     5174:   58-block  0
+call    0 returned 5174
+branch  1 taken 2 (fallthrough)
+branch  2 taken 5172
+        2:   59:        delete []update_list;
+        2:   59-block  0
+branch  0 taken 2 (fallthrough)
 branch  1 taken 0
-       16:   59-block  1
-call    2 returned 16
-       16:   60:        return false;
-       16:   60-block  0
+        2:   59-block  1
+call    2 returned 2
+        2:   60:        return false;
+        2:   60-block  0
         -:   61:    }
-    16858:   62:    node* NewNode = new node(key, s,next->point_list[0]);
-    16858:   62-block  0
-call    0 returned 16858
-branch  1 taken 16858 (fallthrough)
+     5172:   62:    node* NewNode = new node(key, s,next->point_list[0]);
+     5172:   62-block  0
+call    0 returned 5172
+branch  1 taken 5172 (fallthrough)
 branch  2 taken 0 (throw)
-    16858:   62-block  1
-call    3 returned 16858
-call    4 returned 16858
-branch  5 taken 16858 (fallthrough)
+     5172:   62-block  1
+call    3 returned 5172
+call    4 returned 5172
+branch  5 taken 5172 (fallthrough)
 branch  6 taken 0 (throw)
-    16858:   62-block  2
-call    7 returned 16858
-branch  8 taken 16858 (fallthrough)
+     5172:   62-block  2
+call    7 returned 5172
+branch  8 taken 5172 (fallthrough)
 branch  9 taken 0 (throw)
-    16858:   62-block  3
-call   10 returned 16858
+     5172:   62-block  3
+call   10 returned 5172
     $$$$$:   62-block  4
 call   11 never executed
     $$$$$:   62-block  5
 call   12 never executed
     $$$$$:   62-block  6
-    16858:   63:    key_num ++;
-    16858:   64:    if( key > max_key) max_key = key;
-branch  0 taken 8702 (fallthrough)
-branch  1 taken 8156
-     8702:   64-block  0
-    16858:   65:    if( key < min_key) min_key = key;
-    16858:   65-block  0
-branch  0 taken 21 (fallthrough)
-branch  1 taken 16837
-       21:   65-block  1
-    16858:   66:    Size += s.size() + 13; // 1 + 8 + 4: '\0' + key + offset
-    16858:   66-block  0
-call    0 returned 16858
-    16858:   67:    next->point_list[0] = NewNode;
-call    0 returned 16858
+     5172:   63:    key_num ++;
+     5172:   64:    if( key > max_key) max_key = key;
+branch  0 taken 3071 (fallthrough)
+branch  1 taken 2101
+     3071:   64-block  0
+     5172:   65:    if( key < min_key) min_key = key;
+     5172:   65-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 5168
+        4:   65-block  1
+     5172:   66:    Size += s.size() + 13; // 1 + 8 + 4: '\0' + key + offset
+     5172:   66-block  0
+call    0 returned 5172
+     5172:   67:    next->point_list[0] = NewNode;
+call    0 returned 5172
         -:   68:
         -:   69://    srand(time(nullptr));
-    16858:   70:    int r = rand() % 1000;
-call    0 returned 16858
-    26468:   71:    while(r % 1000 < P){
-    26468:   71-block  0
-branch  0 taken 9703
-branch  1 taken 16765 (fallthrough)
-     9703:   72:        r = rand() % 1000;
-     9703:   72-block  0
-call    0 returned 9703
-     9703:   73:        NewNode->level++;
-     9703:   74:        if(NewNode->level > Max_level) {
-branch  0 taken 93 (fallthrough)
-branch  1 taken 9610
-       93:   75:            Max_level++;
-       93:   76:            head->point_list.push_back(NewNode);
-       93:   76-block  0
-call    0 returned 93
-branch  1 taken 93 (fallthrough)
+     5172:   70:    int r = rand() % 1000;
+call    0 returned 5172
+     8155:   71:    while(r % 1000 < P){
+     8155:   71-block  0
+branch  0 taken 3003
+branch  1 taken 5152 (fallthrough)
+     3003:   72:        r = rand() % 1000;
+     3003:   72-block  0
+call    0 returned 3003
+     3003:   73:        NewNode->level++;
+     3003:   74:        if(NewNode->level > Max_level) {
+branch  0 taken 20 (fallthrough)
+branch  1 taken 2983
+       20:   75:            Max_level++;
+       20:   76:            head->point_list.push_back(NewNode);
+       20:   76-block  0
+call    0 returned 20
+branch  1 taken 20 (fallthrough)
 branch  2 taken 0 (throw)
-       93:   77:            NewNode->point_list.push_back(tail);
-       93:   77-block  0
-call    0 returned 93
-branch  1 taken 93 (fallthrough)
+       20:   77:            NewNode->point_list.push_back(tail);
+       20:   77-block  0
+call    0 returned 20
+branch  1 taken 20 (fallthrough)
 branch  2 taken 0 (throw)
-       93:   78:            head->level++;
-       93:   79:            tail->level++;
-       93:   80:            break;
-       93:   80-block  0
+       20:   78:            head->level++;
+       20:   79:            tail->level++;
+       20:   80:            break;
+       20:   80-block  0
         -:   81:        }
         -:   82:        else {
-     9610:   83:            NewNode->point_list.push_back( update_list[NewNode->level] -> point_list[NewNode->level] );
-     9610:   83-block  0
-call    0 returned 9610
-call    1 returned 9610
-branch  2 taken 9610 (fallthrough)
+     2983:   83:            NewNode->point_list.push_back( update_list[NewNode->level] -> point_list[NewNode->level] );
+     2983:   83-block  0
+call    0 returned 2983
+call    1 returned 2983
+branch  2 taken 2983 (fallthrough)
 branch  3 taken 0 (throw)
-     9610:   84:            update_list[NewNode->level] -> point_list[NewNode->level] = NewNode;
-     9610:   84-block  0
-call    0 returned 9610
+     2983:   84:            update_list[NewNode->level] -> point_list[NewNode->level] = NewNode;
+     2983:   84-block  0
+call    0 returned 2983
         -:   85:        }
         -:   86:    }
-    16858:   87:    delete []update_list;
-    16858:   87-block  0
-branch  0 taken 16858 (fallthrough)
+     5172:   87:    delete []update_list;
+     5172:   87-block  0
+branch  0 taken 5172 (fallthrough)
 branch  1 taken 0
-    16858:   87-block  1
-call    2 returned 16858
-    16858:   88:    return true;
-    16858:   88-block  0
+     5172:   87-block  1
+call    2 returned 5172
+     5172:   88:    return true;
+     5172:   88-block  0
         -:   89:}
         -:   90:
-function _ZN8SkipList6searchB5cxx11Ey called 47586 returned 100% blocks executed 89%
-    47586:   91:std::string SkipList::search(uint64_t key) {
-    47586:   92:    int curr_level = Max_level;
-    47586:   93:    node* next = head;
+function _ZN8SkipList6searchB5cxx11Ey called 11767 returned 100% blocks executed 89%
+    11767:   91:std::string SkipList::search(uint64_t key) {
+    11767:   92:    int curr_level = Max_level;
+    11767:   93:    node* next = head;
         -:   94:
-   814126:   95:    while(curr_level >= 0) {
-    47586:   95-block  0
-   814126:   95-block  1
-branch  0 taken 785585
-branch  1 taken 28541 (fallthrough)
-   785585:   96:        if( key == next->point_list[curr_level]->key)
-   785585:   96-block  0
-call    0 returned 785585
-branch  1 taken 19045 (fallthrough)
-branch  2 taken 766540
-    19045:   97:            return next->point_list[curr_level]->s;
-    19045:   97-block  0
-call    0 returned 19045
-call    1 returned 19045
+   172910:   95:    while(curr_level >= 0) {
+    11767:   95-block  0
+   172910:   95-block  1
+branch  0 taken 165835
+branch  1 taken 7075 (fallthrough)
+   165835:   96:        if( key == next->point_list[curr_level]->key)
+   165835:   96-block  0
+call    0 returned 165835
+branch  1 taken 4692 (fallthrough)
+branch  2 taken 161143
+     4692:   97:            return next->point_list[curr_level]->s;
+     4692:   97-block  0
+call    0 returned 4692
+call    1 returned 4692
         -:   98:
-   766540:   99:        if( key < next->point_list[curr_level]->key)
-   766540:   99-block  0
-call    0 returned 766540
-branch  1 taken 334684 (fallthrough)
-branch  2 taken 431856
-   334684:  100:            curr_level--;
-   334684:  100-block  0
+   161143:   99:        if( key < next->point_list[curr_level]->key)
+   161143:   99-block  0
+call    0 returned 161143
+branch  1 taken 67203 (fallthrough)
+branch  2 taken 93940
+    67203:  100:            curr_level--;
+    67203:  100-block  0
         -:  101:        else
-   431856:  102:            next = next->point_list[curr_level];
-   431856:  102-block  0
-call    0 returned 431856
+    93940:  102:            next = next->point_list[curr_level];
+    93940:  102-block  0
+call    0 returned 93940
         -:  103:    }
         -:  104:
-    28541:  105:    return "";
-    28541:  105-block  0
-call    0 returned 28541
-call    1 returned 28541
-branch  2 taken 28541 (fallthrough)
+     7075:  105:    return "";
+     7075:  105-block  0
+call    0 returned 7075
+call    1 returned 7075
+branch  2 taken 7075 (fallthrough)
 branch  3 taken 0 (throw)
-    28541:  105-block  1
-call    4 returned 28541
+     7075:  105-block  1
+call    4 returned 7075
     $$$$$:  105-block  2
 call    5 never executed
         -:  106:}
         -:  107:
-function _ZN8SkipList4scanEyyRNSt7__cxx114listISt4pairIyNS0_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEE called 2 returned 100% blocks executed 74%
-        2:  108:bool SkipList::scan(uint64_t key1, uint64_t key2, list<std::pair<uint64_t, std::string>> &list) {
-        2:  109:    if(key1 > max_key || key2 < min_key) return false;
-        2:  109-block  0
-branch  0 taken 2 (fallthrough)
-branch  1 taken 0
-        2:  109-block  1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 1
-        1:  109-block  2
-      257:  110:    for(int i = key1; i <= key2; ++i) {
-        1:  110-block  0
-      257:  110-block  1
-branch  0 taken 256
-branch  1 taken 1 (fallthrough)
-      256:  111:        string tmp = search(i);
-      256:  111-block  0
-call    0 returned 256
-branch  1 taken 256 (fallthrough)
-branch  2 taken 0 (throw)
-      256:  112:        if( ! tmp.empty())
-      256:  112-block  0
-call    0 returned 256
-branch  1 taken 256 (fallthrough)
-branch  2 taken 0
-      256:  113:            list.emplace_back(std::make_pair(i, tmp));
-      256:  113-block  0
-call    0 returned 256
-branch  1 taken 256 (fallthrough)
-branch  2 taken 0 (throw)
-      256:  113-block  1
-call    3 returned 256
-branch  4 taken 256 (fallthrough)
-branch  5 taken 0 (throw)
-      256:  113-block  2
-call    6 returned 256
+function _ZN8SkipList4scanEyyRNSt7__cxx114listISt4pairIyNS0_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEE called 0 returned 0% blocks executed 0%
+    #####:  108:bool SkipList::scan(uint64_t key1, uint64_t key2, list<std::pair<uint64_t, std::string>> &list) {
+    #####:  109:    if(key1 > max_key || key2 < min_key) return false;
+    %%%%%:  109-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  109-block  1
+branch  2 never executed
+branch  3 never executed
+    %%%%%:  109-block  2
+    #####:  110:    for(int i = key1; i <= key2; ++i) {
+    %%%%%:  110-block  0
+    %%%%%:  110-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:  111:        string tmp = search(i);
+    %%%%%:  111-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  112:        if( ! tmp.empty())
+    %%%%%:  112-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  113:            list.emplace_back(std::make_pair(i, tmp));
+    %%%%%:  113-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  113-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:  113-block  2
+call    6 never executed
     $$$$$:  113-block  3
 call    7 never executed
     $$$$$:  113-block  4
-      256:  114:    }
-      256:  114-block  0
-call    0 returned 256
+    #####:  114:    }
+    %%%%%:  114-block  0
+call    0 never executed
     $$$$$:  114-block  1
 call    1 never executed
-        1:  115:    return true;
-        1:  115-block  0
+    #####:  115:    return true;
+    %%%%%:  115-block  0
         -:  116:}
         -:  117:
         -:  118:
-function _ZN8SkipList3delEy called 0 returned 0% blocks executed 0%
-    #####:  119:int SkipList::del(uint64_t key) {
-    #####:  120:    return false;
-    %%%%%:  120-block  0
-        -:  121:}
+        -:  119://int SkipList::del(uint64_t key) {
+        -:  120://    return false;
+        -:  121://}
         -:  122:
-        -:  123://void SkipList::store(const string &path, const uint64_t timestamp) {
-        -:  124://    ofstream out(path, ios::binary | ios::app);
-        -:  125://
-        -:  126://    // Header
-        -:  127://    out.write((char*)&timestamp, sizeof(uint64_t));
-        -:  128://    out.write((char*)&key_num, sizeof(uint64_t));
-        -:  129://    out.write((char*)&min_key, sizeof(uint64_t));
-        -:  130://    out.write((char*)&max_key, sizeof(uint64_t));
-        -:  131://
-        -:  132://    // Bloom Filter
-        -:  133://    uint32_t hash[4] = {0};
-        -:  134://    node *curr = head->point_list[0];
-        -:  135://    while(curr != tail) {
-        -:  136://        MurmurHash3_x64_128(&curr->key, sizeof(uint64_t), 1, hash);
-        -:  137://        for(int i = 0; i < 4; ++i)
-        -:  138://            bits.set(hash[i] % 81920);
-        -:  139://        curr = curr->point_list[0];
-        -:  140://    }
-        -:  141://    out.write((char*)&bits, sizeof(bits));
-        -:  142://
-        -:  143://    // key + offset
-        -:  144://    uint32_t offset = 10272 + key_num * 12; //begin of value area, 12 = key + offset = 8 + 4
-        -:  145://    curr = head->point_list[0];
-        -:  146://    while(curr != tail) {
-        -:  147://        out.write((char*)&curr->key, sizeof(uint64_t));
-        -:  148://        out.write((char*)&offset, sizeof(uint32_t));
-        -:  149://        offset += curr->s.size() + 1;
-        -:  150://        curr = curr->point_list[0];
-        -:  151://    }
-        -:  152://
-        -:  153://    // Data area
-        -:  154://    curr = head->point_list[0];
-        -:  155://    while(curr != tail) {
-        -:  156://        out.write(curr->s.c_str(), curr->s.size());
-        -:  157://        out.write("\0", 1);
-        -:  158://        curr = curr->point_list[0];
-        -:  159://    }
-        -:  160://    out.close();
-        -:  161://}
-        -:  162:

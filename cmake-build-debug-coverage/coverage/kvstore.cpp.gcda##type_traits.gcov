@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/type_traits
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcda
         -:    0:Runs:1
         -:    1:// C++11 <type_traits> -*- C++ -*-
         -:    2:
@@ -63,9 +63,9 @@
         -:   59:      static constexpr _Tp                  value = __v;
         -:   60:      typedef _Tp                           value_type;
         -:   61:      typedef integral_constant<_Tp, __v>   type;
-function _ZNKSt17integral_constantIbLb1EEcvbEv called 61428 returned 100% blocks executed 100%
-    61428:   62:      constexpr operator value_type() const noexcept { return value; }
-    61428:   62-block  0
+function _ZNKSt17integral_constantIbLb1EEcvbEv called 16924 returned 100% blocks executed 100%
+    16924:   62:      constexpr operator value_type() const noexcept { return value; }
+    16924:   62-block  0
         -:   63:#if __cplusplus > 201103L
         -:   64:
         -:   65:#define __cpp_lib_integral_constant_callable 201304

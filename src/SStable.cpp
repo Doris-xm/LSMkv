@@ -151,7 +151,7 @@ SSTable::SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial) {
  * @param:返回一个包含键值对的vector:data
  * @param:is_end:是否是最后一行，最后一行需要删除所有的~DELETE~标记
  * */
-void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end) {
+void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data) {
     ifstream in(file_path, ios::binary | ios::in);
      if (!in.is_open()) {
         cout << "SSTable::read_to_mem::open file error: "<<file_path << endl;
@@ -162,32 +162,21 @@ void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string>
 
     for (int i = 0; i < header->total_num - 1; ++i) {
         len = index_area[i + 1].offset - index_area[i].offset;
-//        char *value = new char[len + 1];
-//        in.read((char*)&value, len);
-//        value[len] = '\0';
-//        if(!is_end || strcasecmp(value, "~DELETE~") != 0)
-//            data.emplace_back(make_pair(index_area[i].key, string(value, len)));
-//        delete[] value;
-        string ans(len+1, ' ');
+        string ans(len, ' ');
         in.read(&(*ans.begin()), sizeof(char) * len);
         ans[len] = '\0';
-        if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
+//        if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
             data.emplace_back(make_pair(index_area[i].key, ans));
     }
     streampos start = in.tellg(); //获取当前位置
     in.seekg(0, ios::end); //定位到文件末尾
     streampos end = in.tellg(); //获取当前位置
+    in.seekg(start); // 重新定位文件指针到起始位置
     len = end - start;
-//    char *value = new char[len + 1];
-//    in.read((char*)&value, len);
-//    value[len] = '\0';
-//    if(!is_end || strcasecmp(value, "~DELETE~") != 0)
-//        data.emplace_back(make_pair(index_area[header->total_num - 1].key, string(value, len)));
-//    delete[] value;
-    string ans(len+1, ' ');
+    string ans(len, ' ');
     in.read(&(*ans.begin()), sizeof(char) * len);
     ans[len] = '\0';
-    if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
+//    if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
         data.emplace_back(make_pair(index_area[header->total_num - 1].key, ans));
 }
 

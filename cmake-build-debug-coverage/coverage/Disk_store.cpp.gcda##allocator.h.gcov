@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/allocator.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcda
         -:    0:Runs:1
         -:    1:// Allocators -*- C++ -*-
         -:    2:
@@ -169,76 +169,76 @@
         -:  165:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  166:      // 3035. std::allocator's constructors should be constexpr
         -:  167:      _GLIBCXX20_CONSTEXPR
-      125:  168:      allocator() _GLIBCXX_NOTHROW { }
+      14*:  168:      allocator() _GLIBCXX_NOTHROW { }
 ------------------
-_ZNSaISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEEC2Ev:
-function _ZNSaISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEEC2Ev called 11 returned 100% blocks executed 100%
-       11:  168:      allocator() _GLIBCXX_NOTHROW { }
-       11:  168-block  0
-call    0 returned 11
+_ZNSaISt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEEC2Ev:
+function _ZNSaISt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEEC2Ev called 1 returned 100% blocks executed 100%
+        1:  168:      allocator() _GLIBCXX_NOTHROW { }
+        1:  168-block  0
+call    0 returned 1
 ------------------
 _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2Ev:
-function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2Ev called 76 returned 100% blocks executed 100%
-       76:  168:      allocator() _GLIBCXX_NOTHROW { }
-       76:  168-block  0
-call    0 returned 76
+function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2Ev called 5 returned 100% blocks executed 100%
+        5:  168:      allocator() _GLIBCXX_NOTHROW { }
+        5:  168-block  0
+call    0 returned 5
 ------------------
 _ZNSaIP9DiskLevelEC2Ev:
-function _ZNSaIP9DiskLevelEC2Ev called 3 returned 100% blocks executed 100%
-        3:  168:      allocator() _GLIBCXX_NOTHROW { }
-        3:  168-block  0
-call    0 returned 3
+function _ZNSaIP9DiskLevelEC2Ev called 2 returned 100% blocks executed 100%
+        2:  168:      allocator() _GLIBCXX_NOTHROW { }
+        2:  168-block  0
+call    0 returned 2
 ------------------
 _ZNSaISt4pairIjN9DiskLevel10LEVEL_MODEEEEC2Ev:
-function _ZNSaISt4pairIjN9DiskLevel10LEVEL_MODEEEEC2Ev called 3 returned 100% blocks executed 100%
-        3:  168:      allocator() _GLIBCXX_NOTHROW { }
-        3:  168-block  0
-call    0 returned 3
+function _ZNSaISt4pairIjN9DiskLevel10LEVEL_MODEEEEC2Ev called 2 returned 100% blocks executed 100%
+        2:  168:      allocator() _GLIBCXX_NOTHROW { }
+        2:  168-block  0
+call    0 returned 2
 ------------------
 _ZNSaIP7SSTableEC2Ev:
-function _ZNSaIP7SSTableEC2Ev called 26 returned 100% blocks executed 100%
-       26:  168:      allocator() _GLIBCXX_NOTHROW { }
-       26:  168-block  0
-call    0 returned 26
+function _ZNSaIP7SSTableEC2Ev called 4 returned 100% blocks executed 100%
+        4:  168:      allocator() _GLIBCXX_NOTHROW { }
+        4:  168-block  0
+call    0 returned 4
 ------------------
 _ZNSaIyEC1Ev:
-function _ZNSaIyEC1Ev called 6 returned 100% blocks executed 100%
-        6:  168:      allocator() _GLIBCXX_NOTHROW { }
-        6:  168-block  0
-call    0 returned 6
+function _ZNSaIyEC1Ev called 0 returned 0% blocks executed 0%
+    #####:  168:      allocator() _GLIBCXX_NOTHROW { }
+    %%%%%:  168-block  0
+call    0 never executed
 ------------------
         -:  169:
         -:  170:      _GLIBCXX20_CONSTEXPR
-      380:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
-      380:  172:      : __allocator_base<_Tp>(__a) { }
+      32*:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+      32*:  172:      : __allocator_base<_Tp>(__a) { }
 ------------------
 _ZNSaIyEC1ERKS_:
-function _ZNSaIyEC1ERKS_ called 6 returned 100% blocks executed 100%
-        6:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
-        6:  172:      : __allocator_base<_Tp>(__a) { }
-        6:  172-block  0
-call    0 returned 6
+function _ZNSaIyEC1ERKS_ called 0 returned 0% blocks executed 0%
+    #####:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+    #####:  172:      : __allocator_base<_Tp>(__a) { }
+    %%%%%:  172-block  0
+call    0 never executed
 ------------------
 _ZNSaIyEC2ERKS_:
-function _ZNSaIyEC2ERKS_ called 6 returned 100% blocks executed 100%
-        6:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
-        6:  172:      : __allocator_base<_Tp>(__a) { }
-        6:  172-block  0
-call    0 returned 6
+function _ZNSaIyEC2ERKS_ called 0 returned 0% blocks executed 0%
+    #####:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+    #####:  172:      : __allocator_base<_Tp>(__a) { }
+    %%%%%:  172-block  0
+call    0 never executed
 ------------------
 _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC1ERKS7_:
-function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC1ERKS7_ called 184 returned 100% blocks executed 100%
-      184:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
-      184:  172:      : __allocator_base<_Tp>(__a) { }
-      184:  172-block  0
-call    0 returned 184
+function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC1ERKS7_ called 12 returned 100% blocks executed 100%
+       12:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+       12:  172:      : __allocator_base<_Tp>(__a) { }
+       12:  172-block  0
+call    0 returned 12
 ------------------
 _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS7_:
-function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS7_ called 184 returned 100% blocks executed 100%
-      184:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
-      184:  172:      : __allocator_base<_Tp>(__a) { }
-      184:  172-block  0
-call    0 returned 184
+function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS7_ called 20 returned 100% blocks executed 100%
+       20:  171:      allocator(const allocator& __a) _GLIBCXX_NOTHROW
+       20:  172:      : __allocator_base<_Tp>(__a) { }
+       20:  172-block  0
+call    0 returned 20
 ------------------
         -:  173:
         -:  174:#if __cplusplus >= 201103L
@@ -248,69 +248,69 @@ call    0 returned 184
         -:  178:
         -:  179:      template<typename _Tp1>
         -:  180:	_GLIBCXX20_CONSTEXPR
-function _ZNSaIPSt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEEC1IS9_EERKSaIT_E called 22 returned 100% blocks executed 100%
-       22:  181:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
-       22:  181-block  0
-call    0 returned 22
+function _ZNSaIPSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEEC1ISA_EERKSaIT_E called 1 returned 100% blocks executed 100%
+        1:  181:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
+        1:  181-block  0
+call    0 returned 1
         -:  182:
         -:  183:#if __cpp_constexpr_dynamic_alloc
         -:  184:      constexpr
         -:  185:#endif
-     517*:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+      35*:  186:      ~allocator() _GLIBCXX_NOTHROW { }
 ------------------
-_ZNSaIPSt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEED1Ev:
-function _ZNSaIPSt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEED1Ev called 22 returned 100% blocks executed 100%
-       22:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-       22:  186-block  0
-call    0 returned 22
+_ZNSaIPSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEED1Ev:
+function _ZNSaIPSt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEED1Ev called 1 returned 100% blocks executed 100%
+        1:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+        1:  186-block  0
+call    0 returned 1
 ------------------
-_ZNSaISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEED2Ev:
-function _ZNSaISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEED2Ev called 11 returned 100% blocks executed 100%
-       11:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-       11:  186-block  0
-call    0 returned 11
+_ZNSaISt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEED2Ev:
+function _ZNSaISt4pairISt6vectorIS_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EEiEED2Ev called 0 returned 0% blocks executed 0%
+    #####:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+    %%%%%:  186-block  0
+call    0 never executed
 ------------------
 _ZNSaIyED1Ev:
-function _ZNSaIyED1Ev called 12 returned 100% blocks executed 100%
+function _ZNSaIyED1Ev called 0 returned 0% blocks executed 0%
+    #####:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+    %%%%%:  186-block  0
+call    0 never executed
+------------------
+_ZNSaIyED2Ev:
+function _ZNSaIyED2Ev called 0 returned 0% blocks executed 0%
+    #####:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+    %%%%%:  186-block  0
+call    0 never executed
+------------------
+_ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED1Ev:
+function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED1Ev called 12 returned 100% blocks executed 100%
        12:  186:      ~allocator() _GLIBCXX_NOTHROW { }
        12:  186-block  0
 call    0 returned 12
 ------------------
-_ZNSaIyED2Ev:
-function _ZNSaIyED2Ev called 6 returned 100% blocks executed 100%
-        6:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-        6:  186-block  0
-call    0 returned 6
-------------------
-_ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED1Ev:
-function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED1Ev called 184 returned 100% blocks executed 100%
-      184:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-      184:  186-block  0
-call    0 returned 184
-------------------
 _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev:
-function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev called 260 returned 100% blocks executed 100%
-      260:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-      260:  186-block  0
-call    0 returned 260
+function _ZNSaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev called 20 returned 100% blocks executed 100%
+       20:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+       20:  186-block  0
+call    0 returned 20
 ------------------
 _ZNSaIP9DiskLevelED2Ev:
-function _ZNSaIP9DiskLevelED2Ev called 0 returned 0% blocks executed 0%
-    #####:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-    %%%%%:  186-block  0
-call    0 never executed
+function _ZNSaIP9DiskLevelED2Ev called 1 returned 100% blocks executed 100%
+        1:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+        1:  186-block  0
+call    0 returned 1
 ------------------
 _ZNSaISt4pairIjN9DiskLevel10LEVEL_MODEEEED2Ev:
-function _ZNSaISt4pairIjN9DiskLevel10LEVEL_MODEEEED2Ev called 0 returned 0% blocks executed 0%
+function _ZNSaISt4pairIjN9DiskLevel10LEVEL_MODEEEED2Ev called 1 returned 100% blocks executed 100%
+        1:  186:      ~allocator() _GLIBCXX_NOTHROW { }
+        1:  186-block  0
+call    0 returned 1
+------------------
+_ZNSaIP7SSTableED2Ev:
+function _ZNSaIP7SSTableED2Ev called 0 returned 0% blocks executed 0%
     #####:  186:      ~allocator() _GLIBCXX_NOTHROW { }
     %%%%%:  186-block  0
 call    0 never executed
-------------------
-_ZNSaIP7SSTableED2Ev:
-function _ZNSaIP7SSTableED2Ev called 22 returned 100% blocks executed 100%
-       22:  186:      ~allocator() _GLIBCXX_NOTHROW { }
-       22:  186-block  0
-call    0 returned 22
 ------------------
         -:  187:
         -:  188:#if __cplusplus > 201703L

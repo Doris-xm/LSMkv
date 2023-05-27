@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcda
         -:    0:Runs:1
         -:    1:// Deque implementation (out of line) -*- C++ -*-
         -:    2:
@@ -165,23 +165,33 @@
         -:  161:#else
         -:  162:      void
         -:  163:#endif
-        -:  164:      deque<_Tp, _Alloc>::
+function _ZNSt5dequeISt4pairISt6vectorIS0_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEiESaISB_EE12emplace_backIJSB_EEEvDpOT_ called 4 returned 100% blocks executed 71%
+        4:  164:      deque<_Tp, _Alloc>::
         -:  165:      emplace_back(_Args&&... __args)
         -:  166:      {
-        -:  167:	if (this->_M_impl._M_finish._M_cur
-        -:  168:	    != this->_M_impl._M_finish._M_last - 1)
+        4:  167:	if (this->_M_impl._M_finish._M_cur
+        4:  168:	    != this->_M_impl._M_finish._M_last - 1)
+        4:  168-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 0
         -:  169:	  {
-        -:  170:	    _Alloc_traits::construct(this->_M_impl,
+        4:  170:	    _Alloc_traits::construct(this->_M_impl,
+        4:  170-block  0
+call    0 returned 4
+call    1 returned 4
         -:  171:				     this->_M_impl._M_finish._M_cur,
         -:  172:				     std::forward<_Args>(__args)...);
-        -:  173:	    ++this->_M_impl._M_finish._M_cur;
+        4:  173:	    ++this->_M_impl._M_finish._M_cur;
         -:  174:	  }
         -:  175:	else
-        -:  176:	  _M_push_back_aux(std::forward<_Args>(__args)...);
+    #####:  176:	  _M_push_back_aux(std::forward<_Args>(__args)...);
+    %%%%%:  176-block  0
+call    0 never executed
+call    1 never executed
         -:  177:#if __cplusplus > 201402L
         -:  178:	return back();
         -:  179:#endif
-        -:  180:      }
+        4:  180:      }
         -:  181:#endif
         -:  182:
         -:  183:#if __cplusplus >= 201103L
@@ -482,7 +492,7 @@
         -:  478:#if __cplusplus >= 201103L
         -:  479:    template<typename... _Args>
         -:  480:      void
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE16_M_push_back_auxIJRKSA_EEEvDpOT_ called 0 returned 0% blocks executed 0%
+function _ZNSt5dequeISt4pairISt6vectorIS0_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEiESaISB_EE16_M_push_back_auxIJSB_EEEvDpOT_ called 0 returned 0% blocks executed 0%
     #####:  481:      deque<_Tp, _Alloc>::
         -:  482:      _M_push_back_aux(_Args&&... __args)
         -:  483:#else
@@ -513,30 +523,20 @@ call    0 never executed
     #####:  498:	    _Alloc_traits::construct(this->_M_impl,
 call    0 never executed
 call    1 never executed
-branch  2 never executed
-branch  3 never executed
         -:  499:				     this->_M_impl._M_finish._M_cur,
         -:  500:				     std::forward<_Args>(__args)...);
         -:  501:#else
         -:  502:	    this->_M_impl.construct(this->_M_impl._M_finish._M_cur, __t);
         -:  503:#endif
     #####:  504:	    this->_M_impl._M_finish._M_set_node(this->_M_impl._M_finish._M_node
-    %%%%%:  504-block  0
 call    0 never executed
         -:  505:						+ 1);
     #####:  506:	    this->_M_impl._M_finish._M_cur = this->_M_impl._M_finish._M_first;
         -:  507:	  }
-    =====:  508:	__catch(...)
-    $$$$$:  508-block  0
-    $$$$$:  508-block  1
-call    0 never executed
-    $$$$$:  508-block  2
-call    1 never executed
+        -:  508:	__catch(...)
         -:  509:	  {
-    =====:  510:	    _M_deallocate_node(*(this->_M_impl._M_finish._M_node + 1));
-call    0 never executed
-    =====:  511:	    __throw_exception_again;
-call    0 never executed
+        -:  510:	    _M_deallocate_node(*(this->_M_impl._M_finish._M_node + 1));
+        -:  511:	    __throw_exception_again;
         -:  512:	  }
     #####:  513:      }
         -:  514:
@@ -598,7 +598,7 @@ call    0 never executed
         -:  570:  //   _M_impl._M_start._M_cur == _M_impl._M_start._M_last,
         -:  571:  // then the deque must have at least two nodes.
         -:  572:  template <typename _Tp, typename _Alloc>
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE16_M_pop_front_auxEv called 0 returned 0% blocks executed 0%
+function _ZNSt5dequeISt4pairISt6vectorIS0_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEiESaISB_EE16_M_pop_front_auxEv called 0 returned 0% blocks executed 0%
     #####:  573:    void deque<_Tp, _Alloc>::
         -:  574:    _M_pop_front_aux()
         -:  575:    {
@@ -887,16 +887,16 @@ call    0 never executed
         -:  853:
         -:  854:   template<typename _Tp, typename _Alloc>
         -:  855:     void
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE19_M_destroy_data_auxESt15_Deque_iteratorISA_RSA_PSA_ESG_ called 11 returned 100% blocks executed 43%
-       11:  856:     deque<_Tp, _Alloc>::
+function _ZNSt5dequeISt4pairISt6vectorIS0_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEiESaISB_EE19_M_destroy_data_auxESt15_Deque_iteratorISB_RSB_PSB_ESH_ called 0 returned 0% blocks executed 0%
+    #####:  856:     deque<_Tp, _Alloc>::
         -:  857:     _M_destroy_data_aux(iterator __first, iterator __last)
         -:  858:     {
-      11*:  859:       for (_Map_pointer __node = __first._M_node + 1;
-       11:  859-block  0
-       11:  860:	    __node < __last._M_node; ++__node)
-       11:  860-block  0
-branch  0 taken 0
-branch  1 taken 11 (fallthrough)
+    #####:  859:       for (_Map_pointer __node = __first._M_node + 1;
+    %%%%%:  859-block  0
+    #####:  860:	    __node < __last._M_node; ++__node)
+    %%%%%:  860-block  0
+branch  0 never executed
+branch  1 never executed
     #####:  861:	 std::_Destroy(*__node, *__node + _S_buffer_size(),
 call    0 never executed
 call    1 never executed
@@ -904,10 +904,10 @@ call    1 never executed
     %%%%%:  862-block  0
 call    0 never executed
         -:  863:
-       11:  864:       if (__first._M_node != __last._M_node)
-       11:  864-block  0
-branch  0 taken 0 (fallthrough)
-branch  1 taken 11
+    #####:  864:       if (__first._M_node != __last._M_node)
+    %%%%%:  864-block  0
+branch  0 never executed
+branch  1 never executed
         -:  865:	 {
     #####:  866:	   std::_Destroy(__first._M_cur, __first._M_last,
 call    0 never executed
@@ -920,12 +920,12 @@ call    0 never executed
 call    0 never executed
         -:  870:	 }
         -:  871:       else
-       11:  872:	 std::_Destroy(__first._M_cur, __last._M_cur,
-call    0 returned 11
-       11:  873:		       _M_get_Tp_allocator());
-       11:  873-block  0
-call    0 returned 11
-       11:  874:     }
+    #####:  872:	 std::_Destroy(__first._M_cur, __last._M_cur,
+call    0 never executed
+    #####:  873:		       _M_get_Tp_allocator());
+    %%%%%:  873-block  0
+call    0 never executed
+    #####:  874:     }
         -:  875:
         -:  876:  template <typename _Tp, typename _Alloc>
         -:  877:    void
@@ -979,7 +979,7 @@ call    0 returned 11
         -:  925:
         -:  926:  template <typename _Tp, typename _Alloc>
         -:  927:    void
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE17_M_reallocate_mapEyb called 0 returned 0% blocks executed 0%
+function _ZNSt5dequeISt4pairISt6vectorIS0_IyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEiESaISB_EE17_M_reallocate_mapEyb called 0 returned 0% blocks executed 0%
     #####:  928:    deque<_Tp, _Alloc>::
         -:  929:    _M_reallocate_map(size_type __nodes_to_add, bool __add_at_front)
         -:  930:    {

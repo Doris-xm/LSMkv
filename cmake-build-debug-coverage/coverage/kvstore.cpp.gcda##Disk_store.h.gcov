@@ -1,6 +1,6 @@
         -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/header/Disk_store.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcda
         -:    0:Runs:1
         -:    1:#pragma once
         -:    2:#include "SStable.h"
@@ -44,25 +44,23 @@
         -:   40:public://TODO
         -:   41:    string read_file(const string& file_name, uint32_t offset, int len)const;
         -:   42:    bool check_level_overflow(uint32_t level)const;
-        -:   43:    void mergeSort(vector<pair<uint64_t,string>> data1, vector<pair<uint64_t,string>> data2, vector<pair<uint64_t,string>> &data_sorted);
-        -:   44:public:
-        -:   45:    DiskStore(const string &config_dir);
-        -:   46:    DiskStore(){}
-function _ZN9DiskStoreD1Ev called 3 returned 100% blocks executed 100%
-        3:   47:    ~DiskStore() { }
-        3:   47-block  0
-call    0 returned 3
-call    1 returned 3
-function _ZNK9DiskStore13get_level_numEv called 8160 returned 100% blocks executed 100%
-     8160:   48:    uint32_t get_level_num()const {
-     8160:   49:        return level_num;
-     8160:   49-block  0
-        -:   50:    }
-        -:   51:    void add_level( DiskLevel::LEVEL_MODE mode);
-        -:   52:    uint64_t add_sstable(SSTable* sstable, uint32_t level,bool &flag);
-        -:   53:    std::string get(const uint64_t key,const string & dir_prefix)const;
-        -:   54:
-        -:   55:    void compaction(uint32_t dump_to_level, const string & dir);
-        -:   56:};
-        -:   57:
-        -:   58:
+        -:   43:    void mergeSort(vector<pair<uint64_t,string>> data1, vector<pair<uint64_t,string>> data2,
+        -:   44:                   uint64_t time_stamp1, uint64_t time_stamp2,
+        -:   45:                   vector<pair<uint64_t,string>> &data_sorted,bool is_end);
+        -:   46:public:
+        -:   47:    DiskStore(const string &config_dir);
+        -:   48:    DiskStore(){}
+        -:   49:    ~DiskStore() ;
+function _ZNK9DiskStore13get_level_numEv called 1440 returned 100% blocks executed 100%
+     1440:   50:    uint32_t get_level_num()const {
+     1440:   51:        return level_num;
+     1440:   51-block  0
+        -:   52:    }
+        -:   53:    void add_level( DiskLevel::LEVEL_MODE mode);
+        -:   54:    uint64_t add_sstable(SSTable* sstable, uint32_t level,bool &flag);
+        -:   55:    std::string get(const uint64_t key,const string & dir_prefix)const;
+        -:   56:
+        -:   57:    void compaction(uint32_t dump_to_level, const string & dir);
+        -:   58:};
+        -:   59:
+        -:   60:

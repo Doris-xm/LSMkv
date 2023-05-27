@@ -1,6 +1,6 @@
         -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/header/skiplist.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\skiplist.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\skiplist.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\skiplist.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\skiplist.cpp.gcda
         -:    0:Runs:1
         -:    1:#pragma once
         -:    2:
@@ -15,17 +15,17 @@
         -:   11:    string s;
         -:   12:    int level;
         -:   13:    vector<node*> point_list;
-function _ZN4nodeC1EiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS_i called 16898 returned 100% blocks executed 62%
-    16898:   14:    node(int k = 0,string S = "",node* n = nullptr,int l = 0):key(k),level(l),s(S) {
-    16898:   14-block  0
-call    0 returned 16898
-call    1 returned 16898
-    16898:   15:        point_list.push_back(n);
-call    0 returned 16898
-branch  1 taken 16898 (fallthrough)
+function _ZN4nodeC1EiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS_i called 5180 returned 100% blocks executed 62%
+     5180:   14:    node(int k = 0,string S = "",node* n = nullptr,int l = 0):key(k),level(l),s(S) {
+     5180:   14-block  0
+call    0 returned 5180
+call    1 returned 5180
+     5180:   15:        point_list.push_back(n);
+call    0 returned 5180
+branch  1 taken 5180 (fallthrough)
 branch  2 taken 0 (throw)
-    16898:   16:    }
-    16898:   16-block  0
+     5180:   16:    }
+     5180:   16-block  0
     $$$$$:   16-block  1
 call    0 never executed
     $$$$$:   16-block  2

@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/move.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcda
         -:    0:Runs:1
         -:    1:// Move, forward and identity for C++11 + swap -*- C++ -*-
         -:    2:
@@ -50,10 +50,10 @@
         -:   46:   */
         -:   47:  template<typename _Tp>
         -:   48:    inline _GLIBCXX_CONSTEXPR _Tp*
-function _ZSt11__addressofINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPT_RS6_ called 182442 returned 100% blocks executed 100%
-   182442:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
-   182442:   50:    { return __builtin_addressof(__r); }
-   182442:   50-block  0
+function _ZSt11__addressofINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPT_RS6_ called 26689 returned 100% blocks executed 100%
+    26689:   49:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    26689:   50:    { return __builtin_addressof(__r); }
+    26689:   50-block  0
         -:   51:
         -:   52:#if __cplusplus >= 201103L
         -:   53:
@@ -80,10 +80,10 @@ function _ZSt11__addressofINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
         -:   74:  template<typename _Tp>
         -:   75:    _GLIBCXX_NODISCARD
         -:   76:    constexpr _Tp&&
-function _ZSt7forwardINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RNSt16remove_referenceIS6_E4typeE called 0 returned 0% blocks executed 0%
-    #####:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
-    #####:   78:    { return static_cast<_Tp&&>(__t); }
-    %%%%%:   78-block  0
+function _ZSt7forwardINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RNSt16remove_referenceIS6_E4typeE called 14368 returned 100% blocks executed 100%
+    14368:   77:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+    14368:   78:    { return static_cast<_Tp&&>(__t); }
+    14368:   78-block  0
         -:   79:
         -:   80:  /**
         -:   81:   *  @brief  Forward an rvalue.
@@ -109,8 +109,8 @@ function _ZSt7forwardINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEOT_RN
         -:  101:  template<typename _Tp>
         -:  102:    _GLIBCXX_NODISCARD
         -:  103:    constexpr typename std::remove_reference<_Tp>::type&&
-  171258*:  104:    move(_Tp&& __t) noexcept
-  171258*:  105:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+   41039*:  104:    move(_Tp&& __t) noexcept
+   41039*:  105:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
 ------------------
 _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_:
 function _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_ called 0 returned 0% blocks executed 0%
@@ -119,10 +119,10 @@ function _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16
     %%%%%:  105-block  0
 ------------------
 _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS8_:
-function _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS8_ called 171258 returned 100% blocks executed 100%
-   171258:  104:    move(_Tp&& __t) noexcept
-   171258:  105:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-   171258:  105-block  0
+function _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS8_ called 41039 returned 100% blocks executed 100%
+    41039:  104:    move(_Tp&& __t) noexcept
+    41039:  105:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+    41039:  105-block  0
 ------------------
 _ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_:
 function _ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_ called 0 returned 0% blocks executed 0%

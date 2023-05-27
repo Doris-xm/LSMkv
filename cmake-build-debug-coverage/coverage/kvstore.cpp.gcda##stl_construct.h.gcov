@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_construct.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcda
         -:    0:Runs:1
         -:    1:// nonstandard construct and destroy functions -*- C++ -*-
         -:    2:
@@ -141,36 +141,36 @@ call    2 never executed
         -:  132:   */
         -:  133:  template<typename _Tp>
         -:  134:    _GLIBCXX14_CONSTEXPR inline void
-function _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_ called 38145 returned 100% blocks executed 100%
-    38145:  135:    _Destroy(_Tp* __pointer)
+function _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_ called 5179 returned 100% blocks executed 100%
+     5179:  135:    _Destroy(_Tp* __pointer)
         -:  136:    {
         -:  137:#if __cplusplus > 201703L
         -:  138:      std::destroy_at(__pointer);
         -:  139:#else
-    38145:  140:      __pointer->~_Tp();
-    38145:  140-block  0
-call    0 returned 38145
+     5179:  140:      __pointer->~_Tp();
+     5179:  140-block  0
+call    0 returned 5179
         -:  141:#endif
-    38145:  142:    }
+     5179:  142:    }
         -:  143:
         -:  144:  template<bool>
         -:  145:    struct _Destroy_aux
         -:  146:    {
         -:  147:      template<typename _ForwardIterator>
         -:  148:	static _GLIBCXX20_CONSTEXPR void
-function _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_ called 68 returned 100% blocks executed 100%
-       68:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
+function _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_ called 9 returned 100% blocks executed 100%
+        9:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  150:	{
-    38213:  151:	  for (; __first != __last; ++__first)
-       68:  151-block  0
-    38213:  151-block  1
-branch  0 taken 38145
-branch  1 taken 68 (fallthrough)
-    38145:  152:	    std::_Destroy(std::__addressof(*__first));
-    38145:  152-block  0
-call    0 returned 38145
-call    1 returned 38145
-       68:  153:	}
+     5188:  151:	  for (; __first != __last; ++__first)
+        9:  151-block  0
+     5188:  151-block  1
+branch  0 taken 5179
+branch  1 taken 9 (fallthrough)
+     5179:  152:	    std::_Destroy(std::__addressof(*__first));
+     5179:  152-block  0
+call    0 returned 5179
+call    1 returned 5179
+        9:  153:	}
         -:  154:    };
         -:  155:
         -:  156:  template<>
@@ -178,16 +178,7 @@ call    1 returned 38145
         -:  158:    {
         -:  159:      template<typename _ForwardIterator>
         -:  160:        static void
-        6:  161:        __destroy(_ForwardIterator, _ForwardIterator) { }
-------------------
-_ZNSt12_Destroy_auxILb1EE9__destroyIPP9DiskLevelEEvT_S5_:
-function _ZNSt12_Destroy_auxILb1EE9__destroyIPP9DiskLevelEEvT_S5_ called 3 returned 100% blocks executed 100%
-        3:  161:        __destroy(_ForwardIterator, _ForwardIterator) { }
-------------------
-_ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjN9DiskLevel10LEVEL_MODEEEEEvT_S7_:
-function _ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjN9DiskLevel10LEVEL_MODEEEEEvT_S7_ called 3 returned 100% blocks executed 100%
-        3:  161:        __destroy(_ForwardIterator, _ForwardIterator) { }
-------------------
+        -:  161:        __destroy(_ForwardIterator, _ForwardIterator) { }
         -:  162:    };
         -:  163:
         -:  164:  /**
@@ -197,7 +188,8 @@ function _ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjN9DiskLevel10LEVEL_MODEEE
         -:  168:   */
         -:  169:  template<typename _ForwardIterator>
         -:  170:    _GLIBCXX20_CONSTEXPR inline void
-       74:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
+function _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_ called 9 returned 100% blocks executed 100%
+        9:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  172:    {
         -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  174:                       _Value_type;
@@ -211,72 +203,10 @@ function _ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjN9DiskLevel10LEVEL_MODEEE
         -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
         -:  183:#endif
         -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-       74:  185:	__destroy(__first, __last);
-       74:  186:    }
-------------------
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_:
-function _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_ called 68 returned 100% blocks executed 100%
-       68:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
-        -:  172:    {
-        -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
-        -:  174:                       _Value_type;
-        -:  175:#if __cplusplus >= 201103L
-        -:  176:      // A deleted destructor is trivial, this ensures we reject such types:
-        -:  177:      static_assert(is_destructible<_Value_type>::value,
-        -:  178:		    "value type is destructible");
-        -:  179:#endif
-        -:  180:#if __cplusplus > 201703L && defined __cpp_lib_is_constant_evaluated
-        -:  181:      if (std::is_constant_evaluated())
-        -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
-        -:  183:#endif
-        -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-       68:  185:	__destroy(__first, __last);
-       68:  185-block  0
-call    0 returned 68
-       68:  186:    }
-------------------
-_ZSt8_DestroyIPP9DiskLevelEvT_S3_:
-function _ZSt8_DestroyIPP9DiskLevelEvT_S3_ called 3 returned 100% blocks executed 100%
-        3:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
-        -:  172:    {
-        -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
-        -:  174:                       _Value_type;
-        -:  175:#if __cplusplus >= 201103L
-        -:  176:      // A deleted destructor is trivial, this ensures we reject such types:
-        -:  177:      static_assert(is_destructible<_Value_type>::value,
-        -:  178:		    "value type is destructible");
-        -:  179:#endif
-        -:  180:#if __cplusplus > 201703L && defined __cpp_lib_is_constant_evaluated
-        -:  181:      if (std::is_constant_evaluated())
-        -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
-        -:  183:#endif
-        -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-        3:  185:	__destroy(__first, __last);
-        3:  185-block  0
-call    0 returned 3
-        3:  186:    }
-------------------
-_ZSt8_DestroyIPSt4pairIjN9DiskLevel10LEVEL_MODEEEEvT_S5_:
-function _ZSt8_DestroyIPSt4pairIjN9DiskLevel10LEVEL_MODEEEEvT_S5_ called 3 returned 100% blocks executed 100%
-        3:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
-        -:  172:    {
-        -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
-        -:  174:                       _Value_type;
-        -:  175:#if __cplusplus >= 201103L
-        -:  176:      // A deleted destructor is trivial, this ensures we reject such types:
-        -:  177:      static_assert(is_destructible<_Value_type>::value,
-        -:  178:		    "value type is destructible");
-        -:  179:#endif
-        -:  180:#if __cplusplus > 201703L && defined __cpp_lib_is_constant_evaluated
-        -:  181:      if (std::is_constant_evaluated())
-        -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
-        -:  183:#endif
-        -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-        3:  185:	__destroy(__first, __last);
-        3:  185-block  0
-call    0 returned 3
-        3:  186:    }
-------------------
+        9:  185:	__destroy(__first, __last);
+        9:  185-block  0
+call    0 returned 9
+        9:  186:    }
         -:  187:
         -:  188:  template<bool>
         -:  189:    struct _Destroy_n_aux

@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_list.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\skiplist.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\skiplist.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\skiplist.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\skiplist.cpp.gcda
         -:    0:Runs:1
         -:    1:// List implementation -*- C++ -*-
         -:    2:
@@ -643,33 +643,33 @@ function _ZNSt7__cxx1110_List_baseISt4pairIyNS_12basic_stringIcSt11char_traitsIc
         -:  629:#else
         -:  630:      template<typename... _Args>
         -:  631:	_Node*
-function _ZNSt7__cxx114listISt4pairIyNS_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE14_M_create_nodeIJS1_IiS6_EEEEPSt10_List_nodeIS7_EDpOT_ called 256 returned 100% blocks executed 85%
-      256:  632:	_M_create_node(_Args&&... __args)
+function _ZNSt7__cxx114listISt4pairIyNS_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE14_M_create_nodeIJS1_IiS6_EEEEPSt10_List_nodeIS7_EDpOT_ called 0 returned 0% blocks executed 0%
+    #####:  632:	_M_create_node(_Args&&... __args)
         -:  633:	{
-      256:  634:	  auto __p = this->_M_get_node();
-      256:  634-block  0
-call    0 returned 256
-branch  1 taken 256 (fallthrough)
-branch  2 taken 0 (throw)
-      256:  635:	  auto& __alloc = _M_get_Node_allocator();
-      256:  635-block  0
-call    0 returned 256
-      256:  636:	  __allocated_ptr<_Node_alloc_type> __guard{__alloc, __p};
-call    0 returned 256
-      256:  637:	  _Node_alloc_traits::construct(__alloc, __p->_M_valptr(),
-call    0 returned 256
-call    1 returned 256
-call    2 returned 256
-branch  3 taken 256 (fallthrough)
-branch  4 taken 0 (throw)
+    #####:  634:	  auto __p = this->_M_get_node();
+    %%%%%:  634-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  635:	  auto& __alloc = _M_get_Node_allocator();
+    %%%%%:  635-block  0
+call    0 never executed
+    #####:  636:	  __allocated_ptr<_Node_alloc_type> __guard{__alloc, __p};
+call    0 never executed
+    #####:  637:	  _Node_alloc_traits::construct(__alloc, __p->_M_valptr(),
+call    0 never executed
+call    1 never executed
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
         -:  638:					std::forward<_Args>(__args)...);
-      256:  639:	  __guard = nullptr;
-      256:  639-block  0
-call    0 returned 256
-      256:  640:	  return __p;
-      256:  640-block  0
-      256:  641:	}
-call    0 returned 256
+    #####:  639:	  __guard = nullptr;
+    %%%%%:  639-block  0
+call    0 never executed
+    #####:  640:	  return __p;
+    %%%%%:  640-block  0
+    #####:  641:	}
+call    0 never executed
     $$$$$:  641-block  0
 call    1 never executed
         -:  642:#endif
@@ -1258,18 +1258,18 @@ call    0 never executed
         -: 1222:#else
         -: 1223:	void
         -: 1224:#endif
-function _ZNSt7__cxx114listISt4pairIyNS_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE12emplace_backIJS1_IiS6_EEEEvDpOT_ called 256 returned 100% blocks executed 100%
-      256: 1225:	emplace_back(_Args&&... __args)
+function _ZNSt7__cxx114listISt4pairIyNS_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE12emplace_backIJS1_IiS6_EEEEvDpOT_ called 0 returned 0% blocks executed 0%
+    #####: 1225:	emplace_back(_Args&&... __args)
         -: 1226:	{
-      256: 1227:	  this->_M_insert(end(), std::forward<_Args>(__args)...);
-      256: 1227-block  0
-call    0 returned 256
-call    1 returned 256
-call    2 returned 256
+    #####: 1227:	  this->_M_insert(end(), std::forward<_Args>(__args)...);
+    %%%%%: 1227-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
         -: 1228:#if __cplusplus > 201402L
         -: 1229:	return back();
         -: 1230:#endif
-      256: 1231:	}
+    #####: 1231:	}
         -: 1232:#endif
         -: 1233:
         -: 1234:      /**
@@ -1947,18 +1947,18 @@ call    2 returned 256
         -: 1906:#else
         -: 1907:     template<typename... _Args>
         -: 1908:       void
-function _ZNSt7__cxx114listISt4pairIyNS_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9_M_insertIJS1_IiS6_EEEEvSt14_List_iteratorIS7_EDpOT_ called 256 returned 100% blocks executed 100%
-      256: 1909:       _M_insert(iterator __position, _Args&&... __args)
+function _ZNSt7__cxx114listISt4pairIyNS_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE9_M_insertIJS1_IiS6_EEEEvSt14_List_iteratorIS7_EDpOT_ called 0 returned 0% blocks executed 0%
+    #####: 1909:       _M_insert(iterator __position, _Args&&... __args)
         -: 1910:       {
-      256: 1911:	 _Node* __tmp = _M_create_node(std::forward<_Args>(__args)...);
-      256: 1911-block  0
-call    0 returned 256
-call    1 returned 256
-      256: 1912:	 __tmp->_M_hook(__position._M_node);
-call    0 returned 256
-      256: 1913:	 this->_M_inc_size(1);
-call    0 returned 256
-      256: 1914:       }
+    #####: 1911:	 _Node* __tmp = _M_create_node(std::forward<_Args>(__args)...);
+    %%%%%: 1911-block  0
+call    0 never executed
+call    1 never executed
+    #####: 1912:	 __tmp->_M_hook(__position._M_node);
+call    0 never executed
+    #####: 1913:	 this->_M_inc_size(1);
+call    0 never executed
+    #####: 1914:       }
         -: 1915:#endif
         -: 1916:
         -: 1917:      // Erases element at position given.

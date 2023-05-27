@@ -4,6 +4,7 @@
 #define BLOOM_SIZE 81920
 using namespace std;
 int main() {
+    /* 读写单元测试*/
     string file_path = "./data/level-0/11-0.sst";
     ofstream out(file_path, ios::binary | ios::out);
     if (!out.is_open()) {

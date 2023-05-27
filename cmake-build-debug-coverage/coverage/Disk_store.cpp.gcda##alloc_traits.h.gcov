@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/alloc_traits.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcda
         -:    0:Runs:1
         -:    1:// Allocator traits -*- C++ -*-
         -:    2:
@@ -98,15 +98,15 @@
         -:   94:      noexcept(noexcept(_Base_type::destroy(__a, std::__to_address(__p))))
         -:   95:      { _Base_type::destroy(__a, std::__to_address(__p)); }
         -:   96:
-     184*:   97:    static constexpr _Alloc _S_select_on_copy(const _Alloc& __a)
-     184*:   98:    { return _Base_type::select_on_container_copy_construction(__a); }
+      12*:   97:    static constexpr _Alloc _S_select_on_copy(const _Alloc& __a)
+      12*:   98:    { return _Base_type::select_on_container_copy_construction(__a); }
 ------------------
 _ZN9__gnu_cxx14__alloc_traitsISaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_E17_S_select_on_copyERKS9_:
-function _ZN9__gnu_cxx14__alloc_traitsISaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_E17_S_select_on_copyERKS9_ called 184 returned 100% blocks executed 100%
-      184:   97:    static constexpr _Alloc _S_select_on_copy(const _Alloc& __a)
-      184:   98:    { return _Base_type::select_on_container_copy_construction(__a); }
-      184:   98-block  0
-call    0 returned 184
+function _ZN9__gnu_cxx14__alloc_traitsISaISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_E17_S_select_on_copyERKS9_ called 12 returned 100% blocks executed 100%
+       12:   97:    static constexpr _Alloc _S_select_on_copy(const _Alloc& __a)
+       12:   98:    { return _Base_type::select_on_container_copy_construction(__a); }
+       12:   98-block  0
+call    0 returned 12
 ------------------
 _ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_:
 function _ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ called 0 returned 0% blocks executed 0%

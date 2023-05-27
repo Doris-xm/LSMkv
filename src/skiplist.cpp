@@ -45,7 +45,7 @@ bool SkipList::insert(uint64_t key, const string &s) {
         if( key == next->point_list[curr_level]->key){
             delete []update_list;
             string old = next->point_list[curr_level]->s;
-            if(Size + s.size() - old.size() > CAPACITY)
+            if(Size + s.size() - old.size() > CAPACITY) //替换旧值时超出容量，不替换，dump后插入新的memtable
                 return false;
             next->point_list[curr_level]->s = s;
             Size += s.size() - old.size();
@@ -116,47 +116,7 @@ bool SkipList::scan(uint64_t key1, uint64_t key2, list<std::pair<uint64_t, std::
 }
 
 
-int SkipList::del(uint64_t key) {
-    return false;
-}
-
-//void SkipList::store(const string &path, const uint64_t timestamp) {
-//    ofstream out(path, ios::binary | ios::app);
-//
-//    // Header
-//    out.write((char*)&timestamp, sizeof(uint64_t));
-//    out.write((char*)&key_num, sizeof(uint64_t));
-//    out.write((char*)&min_key, sizeof(uint64_t));
-//    out.write((char*)&max_key, sizeof(uint64_t));
-//
-//    // Bloom Filter
-//    uint32_t hash[4] = {0};
-//    node *curr = head->point_list[0];
-//    while(curr != tail) {
-//        MurmurHash3_x64_128(&curr->key, sizeof(uint64_t), 1, hash);
-//        for(int i = 0; i < 4; ++i)
-//            bits.set(hash[i] % 81920);
-//        curr = curr->point_list[0];
-//    }
-//    out.write((char*)&bits, sizeof(bits));
-//
-//    // key + offset
-//    uint32_t offset = 10272 + key_num * 12; //begin of value area, 12 = key + offset = 8 + 4
-//    curr = head->point_list[0];
-//    while(curr != tail) {
-//        out.write((char*)&curr->key, sizeof(uint64_t));
-//        out.write((char*)&offset, sizeof(uint32_t));
-//        offset += curr->s.size() + 1;
-//        curr = curr->point_list[0];
-//    }
-//
-//    // Data area
-//    curr = head->point_list[0];
-//    while(curr != tail) {
-//        out.write(curr->s.c_str(), curr->s.size());
-//        out.write("\0", 1);
-//        curr = curr->point_list[0];
-//    }
-//    out.close();
+//int SkipList::del(uint64_t key) {
+//    return false;
 //}
 

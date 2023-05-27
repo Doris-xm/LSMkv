@@ -40,7 +40,11 @@ DiskStore::DiskStore(const string &config_dir) {
     in.close();
     level_num = 0;
 }
-
+DiskStore::~DiskStore() {
+    for(auto level:level_list){
+        delete level;
+    }
+}
 /*
  * @brief: 向磁盘中添加一个level
  * @param: mode: level的模式
@@ -212,34 +216,37 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
         }
     }
 
-    //把选中的文件读入内存
-    queue< vector< pair<uint64_t, string> > > data_all;
+    //把选中的文件读入内存,同时记录时间戳,用于合并相同的key
+    queue< pair<vector< pair<uint64_t, string> > ,int> > data_all;
     for(SSTable* sstable: last_level_chosen) {
         vector< pair<uint64_t, string> > data;
         string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
-        sstable->read_to_mem(filename,data,is_end);
-        data_all.push(data);
+        sstable->read_to_mem(filename,data);
+        data_all.push(make_pair(data, sstable->get_time_stamp()));
     }
     for(SSTable* sstable: this_level_chosen) {
         vector< pair<uint64_t, string> > data;
         string filename = dir_prefix + to_string(dump_to_level ) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
-        sstable->read_to_mem(filename,data,is_end);
-        data_all.push(data);
+        sstable->read_to_mem(filename,data);
+        data_all.push(make_pair(data, sstable->get_time_stamp()));
     }
 
     //两两归并
     while( data_all.size() > 1) {
-        vector< pair<uint64_t, string> > data1 = data_all.front();
+        vector< pair<uint64_t, string> > data1 = data_all.front().first;
+        uint64_t time_stamp1 = data_all.front().second;
         data_all.pop();
-        vector< pair<uint64_t, string> > data2 = data_all.front();
+        vector< pair<uint64_t, string> > data2 = data_all.front().first;
+        uint64_t time_stamp2 = data_all.front().second;
         data_all.pop();
         vector<pair<uint64_t, string> > date_sorted;
-        mergeSort(data1, data2, date_sorted);
-        data_all.push(date_sorted);
+        mergeSort(data1, data2, time_stamp1,time_stamp2, date_sorted,is_end);
+        uint64_t time_stamp = time_stamp1 > time_stamp2 ? time_stamp1 : time_stamp2;
+        data_all.push(make_pair(date_sorted, time_stamp));
     }
 
     //得到一个大的有序数组data_sorted
-    vector<pair<uint64_t, string> > date_sorted = data_all.front();
+    vector<pair<uint64_t, string> > date_sorted = data_all.front().first;
     data_all.pop();
 
     //创建新的SSTable
@@ -284,18 +291,28 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
  * @param: data_sorted 归并后的数组
  * */
 void DiskStore::mergeSort(vector<pair<uint64_t, string>> data1, vector<pair<uint64_t, string>> data2,
-                          vector<pair<uint64_t, string>> &data_sorted) {
+                          uint64_t time_stamp1, uint64_t time_stamp2,
+                          vector<pair<uint64_t, string>> &data_sorted, bool is_end) {
     int i = 0, j = 0;
     int len1 = data1.size(), len2 = data2.size();
     while(i < len1 && j < len2) {
         if(data1[i].first < data2[j].first) {
             data_sorted.push_back(data1[i]);
             i++;
+            continue;
         }
-        else {
-            data_sorted.push_back(data2[j]);
-            j++;
+        if(data1[i].first == data2[j].first) { // key相同,比较时间戳
+            if(time_stamp1 < time_stamp2)
+                data_sorted.push_back(data2[j]);
+            else
+                data_sorted.push_back(data1[i]);
+            j++;i++;
+            continue;
         }
+
+        data_sorted.push_back(data2[j]);
+        j++;
+
     }
     // 将剩余的元素添加到结果向量中
     while (i < len1) {
@@ -306,6 +323,14 @@ void DiskStore::mergeSort(vector<pair<uint64_t, string>> data1, vector<pair<uint
         data_sorted.push_back(data2[j]);
         j++;
     }
+    if (is_end) {
+        // 使用 erase-remove 惯用法删除元素
+        data_sorted.erase(std::remove_if(data_sorted.begin(), data_sorted.end(),
+                                         [](const std::pair<uint64_t, std::string>& p) {
+                                             return p.second == DELETE_VAL;
+                                         }), data_sorted.end());
+    }
+
 }
 
 /*

@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ios_base.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcda
         -:    0:Runs:1
         -:    1:// Iostreams base classes -*- C++ -*-
         -:    2:
@@ -130,10 +130,10 @@
         -:  126:  { return _Ios_Openmode(static_cast<int>(__a) & static_cast<int>(__b)); }
         -:  127:
         -:  128:  inline _GLIBCXX_CONSTEXPR _Ios_Openmode
-function _ZStorSt13_Ios_OpenmodeS_ called 20484 returned 100% blocks executed 100%
-    20484:  129:  operator|(_Ios_Openmode __a, _Ios_Openmode __b)
-    20484:  130:  { return _Ios_Openmode(static_cast<int>(__a) | static_cast<int>(__b)); }
-    20484:  130-block  0
+function _ZStorSt13_Ios_OpenmodeS_ called 5645 returned 100% blocks executed 100%
+     5645:  129:  operator|(_Ios_Openmode __a, _Ios_Openmode __b)
+     5645:  130:  { return _Ios_Openmode(static_cast<int>(__a) | static_cast<int>(__b)); }
+     5645:  130-block  0
         -:  131:
         -:  132:  inline _GLIBCXX_CONSTEXPR _Ios_Openmode
         -:  133:  operator^(_Ios_Openmode __a, _Ios_Openmode __b)

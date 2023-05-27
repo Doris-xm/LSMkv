@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_construct.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\SStable.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\SStable.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\SStable.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\SStable.cpp.gcda
         -:    0:Runs:1
         -:    1:// nonstandard construct and destroy functions -*- C++ -*-
         -:    2:
@@ -163,27 +163,27 @@ call    1 never executed
         -:  132:   */
         -:  133:  template<typename _Tp>
         -:  134:    _GLIBCXX14_CONSTEXPR inline void
-  260068*:  135:    _Destroy(_Tp* __pointer)
+   21844*:  135:    _Destroy(_Tp* __pointer)
         -:  136:    {
         -:  137:#if __cplusplus > 201703L
         -:  138:      std::destroy_at(__pointer);
         -:  139:#else
-  260068*:  140:      __pointer->~_Tp();
+   21844*:  140:      __pointer->~_Tp();
         -:  141:#endif
-  260068*:  142:    }
+   21844*:  142:    }
 ------------------
 _ZSt8_DestroyISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_:
-function _ZSt8_DestroyISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_ called 260068 returned 100% blocks executed 100%
-   260068:  135:    _Destroy(_Tp* __pointer)
+function _ZSt8_DestroyISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_ called 21844 returned 100% blocks executed 100%
+    21844:  135:    _Destroy(_Tp* __pointer)
         -:  136:    {
         -:  137:#if __cplusplus > 201703L
         -:  138:      std::destroy_at(__pointer);
         -:  139:#else
-   260068:  140:      __pointer->~_Tp();
-   260068:  140-block  0
-call    0 returned 260068
+    21844:  140:      __pointer->~_Tp();
+    21844:  140-block  0
+call    0 returned 21844
         -:  141:#endif
-   260068:  142:    }
+    21844:  142:    }
 ------------------
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_:
 function _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_ called 0 returned 0% blocks executed 0%
@@ -204,26 +204,26 @@ call    0 never executed
         -:  146:    {
         -:  147:      template<typename _ForwardIterator>
         -:  148:	static _GLIBCXX20_CONSTEXPR void
-     289*:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
+      20*:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  150:	{
-  260357*:  151:	  for (; __first != __last; ++__first)
-  260068*:  152:	    std::_Destroy(std::__addressof(*__first));
-     289*:  153:	}
+   21864*:  151:	  for (; __first != __last; ++__first)
+   21844*:  152:	    std::_Destroy(std::__addressof(*__first));
+      20*:  153:	}
 ------------------
 _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SB_:
-function _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SB_ called 289 returned 100% blocks executed 100%
-      289:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
+function _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SB_ called 20 returned 100% blocks executed 100%
+       20:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  150:	{
-   260357:  151:	  for (; __first != __last; ++__first)
-      289:  151-block  0
-   260357:  151-block  1
-branch  0 taken 260068
-branch  1 taken 289 (fallthrough)
-   260068:  152:	    std::_Destroy(std::__addressof(*__first));
-   260068:  152-block  0
-call    0 returned 260068
-call    1 returned 260068
-      289:  153:	}
+    21864:  151:	  for (; __first != __last; ++__first)
+       20:  151-block  0
+    21864:  151-block  1
+branch  0 taken 21844
+branch  1 taken 20 (fallthrough)
+    21844:  152:	    std::_Destroy(std::__addressof(*__first));
+    21844:  152-block  0
+call    0 returned 21844
+call    1 returned 21844
+       20:  153:	}
 ------------------
 _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_:
 function _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_ called 0 returned 0% blocks executed 0%
@@ -258,7 +258,7 @@ function _ZNSt12_Destroy_auxILb1EE9__destroyIP7IndexerEEvT_S4_ called 0 returned
         -:  168:   */
         -:  169:  template<typename _ForwardIterator>
         -:  170:    _GLIBCXX20_CONSTEXPR inline void
-     289*:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
+      20*:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  172:    {
         -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  174:                       _Value_type;
@@ -272,12 +272,12 @@ function _ZNSt12_Destroy_auxILb1EE9__destroyIP7IndexerEEvT_S4_ called 0 returned
         -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
         -:  183:#endif
         -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-     289*:  185:	__destroy(__first, __last);
-     289*:  186:    }
+      20*:  185:	__destroy(__first, __last);
+      20*:  186:    }
 ------------------
 _ZSt8_DestroyIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_:
-function _ZSt8_DestroyIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_ called 289 returned 100% blocks executed 100%
-      289:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
+function _ZSt8_DestroyIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_ called 20 returned 100% blocks executed 100%
+       20:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  172:    {
         -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  174:                       _Value_type;
@@ -291,10 +291,10 @@ function _ZSt8_DestroyIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
         -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
         -:  183:#endif
         -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-      289:  185:	__destroy(__first, __last);
-      289:  185-block  0
-call    0 returned 289
-      289:  186:    }
+       20:  185:	__destroy(__first, __last);
+       20:  185-block  0
+call    0 returned 20
+       20:  186:    }
 ------------------
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_:
 function _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_ called 0 returned 0% blocks executed 0%

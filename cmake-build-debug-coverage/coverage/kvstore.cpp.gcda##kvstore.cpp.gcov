@@ -1,6 +1,6 @@
         -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/src/kvstore.cpp
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\kvstore.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\kvstore.cpp.gcda
         -:    0:Runs:1
         -:    1:#include "../header/kvstore.h"
         -:    2:#include "../utils.h"
@@ -54,44 +54,44 @@ call    0 returned 1
 call    0 returned 1
         1:   16:}
         -:   17:
-function _ZN7KVStoreD2Ev called 1 returned 100% blocks executed 100%
-        1:   18:KVStore::~KVStore()
+function _ZN7KVStoreD2Ev called 0 returned 0% blocks executed 0%
+    #####:   18:KVStore::~KVStore()
         -:   19:{
-        1:   20:    if(memtable ) {
-        1:   20-block  0
-branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:   21:        dump();
-        1:   21-block  0
-call    0 returned 1
+    #####:   20:    if(memtable ) {
+    %%%%%:   20-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   21:        dump();
+    %%%%%:   21-block  0
+call    0 never executed
         -:   22:    }
-        1:   23:    delete memtable;
-        1:   23-block  0
-branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:   23-block  1
-call    2 returned 1
-call    3 returned 1
-        1:   24:    delete disk_store;
-        1:   24-block  0
-branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:   24-block  1
-call    2 returned 1
-call    3 returned 1
-        1:   25:}
+    #####:   23:    delete memtable;
+    %%%%%:   23-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   23-block  1
+call    2 never executed
+call    3 never executed
+    #####:   24:    delete disk_store;
+    %%%%%:   24-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   24-block  1
+call    2 never executed
+call    3 never executed
+    #####:   25:}
         -:   26:
         -:   27:/**
         -:   28: * Insert/Update the key-value pair.
         -:   29: * No return values for simplicity.
         -:   30: */
-function _ZN7KVStore3putEyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 17412 returned 100% blocks executed 64%
-    17412:   31:void KVStore::put(uint64_t key, const std::string &s)
+function _ZN7KVStore3putEyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 5933 returned 100% blocks executed 64%
+     5933:   31:void KVStore::put(uint64_t key, const std::string &s)
         -:   32:{
-    17412:   33:    if(memtable == nullptr)
-    17412:   33-block  0
+     5933:   33:    if(memtable == nullptr)
+     5933:   33-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 17412
+branch  1 taken 5933
     #####:   34:        memtable = new SkipList();
     %%%%%:   34-block  0
 call    0 never executed
@@ -101,37 +101,37 @@ branch  3 never executed
     %%%%%:   34-block  1
     $$$$$:   34-block  2
 call    4 never executed
-    17412:   35:    if(!memtable->insert(key, s)) {
-    17412:   35-block  0
-call    0 returned 17412
-branch  1 taken 16 (fallthrough)
-branch  2 taken 17396
-       16:   36:        dump();
-       16:   36-block  0
-call    0 returned 16
-       16:   37:        memtable->insert(key, s);
-call    0 returned 16
+     5933:   35:    if(!memtable->insert(key, s)) {
+     5933:   35-block  0
+call    0 returned 5933
+branch  1 taken 3 (fallthrough)
+branch  2 taken 5930
+        3:   36:        dump();
+        3:   36-block  0
+call    0 returned 2
+        2:   37:        memtable->insert(key, s);
+call    0 returned 2
         -:   38:    }
         -:   39:
-    17412:   40:}
-    17412:   40-block  0
+     5932:   40:}
+     5932:   40-block  0
         -:   41:/**
         -:   42: * Returns the (string) value of the given key.
         -:   43: * An empty string indicates not found.
         -:   44: */
-function _ZN7KVStore3getB5cxx11Ey called 34272 returned 100% blocks executed 54%
-    34272:   45:std::string KVStore::get(uint64_t key)
+function _ZN7KVStore3getB5cxx11Ey called 10231 returned 100% blocks executed 54%
+    10231:   45:std::string KVStore::get(uint64_t key)
         -:   46:{
-    34272:   47:    string res="";
-    34272:   47-block  0
-call    0 returned 34272
-call    1 returned 34272
-branch  2 taken 34272 (fallthrough)
+    10231:   47:    string res="";
+    10231:   47-block  0
+call    0 returned 10231
+call    1 returned 10231
+branch  2 taken 10231 (fallthrough)
 branch  3 taken 0 (throw)
     $$$$$:   47-block  1
-    34272:   48:    if( !memtable)
+    10231:   48:    if( !memtable) // 这种情况只可能是其他函数delete后忘记new
 branch  0 taken 0 (fallthrough)
-branch  1 taken 34272
+branch  1 taken 10231
     #####:   49:        memtable = new SkipList();
     %%%%%:   49-block  0
 call    0 never executed
@@ -145,87 +145,87 @@ branch  5 never executed
     $$$$$:   49-block  3
 call    6 never executed
         -:   50:    else
-    34272:   51:        res = memtable->search(key);
-    34272:   51-block  0
-call    0 returned 34272
-branch  1 taken 34272 (fallthrough)
+    10231:   51:        res = memtable->search(key);
+    10231:   51-block  0
+call    0 returned 10231
+branch  1 taken 10231 (fallthrough)
 branch  2 taken 0 (throw)
-    34272:   51-block  1
-call    3 returned 34272
-call    4 returned 34272
+    10231:   51-block  1
+call    3 returned 10231
+call    4 returned 10231
         -:   52:    // 被删除
-    34272:   53:    if(res == (string)DELETE_VAL)
-    34272:   53-block  0
-call    0 returned 34272
-call    1 returned 34272
-branch  2 taken 34272 (fallthrough)
+    10231:   53:    if(res == (string)DELETE_VAL)
+    10231:   53-block  0
+call    0 returned 10231
+call    1 returned 10231
+branch  2 taken 10231 (fallthrough)
 branch  3 taken 0 (throw)
-    34272:   53-block  1
-call    4 returned 34272
-call    5 returned 34272
-call    6 returned 34272
-branch  7 taken 4354 (fallthrough)
-branch  8 taken 29918
+    10231:   53-block  1
+call    4 returned 10231
+call    5 returned 10231
+call    6 returned 10231
+branch  7 taken 1325 (fallthrough)
+branch  8 taken 8906
     $$$$$:   53-block  2
 call    9 never executed
     $$$$$:   53-block  3
-     4354:   54:        return "";
-     4354:   54-block  0
-call    0 returned 4354
-call    1 returned 4354
-branch  2 taken 4354 (fallthrough)
+     1325:   54:        return "";
+     1325:   54-block  0
+call    0 returned 1325
+call    1 returned 1325
+branch  2 taken 1325 (fallthrough)
 branch  3 taken 0 (throw)
-     4354:   54-block  1
-call    4 returned 4354
+     1325:   54-block  1
+call    4 returned 1325
     $$$$$:   54-block  2
 call    5 never executed
     $$$$$:   54-block  3
         -:   55:
         -:   56:    //不在memtable中
-    29918:   57:    if(res.empty()) {
-    29918:   57-block  0
-call    0 returned 29918
-branch  1 taken 20387 (fallthrough)
-branch  2 taken 9531
-    40774:   58:        string directory = string(DATA_PATH )+string(FILE_PREFIX);
-    20387:   58-block  0
-call    0 returned 20387
-branch  1 taken 20387 (fallthrough)
+     8906:   57:    if(res.empty()) {
+     8906:   57-block  0
+call    0 returned 8906
+branch  1 taken 5637 (fallthrough)
+branch  2 taken 3269
+    11274:   58:        string directory = string(DATA_PATH )+string(FILE_PREFIX);
+     5637:   58-block  0
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
 branch  2 taken 0 (throw)
-    20387:   58-block  1
-call    3 returned 20387
-branch  4 taken 20387 (fallthrough)
+     5637:   58-block  1
+call    3 returned 5637
+branch  4 taken 5637 (fallthrough)
 branch  5 taken 0 (throw)
-    20387:   58-block  2
-call    6 returned 20387
-branch  7 taken 20387 (fallthrough)
+     5637:   58-block  2
+call    6 returned 5637
+branch  7 taken 5637 (fallthrough)
 branch  8 taken 0 (throw)
-call    9 returned 20387
+call    9 returned 5637
     $$$$$:   58-block  3
     $$$$$:   58-block  4
-    20387:   59:        res = disk_store->get(key,directory);
-call    0 returned 20387
-branch  1 taken 20387 (fallthrough)
+     5637:   59:        res = disk_store->get(key,directory);
+call    0 returned 5637
+branch  1 taken 5637 (fallthrough)
 branch  2 taken 0 (throw)
-    20387:   59-block  0
-call    3 returned 20387
-call    4 returned 20387
-    20387:   60:    }
-call    0 returned 20387
+     5637:   59-block  0
+call    3 returned 5637
+call    4 returned 5637
+     5637:   60:    }
+call    0 returned 5637
     $$$$$:   60-block  0
 call    1 never executed
-    29918:   61:    if(res == (string)DELETE_VAL)
-    29918:   61-block  0
-call    0 returned 29918
-call    1 returned 29918
-branch  2 taken 29918 (fallthrough)
+     8906:   61:    if(res == (string)DELETE_VAL)
+     8906:   61-block  0
+call    0 returned 8906
+call    1 returned 8906
+branch  2 taken 8906 (fallthrough)
 branch  3 taken 0 (throw)
-    29918:   61-block  1
-call    4 returned 29918
-call    5 returned 29918
-call    6 returned 29918
+     8906:   61-block  1
+call    4 returned 8906
+call    5 returned 8906
+call    6 returned 8906
 branch  7 taken 0 (fallthrough)
-branch  8 taken 29918
+branch  8 taken 8906
     $$$$$:   61-block  2
 call    9 never executed
     $$$$$:   61-block  3
@@ -240,94 +240,94 @@ call    4 never executed
     $$$$$:   62-block  2
 call    5 never executed
     $$$$$:   62-block  3
-    29918:   63:    return res;
-    29918:   63-block  0
-call    0 returned 29918
-    34272:   64:}
-    34272:   64-block  0
-call    0 returned 34272
+     8906:   63:    return res;
+     8906:   63-block  0
+call    0 returned 8906
+    10231:   64:}
+    10231:   64-block  0
+call    0 returned 10231
     $$$$$:   64-block  1
 call    1 never executed
         -:   65:/**
         -:   66: * Delete the given key-value pair if it exists.
         -:   67: * Returns false iff the key is not found.
         -:   68: */
-function _ZN7KVStore3delEy called 13058 returned 100% blocks executed 67%
-    13058:   69:bool KVStore::del(uint64_t key)
+function _ZN7KVStore3delEy called 1536 returned 100% blocks executed 64%
+     1536:   69:bool KVStore::del(uint64_t key)
         -:   70:{
         -:   71:    // 先去memtable删除
-    13058:   72:    string res = memtable->search(key);
-    13058:   72-block  0
-call    0 returned 13058
-branch  1 taken 13058 (fallthrough)
+     1536:   72:    string res = memtable->search(key);
+     1536:   72-block  0
+call    0 returned 1536
+branch  1 taken 1536 (fallthrough)
 branch  2 taken 0 (throw)
-    13058:   73:    if (res == (string)DELETE_VAL)// 重复删除
-    13058:   73-block  0
-call    0 returned 13058
-call    1 returned 13058
-branch  2 taken 13058 (fallthrough)
+     1536:   73:    if (res == (string)DELETE_VAL)// 重复删除
+     1536:   73-block  0
+call    0 returned 1536
+call    1 returned 1536
+branch  2 taken 1536 (fallthrough)
 branch  3 taken 0 (throw)
-    13058:   73-block  1
-call    4 returned 13058
-call    5 returned 13058
-call    6 returned 13058
-branch  7 taken 4352 (fallthrough)
-branch  8 taken 8706
+     1536:   73-block  1
+call    4 returned 1536
+call    5 returned 1536
+call    6 returned 1536
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1536
     $$$$$:   73-block  2
 call    9 never executed
     $$$$$:   73-block  3
-     4352:   74:        return false;
-     4352:   74-block  0
-     8706:   75:    if ( res.empty()) {
-     8706:   75-block  0
-call    0 returned 8706
-branch  1 taken 8154 (fallthrough)
-branch  2 taken 552
+    #####:   74:        return false;
+    %%%%%:   74-block  0
+     1536:   75:    if ( res.empty()) {
+     1536:   75-block  0
+call    0 returned 1536
+branch  1 taken 1438 (fallthrough)
+branch  2 taken 98
         -:   76:        // 说明memtable中没有
-     8154:   77:        if(disk_store->get_level_num() == 0) // 没有磁盘文件
-     8154:   77-block  0
-call    0 returned 8154
+     1438:   77:        if(disk_store->get_level_num() == 0) // 没有磁盘文件
+     1438:   77-block  0
+call    0 returned 1438
 branch  1 taken 0 (fallthrough)
-branch  2 taken 8154
+branch  2 taken 1438
     #####:   78:            return false;
     %%%%%:   78-block  0
         -:   79:        // 去磁盘中找
-     8154:   80:        if(get(key).empty())
-     8154:   80-block  0
-call    0 returned 8154
-branch  1 taken 8154 (fallthrough)
+     1438:   80:        if(get(key).empty())
+     1438:   80-block  0
+call    0 returned 1438
+branch  1 taken 1438 (fallthrough)
 branch  2 taken 0 (throw)
-     8154:   80-block  1
-call    3 returned 8154
-call    4 returned 8154
+     1438:   80-block  1
+call    3 returned 1438
+call    4 returned 1438
 branch  5 taken 0 (fallthrough)
-branch  6 taken 8154
+branch  6 taken 1438
     #####:   81:            return false;
     %%%%%:   81-block  0
         -:   82:    }
-     8706:   83:    put(key, (string)DELETE_VAL);
-     8706:   83-block  0
-call    0 returned 8706
-call    1 returned 8706
-branch  2 taken 8706 (fallthrough)
+     1536:   83:    put(key, (string)DELETE_VAL);
+     1536:   83-block  0
+call    0 returned 1536
+call    1 returned 1536
+branch  2 taken 1536 (fallthrough)
 branch  3 taken 0 (throw)
-     8706:   83-block  1
-call    4 returned 8706
-branch  5 taken 8706 (fallthrough)
+     1536:   83-block  1
+call    4 returned 1536
+branch  5 taken 1536 (fallthrough)
 branch  6 taken 0 (throw)
-     8706:   83-block  2
-call    7 returned 8706
-call    8 returned 8706
+     1536:   83-block  2
+call    7 returned 1536
+call    8 returned 1536
     $$$$$:   83-block  3
 call    9 never executed
     $$$$$:   83-block  4
     $$$$$:   83-block  5
 call   10 never executed
     $$$$$:   83-block  6
-     8706:   84:    return true;
-    13058:   85:}
-    13058:   85-block  0
-call    0 returned 13058
+     1536:   84:    return true;
+     1536:   85:}
+     1536:   85-block  0
+call    0 returned 1536
     $$$$$:   85-block  1
 call    1 never executed
         -:   86:
@@ -335,145 +335,145 @@ call    1 never executed
         -:   88: * This resets the kvstore. All key-value pairs should be removed,
         -:   89: * including memtable and all sstables files.
         -:   90: */
-function _ZN7KVStore5resetEv called 2 returned 100% blocks executed 60%
-        2:   91:void KVStore::reset()
+function _ZN7KVStore5resetEv called 1 returned 100% blocks executed 60%
+        1:   91:void KVStore::reset()
         -:   92:{
-        2:   93:    vector<string> directories;
-        2:   93-block  0
-call    0 returned 2
-        2:   94:    utils::scanDir(DATA_PATH, directories);
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+        1:   93:    vector<string> directories;
+        1:   93-block  0
+call    0 returned 1
+        1:   94:    utils::scanDir(DATA_PATH, directories);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        2:   94-block  0
-call    3 returned 2
-branch  4 taken 2 (fallthrough)
+        1:   94-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
-        2:   94-block  1
-call    6 returned 2
+        1:   94-block  1
+call    6 returned 1
     $$$$$:   94-block  2
 call    7 never executed
     $$$$$:   94-block  3
-        6:   95:    for (auto &dir : directories) {
+        3:   95:    for (auto &dir : directories) {
+call    0 returned 1
+call    1 returned 1
+        2:   95-block  0
+call    2 returned 2
+call    3 returned 2
+        3:   95-block  1
+call    4 returned 3
+branch  5 taken 2
+branch  6 taken 1 (fallthrough)
+        2:   96:        string dir_path = DATA_PATH +'/'+ dir;
 call    0 returned 2
-call    1 returned 2
-        4:   95-block  0
-call    2 returned 4
-call    3 returned 4
-        6:   95-block  1
-call    4 returned 6
-branch  5 taken 4
-branch  6 taken 2 (fallthrough)
-        4:   96:        string dir_path = DATA_PATH +'/'+ dir;
-call    0 returned 4
-branch  1 taken 4 (fallthrough)
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-        4:   96-block  0
-call    3 returned 4
-branch  4 taken 4 (fallthrough)
+        2:   96-block  0
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
 branch  5 taken 0 (throw)
     $$$$$:   96-block  1
-        4:   97:        vector<string> files;
-call    0 returned 4
-        4:   98:        utils::scanDir(dir_path, files);
-call    0 returned 4
-branch  1 taken 4 (fallthrough)
+        2:   97:        vector<string> files;
+call    0 returned 2
+        2:   98:        utils::scanDir(dir_path, files);
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-        4:   98-block  0
-call    3 returned 4
-branch  4 taken 4 (fallthrough)
+        2:   98-block  0
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
 branch  5 taken 0 (throw)
-        4:   98-block  1
-call    6 returned 4
+        2:   98-block  1
+call    6 returned 2
     $$$$$:   98-block  2
 call    7 never executed
     $$$$$:   98-block  3
-       23:   99:        for (auto &file : files) {
-call    0 returned 4
-call    1 returned 4
-       19:   99-block  0
-call    2 returned 19
-call    3 returned 19
-       23:   99-block  1
-call    4 returned 23
-branch  5 taken 19
-branch  6 taken 4 (fallthrough)
-       19:  100:            string file_path = dir_path + "/" + file;
-call    0 returned 19
-branch  1 taken 19 (fallthrough)
+        5:   99:        for (auto &file : files) {
+call    0 returned 2
+call    1 returned 2
+        3:   99-block  0
+call    2 returned 3
+call    3 returned 3
+        5:   99-block  1
+call    4 returned 5
+branch  5 taken 3
+branch  6 taken 2 (fallthrough)
+        3:  100:            string file_path = dir_path + "/" + file;
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
 branch  2 taken 0 (throw)
-       19:  100-block  0
-call    3 returned 19
-branch  4 taken 19 (fallthrough)
+        3:  100-block  0
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
 branch  5 taken 0 (throw)
     $$$$$:  100-block  1
-       19:  101:            utils::rmfile(file_path.c_str());
-call    0 returned 19
-call    1 returned 19
-branch  2 taken 19 (fallthrough)
+        3:  101:            utils::rmfile(file_path.c_str());
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
 branch  3 taken 0 (throw)
-       19:  102:        }
-       19:  102-block  0
-call    0 returned 19
+        3:  102:        }
+        3:  102-block  0
+call    0 returned 3
     $$$$$:  102-block  1
 call    1 never executed
-        4:  103:        utils::rmdir(dir_path.c_str());
-        4:  103-block  0
-call    0 returned 4
-call    1 returned 4
-branch  2 taken 4 (fallthrough)
+        2:  103:        utils::rmdir(dir_path.c_str());
+        2:  103-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
 branch  3 taken 0 (throw)
-        4:  104:    }
-        4:  104-block  0
-call    0 returned 4
-call    1 returned 4
+        2:  104:    }
+        2:  104-block  0
+call    0 returned 2
+call    1 returned 2
     $$$$$:  104-block  1
 call    2 never executed
     $$$$$:  104-block  2
 call    3 never executed
         -:  105:
-        2:  106:    delete memtable;
-        2:  106-block  0
-branch  0 taken 2 (fallthrough)
+        1:  106:    delete memtable;
+        1:  106-block  0
+branch  0 taken 1 (fallthrough)
 branch  1 taken 0
-        2:  106-block  1
-call    2 returned 2
-call    3 returned 2
-        2:  107:    delete disk_store;
-        2:  107-block  0
-branch  0 taken 2 (fallthrough)
+        1:  106-block  1
+call    2 returned 1
+call    3 returned 1
+        1:  107:    delete disk_store;
+        1:  107-block  0
+branch  0 taken 1 (fallthrough)
 branch  1 taken 0
-        2:  107-block  1
-call    2 returned 2
-call    3 returned 2
-        2:  108:    memtable = new SkipList();
-        2:  108-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+        1:  107-block  1
+call    2 returned 1
+call    3 returned 1
+        1:  108:    memtable = new SkipList();
+        1:  108-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        2:  108-block  1
-call    3 returned 2
-branch  4 taken 2 (fallthrough)
+        1:  108-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
     $$$$$:  108-block  2
 call    6 never executed
-        2:  109:    disk_store = new DiskStore((string)CONFIG_DIR);
-        2:  109-block  0
-call    0 returned 2
-call    1 returned 2
-branch  2 taken 2 (fallthrough)
+        1:  109:    disk_store = new DiskStore((string)CONFIG_DIR);
+        1:  109-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
 branch  3 taken 0 (throw)
-        2:  109-block  1
-call    4 returned 2
-branch  5 taken 2 (fallthrough)
+        1:  109-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
 branch  6 taken 0 (throw)
-        2:  109-block  2
-call    7 returned 2
-branch  8 taken 2 (fallthrough)
+        1:  109-block  2
+call    7 returned 1
+branch  8 taken 1 (fallthrough)
 branch  9 taken 0 (throw)
-        2:  109-block  3
-call   10 returned 2
-call   11 returned 2
+        1:  109-block  3
+call   10 returned 1
+call   11 returned 1
     $$$$$:  109-block  4
 call   12 never executed
     $$$$$:  109-block  5
@@ -482,9 +482,9 @@ call   13 never executed
     $$$$$:  109-block  7
 call   14 never executed
     $$$$$:  109-block  8
-        2:  110:    timestamp = 1;
-        2:  111:}
-call    0 returned 2
+        1:  110:    timestamp = 1;
+        1:  111:}
+call    0 returned 1
     $$$$$:  111-block  0
 call    1 never executed
         -:  112:
@@ -493,15 +493,15 @@ call    1 never executed
         -:  115: * keys in the list should be in an ascending order.
         -:  116: * An empty string indicates not found.
         -:  117: */
-function _ZN7KVStore4scanEyyRNSt7__cxx114listISt4pairIyNS0_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEE called 2 returned 100% blocks executed 100%
-        2:  118:void KVStore::scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list)
+function _ZN7KVStore4scanEyyRNSt7__cxx114listISt4pairIyNS0_12basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEE called 0 returned 0% blocks executed 0%
+    #####:  118:void KVStore::scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, std::string> > &list)
         -:  119:{
         -:  120:    // 先去memtable中找
-        2:  121:    memtable->scan(key1, key2, list);
-        2:  121-block  0
-call    0 returned 2
+    #####:  121:    memtable->scan(key1, key2, list);
+    %%%%%:  121-block  0
+call    0 never executed
         -:  122:    //TODO: 去磁盘中找
-        2:  123:}
+    #####:  123:}
         -:  124:
         -:  125:
         -:  126:/*
@@ -525,46 +525,46 @@ call    6 returned 1
     $$$$$:  131-block  2
 call    7 never executed
     $$$$$:  131-block  3
-        5:  132:    for (auto &dir : directories) {
+        3:  132:    for (auto &dir : directories) {
 call    0 returned 1
 call    1 returned 1
-        4:  132-block  0
-call    2 returned 4
-call    3 returned 4
-        5:  132-block  1
-call    4 returned 5
-branch  5 taken 4
+        2:  132-block  0
+call    2 returned 2
+call    3 returned 2
+        3:  132-block  1
+call    4 returned 3
+branch  5 taken 2
 branch  6 taken 1 (fallthrough)
-        4:  133:        string dir_path = DATA_PATH + dir;
-call    0 returned 4
-branch  1 taken 4 (fallthrough)
+        2:  133:        string dir_path = DATA_PATH + dir;
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-        4:  134:        vector<string> files;
-        4:  134-block  0
-call    0 returned 4
-        4:  135:        utils::scanDir(dir_path, files);
-call    0 returned 4
-branch  1 taken 4 (fallthrough)
+        2:  134:        vector<string> files;
+        2:  134-block  0
+call    0 returned 2
+        2:  135:        utils::scanDir(dir_path, files);
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-        4:  135-block  0
-call    3 returned 4
-branch  4 taken 4 (fallthrough)
+        2:  135-block  0
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
 branch  5 taken 0 (throw)
-        4:  135-block  1
-call    6 returned 4
+        2:  135-block  1
+call    6 returned 2
     $$$$$:  135-block  2
 call    7 never executed
     $$$$$:  135-block  3
-       4*:  136:        for (auto &file : files) {
-call    0 returned 4
-call    1 returned 4
+       2*:  136:        for (auto &file : files) {
+call    0 returned 2
+call    1 returned 2
     %%%%%:  136-block  0
 call    2 never executed
 call    3 never executed
-        4:  136-block  1
-call    4 returned 4
+        2:  136-block  1
+call    4 returned 2
 branch  5 taken 0
-branch  6 taken 4 (fallthrough)
+branch  6 taken 2 (fallthrough)
     #####:  137:            string file_path = dir_path + "/" + file;
 call    0 never executed
 branch  1 never executed
@@ -611,10 +611,10 @@ branch  2 never executed
 call    0 never executed
     $$$$$:  147-block  1
 call    1 never executed
-        4:  148:    }
-        4:  148-block  0
-call    0 returned 4
-call    1 returned 4
+        2:  148:    }
+        2:  148-block  0
+call    0 returned 2
+call    1 returned 2
     $$$$$:  148-block  1
 call    2 never executed
     $$$$$:  148-block  2
@@ -628,30 +628,30 @@ call    1 never executed
         -:  151:/*
         -:  152: * file_name: timestamp-serial.sst
         -:  153: * */
-function _ZN7KVStore4dumpEv called 17 returned 100% blocks executed 56%
-       17:  154:void KVStore::dump() {
-       17:  155:    string directory = DATA_PATH + FILE_PREFIX + "0";
-       17:  155-block  0
-call    0 returned 17
-branch  1 taken 17 (fallthrough)
+function _ZN7KVStore4dumpEv called 3 returned 67% blocks executed 56%
+        3:  154:void KVStore::dump() {
+        3:  155:    string directory = DATA_PATH + FILE_PREFIX + "0";
+        3:  155-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
 branch  2 taken 0 (throw)
-       17:  155-block  1
-call    3 returned 17
-branch  4 taken 17 (fallthrough)
+        3:  155-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
 branch  5 taken 0 (throw)
     $$$$$:  155-block  2
-       17:  156:    if (!utils::dirExists(directory)) {
-call    0 returned 17
-branch  1 taken 17 (fallthrough)
+        3:  156:    if (!utils::dirExists(directory)) {
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
 branch  2 taken 0 (throw)
-       17:  156-block  0
-call    3 returned 17
-branch  4 taken 17 (fallthrough)
+        3:  156-block  0
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
 branch  5 taken 0 (throw)
-       17:  156-block  1
-call    6 returned 17
+        3:  156-block  1
+call    6 returned 3
 branch  7 taken 1 (fallthrough)
-branch  8 taken 16
+branch  8 taken 2
     $$$$$:  156-block  2
 call    9 never executed
     $$$$$:  156-block  3
@@ -674,158 +674,156 @@ branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
         -:  161:        }
         -:  162:    }
-       17:  163:    SSTable *ss_table = new SSTable(memtable, timestamp);
-       17:  163-block  0
-call    0 returned 17
-branch  1 taken 17 (fallthrough)
+        3:  163:    SSTable *ss_table = new SSTable(memtable, timestamp);
+        3:  163-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
 branch  2 taken 0 (throw)
-       17:  163-block  1
-call    3 returned 17
-branch  4 taken 17 (fallthrough)
+        3:  163-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
 branch  5 taken 0 (throw)
     $$$$$:  163-block  2
 call    6 never executed
-       17:  164:    bool compaction_flag = false;
-       17:  165:    uint64_t serial =  disk_store->add_sstable(ss_table, 0,compaction_flag);
-       17:  165-block  0
-call    0 returned 17
-branch  1 taken 17 (fallthrough)
+        3:  164:    bool compaction_flag = false;
+        3:  165:    uint64_t serial =  disk_store->add_sstable(ss_table, 0,compaction_flag);
+        3:  165-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
 branch  2 taken 0 (throw)
         -:  166:
         -:  167:    // 保存成文件
-       34:  168:    string file = directory + '/' +  to_string(timestamp) + '-' + to_string(serial) + ".sst";
-       17:  168-block  0
-call    0 returned 17
-branch  1 taken 17 (fallthrough)
+        6:  168:    string file = directory + '/' +  to_string(timestamp) + '-' + to_string(serial) + ".sst";
+        3:  168-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
 branch  2 taken 0 (throw)
-       17:  168-block  1
-call    3 returned 17
-branch  4 taken 17 (fallthrough)
+        3:  168-block  1
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
 branch  5 taken 0 (throw)
-       17:  168-block  2
-call    6 returned 17
-branch  7 taken 17 (fallthrough)
+        3:  168-block  2
+call    6 returned 3
+branch  7 taken 3 (fallthrough)
 branch  8 taken 0 (throw)
-       17:  168-block  3
-call    9 returned 17
-branch 10 taken 17 (fallthrough)
+        3:  168-block  3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
 branch 11 taken 0 (throw)
-       17:  168-block  4
-call   12 returned 17
-branch 13 taken 17 (fallthrough)
+        3:  168-block  4
+call   12 returned 3
+branch 13 taken 3 (fallthrough)
 branch 14 taken 0 (throw)
-       17:  168-block  5
-call   15 returned 17
-branch 16 taken 17 (fallthrough)
+        3:  168-block  5
+call   15 returned 3
+branch 16 taken 3 (fallthrough)
 branch 17 taken 0 (throw)
-       17:  168-block  6
-call   18 returned 17
-branch 19 taken 17 (fallthrough)
+        3:  168-block  6
+call   18 returned 3
+branch 19 taken 3 (fallthrough)
 branch 20 taken 0 (throw)
-call   21 returned 17
-call   22 returned 17
-call   23 returned 17
-call   24 returned 17
-call   25 returned 17
+call   21 returned 3
+call   22 returned 3
+call   23 returned 3
+call   24 returned 3
+call   25 returned 3
     $$$$$:  168-block  7
     $$$$$:  168-block  8
     $$$$$:  168-block  9
     $$$$$:  168-block 10
     $$$$$:  168-block 11
     $$$$$:  168-block 12
-       17:  169:    ss_table->save_file(file);
-call    0 returned 17
-branch  1 taken 17 (fallthrough)
+        3:  169:    ss_table->save_file(file);
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  170://    //TODO:TEST
-        -:  171://    disk_store->read_file(file, 34620, 1);
-       17:  172:    if(compaction_flag) {
-       17:  172-block  0
-branch  0 taken 5 (fallthrough)
-branch  1 taken 12
-        5:  173:        compaction(1);
-        5:  173-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+        3:  170:    if(compaction_flag) {
+        3:  170-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 2
+        1:  171:        compaction(1);
+        1:  171-block  0
+call    0 returned 0
+branch  1 taken 0 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  174:    }
-       17:  175:    timestamp++;
-        -:  176:
-        -:  177:    // 清空memtable
-       17:  178:    delete memtable;
-       17:  178-block  0
-branch  0 taken 17 (fallthrough)
+        -:  172:    }
+        2:  173:    timestamp++;
+        -:  174:
+        -:  175:    // 清空memtable
+        2:  176:    delete memtable;
+        2:  176-block  0
+branch  0 taken 2 (fallthrough)
 branch  1 taken 0
-       17:  178-block  1
-call    2 returned 17
-call    3 returned 17
-       17:  179:    memtable = new SkipList();
-       17:  179-block  0
-call    0 returned 17
-branch  1 taken 17 (fallthrough)
+        2:  176-block  1
+call    2 returned 2
+call    3 returned 2
+        2:  177:    memtable = new SkipList();
+        2:  177-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
-       17:  179-block  1
-call    3 returned 17
-branch  4 taken 17 (fallthrough)
+        2:  177-block  1
+call    3 returned 2
+branch  4 taken 2 (fallthrough)
 branch  5 taken 0 (throw)
-    $$$$$:  179-block  2
+    $$$$$:  177-block  2
 call    6 never executed
-       17:  180:}
-       17:  180-block  0
-call    0 returned 17
-call    1 returned 17
-    $$$$$:  180-block  1
+        2:  178:}
+        2:  178-block  0
+call    0 returned 2
+call    1 returned 2
+    $$$$$:  178-block  1
 call    2 never executed
-    $$$$$:  180-block  2
+    $$$$$:  178-block  2
 call    3 never executed
-        -:  181:
-        -:  182:/*
-        -:  183: *
-        -:  184: * @param dump_to_level: dump的目标层
-        -:  185: * */
-function _ZN7KVStore10compactionEj called 5 returned 100% blocks executed 60%
-        5:  186:void KVStore::compaction(uint32_t dump_to_level) {
-       5*:  187:    if(dump_to_level <= 0 || dump_to_level > disk_store->get_level_num()) { // 错误情况
-        5:  187-block  0
-branch  0 taken 5 (fallthrough)
+        -:  179:
+        -:  180:/*
+        -:  181: *
+        -:  182: * @param dump_to_level: dump的目标层
+        -:  183: * */
+function _ZN7KVStore10compactionEj called 1 returned 0% blocks executed 48%
+        1:  184:void KVStore::compaction(uint32_t dump_to_level) {
+       1*:  185:    if(dump_to_level <= 0 || dump_to_level > disk_store->get_level_num()) { // 上层函数错误传参情况
+        1:  185-block  0
+branch  0 taken 1 (fallthrough)
 branch  1 taken 0
-        5:  187-block  1
-call    2 returned 5
+        1:  185-block  1
+call    2 returned 1
 branch  3 taken 0 (fallthrough)
-branch  4 taken 5
-    %%%%%:  187-block  2
-        5:  187-block  3
-        5:  187-block  4
+branch  4 taken 1
+    %%%%%:  185-block  2
+        1:  185-block  3
+        1:  185-block  4
 branch  5 taken 0 (fallthrough)
-branch  6 taken 5
-    #####:  188:        return;
-    %%%%%:  188-block  0
-        -:  189:    }
-        -:  190:
-        -:  191:    // 创建目录前缀，让disk解决compaction
-       10:  192:    string directory = string(DATA_PATH )+string(FILE_PREFIX);
-        5:  192-block  0
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+branch  6 taken 1
+    #####:  186:        return;
+    %%%%%:  186-block  0
+        -:  187:    }
+        -:  188:
+        -:  189:    // 创建目录前缀，让disk解决compaction
+        2:  190:    string directory = string(DATA_PATH )+string(FILE_PREFIX);
+        1:  190-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        5:  192-block  1
-call    3 returned 5
-branch  4 taken 5 (fallthrough)
+        1:  190-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
-        5:  192-block  2
-call    6 returned 5
-branch  7 taken 5 (fallthrough)
+        1:  190-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
 branch  8 taken 0 (throw)
-call    9 returned 5
-    $$$$$:  192-block  3
-    $$$$$:  192-block  4
-        5:  193:    disk_store->compaction(dump_to_level, directory);
-call    0 returned 5
-branch  1 taken 5 (fallthrough)
+call    9 returned 1
+    $$$$$:  190-block  3
+    $$$$$:  190-block  4
+        1:  191:    disk_store->compaction(dump_to_level, directory);
+call    0 returned 0
+branch  1 taken 0 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  194:
-        5:  195:}
-        5:  195-block  0
-call    0 returned 5
-    $$$$$:  195-block  1
+        -:  192:
+    #####:  193:}
+    %%%%%:  193-block  0
+call    0 never executed
+    $$$$$:  193-block  1
 call    1 never executed

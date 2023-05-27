@@ -1,6 +1,6 @@
         -:    0:Source:F:/SJTU/application/CLion/CLion 2021.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator_base_funcs.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcda
         -:    0:Runs:1
         -:    1:// Functions used by iterators -*- C++ -*-
         -:    2:
@@ -225,9 +225,9 @@ call    0 never executed
         -:  171:
         -:  172:  template<typename _RandomAccessIterator, typename _Distance>
         -:  173:    inline _GLIBCXX14_CONSTEXPR void
-function _ZSt9__advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7SSTableSt6vectorIS4_SaIS4_EEEEExEvRT_T0_St26random_access_iterator_tag called 8 returned 100% blocks executed 100%
-        8:  174:    __advance(_RandomAccessIterator& __i, _Distance __n,
-        8:  174-block  0
+function _ZSt9__advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7SSTableSt6vectorIS4_SaIS4_EEEEExEvRT_T0_St26random_access_iterator_tag called 0 returned 0% blocks executed 0%
+    #####:  174:    __advance(_RandomAccessIterator& __i, _Distance __n,
+    %%%%%:  174-block  0
         -:  175:              random_access_iterator_tag)
         -:  176:    {
         -:  177:      // concept requirements
@@ -238,10 +238,10 @@ function _ZSt9__advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7S
         -:  182:      else if (__builtin_constant_p(__n) && __n == -1)
         -:  183:	--__i;
         -:  184:      else
-        8:  185:	__i += __n;
-        8:  185-block  0
-call    0 returned 8
-        8:  186:    }
+    #####:  185:	__i += __n;
+    %%%%%:  185-block  0
+call    0 never executed
+    #####:  186:    }
         -:  187:
         -:  188:  /**
         -:  189:   *  @brief A generalization of pointer arithmetic.
@@ -257,32 +257,32 @@ call    0 returned 8
         -:  199:  */
         -:  200:  template<typename _InputIterator, typename _Distance>
         -:  201:    inline _GLIBCXX17_CONSTEXPR void
-function _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7SSTableSt6vectorIS4_SaIS4_EEEEExEvRT_T0_ called 8 returned 100% blocks executed 100%
-        8:  202:    advance(_InputIterator& __i, _Distance __n)
+function _ZSt7advanceISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7SSTableSt6vectorIS4_SaIS4_EEEEExEvRT_T0_ called 0 returned 0% blocks executed 0%
+    #####:  202:    advance(_InputIterator& __i, _Distance __n)
         -:  203:    {
         -:  204:      // concept requirements -- taken care of in __advance
-        8:  205:      typename iterator_traits<_InputIterator>::difference_type __d = __n;
-        8:  206:      std::__advance(__i, __d, std::__iterator_category(__i));
-        8:  206-block  0
-call    0 returned 8
-call    1 returned 8
-        8:  207:    }
+    #####:  205:      typename iterator_traits<_InputIterator>::difference_type __d = __n;
+    #####:  206:      std::__advance(__i, __d, std::__iterator_category(__i));
+    %%%%%:  206-block  0
+call    0 never executed
+call    1 never executed
+    #####:  207:    }
         -:  208:
         -:  209:#if __cplusplus >= 201103L
         -:  210:
         -:  211:  template<typename _InputIterator>
         -:  212:    inline _GLIBCXX17_CONSTEXPR _InputIterator
-function _ZSt4nextISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7SSTableSt6vectorIS4_SaIS4_EEEEEET_SB_NSt15iterator_traitsISB_E15difference_typeE called 8 returned 100% blocks executed 100%
-        8:  213:    next(_InputIterator __x, typename
+function _ZSt4nextISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7SSTableSt6vectorIS4_SaIS4_EEEEEET_SB_NSt15iterator_traitsISB_E15difference_typeE called 0 returned 0% blocks executed 0%
+    #####:  213:    next(_InputIterator __x, typename
         -:  214:	 iterator_traits<_InputIterator>::difference_type __n = 1)
         -:  215:    {
         -:  216:      // concept requirements
         -:  217:      __glibcxx_function_requires(_InputIteratorConcept<_InputIterator>)
-        8:  218:      std::advance(__x, __n);
-        8:  218-block  0
-call    0 returned 8
-        8:  219:      return __x;
-call    0 returned 8
+    #####:  218:      std::advance(__x, __n);
+    %%%%%:  218-block  0
+call    0 never executed
+    #####:  219:      return __x;
+call    0 never executed
         -:  220:    }
         -:  221:
         -:  222:  template<typename _BidirectionalIterator>

@@ -1,6 +1,6 @@
         -:    0:Source:E:/CppProject/dataStruct2023/LSMkv/header/SStable.h
-        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcno
-        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_correct.dir\src\Disk_store.cpp.gcda
+        -:    0:Graph:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcno
+        -:    0:Data:E:\CppProject\dataStruct2023\LSMkv\cmake-build-debug-coverage\CMakeFiles\LSMkv_persist.dir\src\Disk_store.cpp.gcda
         -:    0:Runs:1
         -:    1:#pragma once
         -:    2:
@@ -57,66 +57,67 @@
         -:   53:    Header():time_stamp(0), total_num(0), max_key(0), min_key(0) {}
         -:   54:    Header(uint64_t t_s, uint64_t num, uint64_t Max, uint64_t Min):
         -:   55:        time_stamp(t_s), total_num(num), max_key(Max), min_key(Min) {}
-        -:   56:};
-        -:   57:
-        -:   58:struct Indexer {
-        -:   59:    uint64_t key;
-        -:   60:    uint32_t offset;
-        -:   61:    Indexer() { };
-        -:   62:    Indexer(uint64_t k, uint32_t o): key(k), offset(o) {}
-        -:   63:};
-        -:   64:class SSTable {
-        -:   65:    Header* header;
-        -:   66:    BloomFilter* bloom_filter;
-        -:   67:    vector<Indexer> index_area;
-        -:   68:    vector<string> data_area; //dump的时候暂存数据
-        -:   69:    uint64_t Serial; //序列号,用于区分同一时间戳的SSTable（文件命名）
-        -:   70:
-        -:   71:public:
-        -:   72:    SSTable();
-        -:   73:    ~SSTable();
-        -:   74:    SSTable(SkipList *skip_list, uint64_t time_stamp);
-        -:   75:    SSTable(const vector<pair<uint64_t,string>>& data, const uint64_t time_stamp);
-        -:   76:    SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial);
-        -:   77:    bool get(uint64_t key, uint32_t & offset, int & size);
-        -:   78:    bool find(uint64_t key) const{
-        -:   79:        return bloom_filter->find(key);
-        -:   80:    }
-function _ZNK7SSTable11get_min_keyEv called 366996 returned 100% blocks executed 100%
-   366996:   81:    uint64_t get_min_key() const {
-   366996:   82:        return header->min_key;
-   366996:   82-block  0
-        -:   83:    }
-function _ZNK7SSTable11get_max_keyEv called 134498 returned 100% blocks executed 100%
-   134498:   84:    uint64_t get_max_key() const {
-   134498:   85:        return header->max_key;
-   134498:   85-block  0
-        -:   86:    }
-function _ZNK7SSTable13get_total_numEv called 110 returned 100% blocks executed 100%
-      110:   87:    uint64_t get_total_num() const {
-      110:   88:        return header->total_num;
-      110:   88-block  0
-        -:   89:    }
-        -:   90:    void save_file(const string &file_name);
-function _ZN7SSTable10set_serialEy called 57 returned 100% blocks executed 100%
-       57:   91:    void set_serial(const uint64_t serial) {
-       57:   92:        Serial = serial;
-       57:   93:    }
-function _ZNK7SSTable10get_serialEv called 20461 returned 100% blocks executed 100%
-    20461:   94:    uint64_t get_serial() const {
-    20461:   95:        return Serial;
-    20461:   95-block  0
-        -:   96:    }
-function _ZNK7SSTable14get_time_stampEv called 49192 returned 100% blocks executed 100%
-    49192:   97:    uint64_t get_time_stamp() const {
-    49192:   98:        return header->time_stamp;
-    49192:   98-block  0
-        -:   99:    }
-        -:  100:    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end);
-        -:  101:
-        -:  102:private:
-        -:  103:    int binary_search(uint64_t key) const;
-        -:  104://    string read_file(const uint32_t offset, const uint32_t size) const;
-        -:  105://    string make_file_name();
-        -:  106:
-        -:  107:};
+        -:   56:    ~Header() {}
+        -:   57:};
+        -:   58:
+        -:   59:struct Indexer {
+        -:   60:    uint64_t key;
+        -:   61:    uint32_t offset;
+        -:   62:    Indexer() { };
+        -:   63:    Indexer(uint64_t k, uint32_t o): key(k), offset(o) {}
+        -:   64:};
+        -:   65:class SSTable {
+        -:   66:    Header* header;
+        -:   67:    BloomFilter* bloom_filter;
+        -:   68:    vector<Indexer> index_area;
+        -:   69:    vector<string> data_area; //dump的时候暂存数据
+        -:   70:    uint64_t Serial; //序列号,用于区分同一时间戳的SSTable（文件命名）
+        -:   71:
+        -:   72:public:
+        -:   73:    SSTable();
+        -:   74:    ~SSTable();
+        -:   75:    SSTable(SkipList *skip_list, uint64_t time_stamp);
+        -:   76:    SSTable(const vector<pair<uint64_t,string>>& data, const uint64_t time_stamp);
+        -:   77:    SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial);
+        -:   78:    bool get(uint64_t key, uint32_t & offset, int & size);
+        -:   79:    bool find(uint64_t key) const{
+        -:   80:        return bloom_filter->find(key);
+        -:   81:    }
+function _ZNK7SSTable11get_min_keyEv called 11277 returned 100% blocks executed 100%
+    11277:   82:    uint64_t get_min_key() const {
+    11277:   83:        return header->min_key;
+    11277:   83-block  0
+        -:   84:    }
+function _ZNK7SSTable11get_max_keyEv called 7221 returned 100% blocks executed 100%
+     7221:   85:    uint64_t get_max_key() const {
+     7221:   86:        return header->max_key;
+     7221:   86-block  0
+        -:   87:    }
+function _ZNK7SSTable13get_total_numEv called 0 returned 0% blocks executed 0%
+    #####:   88:    uint64_t get_total_num() const {
+    #####:   89:        return header->total_num;
+    %%%%%:   89-block  0
+        -:   90:    }
+        -:   91:    void save_file(const string &file_name);
+function _ZN7SSTable10set_serialEy called 3 returned 100% blocks executed 100%
+        3:   92:    void set_serial(const uint64_t serial) {
+        3:   93:        Serial = serial;
+        3:   94:    }
+function _ZNK7SSTable10get_serialEv called 5640 returned 100% blocks executed 100%
+     5640:   95:    uint64_t get_serial() const {
+     5640:   96:        return Serial;
+     5640:   96-block  0
+        -:   97:    }
+function _ZNK7SSTable14get_time_stampEv called 11286 returned 100% blocks executed 100%
+    11286:   98:    uint64_t get_time_stamp() const {
+    11286:   99:        return header->time_stamp;
+    11286:   99-block  0
+        -:  100:    }
+        -:  101:    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data);
+        -:  102:
+        -:  103:private:
+        -:  104:    int binary_search(uint64_t key) const;
+        -:  105://    string read_file(const uint32_t offset, const uint32_t size) const;
+        -:  106://    string make_file_name();
+        -:  107:
+        -:  108:};

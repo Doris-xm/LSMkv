@@ -45,7 +45,7 @@ void KVStore::put(uint64_t key, const std::string &s)
 std::string KVStore::get(uint64_t key)
 {
     string res="";
-    if( !memtable)
+    if( !memtable) // 这种情况只可能是其他函数delete后忘记new
         memtable = new SkipList();
     else
         res = memtable->search(key);
@@ -167,8 +167,6 @@ void KVStore::dump() {
     // 保存成文件
     string file = directory + '/' +  to_string(timestamp) + '-' + to_string(serial) + ".sst";
     ss_table->save_file(file);
-//    //TODO:TEST
-//    disk_store->read_file(file, 34620, 1);
     if(compaction_flag) {
         compaction(1);
     }
@@ -184,7 +182,7 @@ void KVStore::dump() {
  * @param dump_to_level: dump的目标层
  * */
 void KVStore::compaction(uint32_t dump_to_level) {
-    if(dump_to_level <= 0 || dump_to_level > disk_store->get_level_num()) { // 错误情况
+    if(dump_to_level <= 0 || dump_to_level > disk_store->get_level_num()) { // 上层函数错误传参情况
         return;
     }
 
