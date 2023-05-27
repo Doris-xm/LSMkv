@@ -6,7 +6,7 @@
 #include "queue"
 
 DiskStore::DiskStore(const string &config_dir) {
-    ifstream in(config_dir, std::ios::in);
+    ifstream in(config_dir, ios::in);
     if(!in.is_open()) {
         cout << "open file error: "<<config_dir << endl;
         return;
@@ -131,14 +131,14 @@ std::string DiskStore::get(const uint64_t key,const string & dir_prefix) const{
  * */
 string DiskStore::read_file(const string &file_name, uint32_t offset, int len) const {
     fstream in;
-    in.open(file_name, std::ios_base::binary | std::ios_base::in);
-    in.seekg(offset, std::ios::beg); //定位到文件的第offset个字节
+    in.open(file_name, ios::binary | ios::in);
+    in.seekg(offset, ios::beg); //定位到文件的第offset个字节
     streampos start = in.tellg(); //获取当前位置
     if (len < 0) {
-        in.seekg(0, std::ios::end); //定位到文件末尾
+        in.seekg(0, ios::end); //定位到文件末尾
         std::streampos end = in.tellg(); //获取当前位置
         len = end - start;
-        in.seekg(offset, std::ios::beg); //定位回到文件的第offset个字节,准备读
+        in.seekg(offset, ios::beg); //定位回到文件的第offset个字节,准备读
     }
 
 //    char *tmp = new char[len + 1];
@@ -146,7 +146,7 @@ string DiskStore::read_file(const string &file_name, uint32_t offset, int len) c
 //    tmp[len] = '\0';
 //    string res = tmp;
 //    delete[]tmp;
-    string res(len+1, ' ');
+    string res(len, ' ');
     in.read(&(*res.begin()), sizeof(char) * len);
     res[len] = '\0';
     in.close();

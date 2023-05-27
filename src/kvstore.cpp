@@ -167,7 +167,8 @@ void KVStore::dump() {
     // 保存成文件
     string file = directory + '/' +  to_string(timestamp) + '-' + to_string(serial) + ".sst";
     ss_table->save_file(file);
-
+//    //TODO:TEST
+//    disk_store->read_file(file, 34620, 1);
     if(compaction_flag) {
         compaction(1);
     }

@@ -46,11 +46,12 @@ SSTable::SSTable() {
 }
 
 void SSTable::save_file(const string &file_name) {
-    ofstream out(file_name, ios_base::binary | ios_base::app);
+    ofstream out(file_name, ios::binary | ios::out);
     if (!out.is_open()) {
         cout << "open file error: "<<file_name << endl;
         return;
     }
+
     // write header
     out.write((char*)(&header->time_stamp), 8);
     out.write((char*)(&header->total_num), 8);
@@ -67,10 +68,9 @@ void SSTable::save_file(const string &file_name) {
         out.write((char*)&iter.key, 8);
         out.write((char*)&iter.offset, 4);
     }
-
     // write data_area
     for (auto iter : data_area) {
-        out.write((char*)&iter, iter.size());
+        out.write(iter.c_str(), (long long)iter.size());
     }
     out.close();
 
@@ -116,17 +116,17 @@ int SSTable::binary_search(const uint64_t key) const {
 }
 
 SSTable::SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial) {
-    ifstream in(file_path, ios_base::binary | ios_base::in);
+    ifstream in(file_path, ios::binary | ios::in);
     if (!in.is_open()) {
         cout << "open file error: "<<file_path << endl;
         return;
     }
     // read header
     header = new Header();
-    in.read((char*)header->time_stamp, 8);
-    in.read((char*)header->total_num, 8);
-    in.read((char*)header->min_key, 8);
-    in.read((char*)header->max_key, 8);
+    in.read((char*)&header->time_stamp, 8);
+    in.read((char*)&header->total_num, 8);
+    in.read((char*)&header->min_key, 8);
+    in.read((char*)&header->max_key, 8);
 
     // read bloom_filter
     bitset<BLOOM_SIZE> filter;
@@ -152,12 +152,12 @@ SSTable::SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial) {
  * @param:is_end:是否是最后一行，最后一行需要删除所有的~DELETE~标记
  * */
 void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end) {
-    ifstream in(file_path, ios_base::binary | ios_base::in);
+    ifstream in(file_path, ios::binary | ios::in);
      if (!in.is_open()) {
         cout << "open file error: "<<file_path << endl;
         return;
     }
-    in.seekg(index_area[0].offset, ios_base::beg);
+    in.seekg(index_area[0].offset, ios::beg);
     uint32_t len;
 
     for (int i = 0; i < header->total_num - 1; ++i) {
@@ -175,7 +175,7 @@ void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string>
             data.emplace_back(make_pair(index_area[i].key, ans));
     }
     streampos start = in.tellg(); //获取当前位置
-    in.seekg(0, std::ios::end); //定位到文件末尾
+    in.seekg(0, ios::end); //定位到文件末尾
     streampos end = in.tellg(); //获取当前位置
     len = end - start;
 //    char *value = new char[len + 1];

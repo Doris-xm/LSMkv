@@ -34,8 +34,7 @@ bool SkipList::insert(uint64_t key, const string &s) {
     int curr_level = Max_level;
     node* next = head;
     node** update_list = new node*[Max_level + 1];
-    if( key > max_key) max_key = key;
-    if( key < min_key) min_key = key;
+
 
     while(curr_level >= 0) {
         if( key < next->point_list[curr_level]->key) {
@@ -62,6 +61,8 @@ bool SkipList::insert(uint64_t key, const string &s) {
     }
     node* NewNode = new node(key, s,next->point_list[0]);
     key_num ++;
+    if( key > max_key) max_key = key;
+    if( key < min_key) min_key = key;
     Size += s.size() + 13; // 1 + 8 + 4: '\0' + key + offset
     next->point_list[0] = NewNode;
 

@@ -104,7 +104,7 @@ public:
 int main(int argc, char *argv[])
 {
     bool verbose = (argc == 2 && std::string(argv[1]) == "-v");
-    verbose = true;
+//    verbose = true;
     std::cout << "Usage: " << argv[0] << " [-v]" << std::endl;
     std::cout << "  -v: print extra info for failed tests [currently ";
     std::cout << (verbose ? "ON" : "OFF")<< "]" << std::endl;
