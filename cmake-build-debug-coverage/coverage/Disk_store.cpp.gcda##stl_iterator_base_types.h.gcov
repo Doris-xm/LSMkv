@@ -239,14 +239,14 @@
         -:  235:  template<typename _Iter>
         -:  236:    inline _GLIBCXX_CONSTEXPR
         -:  237:    typename iterator_traits<_Iter>::iterator_category
-    #####:  238:    __iterator_category(const _Iter&)
-    #####:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
+      14*:  238:    __iterator_category(const _Iter&)
+      14*:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
 ------------------
 _ZSt19__iterator_categoryIPyENSt15iterator_traitsIT_E17iterator_categoryERKS2_:
-function _ZSt19__iterator_categoryIPyENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 0 returned 0% blocks executed 0%
-    #####:  238:    __iterator_category(const _Iter&)
-    #####:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
-    %%%%%:  239-block  0
+function _ZSt19__iterator_categoryIPyENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 6 returned 100% blocks executed 100%
+        6:  238:    __iterator_category(const _Iter&)
+        6:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
+        6:  239-block  0
 ------------------
 _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_:
 function _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_ called 0 returned 0% blocks executed 0%
@@ -259,6 +259,12 @@ function _ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_catego
     #####:  238:    __iterator_category(const _Iter&)
     #####:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
     %%%%%:  239-block  0
+------------------
+_ZSt19__iterator_categoryISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7SSTableSt6vectorIS4_SaIS4_EEEEEENSt15iterator_traitsIT_E17iterator_categoryERKSC_:
+function _ZSt19__iterator_categoryISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP7SSTableSt6vectorIS4_SaIS4_EEEEEENSt15iterator_traitsIT_E17iterator_categoryERKSC_ called 8 returned 100% blocks executed 100%
+        8:  238:    __iterator_category(const _Iter&)
+        8:  239:    { return typename iterator_traits<_Iter>::iterator_category(); }
+        8:  239-block  0
 ------------------
         -:  240:
         -:  241:  ///@}

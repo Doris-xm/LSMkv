@@ -82,35 +82,35 @@
         -:   78:    bool find(uint64_t key) const{
         -:   79:        return bloom_filter->find(key);
         -:   80:    }
-function _ZNK7SSTable11get_min_keyEv called 5072 returned 100% blocks executed 100%
-     5072:   81:    uint64_t get_min_key() const {
-     5072:   82:        return header->min_key;
-     5072:   82-block  0
+function _ZNK7SSTable11get_min_keyEv called 366996 returned 100% blocks executed 100%
+   366996:   81:    uint64_t get_min_key() const {
+   366996:   82:        return header->min_key;
+   366996:   82-block  0
         -:   83:    }
-function _ZNK7SSTable11get_max_keyEv called 5072 returned 100% blocks executed 100%
-     5072:   84:    uint64_t get_max_key() const {
-     5072:   85:        return header->max_key;
-     5072:   85-block  0
+function _ZNK7SSTable11get_max_keyEv called 134498 returned 100% blocks executed 100%
+   134498:   84:    uint64_t get_max_key() const {
+   134498:   85:        return header->max_key;
+   134498:   85-block  0
         -:   86:    }
-function _ZNK7SSTable13get_total_numEv called 0 returned 0% blocks executed 0%
-    #####:   87:    uint64_t get_total_num() const {
-    #####:   88:        return header->total_num;
-    %%%%%:   88-block  0
+function _ZNK7SSTable13get_total_numEv called 110 returned 100% blocks executed 100%
+      110:   87:    uint64_t get_total_num() const {
+      110:   88:        return header->total_num;
+      110:   88-block  0
         -:   89:    }
         -:   90:    void save_file(const string &file_name);
-function _ZN7SSTable10set_serialEy called 2 returned 100% blocks executed 100%
-        2:   91:    void set_serial(const uint64_t serial) {
-        2:   92:        Serial = serial;
-        2:   93:    }
-function _ZNK7SSTable10get_serialEv called 5072 returned 100% blocks executed 100%
-     5072:   94:    uint64_t get_serial() const {
-     5072:   95:        return Serial;
-     5072:   95-block  0
+function _ZN7SSTable10set_serialEy called 57 returned 100% blocks executed 100%
+       57:   91:    void set_serial(const uint64_t serial) {
+       57:   92:        Serial = serial;
+       57:   93:    }
+function _ZNK7SSTable10get_serialEv called 20461 returned 100% blocks executed 100%
+    20461:   94:    uint64_t get_serial() const {
+    20461:   95:        return Serial;
+    20461:   95-block  0
         -:   96:    }
-function _ZNK7SSTable14get_time_stampEv called 10144 returned 100% blocks executed 100%
-    10144:   97:    uint64_t get_time_stamp() const {
-    10144:   98:        return header->time_stamp;
-    10144:   98-block  0
+function _ZNK7SSTable14get_time_stampEv called 49192 returned 100% blocks executed 100%
+    49192:   97:    uint64_t get_time_stamp() const {
+    49192:   98:        return header->time_stamp;
+    49192:   98-block  0
         -:   99:    }
         -:  100:    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end);
         -:  101:

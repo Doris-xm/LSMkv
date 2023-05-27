@@ -21,92 +21,92 @@
         -:   17:
         -:   18:#define EXPECT(exp, got) expect<decltype(got)>((exp), (got), __FILE__, __LINE__)
         -:   19:    template<typename T>
-    14090:   20:    void expect(const T &exp, const T &got,
+    47882:   20:    void expect(const T &exp, const T &got,
         -:   21:                const std::string &file, int line)
         -:   22:    {
-    14090:   23:        ++nr_tests;
-    14090:   24:        if (exp == got) {
-    8998*:   25:            ++nr_passed_tests;
-    8998*:   26:            return;
+    47882:   23:        ++nr_tests;
+    47882:   24:        if (exp == got) {
+   27847*:   25:            ++nr_passed_tests;
+   27847*:   26:            return;
         -:   27:        }
-    5092*:   28:        if (verbose) {
-    5092*:   29:            std::cerr << "TEST Error @" << file << ":" << line;
-    5092*:   30:            std::cerr << ", expected " << exp;
-    5092*:   31:            std::cerr << ", got " << got << std::endl;
+   20035*:   28:        if (verbose) {
+    #####:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+    #####:   30:            std::cerr << ", expected " << exp;
+    #####:   31:            std::cerr << ", got " << got << std::endl;
         -:   32:        }
         -:   33:    }
 ------------------
 _ZN4Test6expectIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_SA_RS7_i:
-function _ZN4Test6expectIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_SA_RS7_i called 1024 returned 100% blocks executed 93%
-     1024:   20:    void expect(const T &exp, const T &got,
+function _ZN4Test6expectIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_SA_RS7_i called 4096 returned 100% blocks executed 29%
+     4096:   20:    void expect(const T &exp, const T &got,
         -:   21:                const std::string &file, int line)
         -:   22:    {
-     1024:   23:        ++nr_tests;
-     1024:   24:        if (exp == got) {
-     1024:   24-block  0
-call    0 returned 1024
+     4096:   23:        ++nr_tests;
+     4096:   24:        if (exp == got) {
+     4096:   24-block  0
+call    0 returned 4096
 branch  1 taken 0 (fallthrough)
-branch  2 taken 1024
+branch  2 taken 4096
     #####:   25:            ++nr_passed_tests;
     #####:   26:            return;
     %%%%%:   26-block  0
         -:   27:        }
-     1024:   28:        if (verbose) {
-     1024:   28-block  0
-branch  0 taken 1024 (fallthrough)
-branch  1 taken 0
-     1024:   29:            std::cerr << "TEST Error @" << file << ":" << line;
-     1024:   29-block  0
-call    0 returned 1024
-call    1 returned 1024
-call    2 returned 1024
-call    3 returned 1024
-     1024:   30:            std::cerr << ", expected " << exp;
-call    0 returned 1024
-call    1 returned 1024
-     1024:   31:            std::cerr << ", got " << got << std::endl;
-call    0 returned 1024
-call    1 returned 1024
-call    2 returned 1024
+     4096:   28:        if (verbose) {
+     4096:   28-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 4096
+    #####:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+    %%%%%:   29-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:   30:            std::cerr << ", expected " << exp;
+call    0 never executed
+call    1 never executed
+    #####:   31:            std::cerr << ", got " << got << std::endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
         -:   32:        }
         -:   33:    }
 ------------------
 _ZN4Test6expectIiEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi:
-function _ZN4Test6expectIiEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 1024 returned 100% blocks executed 92%
-     1024:   20:    void expect(const T &exp, const T &got,
+function _ZN4Test6expectIiEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 4096 returned 100% blocks executed 23%
+     4096:   20:    void expect(const T &exp, const T &got,
         -:   21:                const std::string &file, int line)
         -:   22:    {
-     1024:   23:        ++nr_tests;
-     1024:   24:        if (exp == got) {
-     1024:   24-block  0
+     4096:   23:        ++nr_tests;
+     4096:   24:        if (exp == got) {
+     4096:   24-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 1024
+branch  1 taken 4096
     #####:   25:            ++nr_passed_tests;
     #####:   26:            return;
     %%%%%:   26-block  0
         -:   27:        }
-     1024:   28:        if (verbose) {
-     1024:   28-block  0
-branch  0 taken 1024 (fallthrough)
-branch  1 taken 0
-     1024:   29:            std::cerr << "TEST Error @" << file << ":" << line;
-     1024:   29-block  0
-call    0 returned 1024
-call    1 returned 1024
-call    2 returned 1024
-call    3 returned 1024
-     1024:   30:            std::cerr << ", expected " << exp;
-call    0 returned 1024
-call    1 returned 1024
-     1024:   31:            std::cerr << ", got " << got << std::endl;
-call    0 returned 1024
-call    1 returned 1024
-call    2 returned 1024
+     4096:   28:        if (verbose) {
+     4096:   28-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 4096
+    #####:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+    %%%%%:   29-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:   30:            std::cerr << ", expected " << exp;
+call    0 never executed
+call    1 never executed
+    #####:   31:            std::cerr << ", got " << got << std::endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
         -:   32:        }
         -:   33:    }
 ------------------
 _ZN4Test6expectIyEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi:
-function _ZN4Test6expectIyEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 258 returned 100% blocks executed 100%
+function _ZN4Test6expectIyEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 258 returned 100% blocks executed 31%
       258:   20:    void expect(const T &exp, const T &got,
         -:   21:                const std::string &file, int line)
         -:   22:    {
@@ -121,37 +121,37 @@ branch  1 taken 1
         -:   27:        }
         1:   28:        if (verbose) {
         1:   28-block  0
-branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:   29:            std::cerr << "TEST Error @" << file << ":" << line;
-        1:   29-block  0
-call    0 returned 1
-call    1 returned 1
-call    2 returned 1
-call    3 returned 1
-        1:   30:            std::cerr << ", expected " << exp;
-call    0 returned 1
-call    1 returned 1
-        1:   31:            std::cerr << ", got " << got << std::endl;
-call    0 returned 1
-call    1 returned 1
-call    2 returned 1
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+    %%%%%:   29-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:   30:            std::cerr << ", expected " << exp;
+call    0 never executed
+call    1 never executed
+    #####:   31:            std::cerr << ", got " << got << std::endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
         -:   32:        }
         -:   33:    }
 ------------------
 _ZN4Test6expectIbEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi:
-function _ZN4Test6expectIbEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 3842 returned 100% blocks executed 23%
-     3842:   20:    void expect(const T &exp, const T &got,
+function _ZN4Test6expectIbEEvRKT_S3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi called 13058 returned 100% blocks executed 23%
+    13058:   20:    void expect(const T &exp, const T &got,
         -:   21:                const std::string &file, int line)
         -:   22:    {
-     3842:   23:        ++nr_tests;
-     3842:   24:        if (exp == got) {
-     3842:   24-block  0
-branch  0 taken 3842 (fallthrough)
+    13058:   23:        ++nr_tests;
+    13058:   24:        if (exp == got) {
+    13058:   24-block  0
+branch  0 taken 13058 (fallthrough)
 branch  1 taken 0
-     3842:   25:            ++nr_passed_tests;
-     3842:   26:            return;
-     3842:   26-block  0
+    13058:   25:            ++nr_passed_tests;
+    13058:   26:            return;
+    13058:   26-block  0
         -:   27:        }
     #####:   28:        if (verbose) {
     %%%%%:   28-block  0
@@ -174,37 +174,37 @@ call    2 never executed
         -:   33:    }
 ------------------
 _ZN4Test6expectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_S9_RKS6_i:
-function _ZN4Test6expectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_S9_RKS6_i called 7942 returned 100% blocks executed 100%
-     7942:   20:    void expect(const T &exp, const T &got,
+function _ZN4Test6expectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_S9_RKS6_i called 26374 returned 100% blocks executed 36%
+    26374:   20:    void expect(const T &exp, const T &got,
         -:   21:                const std::string &file, int line)
         -:   22:    {
-     7942:   23:        ++nr_tests;
-     7942:   24:        if (exp == got) {
-     7942:   24-block  0
-call    0 returned 7942
-branch  1 taken 4899 (fallthrough)
-branch  2 taken 3043
-     4899:   25:            ++nr_passed_tests;
-     4899:   26:            return;
-     4899:   26-block  0
+    26374:   23:        ++nr_tests;
+    26374:   24:        if (exp == got) {
+    26374:   24-block  0
+call    0 returned 26374
+branch  1 taken 14532 (fallthrough)
+branch  2 taken 11842
+    14532:   25:            ++nr_passed_tests;
+    14532:   26:            return;
+    14532:   26-block  0
         -:   27:        }
-     3043:   28:        if (verbose) {
-     3043:   28-block  0
-branch  0 taken 3043 (fallthrough)
-branch  1 taken 0
-     3043:   29:            std::cerr << "TEST Error @" << file << ":" << line;
-     3043:   29-block  0
-call    0 returned 3043
-call    1 returned 3043
-call    2 returned 3043
-call    3 returned 3043
-     3043:   30:            std::cerr << ", expected " << exp;
-call    0 returned 3043
-call    1 returned 3043
-     3043:   31:            std::cerr << ", got " << got << std::endl;
-call    0 returned 3043
-call    1 returned 3043
-call    2 returned 3043
+    11842:   28:        if (verbose) {
+    11842:   28-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 11842
+    #####:   29:            std::cerr << "TEST Error @" << file << ":" << line;
+    %%%%%:   29-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+    #####:   30:            std::cerr << ", expected " << exp;
+call    0 never executed
+call    1 never executed
+    #####:   31:            std::cerr << ", got " << got << std::endl;
+call    0 never executed
+call    1 never executed
+call    2 never executed
         -:   32:        }
         -:   33:    }
 ------------------

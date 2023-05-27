@@ -11,7 +11,7 @@
         -:    7:class CorrectnessTest : public Test {
         -:    8:private:
         -:    9:    const uint64_t SIMPLE_TEST_MAX = 512;
-        -:   10:    const uint64_t LARGE_TEST_MAX = 1024 * 2; // 1024 * 64;
+        -:   10:    const uint64_t LARGE_TEST_MAX = 1024 * 8; // 1024 * 64;
         -:   11:
 function _ZN15CorrectnessTest12regular_testEy called 2 returned 100% blocks executed 51%
         2:   12:    void regular_test(uint64_t max)
@@ -184,54 +184,54 @@ branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
         -:   25:
         -:   26:        // Test multiple key-value pairs
-     2562:   27:        for (i = 0; i < max; ++i) {
+     8706:   27:        for (i = 0; i < max; ++i) {
         2:   27-block  0
-     2562:   27-block  1
-branch  0 taken 2560
+     8706:   27-block  1
+branch  0 taken 8704
 branch  1 taken 2 (fallthrough)
-     2560:   28:            store.put(i, std::string(i+1, 's'));
-     2560:   28-block  0
-call    0 returned 2560
-call    1 returned 2560
-branch  2 taken 2560 (fallthrough)
+     8704:   28:            store.put(i, std::string(i+1, 's'));
+     8704:   28-block  0
+call    0 returned 8704
+call    1 returned 8704
+branch  2 taken 8704 (fallthrough)
 branch  3 taken 0 (throw)
-     2560:   28-block  1
-call    4 returned 2560
-branch  5 taken 2560 (fallthrough)
+     8704:   28-block  1
+call    4 returned 8704
+branch  5 taken 8704 (fallthrough)
 branch  6 taken 0 (throw)
-     2560:   28-block  2
-call    7 returned 2560
-call    8 returned 2560
+     8704:   28-block  2
+call    7 returned 8704
+call    8 returned 8704
     $$$$$:   28-block  3
 call    9 never executed
     $$$$$:   28-block  4
     $$$$$:   28-block  5
 call   10 never executed
     $$$$$:   28-block  6
-     2560:   29:            EXPECT(std::string(i+1, 's'), store.get(i));
-call    0 returned 2560
-call    1 returned 2560
-branch  2 taken 2560 (fallthrough)
+     8704:   29:            EXPECT(std::string(i+1, 's'), store.get(i));
+call    0 returned 8704
+call    1 returned 8704
+branch  2 taken 8704 (fallthrough)
 branch  3 taken 0 (throw)
-     2560:   29-block  0
-call    4 returned 2560
-branch  5 taken 2560 (fallthrough)
+     8704:   29-block  0
+call    4 returned 8704
+branch  5 taken 8704 (fallthrough)
 branch  6 taken 0 (throw)
-     2560:   29-block  1
-call    7 returned 2560
-call    8 returned 2560
-branch  9 taken 2560 (fallthrough)
+     8704:   29-block  1
+call    7 returned 8704
+call    8 returned 8704
+branch  9 taken 8704 (fallthrough)
 branch 10 taken 0 (throw)
-     2560:   29-block  2
-call   11 returned 2560
-branch 12 taken 2560 (fallthrough)
+     8704:   29-block  2
+call   11 returned 8704
+branch 12 taken 8704 (fallthrough)
 branch 13 taken 0 (throw)
-     2560:   29-block  3
-call   14 returned 2560
-call   15 returned 2560
-call   16 returned 2560
-call   17 returned 2560
-call   18 returned 2560
+     8704:   29-block  3
+call   14 returned 8704
+call   15 returned 8704
+call   16 returned 8704
+call   17 returned 8704
+call   18 returned 8704
     $$$$$:   29-block  4
 call   19 never executed
     $$$$$:   29-block  5
@@ -255,36 +255,36 @@ branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
         -:   32:
         -:   33:        // Test after all insertions
-     2562:   34:        for (i = 0; i < max; ++i)
+     8706:   34:        for (i = 0; i < max; ++i)
         2:   34-block  0
-     2562:   34-block  1
-branch  0 taken 2560
+     8706:   34-block  1
+branch  0 taken 8704
 branch  1 taken 2 (fallthrough)
-     2560:   35:            EXPECT(std::string(i+1, 's'), store.get(i));
-     2560:   35-block  0
-call    0 returned 2560
-call    1 returned 2560
-branch  2 taken 2560 (fallthrough)
+     8704:   35:            EXPECT(std::string(i+1, 's'), store.get(i));
+     8704:   35-block  0
+call    0 returned 8704
+call    1 returned 8704
+branch  2 taken 8704 (fallthrough)
 branch  3 taken 0 (throw)
-     2560:   35-block  1
-call    4 returned 2560
-branch  5 taken 2560 (fallthrough)
+     8704:   35-block  1
+call    4 returned 8704
+branch  5 taken 8704 (fallthrough)
 branch  6 taken 0 (throw)
-     2560:   35-block  2
-call    7 returned 2560
-call    8 returned 2560
-branch  9 taken 2560 (fallthrough)
+     8704:   35-block  2
+call    7 returned 8704
+call    8 returned 8704
+branch  9 taken 8704 (fallthrough)
 branch 10 taken 0 (throw)
-     2560:   35-block  3
-call   11 returned 2560
-branch 12 taken 2560 (fallthrough)
+     8704:   35-block  3
+call   11 returned 8704
+branch 12 taken 8704 (fallthrough)
 branch 13 taken 0 (throw)
-     2560:   35-block  4
-call   14 returned 2560
-call   15 returned 2560
-call   16 returned 2560
-call   17 returned 2560
-call   18 returned 2560
+     8704:   35-block  4
+call   14 returned 8704
+call   15 returned 8704
+call   16 returned 8704
+call   17 returned 8704
+call   18 returned 8704
     $$$$$:   35-block  5
 call   19 never executed
     $$$$$:   35-block  6
@@ -313,28 +313,28 @@ call    0 returned 2
         2:   40:        std::list<std::pair<uint64_t, std::string> > list_stu;
 call    0 returned 2
         -:   41:
-     1282:   42:        for (i = 0; i < max / 2; ++i) {
-     1282:   42-block  0
-branch  0 taken 1280
+     4354:   42:        for (i = 0; i < max / 2; ++i) {
+     4354:   42-block  0
+branch  0 taken 4352
 branch  1 taken 2 (fallthrough)
-     1280:   43:            list_ans.emplace_back(std::make_pair(i, std::string(i+1, 's')));
-     1280:   43-block  0
-call    0 returned 1280
-call    1 returned 1280
-branch  2 taken 1280 (fallthrough)
+     4352:   43:            list_ans.emplace_back(std::make_pair(i, std::string(i+1, 's')));
+     4352:   43-block  0
+call    0 returned 4352
+call    1 returned 4352
+branch  2 taken 4352 (fallthrough)
 branch  3 taken 0 (throw)
-     1280:   43-block  1
-call    4 returned 1280
-branch  5 taken 1280 (fallthrough)
+     4352:   43-block  1
+call    4 returned 4352
+branch  5 taken 4352 (fallthrough)
 branch  6 taken 0 (throw)
-     1280:   43-block  2
-call    7 returned 1280
-branch  8 taken 1280 (fallthrough)
+     4352:   43-block  2
+call    7 returned 4352
+branch  8 taken 4352 (fallthrough)
 branch  9 taken 0 (throw)
-     1280:   43-block  3
-call   10 returned 1280
-call   11 returned 1280
-call   12 returned 1280
+     4352:   43-block  3
+call   10 returned 4352
+call   11 returned 4352
+call   12 returned 4352
     $$$$$:   43-block  4
 call   13 never executed
     $$$$$:   43-block  5
@@ -379,32 +379,32 @@ call   12 never executed
 call    0 returned 2
         2:   50:        auto sp = list_stu.begin();
 call    0 returned 2
-     1282:   51:        while(ap != list_ans.end()) {
-     1282:   51-block  0
-call    0 returned 1282
-call    1 returned 1282
-branch  2 taken 1280
+     4354:   51:        while(ap != list_ans.end()) {
+     4354:   51-block  0
+call    0 returned 4354
+call    1 returned 4354
+branch  2 taken 4352
 branch  3 taken 2 (fallthrough)
-     1280:   52:            if (sp == list_stu.end()) {
-     1280:   52-block  0
-call    0 returned 1280
-call    1 returned 1280
-branch  2 taken 1024 (fallthrough)
+     4352:   52:            if (sp == list_stu.end()) {
+     4352:   52-block  0
+call    0 returned 4352
+call    1 returned 4352
+branch  2 taken 4096 (fallthrough)
 branch  3 taken 256
-     1024:   53:                EXPECT((*ap).first, -1);
-     1024:   53-block  0
-call    0 returned 1024
-call    1 returned 1024
-branch  2 taken 1024 (fallthrough)
+     4096:   53:                EXPECT((*ap).first, -1);
+     4096:   53-block  0
+call    0 returned 4096
+call    1 returned 4096
+branch  2 taken 4096 (fallthrough)
 branch  3 taken 0 (throw)
-     1024:   53-block  1
-call    4 returned 1024
-call    5 returned 1024
-branch  6 taken 1024 (fallthrough)
+     4096:   53-block  1
+call    4 returned 4096
+call    5 returned 4096
+branch  6 taken 4096 (fallthrough)
 branch  7 taken 0 (throw)
-     1024:   53-block  2
-call    8 returned 1024
-call    9 returned 1024
+     4096:   53-block  2
+call    8 returned 4096
+call    9 returned 4096
     $$$$$:   53-block  3
     $$$$$:   53-block  4
     $$$$$:   53-block  5
@@ -413,27 +413,27 @@ call   10 never executed
     $$$$$:   53-block  7
 call   11 never executed
     $$$$$:   53-block  8
-     1024:   54:                EXPECT((*ap).second, not_found);
-call    0 returned 1024
-call    1 returned 1024
-branch  2 taken 1024 (fallthrough)
+     4096:   54:                EXPECT((*ap).second, not_found);
+call    0 returned 4096
+call    1 returned 4096
+branch  2 taken 4096 (fallthrough)
 branch  3 taken 0 (throw)
-     1024:   54-block  0
-call    4 returned 1024
-call    5 returned 1024
-branch  6 taken 1024 (fallthrough)
+     4096:   54-block  0
+call    4 returned 4096
+call    5 returned 4096
+branch  6 taken 4096 (fallthrough)
 branch  7 taken 0 (throw)
-     1024:   54-block  1
-call    8 returned 1024
-call    9 returned 1024
+     4096:   54-block  1
+call    8 returned 4096
+call    9 returned 4096
     $$$$$:   54-block  2
 call   10 never executed
     $$$$$:   54-block  3
     $$$$$:   54-block  4
 call   11 never executed
     $$$$$:   54-block  5
-     1024:   55:                ap++;
-call    0 returned 1024
+     4096:   55:                ap++;
+call    0 returned 4096
         -:   56:            }
         -:   57:            else {
       256:   58:                EXPECT((*ap).first, (*sp).first);
@@ -491,28 +491,28 @@ branch  1 taken 2 (fallthrough)
 branch  2 taken 0 (throw)
         -:   66:
         -:   67:        // Test deletions
-     1282:   68:        for (i = 0; i < max; i+=2)
+     4354:   68:        for (i = 0; i < max; i+=2)
         2:   68-block  0
-     1282:   68-block  1
-branch  0 taken 1280
+     4354:   68-block  1
+branch  0 taken 4352
 branch  1 taken 2 (fallthrough)
-     1280:   69:            EXPECT(true, store.del(i));
-     1280:   69-block  0
-call    0 returned 1280
-call    1 returned 1280
-branch  2 taken 1280 (fallthrough)
+     4352:   69:            EXPECT(true, store.del(i));
+     4352:   69-block  0
+call    0 returned 4352
+call    1 returned 4352
+branch  2 taken 4352 (fallthrough)
 branch  3 taken 0 (throw)
-     1280:   69-block  1
-call    4 returned 1280
-branch  5 taken 1280 (fallthrough)
+     4352:   69-block  1
+call    4 returned 4352
+branch  5 taken 4352 (fallthrough)
 branch  6 taken 0 (throw)
-     1280:   69-block  2
-call    7 returned 1280
-branch  8 taken 1280 (fallthrough)
+     4352:   69-block  2
+call    7 returned 4352
+branch  8 taken 4352 (fallthrough)
 branch  9 taken 0 (throw)
-     1280:   69-block  3
-call   10 returned 1280
-call   11 returned 1280
+     4352:   69-block  3
+call   10 returned 4352
+call   11 returned 4352
     $$$$$:   69-block  4
     $$$$$:   69-block  5
     $$$$$:   69-block  6
@@ -522,47 +522,47 @@ call   12 never executed
 call   13 never executed
     $$$$$:   69-block  9
         -:   70:
-     2562:   71:        for (i = 0; i < max; ++i)
+     8706:   71:        for (i = 0; i < max; ++i)
         2:   71-block  0
-     2562:   71-block  1
-branch  0 taken 2560
+     8706:   71-block  1
+branch  0 taken 8704
 branch  1 taken 2 (fallthrough)
-     2560:   72:            EXPECT((i & 1) ? std::string(i+1, 's') : not_found,
-     2560:   72-block  0
-call    0 returned 2560
-call    1 returned 2560
-branch  2 taken 2560 (fallthrough)
+     8704:   72:            EXPECT((i & 1) ? std::string(i+1, 's') : not_found,
+     8704:   72-block  0
+call    0 returned 8704
+call    1 returned 8704
+branch  2 taken 8704 (fallthrough)
 branch  3 taken 0 (throw)
-     2560:   72-block  1
-call    4 returned 2560
-branch  5 taken 2560 (fallthrough)
+     8704:   72-block  1
+call    4 returned 8704
+branch  5 taken 8704 (fallthrough)
 branch  6 taken 0 (throw)
-     2560:   72-block  2
-branch  7 taken 1280 (fallthrough)
-branch  8 taken 1280
-     1280:   72-block  3
-call    9 returned 1280
-call   10 returned 1280
-branch 11 taken 1280 (fallthrough)
+     8704:   72-block  2
+branch  7 taken 4352 (fallthrough)
+branch  8 taken 4352
+     4352:   72-block  3
+call    9 returned 4352
+call   10 returned 4352
+branch 11 taken 4352 (fallthrough)
 branch 12 taken 0 (throw)
-     1280:   72-block  4
-call   13 returned 1280
-branch 14 taken 1280 (fallthrough)
+     4352:   72-block  4
+call   13 returned 4352
+branch 14 taken 4352 (fallthrough)
 branch 15 taken 0 (throw)
-     2560:   72-block  5
-call   16 returned 2560
-branch 17 taken 2560 (fallthrough)
+     8704:   72-block  5
+call   16 returned 8704
+branch 17 taken 8704 (fallthrough)
 branch 18 taken 0 (throw)
-     2560:   72-block  6
-call   19 returned 2560
-branch 20 taken 1280 (fallthrough)
-branch 21 taken 1280
-     1280:   72-block  7
-call   22 returned 1280
-     2560:   72-block  8
-call   23 returned 2560
-call   24 returned 2560
-call   25 returned 2560
+     8704:   72-block  6
+call   19 returned 8704
+branch 20 taken 4352 (fallthrough)
+branch 21 taken 4352
+     4352:   72-block  7
+call   22 returned 4352
+     8704:   72-block  8
+call   23 returned 8704
+call   24 returned 8704
+call   25 returned 8704
     $$$$$:   72-block  9
 call   26 never executed
     $$$$$:   72-block 10
@@ -583,28 +583,28 @@ call   32 never executed
     $$$$$:   72-block 19
         -:   73:                   store.get(i));
         -:   74:
-     2560:   75:        for (i = 1; i < max; ++i)
+     8704:   75:        for (i = 1; i < max; ++i)
         2:   75-block  0
-     2560:   75-block  1
-branch  0 taken 2558
+     8704:   75-block  1
+branch  0 taken 8702
 branch  1 taken 2 (fallthrough)
-     2558:   76:            EXPECT(i & 1, store.del(i));
-     2558:   76-block  0
-call    0 returned 2558
-call    1 returned 2558
-branch  2 taken 2558 (fallthrough)
+     8702:   76:            EXPECT(i & 1, store.del(i));
+     8702:   76-block  0
+call    0 returned 8702
+call    1 returned 8702
+branch  2 taken 8702 (fallthrough)
 branch  3 taken 0 (throw)
-     2558:   76-block  1
-call    4 returned 2558
-branch  5 taken 2558 (fallthrough)
+     8702:   76-block  1
+call    4 returned 8702
+branch  5 taken 8702 (fallthrough)
 branch  6 taken 0 (throw)
-     2558:   76-block  2
-call    7 returned 2558
-branch  8 taken 2558 (fallthrough)
+     8702:   76-block  2
+call    7 returned 8702
+branch  8 taken 8702 (fallthrough)
 branch  9 taken 0 (throw)
-     2558:   76-block  3
-call   10 returned 2558
-call   11 returned 2558
+     8702:   76-block  3
+call   10 returned 8702
+call   11 returned 8702
     $$$$$:   76-block  4
     $$$$$:   76-block  5
     $$$$$:   76-block  6
@@ -710,7 +710,7 @@ branch 19 never executed
     $$$$$:  106-block 13
 call   20 never executed
     $$$$$:  106-block 14
-        1:  107:    verbose = true;
+        -:  107://    verbose = true;
         1:  108:    std::cout << "Usage: " << argv[0] << " [-v]" << std::endl;
         1:  108-block  0
 call    0 returned 1
@@ -735,10 +735,10 @@ branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
        1*:  110:    std::cout << (verbose ? "ON" : "OFF")<< "]" << std::endl;
         1:  110-block  0
-branch  0 taken 1 (fallthrough)
-branch  1 taken 0
-        1:  110-block  1
-    %%%%%:  110-block  2
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  110-block  1
+        1:  110-block  2
         1:  110-block  3
 call    2 returned 1
 branch  3 taken 1 (fallthrough)

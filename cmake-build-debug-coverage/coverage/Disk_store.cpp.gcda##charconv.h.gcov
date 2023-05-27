@@ -48,18 +48,18 @@
         -:   44:  // Generic implementation for arbitrary bases.
         -:   45:  template<typename _Tp>
         -:   46:    _GLIBCXX14_CONSTEXPR unsigned
-    5072*:   47:    __to_chars_len(_Tp __value, int __base = 10) noexcept
+   20512*:   47:    __to_chars_len(_Tp __value, int __base = 10) noexcept
         -:   48:    {
         -:   49:      static_assert(is_integral<_Tp>::value, "implementation bug");
         -:   50:      static_assert(is_unsigned<_Tp>::value, "implementation bug");
         -:   51:
-    5072*:   52:      unsigned __n = 1;
-    5072*:   53:      const unsigned __b2 = __base  * __base;
-    5072*:   54:      const unsigned __b3 = __b2 * __base;
-    5072*:   55:      const unsigned long __b4 = __b3 * __base;
+   20512*:   52:      unsigned __n = 1;
+   20512*:   53:      const unsigned __b2 = __base  * __base;
+   20512*:   54:      const unsigned __b3 = __b2 * __base;
+   20512*:   55:      const unsigned long __b4 = __b3 * __base;
         -:   56:      for (;;)
         -:   57:	{
-    5072*:   58:	  if (__value < (unsigned)__base) return __n;
+   20512*:   58:	  if (__value < (unsigned)__base) return __n;
     #####:   59:	  if (__value < __b2) return __n + 1;
     #####:   60:	  if (__value < __b3) return __n + 2;
     #####:   61:	  if (__value < __b4) return __n + 3;
@@ -109,24 +109,24 @@ branch  1 never executed
         -:   65:    }
 ------------------
 _ZNSt8__detail14__to_chars_lenIjEEjT_i:
-function _ZNSt8__detail14__to_chars_lenIjEEjT_i called 5072 returned 100% blocks executed 36%
-     5072:   47:    __to_chars_len(_Tp __value, int __base = 10) noexcept
+function _ZNSt8__detail14__to_chars_lenIjEEjT_i called 20512 returned 100% blocks executed 36%
+    20512:   47:    __to_chars_len(_Tp __value, int __base = 10) noexcept
         -:   48:    {
         -:   49:      static_assert(is_integral<_Tp>::value, "implementation bug");
         -:   50:      static_assert(is_unsigned<_Tp>::value, "implementation bug");
         -:   51:
-     5072:   52:      unsigned __n = 1;
-     5072:   53:      const unsigned __b2 = __base  * __base;
-     5072:   54:      const unsigned __b3 = __b2 * __base;
-     5072:   55:      const unsigned long __b4 = __b3 * __base;
-     5072:   55-block  0
+    20512:   52:      unsigned __n = 1;
+    20512:   53:      const unsigned __b2 = __base  * __base;
+    20512:   54:      const unsigned __b3 = __b2 * __base;
+    20512:   55:      const unsigned long __b4 = __b3 * __base;
+    20512:   55-block  0
         -:   56:      for (;;)
         -:   57:	{
-     5072:   58:	  if (__value < (unsigned)__base) return __n;
-     5072:   58-block  0
-branch  0 taken 5072 (fallthrough)
+    20512:   58:	  if (__value < (unsigned)__base) return __n;
+    20512:   58-block  0
+branch  0 taken 20512 (fallthrough)
 branch  1 taken 0
-     5072:   58-block  1
+    20512:   58-block  1
     #####:   59:	  if (__value < __b2) return __n + 1;
     %%%%%:   59-block  0
 branch  0 never executed
@@ -154,7 +154,7 @@ branch  1 never executed
         -:   69:  // (which can be determined by the __to_chars_len function).
         -:   70:  template<typename _Tp>
         -:   71:    void
-    5072*:   72:    __to_chars_10_impl(char* __first, unsigned __len, _Tp __val) noexcept
+   20512*:   72:    __to_chars_10_impl(char* __first, unsigned __len, _Tp __val) noexcept
         -:   73:    {
         -:   74:      static_assert(is_integral<_Tp>::value, "implementation bug");
         -:   75:      static_assert(is_unsigned<_Tp>::value, "implementation bug");
@@ -165,8 +165,8 @@ branch  1 never executed
         -:   80:	"4041424344454647484950515253545556575859"
         -:   81:	"6061626364656667686970717273747576777879"
         -:   82:	"8081828384858687888990919293949596979899";
-    5072*:   83:      unsigned __pos = __len - 1;
-    5072*:   84:      while (__val >= 100)
+   20512*:   83:      unsigned __pos = __len - 1;
+   20512*:   84:      while (__val >= 100)
         -:   85:	{
     #####:   86:	  auto const __num = (__val % 100) * 2;
     #####:   87:	  __val /= 100;
@@ -174,15 +174,15 @@ branch  1 never executed
     #####:   89:	  __first[__pos - 1] = __digits[__num];
     #####:   90:	  __pos -= 2;
         -:   91:	}
-    5072*:   92:      if (__val >= 10)
+   20512*:   92:      if (__val >= 10)
         -:   93:	{
     #####:   94:	  auto const __num = __val * 2;
     #####:   95:	  __first[1] = __digits[__num + 1];
     #####:   96:	  __first[0] = __digits[__num];
         -:   97:	}
         -:   98:      else
-    5072*:   99:	__first[0] = '0' + __val;
-    5072*:  100:    }
+   20512*:   99:	__first[0] = '0' + __val;
+   20512*:  100:    }
 ------------------
 _ZNSt8__detail18__to_chars_10_implIyEEvPcjT_:
 function _ZNSt8__detail18__to_chars_10_implIyEEvPcjT_ called 0 returned 0% blocks executed 0%
@@ -227,8 +227,8 @@ branch  1 never executed
     #####:  100:    }
 ------------------
 _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_:
-function _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_ called 5072 returned 100% blocks executed 71%
-     5072:   72:    __to_chars_10_impl(char* __first, unsigned __len, _Tp __val) noexcept
+function _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_ called 20512 returned 100% blocks executed 71%
+    20512:   72:    __to_chars_10_impl(char* __first, unsigned __len, _Tp __val) noexcept
         -:   73:    {
         -:   74:      static_assert(is_integral<_Tp>::value, "implementation bug");
         -:   75:      static_assert(is_unsigned<_Tp>::value, "implementation bug");
@@ -239,12 +239,12 @@ function _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_ called 5072 returned 100% 
         -:   80:	"4041424344454647484950515253545556575859"
         -:   81:	"6061626364656667686970717273747576777879"
         -:   82:	"8081828384858687888990919293949596979899";
-     5072:   83:      unsigned __pos = __len - 1;
-     5072:   84:      while (__val >= 100)
-     5072:   84-block  0
-     5072:   84-block  1
+    20512:   83:      unsigned __pos = __len - 1;
+    20512:   84:      while (__val >= 100)
+    20512:   84-block  0
+    20512:   84-block  1
 branch  0 taken 0
-branch  1 taken 5072 (fallthrough)
+branch  1 taken 20512 (fallthrough)
         -:   85:	{
     #####:   86:	  auto const __num = (__val % 100) * 2;
     #####:   87:	  __val /= 100;
@@ -253,10 +253,10 @@ branch  1 taken 5072 (fallthrough)
     #####:   90:	  __pos -= 2;
     %%%%%:   90-block  0
         -:   91:	}
-     5072:   92:      if (__val >= 10)
-     5072:   92-block  0
+    20512:   92:      if (__val >= 10)
+    20512:   92-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 5072
+branch  1 taken 20512
         -:   93:	{
     #####:   94:	  auto const __num = __val * 2;
     #####:   95:	  __first[1] = __digits[__num + 1];
@@ -264,9 +264,9 @@ branch  1 taken 5072
     %%%%%:   96-block  0
         -:   97:	}
         -:   98:      else
-     5072:   99:	__first[0] = '0' + __val;
-     5072:   99-block  0
-     5072:  100:    }
+    20512:   99:	__first[0] = '0' + __val;
+    20512:   99-block  0
+    20512:  100:    }
 ------------------
         -:  101:
         -:  102:} // namespace __detail

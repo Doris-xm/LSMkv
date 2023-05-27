@@ -326,16 +326,16 @@ branch  1 never executed
         -:  310:  template<typename _Iterator>
         -:  311:    _GLIBCXX20_CONSTEXPR
         -:  312:    inline _Iterator
-     144*:  313:    __niter_base(_Iterator __it)
+    8280*:  313:    __niter_base(_Iterator __it)
         -:  314:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-     144*:  315:    { return __it; }
+    8280*:  315:    { return __it; }
 ------------------
 _ZSt12__niter_baseIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_S9_:
-function _ZSt12__niter_baseIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_S9_ called 0 returned 0% blocks executed 0%
-    #####:  313:    __niter_base(_Iterator __it)
+function _ZSt12__niter_baseIPSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_S9_ called 4920 returned 100% blocks executed 100%
+     4920:  313:    __niter_base(_Iterator __it)
         -:  314:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-    #####:  315:    { return __it; }
-    %%%%%:  315-block  0
+     4920:  315:    { return __it; }
+     4920:  315-block  0
 ------------------
 _ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_:
 function _ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_ called 0 returned 0% blocks executed 0%
@@ -345,11 +345,11 @@ function _ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
     %%%%%:  315-block  0
 ------------------
 _ZSt12__niter_baseIP7IndexerET_S2_:
-function _ZSt12__niter_baseIP7IndexerET_S2_ called 144 returned 100% blocks executed 100%
-      144:  313:    __niter_base(_Iterator __it)
+function _ZSt12__niter_baseIP7IndexerET_S2_ called 3360 returned 100% blocks executed 100%
+     3360:  313:    __niter_base(_Iterator __it)
         -:  314:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-      144:  315:    { return __it; }
-      144:  315-block  0
+     3360:  315:    { return __it; }
+     3360:  315-block  0
 ------------------
         -:  316:
         -:  317:  template<typename _Ite, typename _Seq>

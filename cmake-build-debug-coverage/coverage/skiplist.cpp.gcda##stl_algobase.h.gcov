@@ -326,11 +326,11 @@ branch  1 never executed
         -:  310:  template<typename _Iterator>
         -:  311:    _GLIBCXX20_CONSTEXPR
         -:  312:    inline _Iterator
-function _ZSt12__niter_baseIPP4nodeET_S3_ called 42264 returned 100% blocks executed 100%
-    42264:  313:    __niter_base(_Iterator __it)
+function _ZSt12__niter_baseIPP4nodeET_S3_ called 154476 returned 100% blocks executed 100%
+   154476:  313:    __niter_base(_Iterator __it)
         -:  314:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-    42264:  315:    { return __it; }
-    42264:  315-block  0
+   154476:  315:    { return __it; }
+   154476:  315-block  0
         -:  316:
         -:  317:  template<typename _Ite, typename _Seq>
         -:  318:    _Ite

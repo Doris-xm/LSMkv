@@ -1021,19 +1021,19 @@ call    2 never executed
         -: 1003:
         -: 1004:  template <typename _Tp, typename _Up>
         -: 1005:    inline __enable_if_t<std::__is_bitwise_relocatable<_Tp>::value, _Tp*>
-function _ZSt14__relocate_a_1IP4nodeS1_ENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS4_E4typeES6_S6_S6_RSaIT0_E called 14088 returned 100% blocks executed 100%
-    14088: 1006:    __relocate_a_1(_Tp* __first, _Tp* __last,
+function _ZSt14__relocate_a_1IP4nodeS1_ENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS4_E4typeES6_S6_S6_RSaIT0_E called 51492 returned 100% blocks executed 100%
+    51492: 1006:    __relocate_a_1(_Tp* __first, _Tp* __last,
         -: 1007:		   _Tp* __result, allocator<_Up>&) noexcept
         -: 1008:    {
-    14088: 1009:      ptrdiff_t __count = __last - __first;
-    14088: 1010:      if (__count > 0)
-    14088: 1010-block  0
-branch  0 taken 2445 (fallthrough)
-branch  1 taken 11643
-     2445: 1011:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
-     2445: 1011-block  0
-    14088: 1012:      return __result + __count;
-    14088: 1012-block  0
+    51492: 1009:      ptrdiff_t __count = __last - __first;
+    51492: 1010:      if (__count > 0)
+    51492: 1010-block  0
+branch  0 taken 8848 (fallthrough)
+branch  1 taken 42644
+     8848: 1011:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
+     8848: 1011-block  0
+    51492: 1012:      return __result + __count;
+    51492: 1012-block  0
         -: 1013:    }
         -: 1014:
         -: 1015:  template <typename _InputIterator, typename _ForwardIterator,
@@ -1061,21 +1061,21 @@ branch  1 taken 11643
         -: 1037:  template <typename _InputIterator, typename _ForwardIterator,
         -: 1038:	    typename _Allocator>
         -: 1039:    inline _ForwardIterator
-function _ZSt12__relocate_aIPP4nodeS2_SaIS1_EET0_T_S5_S4_RT1_ called 14088 returned 100% blocks executed 100%
-    14088: 1040:    __relocate_a(_InputIterator __first, _InputIterator __last,
+function _ZSt12__relocate_aIPP4nodeS2_SaIS1_EET0_T_S5_S4_RT1_ called 51492 returned 100% blocks executed 100%
+    51492: 1040:    __relocate_a(_InputIterator __first, _InputIterator __last,
         -: 1041:		 _ForwardIterator __result, _Allocator& __alloc)
         -: 1042:    noexcept(noexcept(__relocate_a_1(std::__niter_base(__first),
         -: 1043:				     std::__niter_base(__last),
         -: 1044:				     std::__niter_base(__result), __alloc)))
         -: 1045:    {
-    14088: 1046:      return __relocate_a_1(std::__niter_base(__first),
-    14088: 1046-block  0
-call    0 returned 14088
-call    1 returned 14088
-call    2 returned 14088
-call    3 returned 14088
+    51492: 1046:      return __relocate_a_1(std::__niter_base(__first),
+    51492: 1046-block  0
+call    0 returned 51492
+call    1 returned 51492
+call    2 returned 51492
+call    3 returned 51492
         -: 1047:			    std::__niter_base(__last),
-    14088: 1048:			    std::__niter_base(__result), __alloc);
+    51492: 1048:			    std::__niter_base(__result), __alloc);
         -: 1049:    }
         -: 1050:
         -: 1051:  /// @endcond

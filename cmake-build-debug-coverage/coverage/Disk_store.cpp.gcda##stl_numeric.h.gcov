@@ -89,8 +89,8 @@
         -:   85:  template<typename _ForwardIterator, typename _Tp>
         -:   86:    _GLIBCXX20_CONSTEXPR
         -:   87:    void
-function _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEEiEvT_S7_T0_ called 0 returned 0% blocks executed 0%
-    #####:   88:    iota(_ForwardIterator __first, _ForwardIterator __last, _Tp __value)
+function _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEEiEvT_S7_T0_ called 6 returned 100% blocks executed 100%
+        6:   88:    iota(_ForwardIterator __first, _ForwardIterator __last, _Tp __value)
         -:   89:    {
         -:   90:      // concept requirements
         -:   91:      __glibcxx_function_requires(_Mutable_ForwardIteratorConcept<
@@ -99,20 +99,20 @@ function _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEEiEvT_S7_T
         -:   94:	    typename iterator_traits<_ForwardIterator>::value_type>)
         -:   95:      __glibcxx_requires_valid_range(__first, __last);
         -:   96:
-    #####:   97:      for (; __first != __last; ++__first)
-    %%%%%:   97-block  0
-    %%%%%:   97-block  1
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+       53:   97:      for (; __first != __last; ++__first)
+        6:   97-block  0
+       53:   97-block  1
+call    0 returned 53
+branch  1 taken 47
+branch  2 taken 6 (fallthrough)
         -:   98:	{
-    #####:   99:	  *__first = __value;
-    %%%%%:   99-block  0
-call    0 never executed
-    #####:  100:	  ++__value;
-call    0 never executed
+       47:   99:	  *__first = __value;
+       47:   99-block  0
+call    0 returned 47
+       47:  100:	  ++__value;
+call    0 returned 47
         -:  101:	}
-    #####:  102:    }
+        6:  102:    }
         -:  103:#endif
         -:  104:
         -:  105:_GLIBCXX_END_NAMESPACE_VERSION

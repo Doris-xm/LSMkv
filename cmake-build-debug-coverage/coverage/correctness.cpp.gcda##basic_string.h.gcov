@@ -6243,27 +6243,27 @@ call    0 never executed
         -: 6230:  template<typename _CharT>
         -: 6231:    inline
         -: 6232:    typename __gnu_cxx::__enable_if<__is_char<_CharT>::__value, bool>::__type
-function _ZSteqIcEN9__gnu_cxx11__enable_ifIXsrSt9__is_charIT_E7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS3_St11char_traitsIS3_ESaIS3_EEESE_ called 30956 returned 100% blocks executed 100%
-    30956: 6233:    operator==(const basic_string<_CharT>& __lhs,
+function _ZSteqIcEN9__gnu_cxx11__enable_ifIXsrSt9__is_charIT_E7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS3_St11char_traitsIS3_ESaIS3_EEESE_ called 107718 returned 100% blocks executed 100%
+   107718: 6233:    operator==(const basic_string<_CharT>& __lhs,
         -: 6234:	       const basic_string<_CharT>& __rhs) _GLIBCXX_NOEXCEPT
-    30956: 6235:    { return (__lhs.size() == __rhs.size()
-    30956: 6235-block  0
-call    0 returned 30956
-call    1 returned 30956
-    30956: 6236:	      && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
-branch  0 taken 7471 (fallthrough)
-branch  1 taken 23485
-     7471: 6236-block  0
-call    2 returned 7471
-call    3 returned 7471
-call    4 returned 7471
-call    5 returned 7471
-branch  6 taken 7461 (fallthrough)
+   107718: 6235:    { return (__lhs.size() == __rhs.size()
+   107718: 6235-block  0
+call    0 returned 107718
+call    1 returned 107718
+   107718: 6236:	      && !std::char_traits<_CharT>::compare(__lhs.data(), __rhs.data(),
+branch  0 taken 23248 (fallthrough)
+branch  1 taken 84470
+    23248: 6236-block  0
+call    2 returned 23248
+call    3 returned 23248
+call    4 returned 23248
+call    5 returned 23248
+branch  6 taken 23238 (fallthrough)
 branch  7 taken 10
-     7461: 6236-block  1
-    23495: 6236-block  2
-    30956: 6237:						    __lhs.size())); }
-    30956: 6237-block  0
+    23238: 6236-block  1
+    84480: 6236-block  2
+   107718: 6237:						    __lhs.size())); }
+   107718: 6237-block  0
         -: 6238:
         -: 6239:  /**
         -: 6240:   *  @brief  Test equivalence of string and C string.

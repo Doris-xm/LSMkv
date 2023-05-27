@@ -100,34 +100,34 @@
         -:   96:#endif
         -:   97:
         -:   98:      static _GLIBCXX_CONSTEXPR size_t
-function _ZNSt12_Base_bitsetILy2560EE12_S_whichwordEy called 163840 returned 100% blocks executed 100%
-   163840:   99:      _S_whichword(size_t __pos) _GLIBCXX_NOEXCEPT
-   163840:  100:      { return __pos / _GLIBCXX_BITSET_BITS_PER_WORD; }
-   163840:  100-block  0
+function _ZNSt12_Base_bitsetILy2560EE12_S_whichwordEy called 4669440 returned 100% blocks executed 100%
+  4669440:   99:      _S_whichword(size_t __pos) _GLIBCXX_NOEXCEPT
+  4669440:  100:      { return __pos / _GLIBCXX_BITSET_BITS_PER_WORD; }
+  4669440:  100-block  0
         -:  101:
         -:  102:      static _GLIBCXX_CONSTEXPR size_t
         -:  103:      _S_whichbyte(size_t __pos) _GLIBCXX_NOEXCEPT
         -:  104:      { return (__pos % _GLIBCXX_BITSET_BITS_PER_WORD) / __CHAR_BIT__; }
         -:  105:
         -:  106:      static _GLIBCXX_CONSTEXPR size_t
-function _ZNSt12_Base_bitsetILy2560EE11_S_whichbitEy called 327680 returned 100% blocks executed 100%
-   327680:  107:      _S_whichbit(size_t __pos) _GLIBCXX_NOEXCEPT
-   327680:  108:      { return __pos % _GLIBCXX_BITSET_BITS_PER_WORD; }
-   327680:  108-block  0
+function _ZNSt12_Base_bitsetILy2560EE11_S_whichbitEy called 9338880 returned 100% blocks executed 100%
+  9338880:  107:      _S_whichbit(size_t __pos) _GLIBCXX_NOEXCEPT
+  9338880:  108:      { return __pos % _GLIBCXX_BITSET_BITS_PER_WORD; }
+  9338880:  108-block  0
         -:  109:
         -:  110:      static _GLIBCXX_CONSTEXPR _WordT
-function _ZNSt12_Base_bitsetILy2560EE10_S_maskbitEy called 163840 returned 100% blocks executed 100%
-   163840:  111:      _S_maskbit(size_t __pos) _GLIBCXX_NOEXCEPT
-   163840:  112:      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
-   163840:  112-block  0
-call    0 returned 163840
+function _ZNSt12_Base_bitsetILy2560EE10_S_maskbitEy called 4669440 returned 100% blocks executed 100%
+  4669440:  111:      _S_maskbit(size_t __pos) _GLIBCXX_NOEXCEPT
+  4669440:  112:      { return (static_cast<_WordT>(1)) << _S_whichbit(__pos); }
+  4669440:  112-block  0
+call    0 returned 4669440
         -:  113:
         -:  114:      _WordT&
-function _ZNSt12_Base_bitsetILy2560EE10_M_getwordEy called 163840 returned 100% blocks executed 100%
-   163840:  115:      _M_getword(size_t __pos) _GLIBCXX_NOEXCEPT
-   163840:  116:      { return _M_w[_S_whichword(__pos)]; }
-   163840:  116-block  0
-call    0 returned 163840
+function _ZNSt12_Base_bitsetILy2560EE10_M_getwordEy called 4669440 returned 100% blocks executed 100%
+  4669440:  115:      _M_getword(size_t __pos) _GLIBCXX_NOEXCEPT
+  4669440:  116:      { return _M_w[_S_whichword(__pos)]; }
+  4669440:  116-block  0
+call    0 returned 4669440
         -:  117:
         -:  118:      _GLIBCXX_CONSTEXPR _WordT
         -:  119:      _M_getword(size_t __pos) const _GLIBCXX_NOEXCEPT
@@ -824,42 +824,42 @@ call    0 returned 163840
         -:  810:	reference();
         -:  811:
         -:  812:      public:
-function _ZNSt6bitsetILy81920EE9referenceC1ERS0_y called 163840 returned 100% blocks executed 100%
-   163840:  813:	reference(bitset& __b, size_t __pos) _GLIBCXX_NOEXCEPT
+function _ZNSt6bitsetILy81920EE9referenceC1ERS0_y called 4669440 returned 100% blocks executed 100%
+  4669440:  813:	reference(bitset& __b, size_t __pos) _GLIBCXX_NOEXCEPT
         -:  814:	{
-   163840:  815:	  _M_wp = &__b._M_getword(__pos);
-   163840:  815-block  0
-call    0 returned 163840
-   163840:  816:	  _M_bpos = _Base::_S_whichbit(__pos);
-call    0 returned 163840
-   163840:  817:	}
+  4669440:  815:	  _M_wp = &__b._M_getword(__pos);
+  4669440:  815-block  0
+call    0 returned 4669440
+  4669440:  816:	  _M_bpos = _Base::_S_whichbit(__pos);
+call    0 returned 4669440
+  4669440:  817:	}
         -:  818:
         -:  819:#if __cplusplus >= 201103L
         -:  820:	reference(const reference&) = default;
         -:  821:#endif
         -:  822:
-function _ZNSt6bitsetILy81920EE9referenceD1Ev called 163840 returned 100% blocks executed 100%
-   163840:  823:	~reference() _GLIBCXX_NOEXCEPT
-   163840:  824:	{ }
+function _ZNSt6bitsetILy81920EE9referenceD1Ev called 4669440 returned 100% blocks executed 100%
+  4669440:  823:	~reference() _GLIBCXX_NOEXCEPT
+  4669440:  824:	{ }
         -:  825:
         -:  826:	// For b[i] = __x;
         -:  827:	reference&
-function _ZNSt6bitsetILy81920EE9referenceaSEb called 163840 returned 100% blocks executed 100%
-   163840:  828:	operator=(bool __x) _GLIBCXX_NOEXCEPT
+function _ZNSt6bitsetILy81920EE9referenceaSEb called 4669440 returned 100% blocks executed 100%
+  4669440:  828:	operator=(bool __x) _GLIBCXX_NOEXCEPT
         -:  829:	{
-   163840:  830:	  if (__x)
-   163840:  830-block  0
-branch  0 taken 8 (fallthrough)
-branch  1 taken 163832
-        8:  831:	    *_M_wp |= _Base::_S_maskbit(_M_bpos);
-        8:  831-block  0
-call    0 returned 8
+  4669440:  830:	  if (__x)
+  4669440:  830-block  0
+branch  0 taken 228 (fallthrough)
+branch  1 taken 4669212
+      228:  831:	    *_M_wp |= _Base::_S_maskbit(_M_bpos);
+      228:  831-block  0
+call    0 returned 228
         -:  832:	  else
-   163832:  833:	    *_M_wp &= ~_Base::_S_maskbit(_M_bpos);
-   163832:  833-block  0
-call    0 returned 163832
-   163840:  834:	  return *this;
-   163840:  834-block  0
+  4669212:  833:	    *_M_wp &= ~_Base::_S_maskbit(_M_bpos);
+  4669212:  833-block  0
+call    0 returned 4669212
+  4669440:  834:	  return *this;
+  4669440:  834-block  0
         -:  835:	}
         -:  836:
         -:  837:	// For b[i] = b[__j];
@@ -1191,11 +1191,11 @@ call    0 never executed
         -: 1160:       *  (users' responsibility), and these functions must not throw.  -pme
         -: 1161:       */
         -: 1162:      reference
-function _ZNSt6bitsetILy81920EEixEy called 163840 returned 100% blocks executed 100%
-   163840: 1163:      operator[](size_t __position)
-   163840: 1164:      { return reference(*this, __position); }
-   163840: 1164-block  0
-call    0 returned 163840
+function _ZNSt6bitsetILy81920EEixEy called 4669440 returned 100% blocks executed 100%
+  4669440: 1163:      operator[](size_t __position)
+  4669440: 1164:      { return reference(*this, __position); }
+  4669440: 1164-block  0
+call    0 returned 4669440
         -: 1165:
         -: 1166:      _GLIBCXX_CONSTEXPR bool
         -: 1167:      operator[](size_t __position) const

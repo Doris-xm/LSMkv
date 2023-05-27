@@ -15,17 +15,17 @@
         -:   11:    string s;
         -:   12:    int level;
         -:   13:    vector<node*> point_list;
-function _ZN4nodeC1EiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS_i called 4599 returned 100% blocks executed 62%
-     4599:   14:    node(int k = 0,string S = "",node* n = nullptr,int l = 0):key(k),level(l),s(S) {
-     4599:   14-block  0
-call    0 returned 4599
-call    1 returned 4599
-     4599:   15:        point_list.push_back(n);
-call    0 returned 4599
-branch  1 taken 4599 (fallthrough)
+function _ZN4nodeC1EiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS_i called 16898 returned 100% blocks executed 62%
+    16898:   14:    node(int k = 0,string S = "",node* n = nullptr,int l = 0):key(k),level(l),s(S) {
+    16898:   14-block  0
+call    0 returned 16898
+call    1 returned 16898
+    16898:   15:        point_list.push_back(n);
+call    0 returned 16898
+branch  1 taken 16898 (fallthrough)
 branch  2 taken 0 (throw)
-     4599:   16:    }
-     4599:   16-block  0
+    16898:   16:    }
+    16898:   16-block  0
     $$$$$:   16-block  1
 call    0 never executed
     $$$$$:   16-block  2

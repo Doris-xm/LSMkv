@@ -20,16 +20,16 @@
         -:   16:{
         -:   17:    int Bit[BLOOM_SIZE];
         -:   18:public:
-function _ZN11BloomFilterC1Ev called 2 returned 100% blocks executed 100%
-        2:   19:    BloomFilter() {
-   163842:   20:        for(int i = 0;i < BLOOM_SIZE; ++i)
-        2:   20-block  0
-   163842:   20-block  1
-branch  0 taken 163840
-branch  1 taken 2 (fallthrough)
-   163840:   21:            Bit[i] = 0;
-   163840:   21-block  0
-        2:   22:    }
+function _ZN11BloomFilterC1Ev called 57 returned 100% blocks executed 100%
+       57:   19:    BloomFilter() {
+  4669497:   20:        for(int i = 0;i < BLOOM_SIZE; ++i)
+       57:   20-block  0
+  4669497:   20-block  1
+branch  0 taken 4669440
+branch  1 taken 57 (fallthrough)
+  4669440:   21:            Bit[i] = 0;
+  4669440:   21-block  0
+       57:   22:    }
 function _ZN11BloomFilterC1ERSt6bitsetILy81920EE called 0 returned 0% blocks executed 0%
     #####:   23:    BloomFilter( bitset<BLOOM_SIZE> &bit) {
     #####:   24:        for(int i = 0;i < BLOOM_SIZE; ++i)
@@ -45,53 +45,53 @@ call    2 never executed
     #####:   26:    }
 function _ZN11BloomFilterD1Ev called 0 returned 0% blocks executed 0%
     #####:   27:    ~BloomFilter() {}
-function _ZN11BloomFilter6insertEy called 4077 returned 100% blocks executed 100%
-     4077:   28:    void insert(uint64_t key) {
-     4077:   29:        unsigned int hash[4] = {0};
-     4077:   30:        MurmurHash3_x64_128(&key, sizeof(key), 1, hash);
-     4077:   30-block  0
-call    0 returned 4077
-    20385:   31:        for(unsigned int i = 0; i < 4; ++i )
-    20385:   31-block  0
-branch  0 taken 16308
-branch  1 taken 4077 (fallthrough)
-    16308:   32:            Bit[i % BLOOM_SIZE] = 1;
-    16308:   32-block  0
-     4077:   33:    }
-function _ZNK11BloomFilter4findEy called 5072 returned 100% blocks executed 89%
-     5072:   34:    bool find(uint64_t key) const {
-     5072:   35:        unsigned int hash[4] = {0};
-     5072:   36:        MurmurHash3_x64_128(&key, sizeof(key), 1, hash);
-     5072:   36-block  0
-call    0 returned 5072
-    25360:   37:        for(unsigned int i = 0; i < 4; ++i ) {
-    20288:   37-block  0
-    25360:   37-block  1
-branch  0 taken 20288
-branch  1 taken 5072 (fallthrough)
-    20288:   38:            if (!Bit[i % BLOOM_SIZE])
-    20288:   38-block  0
+function _ZN11BloomFilter6insertEy called 38118 returned 100% blocks executed 100%
+    38118:   28:    void insert(uint64_t key) {
+    38118:   29:        unsigned int hash[4] = {0};
+    38118:   30:        MurmurHash3_x64_128(&key, sizeof(key), 1, hash);
+    38118:   30-block  0
+call    0 returned 38118
+   190590:   31:        for(unsigned int i = 0; i < 4; ++i )
+   190590:   31-block  0
+branch  0 taken 152472
+branch  1 taken 38118 (fallthrough)
+   152472:   32:            Bit[i % BLOOM_SIZE] = 1;
+   152472:   32-block  0
+    38118:   33:    }
+function _ZNK11BloomFilter4findEy called 26631 returned 100% blocks executed 89%
+    26631:   34:    bool find(uint64_t key) const {
+    26631:   35:        unsigned int hash[4] = {0};
+    26631:   36:        MurmurHash3_x64_128(&key, sizeof(key), 1, hash);
+    26631:   36-block  0
+call    0 returned 26631
+   133155:   37:        for(unsigned int i = 0; i < 4; ++i ) {
+   106524:   37-block  0
+   133155:   37-block  1
+branch  0 taken 106524
+branch  1 taken 26631 (fallthrough)
+   106524:   38:            if (!Bit[i % BLOOM_SIZE])
+   106524:   38-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 20288
+branch  1 taken 106524
     #####:   39:                return false;
     %%%%%:   39-block  0
         -:   40:        }
-     5072:   41:        return true;
-     5072:   41-block  0
+    26631:   41:        return true;
+    26631:   41-block  0
         -:   42:    }
-function _ZN11BloomFilter6getBitERSt6bitsetILy81920EE called 2 returned 100% blocks executed 100%
-        2:   43:    void getBit(bitset<BLOOM_SIZE> &bitset){
-   163842:   44:        for(int i = 0;i < BLOOM_SIZE; ++i)
-        2:   44-block  0
-   163842:   44-block  1
-branch  0 taken 163840
-branch  1 taken 2 (fallthrough)
-   163840:   45:            bitset[i] = Bit[i];
-   163840:   45-block  0
-call    0 returned 163840
-call    1 returned 163840
-call    2 returned 163840
-        2:   46:    }
+function _ZN11BloomFilter6getBitERSt6bitsetILy81920EE called 57 returned 100% blocks executed 100%
+       57:   43:    void getBit(bitset<BLOOM_SIZE> &bitset){
+  4669497:   44:        for(int i = 0;i < BLOOM_SIZE; ++i)
+       57:   44-block  0
+  4669497:   44-block  1
+branch  0 taken 4669440
+branch  1 taken 57 (fallthrough)
+  4669440:   45:            bitset[i] = Bit[i];
+  4669440:   45-block  0
+call    0 returned 4669440
+call    1 returned 4669440
+call    2 returned 4669440
+       57:   46:    }
         -:   47:};
         -:   48:struct Header {
         -:   49:    uint64_t time_stamp; //时间戳
@@ -100,9 +100,9 @@ call    2 returned 163840
         -:   52:    uint64_t min_key; //最小的key
 function _ZN6HeaderC1Ev called 0 returned 0% blocks executed 0%
     #####:   53:    Header():time_stamp(0), total_num(0), max_key(0), min_key(0) {}
-function _ZN6HeaderC1Eyyyy called 2 returned 100% blocks executed 100%
-        2:   54:    Header(uint64_t t_s, uint64_t num, uint64_t Max, uint64_t Min):
-        2:   55:        time_stamp(t_s), total_num(num), max_key(Max), min_key(Min) {}
+function _ZN6HeaderC1Eyyyy called 57 returned 100% blocks executed 100%
+       57:   54:    Header(uint64_t t_s, uint64_t num, uint64_t Max, uint64_t Min):
+       57:   55:        time_stamp(t_s), total_num(num), max_key(Max), min_key(Min) {}
         -:   56:};
         -:   57:
         -:   58:struct Indexer {
@@ -110,8 +110,8 @@ function _ZN6HeaderC1Eyyyy called 2 returned 100% blocks executed 100%
         -:   60:    uint32_t offset;
 function _ZN7IndexerC1Ev called 0 returned 0% blocks executed 0%
     #####:   61:    Indexer() { };
-function _ZN7IndexerC1Eyj called 4077 returned 100% blocks executed 100%
-     4077:   62:    Indexer(uint64_t k, uint32_t o): key(k), offset(o) {}
+function _ZN7IndexerC1Eyj called 38118 returned 100% blocks executed 100%
+    38118:   62:    Indexer(uint64_t k, uint32_t o): key(k), offset(o) {}
         -:   63:};
         -:   64:class SSTable {
         -:   65:    Header* header;

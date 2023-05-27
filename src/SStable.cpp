@@ -154,7 +154,7 @@ SSTable::SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial) {
 void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end) {
     ifstream in(file_path, ios::binary | ios::in);
      if (!in.is_open()) {
-        cout << "open file error: "<<file_path << endl;
+        cout << "SSTable::read_to_mem::open file error: "<<file_path << endl;
         return;
     }
     in.seekg(index_area[0].offset, ios::beg);

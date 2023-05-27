@@ -316,10 +316,10 @@
         -:  312:
         -:  313:#if __cplusplus >= 201103L
         -:  314:      constexpr pair(const pair&) = default;	///< Copy constructor
-function _ZNSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EOS6_ called 1280 returned 100% blocks executed 100%
-     1280:  315:      constexpr pair(pair&&) = default;		///< Move constructor
-     1280:  315-block  0
-call    0 returned 1280
+function _ZNSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EOS6_ called 131522 returned 100% blocks executed 100%
+   131522:  315:      constexpr pair(pair&&) = default;		///< Move constructor
+   131522:  315-block  0
+call    0 returned 131522
         -:  316:
         -:  317:      // DR 811.
         -:  318:      template<typename _U1, typename
@@ -356,13 +356,13 @@ call    0 returned 1280
         -:  349:			  && _PCCP::template
         -:  350:			   _ImplicitlyMoveConvertiblePair<_U1, _U2>(),
         -:  351:                         bool>::type=true>
-function _ZNSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1IRyS5_Lb1EEEOT_OT0_ called 1280 returned 100% blocks executed 100%
-     1280:  352:	constexpr pair(_U1&& __x, _U2&& __y)
-     1280:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
-     1280:  353-block  0
-call    0 returned 1280
-call    1 returned 1280
-call    2 returned 1280
+function _ZNSt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1IRyS5_Lb1EEEOT_OT0_ called 4352 returned 100% blocks executed 100%
+     4352:  352:	constexpr pair(_U1&& __x, _U2&& __y)
+     4352:  353:	: first(std::forward<_U1>(__x)), second(std::forward<_U2>(__y)) { }
+     4352:  353-block  0
+call    0 returned 4352
+call    1 returned 4352
+call    2 returned 4352
         -:  354:
         -:  355:      template<typename _U1, typename _U2, typename
         -:  356:	       enable_if<_PCCP::template
@@ -576,17 +576,17 @@ call    2 returned 1280
         -:  564:  template<typename _T1, typename _T2>
         -:  565:    constexpr pair<typename __decay_and_strip<_T1>::__type,
         -:  566:                   typename __decay_and_strip<_T2>::__type>
-function _ZSt9make_pairIRyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_ called 1280 returned 100% blocks executed 100%
-     1280:  567:    make_pair(_T1&& __x, _T2&& __y)
+function _ZSt9make_pairIRyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_ called 4352 returned 100% blocks executed 100%
+     4352:  567:    make_pair(_T1&& __x, _T2&& __y)
         -:  568:    {
         -:  569:      typedef typename __decay_and_strip<_T1>::__type __ds_type1;
         -:  570:      typedef typename __decay_and_strip<_T2>::__type __ds_type2;
         -:  571:      typedef pair<__ds_type1, __ds_type2> 	      __pair_type;
-     1280:  572:      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y));
-     1280:  572-block  0
-call    0 returned 1280
-call    1 returned 1280
-call    2 returned 1280
+     4352:  572:      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y));
+     4352:  572-block  0
+call    0 returned 4352
+call    1 returned 4352
+call    2 returned 4352
         -:  573:    }
         -:  574:#else
         -:  575:  template<typename _T1, typename _T2>

@@ -53,12 +53,12 @@
         -:   49:      using value_type = typename allocator_traits<_Alloc>::value_type;
         -:   50:
         -:   51:      /// Take ownership of __ptr
-function _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEC1ERSA_PS9_ called 1536 returned 100% blocks executed 100%
-     1536:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
-     1536:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
-     1536:   53-block  0
-call    0 returned 1536
-     1536:   54:      { }
+function _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEC1ERSA_PS9_ called 4608 returned 100% blocks executed 100%
+     4608:   52:      __allocated_ptr(_Alloc& __a, pointer __ptr) noexcept
+     4608:   53:      : _M_alloc(std::__addressof(__a)), _M_ptr(__ptr)
+     4608:   53-block  0
+call    0 returned 4608
+     4608:   54:      { }
         -:   55:
         -:   56:      /// Convert __ptr to allocator's pointer type and take ownership of it
         -:   57:      template<typename _Ptr,
@@ -74,26 +74,26 @@ call    0 returned 1536
         -:   67:      { __gd._M_ptr = nullptr; }
         -:   68:
         -:   69:      /// Deallocate the owned pointer
-function _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED1Ev called 1536 returned 100% blocks executed 67%
-     1536:   70:      ~__allocated_ptr()
+function _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEED1Ev called 4608 returned 100% blocks executed 67%
+     4608:   70:      ~__allocated_ptr()
         -:   71:      {
-     1536:   72:	if (_M_ptr != nullptr)
-     1536:   72-block  0
+     4608:   72:	if (_M_ptr != nullptr)
+     4608:   72-block  0
 branch  0 taken 0 (fallthrough)
-branch  1 taken 1536
+branch  1 taken 4608
     #####:   73:	  std::allocator_traits<_Alloc>::deallocate(*_M_alloc, _M_ptr, 1);
     %%%%%:   73-block  0
 call    0 never executed
-     1536:   74:      }
+     4608:   74:      }
         -:   75:
         -:   76:      /// Release ownership of the owned pointer
         -:   77:      __allocated_ptr&
-function _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEaSEDn called 1536 returned 100% blocks executed 100%
-     1536:   78:      operator=(std::nullptr_t) noexcept
+function _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEaSEDn called 4608 returned 100% blocks executed 100%
+     4608:   78:      operator=(std::nullptr_t) noexcept
         -:   79:      {
-     1536:   80:	_M_ptr = nullptr;
-     1536:   81:	return *this;
-     1536:   81-block  0
+     4608:   80:	_M_ptr = nullptr;
+     4608:   81:	return *this;
+     4608:   81-block  0
         -:   82:      }
         -:   83:
         -:   84:      /// Get the address that the owned pointer refers to.

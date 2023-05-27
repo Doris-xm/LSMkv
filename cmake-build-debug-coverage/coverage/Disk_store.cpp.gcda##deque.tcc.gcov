@@ -887,16 +887,16 @@ call    0 never executed
         -:  853:
         -:  854:   template<typename _Tp, typename _Alloc>
         -:  855:     void
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE19_M_destroy_data_auxESt15_Deque_iteratorISA_RSA_PSA_ESG_ called 0 returned 0% blocks executed 0%
-    #####:  856:     deque<_Tp, _Alloc>::
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE19_M_destroy_data_auxESt15_Deque_iteratorISA_RSA_PSA_ESG_ called 11 returned 100% blocks executed 43%
+       11:  856:     deque<_Tp, _Alloc>::
         -:  857:     _M_destroy_data_aux(iterator __first, iterator __last)
         -:  858:     {
-    #####:  859:       for (_Map_pointer __node = __first._M_node + 1;
-    %%%%%:  859-block  0
-    #####:  860:	    __node < __last._M_node; ++__node)
-    %%%%%:  860-block  0
-branch  0 never executed
-branch  1 never executed
+      11*:  859:       for (_Map_pointer __node = __first._M_node + 1;
+       11:  859-block  0
+       11:  860:	    __node < __last._M_node; ++__node)
+       11:  860-block  0
+branch  0 taken 0
+branch  1 taken 11 (fallthrough)
     #####:  861:	 std::_Destroy(*__node, *__node + _S_buffer_size(),
 call    0 never executed
 call    1 never executed
@@ -904,10 +904,10 @@ call    1 never executed
     %%%%%:  862-block  0
 call    0 never executed
         -:  863:
-    #####:  864:       if (__first._M_node != __last._M_node)
-    %%%%%:  864-block  0
-branch  0 never executed
-branch  1 never executed
+       11:  864:       if (__first._M_node != __last._M_node)
+       11:  864-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 11
         -:  865:	 {
     #####:  866:	   std::_Destroy(__first._M_cur, __first._M_last,
 call    0 never executed
@@ -920,12 +920,12 @@ call    0 never executed
 call    0 never executed
         -:  870:	 }
         -:  871:       else
-    #####:  872:	 std::_Destroy(__first._M_cur, __last._M_cur,
-call    0 never executed
-    #####:  873:		       _M_get_Tp_allocator());
-    %%%%%:  873-block  0
-call    0 never executed
-    #####:  874:     }
+       11:  872:	 std::_Destroy(__first._M_cur, __last._M_cur,
+call    0 returned 11
+       11:  873:		       _M_get_Tp_allocator());
+       11:  873-block  0
+call    0 returned 11
+       11:  874:     }
         -:  875:
         -:  876:  template <typename _Tp, typename _Alloc>
         -:  877:    void

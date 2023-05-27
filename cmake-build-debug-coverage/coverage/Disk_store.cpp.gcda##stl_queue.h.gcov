@@ -167,11 +167,11 @@
         -:  163:#else
         -:  164:      template<typename _Seq = _Sequence, typename _Requires = typename
         -:  165:	       enable_if<is_default_constructible<_Seq>::value>::type>
-function _ZNSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEEC1ISD_vEEv called 0 returned 0% blocks executed 0%
-    #####:  166:	queue()
-    #####:  167:	: c() { }
-    %%%%%:  167-block  0
-call    0 never executed
+function _ZNSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEEC1ISD_vEEv called 11 returned 100% blocks executed 100%
+       11:  166:	queue()
+       11:  167:	: c() { }
+       11:  167-block  0
+call    0 returned 11
         -:  168:
         -:  169:      explicit
         -:  170:      queue(const _Sequence& __c)
@@ -212,24 +212,24 @@ call    0 never executed
         -:  205:
         -:  206:      /**  Returns the number of elements in the %queue.  */
         -:  207:      size_type
-function _ZNKSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEE4sizeEv called 0 returned 0% blocks executed 0%
-    #####:  208:      size() const
-    #####:  209:      { return c.size(); }
-    %%%%%:  209-block  0
-call    0 never executed
+function _ZNKSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEE4sizeEv called 38 returned 100% blocks executed 100%
+       38:  208:      size() const
+       38:  209:      { return c.size(); }
+       38:  209-block  0
+call    0 returned 38
         -:  210:
         -:  211:      /**
         -:  212:       *  Returns a read/write reference to the data at the first
         -:  213:       *  element of the %queue.
         -:  214:       */
         -:  215:      reference
-function _ZNSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEE5frontEv called 0 returned 0% blocks executed 0%
-    #####:  216:      front()
+function _ZNSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEE5frontEv called 65 returned 100% blocks executed 100%
+       65:  216:      front()
         -:  217:      {
         -:  218:	__glibcxx_requires_nonempty();
-    #####:  219:	return c.front();
-    %%%%%:  219-block  0
-call    0 never executed
+       65:  219:	return c.front();
+       65:  219-block  0
+call    0 returned 65
         -:  220:      }
         -:  221:
         -:  222:      /**
@@ -275,11 +275,11 @@ call    0 never executed
         -:  262:       *  underlying sequence.
         -:  263:       */
         -:  264:      void
-function _ZNSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEE4pushERKSA_ called 0 returned 0% blocks executed 0%
-    #####:  265:      push(const value_type& __x)
-    #####:  266:      { c.push_back(__x); }
-    %%%%%:  266-block  0
-call    0 never executed
+function _ZNSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEE4pushERKSA_ called 65 returned 100% blocks executed 100%
+       65:  265:      push(const value_type& __x)
+       65:  266:      { c.push_back(__x); }
+       65:  266-block  0
+call    0 returned 65
         -:  267:
         -:  268:#if __cplusplus >= 201103L
         -:  269:      void
@@ -311,14 +311,14 @@ call    0 never executed
         -:  295:       *  called.
         -:  296:       */
         -:  297:      void
-function _ZNSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEE3popEv called 0 returned 0% blocks executed 0%
-    #####:  298:      pop()
+function _ZNSt5queueISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESt5dequeISA_SaISA_EEE3popEv called 65 returned 100% blocks executed 100%
+       65:  298:      pop()
         -:  299:      {
         -:  300:	__glibcxx_requires_nonempty();
-    #####:  301:	c.pop_front();
-    %%%%%:  301-block  0
-call    0 never executed
-    #####:  302:      }
+       65:  301:	c.pop_front();
+       65:  301-block  0
+call    0 returned 65
+       65:  302:      }
         -:  303:
         -:  304:#if __cplusplus >= 201103L
         -:  305:      void

@@ -41,27 +41,28 @@
         -:   37:    vector<pair<uint32_t,DiskLevel::LEVEL_MODE>> config;
         -:   38:    uint32_t level_num;
         -:   39:    vector<DiskLevel*> level_list;
-        -:   40:    string read_file(const string& file_name, uint32_t offset, int len)const;
-        -:   41:    bool check_level_overflow(uint32_t level)const;
-        -:   42:    void mergeSort(vector<pair<uint64_t,string>> data1, vector<pair<uint64_t,string>> data2, vector<pair<uint64_t,string>> &data_sorted);
-        -:   43:public:
-        -:   44:    DiskStore(const string &config_dir);
-        -:   45:    DiskStore(){}
+        -:   40:public://TODO
+        -:   41:    string read_file(const string& file_name, uint32_t offset, int len)const;
+        -:   42:    bool check_level_overflow(uint32_t level)const;
+        -:   43:    void mergeSort(vector<pair<uint64_t,string>> data1, vector<pair<uint64_t,string>> data2, vector<pair<uint64_t,string>> &data_sorted);
+        -:   44:public:
+        -:   45:    DiskStore(const string &config_dir);
+        -:   46:    DiskStore(){}
 function _ZN9DiskStoreD1Ev called 3 returned 100% blocks executed 100%
-        3:   46:    ~DiskStore() { }
-        3:   46-block  0
+        3:   47:    ~DiskStore() { }
+        3:   47-block  0
 call    0 returned 3
 call    1 returned 3
-function _ZNK9DiskStore13get_level_numEv called 2030 returned 100% blocks executed 100%
-     2030:   47:    uint32_t get_level_num()const {
-     2030:   48:        return level_num;
-     2030:   48-block  0
-        -:   49:    }
-        -:   50:    void add_level( DiskLevel::LEVEL_MODE mode);
-        -:   51:    uint64_t add_sstable(SSTable* sstable, uint32_t level,bool &flag);
-        -:   52:    std::string get(const uint64_t key,const string & dir_prefix)const;
-        -:   53:
-        -:   54:    void compaction(uint32_t dump_to_level, const string & dir);
-        -:   55:};
-        -:   56:
+function _ZNK9DiskStore13get_level_numEv called 8160 returned 100% blocks executed 100%
+     8160:   48:    uint32_t get_level_num()const {
+     8160:   49:        return level_num;
+     8160:   49-block  0
+        -:   50:    }
+        -:   51:    void add_level( DiskLevel::LEVEL_MODE mode);
+        -:   52:    uint64_t add_sstable(SSTable* sstable, uint32_t level,bool &flag);
+        -:   53:    std::string get(const uint64_t key,const string & dir_prefix)const;
+        -:   54:
+        -:   55:    void compaction(uint32_t dump_to_level, const string & dir);
+        -:   56:};
         -:   57:
+        -:   58:

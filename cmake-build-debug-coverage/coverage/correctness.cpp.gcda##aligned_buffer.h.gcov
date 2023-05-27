@@ -65,21 +65,21 @@
         -:   61:      __aligned_membuf(std::nullptr_t) { }
         -:   62:
         -:   63:      void*
-function _ZN9__gnu_cxx16__aligned_membufISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7_M_addrEv called 6144 returned 100% blocks executed 100%
-     6144:   64:      _M_addr() noexcept
-     6144:   65:      { return static_cast<void*>(&_M_storage); }
-     6144:   65-block  0
+function _ZN9__gnu_cxx16__aligned_membufISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7_M_addrEv called 18432 returned 100% blocks executed 100%
+    18432:   64:      _M_addr() noexcept
+    18432:   65:      { return static_cast<void*>(&_M_storage); }
+    18432:   65-block  0
         -:   66:
         -:   67:      const void*
         -:   68:      _M_addr() const noexcept
         -:   69:      { return static_cast<const void*>(&_M_storage); }
         -:   70:
         -:   71:      _Tp*
-function _ZN9__gnu_cxx16__aligned_membufISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE6_M_ptrEv called 6144 returned 100% blocks executed 100%
-     6144:   72:      _M_ptr() noexcept
-     6144:   73:      { return static_cast<_Tp*>(_M_addr()); }
-     6144:   73-block  0
-call    0 returned 6144
+function _ZN9__gnu_cxx16__aligned_membufISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE6_M_ptrEv called 18432 returned 100% blocks executed 100%
+    18432:   72:      _M_ptr() noexcept
+    18432:   73:      { return static_cast<_Tp*>(_M_addr()); }
+    18432:   73-block  0
+call    0 returned 18432
         -:   74:
         -:   75:      const _Tp*
         -:   76:      _M_ptr() const noexcept

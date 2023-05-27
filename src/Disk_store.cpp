@@ -222,7 +222,7 @@ void DiskStore::compaction(uint32_t dump_to_level,const string& dir_prefix) {
     }
     for(SSTable* sstable: this_level_chosen) {
         vector< pair<uint64_t, string> > data;
-        string filename = dir_prefix + to_string(dump_to_level - 1) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
+        string filename = dir_prefix + to_string(dump_to_level ) + '/' + to_string(sstable->get_time_stamp()) + '-' + to_string(sstable->get_serial()) + ".sst";
         sstable->read_to_mem(filename,data,is_end);
         data_all.push(data);
     }
@@ -297,6 +297,15 @@ void DiskStore::mergeSort(vector<pair<uint64_t, string>> data1, vector<pair<uint
             j++;
         }
     }
+    // 将剩余的元素添加到结果向量中
+    while (i < len1) {
+        data_sorted.push_back(data1[i]);
+        i++;
+    }
+    while (j < len2) {
+        data_sorted.push_back(data2[j]);
+        j++;
+    }
 }
 
 /*
@@ -335,13 +344,32 @@ void DiskLevel::choose_sstables(vector<SSTable *> &chosen_list, uint64_t min_key
         return;
     }
     uint64_t origin_size = sstable_num;
-    for(uint64_t i = 0; i < origin_size; ++i) {
-        SSTable* sstable = sstable_list[i];
-        if(sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) //不在范围内
+    /*BUG CODE: erase change the index i*/
+//    for(uint64_t i = 0; i < origin_size; ++i) {
+//        SSTable* sstable = sstable_list[i];
+//        if(sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) //不在范围内
+//            continue;
+//        chosen_list.push_back(sstable);
+//        sstable_list.erase(sstable_list.begin() + (int)i);
+//        --sstable_num;
+//    }
+    /*FIX BUG: 逆向迭代器*/
+    for (auto it = sstable_list.rbegin(); it != sstable_list.rend(); ++it) {
+        SSTable* sstable = *it;
+        if (sstable->get_min_key() > max_key || sstable->get_max_key() < min_key) {
             continue;
+        }
         chosen_list.push_back(sstable);
-        sstable_list.erase(sstable_list.begin() + (int)i);
+        /*
+        * 逆向迭代器不能直接使用 erase()删除，因为该函数要求传入的是正向迭代器。
+        * 需要将逆向迭代器转换为正向迭代器
+        * std::next(it) 返回的是 it 的下一个迭代器，即正向迭代器，
+        * 通过调用 base() 函数将其转换回逆向迭代器的形式，以便在 erase() 函数中使用。
+        * */
+        sstable_list.erase(std::next(it).base());  // 使用逆向迭代器删除元素
+
         --sstable_num;
     }
+
 
 }

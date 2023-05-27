@@ -169,7 +169,7 @@
         -:  165:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  166:      // 3035. std::allocator's constructors should be constexpr
         -:  167:      _GLIBCXX20_CONSTEXPR
-       2*:  168:      allocator() _GLIBCXX_NOTHROW { }
+      57*:  168:      allocator() _GLIBCXX_NOTHROW { }
 ------------------
 _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev:
 function _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev called 0 returned 0% blocks executed 0%
@@ -178,10 +178,10 @@ function _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev called 
 call    0 never executed
 ------------------
 _ZNSaI7IndexerEC2Ev:
-function _ZNSaI7IndexerEC2Ev called 2 returned 100% blocks executed 100%
-        2:  168:      allocator() _GLIBCXX_NOTHROW { }
-        2:  168-block  0
-call    0 returned 2
+function _ZNSaI7IndexerEC2Ev called 57 returned 100% blocks executed 100%
+       57:  168:      allocator() _GLIBCXX_NOTHROW { }
+       57:  168-block  0
+call    0 returned 57
 ------------------
         -:  169:
         -:  170:      _GLIBCXX20_CONSTEXPR

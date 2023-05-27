@@ -6,125 +6,125 @@
         -:    2:#include "iostream"
         -:    3://SSTable
         -:    4:
-function _ZN7SSTableC2EP8SkipListy called 2 returned 100% blocks executed 85%
-        2:    5:SSTable::SSTable(SkipList *skip_list, const uint64_t time_stamp) {
-        2:    5-block  0
-call    0 returned 2
-call    1 returned 2
+function _ZN7SSTableC2EP8SkipListy called 17 returned 100% blocks executed 85%
+       17:    5:SSTable::SSTable(SkipList *skip_list, const uint64_t time_stamp) {
+       17:    5-block  0
+call    0 returned 17
+call    1 returned 17
         -:    6:    // create buff_table_global_info
-        2:    7:    bloom_filter = new BloomFilter();
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       17:    7:    bloom_filter = new BloomFilter();
+call    0 returned 17
+branch  1 taken 17 (fallthrough)
 branch  2 taken 0 (throw)
-        2:    7-block  0
-call    3 returned 2
-        2:    8:    header = new Header(time_stamp,
-        2:    9:                        skip_list->get_key_num(),
-call    0 returned 2
-        2:   10:                        skip_list->get_max_key(),
-call    0 returned 2
-        2:   11:                        skip_list->get_min_key());
-call    0 returned 2
-call    1 returned 2
-branch  2 taken 2 (fallthrough)
+       17:    7-block  0
+call    3 returned 17
+       17:    8:    header = new Header(time_stamp,
+       17:    9:                        skip_list->get_key_num(),
+call    0 returned 17
+       17:   10:                        skip_list->get_max_key(),
+call    0 returned 17
+       17:   11:                        skip_list->get_min_key());
+call    0 returned 17
+call    1 returned 17
+branch  2 taken 17 (fallthrough)
 branch  3 taken 0 (throw)
-        2:   11-block  0
-call    4 returned 2
-        2:   12:    uint32_t offset = 32 + 10240 + header->total_num * 12; // 32: header size, 10240: bloom_filter size, 12 = 8+4: index_area size
-        2:   13:    node* curr = skip_list->get_head()->point_list[0];
-call    0 returned 2
-call    1 returned 2
-        2:   14:    node* tail = skip_list->get_tail();
-call    0 returned 2
-     4079:   15:    while (curr != tail) {
-     4079:   15-block  0
-branch  0 taken 4077
-branch  1 taken 2 (fallthrough)
-     4077:   16:        Indexer indexer(curr->key, offset);
-     4077:   16-block  0
-call    0 returned 4077
-     4077:   17:        index_area.emplace_back(indexer);
-call    0 returned 4077
-branch  1 taken 4077 (fallthrough)
+       17:   11-block  0
+call    4 returned 17
+       17:   12:    uint32_t offset = 32 + 10240 + header->total_num * 12; // 32: header size, 10240: bloom_filter size, 12 = 8+4: index_area size
+       17:   13:    node* curr = skip_list->get_head()->point_list[0];
+call    0 returned 17
+call    1 returned 17
+       17:   14:    node* tail = skip_list->get_tail();
+call    0 returned 17
+    16363:   15:    while (curr != tail) {
+    16363:   15-block  0
+branch  0 taken 16346
+branch  1 taken 17 (fallthrough)
+    16346:   16:        Indexer indexer(curr->key, offset);
+    16346:   16-block  0
+call    0 returned 16346
+    16346:   17:        index_area.emplace_back(indexer);
+call    0 returned 16346
+branch  1 taken 16346 (fallthrough)
 branch  2 taken 0 (throw)
-     4077:   18:        bloom_filter->insert(curr->key);
-     4077:   18-block  0
-call    0 returned 4077
-     4077:   19:        data_area.emplace_back(curr->s);
-call    0 returned 4077
-branch  1 taken 4077 (fallthrough)
+    16346:   18:        bloom_filter->insert(curr->key);
+    16346:   18-block  0
+call    0 returned 16346
+    16346:   19:        data_area.emplace_back(curr->s);
+call    0 returned 16346
+branch  1 taken 16346 (fallthrough)
 branch  2 taken 0 (throw)
-     4077:   20:        offset += curr->s.size();
-     4077:   20-block  0
-call    0 returned 4077
-     4077:   21:        curr = curr->point_list[0];
-call    0 returned 4077
+    16346:   20:        offset += curr->s.size();
+    16346:   20-block  0
+call    0 returned 16346
+    16346:   21:        curr = curr->point_list[0];
+call    0 returned 16346
         -:   22:    }
-        2:   23:}
-        2:   23-block  0
+       17:   23:}
+       17:   23-block  0
     $$$$$:   23-block  1
 call    0 never executed
     $$$$$:   23-block  2
 call    1 never executed
         -:   24:
-function _ZN7SSTableC2ERKSt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEy called 0 returned 0% blocks executed 0%
-    #####:   25:SSTable::SSTable(const vector<pair<uint64_t,string>>& data, const uint64_t time_stamp) {
-    %%%%%:   25-block  0
-call    0 never executed
-call    1 never executed
-    #####:   26:    bloom_filter = new BloomFilter();
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   26-block  0
-call    3 never executed
-    #####:   27:    uint64_t key_num = data.size(), max_key = data[key_num - 1].first, min_key = data[0].first;
-call    0 never executed
-call    1 never executed
-call    2 never executed
-    #####:   28:    header = new Header(time_stamp, key_num, max_key, min_key);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:   28-block  0
-call    3 never executed
-    #####:   29:    uint32_t offset = 32 + 10240 + header->total_num * 12; // 32: header size, 10240: bloom_filter size, 12 = 8+4: index_area size
-    #####:   30:    for (auto iter : data) {
-call    0 never executed
-call    1 never executed
-    %%%%%:   30-block  0
-call    2 never executed
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-call    6 never executed
-    %%%%%:   30-block  1
-call    7 never executed
-branch  8 never executed
-branch  9 never executed
-    #####:   31:        Indexer indexer(iter.first, offset);
-    %%%%%:   31-block  0
-call    0 never executed
-    #####:   32:        index_area.emplace_back(indexer);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:   33:        bloom_filter->insert(iter.first);
-    %%%%%:   33-block  0
-call    0 never executed
-    #####:   34:        data_area.emplace_back(iter.second);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:   35:        offset += iter.second.size();
-    %%%%%:   35-block  0
-call    0 never executed
-    #####:   36:    }
-call    0 never executed
+function _ZN7SSTableC2ERKSt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EEy called 40 returned 100% blocks executed 77%
+       40:   25:SSTable::SSTable(const vector<pair<uint64_t,string>>& data, const uint64_t time_stamp) {
+       40:   25-block  0
+call    0 returned 40
+call    1 returned 40
+       40:   26:    bloom_filter = new BloomFilter();
+call    0 returned 40
+branch  1 taken 40 (fallthrough)
+branch  2 taken 0 (throw)
+       40:   26-block  0
+call    3 returned 40
+       40:   27:    uint64_t key_num = data.size(), max_key = data[key_num - 1].first, min_key = data[0].first;
+call    0 returned 40
+call    1 returned 40
+call    2 returned 40
+       40:   28:    header = new Header(time_stamp, key_num, max_key, min_key);
+call    0 returned 40
+branch  1 taken 40 (fallthrough)
+branch  2 taken 0 (throw)
+       40:   28-block  0
+call    3 returned 40
+       40:   29:    uint32_t offset = 32 + 10240 + header->total_num * 12; // 32: header size, 10240: bloom_filter size, 12 = 8+4: index_area size
+    21812:   30:    for (auto iter : data) {
+call    0 returned 40
+call    1 returned 40
+    21772:   30-block  0
+call    2 returned 21772
+call    3 returned 21772
+branch  4 taken 21772 (fallthrough)
+branch  5 taken 0 (throw)
+call    6 returned 21772
+    21812:   30-block  1
+call    7 returned 21812
+branch  8 taken 21772
+branch  9 taken 40 (fallthrough)
+    21772:   31:        Indexer indexer(iter.first, offset);
+    21772:   31-block  0
+call    0 returned 21772
+    21772:   32:        index_area.emplace_back(indexer);
+call    0 returned 21772
+branch  1 taken 21772 (fallthrough)
+branch  2 taken 0 (throw)
+    21772:   33:        bloom_filter->insert(iter.first);
+    21772:   33-block  0
+call    0 returned 21772
+    21772:   34:        data_area.emplace_back(iter.second);
+call    0 returned 21772
+branch  1 taken 21772 (fallthrough)
+branch  2 taken 0 (throw)
+    21772:   35:        offset += iter.second.size();
+    21772:   35-block  0
+call    0 returned 21772
+    21772:   36:    }
+call    0 returned 21772
     $$$$$:   36-block  0
 call    1 never executed
-    #####:   37:}
-    %%%%%:   37-block  0
+       40:   37:}
+       40:   37-block  0
     $$$$$:   37-block  1
 call    0 never executed
     $$$$$:   37-block  2
@@ -158,22 +158,22 @@ call    1 never executed
     #####:   45:    bloom_filter = nullptr;
     #####:   46:}
         -:   47:
-function _ZN7SSTable9save_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2 returned 100% blocks executed 78%
-        2:   48:void SSTable::save_file(const string &file_name) {
-        2:   49:    ofstream out(file_name, ios_base::binary | ios_base::app);
-        2:   49-block  0
-call    0 returned 2
-call    1 returned 2
-branch  2 taken 2 (fallthrough)
+function _ZN7SSTable9save_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 57 returned 100% blocks executed 78%
+       57:   48:void SSTable::save_file(const string &file_name) {
+       57:   49:    ofstream out(file_name, ios::binary | ios::out);
+       57:   49-block  0
+call    0 returned 57
+call    1 returned 57
+branch  2 taken 57 (fallthrough)
 branch  3 taken 0 (throw)
-        2:   50:    if (!out.is_open()) {
-        2:   50-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       57:   50:    if (!out.is_open()) {
+       57:   50-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0 (throw)
-        2:   50-block  1
+       57:   50-block  1
 branch  3 taken 0 (fallthrough)
-branch  4 taken 2
+branch  4 taken 57
     #####:   51:        cout << "open file error: "<<file_name << endl;
     %%%%%:   51-block  0
 call    0 never executed
@@ -190,183 +190,184 @@ branch  8 never executed
     #####:   52:        return;
     %%%%%:   52-block  0
         -:   53:    }
-        -:   54:    // write header
-        2:   55:    out.write((char*)(&header->time_stamp), 8);
-        2:   55-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+        -:   54:
+        -:   55:    // write header
+       57:   56:    out.write((char*)(&header->time_stamp), 8);
+       57:   56-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0 (throw)
-        2:   56:    out.write((char*)(&header->total_num), 8);
-        2:   56-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       57:   57:    out.write((char*)(&header->total_num), 8);
+       57:   57-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0 (throw)
-        2:   57:    out.write((char*)(&header->min_key), 8);
-        2:   57-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       57:   58:    out.write((char*)(&header->min_key), 8);
+       57:   58-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0 (throw)
-        2:   58:    out.write((char*)(&header->max_key), 8);
-        2:   58-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       57:   59:    out.write((char*)(&header->max_key), 8);
+       57:   59-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0 (throw)
-        -:   59:
-        -:   60:    // write bloom_filter
-        2:   61:    std::bitset<BLOOM_SIZE> filter;
-        2:   62:    bloom_filter->getBit(filter);
-        2:   62-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+        -:   60:
+        -:   61:    // write bloom_filter
+       57:   62:    std::bitset<BLOOM_SIZE> filter;
+       57:   63:    bloom_filter->getBit(filter);
+       57:   63-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0 (throw)
-        2:   63:    out.write((char *)(&filter), sizeof(filter));
-        2:   63-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       57:   64:    out.write((char *)(&filter), sizeof(filter));
+       57:   64-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0 (throw)
-        -:   64:
-        -:   65:    // write index_area
-     4079:   66:    for(auto iter : index_area) {
-        2:   66-block  0
-call    0 returned 2
-call    1 returned 2
-     4077:   66-block  1
-call    2 returned 4077
-     4077:   66-block  2
-call    3 returned 4077
-     4079:   66-block  3
-call    4 returned 4079
-branch  5 taken 4077
-branch  6 taken 2 (fallthrough)
-     4077:   67:        out.write((char*)&iter.key, 8);
-call    0 returned 4077
-branch  1 taken 4077 (fallthrough)
+        -:   65:
+        -:   66:    // write index_area
+    38175:   67:    for(auto iter : index_area) {
+       57:   67-block  0
+call    0 returned 57
+call    1 returned 57
+    38118:   67-block  1
+call    2 returned 38118
+    38118:   67-block  2
+call    3 returned 38118
+    38175:   67-block  3
+call    4 returned 38175
+branch  5 taken 38118
+branch  6 taken 57 (fallthrough)
+    38118:   68:        out.write((char*)&iter.key, 8);
+call    0 returned 38118
+branch  1 taken 38118 (fallthrough)
 branch  2 taken 0 (throw)
-     4077:   68:        out.write((char*)&iter.offset, 4);
-     4077:   68-block  0
-call    0 returned 4077
-branch  1 taken 4077 (fallthrough)
+    38118:   69:        out.write((char*)&iter.offset, 4);
+    38118:   69-block  0
+call    0 returned 38118
+branch  1 taken 38118 (fallthrough)
 branch  2 taken 0 (throw)
-        -:   69:    }
-        -:   70:
+        -:   70:    }
         -:   71:    // write data_area
-     4079:   72:    for (auto iter : data_area) {
-        2:   72-block  0
-call    0 returned 2
-call    1 returned 2
-     4077:   72-block  1
-call    2 returned 4077
-call    3 returned 4077
-branch  4 taken 4077 (fallthrough)
+    38175:   72:    for (auto iter : data_area) {
+       57:   72-block  0
+call    0 returned 57
+call    1 returned 57
+    38118:   72-block  1
+call    2 returned 38118
+call    3 returned 38118
+branch  4 taken 38118 (fallthrough)
 branch  5 taken 0 (throw)
-call    6 returned 4077
-     4079:   72-block  2
-call    7 returned 4079
-branch  8 taken 4077
-branch  9 taken 2 (fallthrough)
-     4077:   73:        out.write((char*)&iter, iter.size());
-     4077:   73-block  0
-call    0 returned 4077
-call    1 returned 4077
-branch  2 taken 4077 (fallthrough)
-branch  3 taken 0 (throw)
-     4077:   74:    }
-     4077:   74-block  0
-call    0 returned 4077
+call    6 returned 38118
+    38175:   72-block  2
+call    7 returned 38175
+branch  8 taken 38118
+branch  9 taken 57 (fallthrough)
+    38118:   73:        out.write(iter.c_str(), (long long)iter.size());
+    38118:   73-block  0
+call    0 returned 38118
+call    1 returned 38118
+call    2 returned 38118
+branch  3 taken 38118 (fallthrough)
+branch  4 taken 0 (throw)
+    38118:   74:    }
+    38118:   74-block  0
+call    0 returned 38118
     $$$$$:   74-block  1
 call    1 never executed
-        2:   75:    out.close();
-        2:   75-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       57:   75:    out.close();
+       57:   75-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0 (throw)
         -:   76:
-        2:   77:    vector<string>().swap(data_area); //释放data_area的内存
-        2:   77-block  0
-call    0 returned 2
-call    1 returned 2
-call    2 returned 2
-        2:   78:}
-        2:   78-block  0
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       57:   77:    vector<string>().swap(data_area); //释放data_area的内存
+       57:   77-block  0
+call    0 returned 57
+call    1 returned 57
+call    2 returned 57
+       57:   78:}
+       57:   78-block  0
+call    0 returned 57
+branch  1 taken 57 (fallthrough)
 branch  2 taken 0
     $$$$$:   78-block  1
 call    3 never executed
         -:   79:
-function _ZN7SSTable3getEyRjRi called 5072 returned 100% blocks executed 85%
-     5072:   80:bool SSTable::get(const uint64_t key, uint32_t & offset, int & size) {
+function _ZN7SSTable3getEyRjRi called 26631 returned 100% blocks executed 92%
+    26631:   80:bool SSTable::get(const uint64_t key, uint32_t & offset, int & size) {
         -:   81:    // 现在BloomFilter中查找,如果没有，就一定没有
-     5072:   82:    if ( ! bloom_filter->find(key))
-     5072:   82-block  0
-call    0 returned 5072
+    26631:   82:    if ( ! bloom_filter->find(key))
+    26631:   82-block  0
+call    0 returned 26631
 branch  1 taken 0 (fallthrough)
-branch  2 taken 5072
+branch  2 taken 26631
     #####:   83:        return false;
     %%%%%:   83-block  0
         -:   84:
         -:   85:    // 在index_area中二分查找，可能没有
-     5072:   86:    int index = binary_search(key);
-     5072:   86-block  0
-call    0 returned 5072
-     5072:   87:    if(index < 0)
-branch  0 taken 0 (fallthrough)
-branch  1 taken 5072
-    #####:   88:        return false;
-    %%%%%:   88-block  0
+    26631:   86:    int index = binary_search(key);
+    26631:   86-block  0
+call    0 returned 26631
+    26631:   87:    if(index < 0)
+branch  0 taken 6246 (fallthrough)
+branch  1 taken 20385
+     6246:   88:        return false;
+     6246:   88-block  0
         -:   89:
         -:   90:    // 在data_area文件中查找
-     5072:   91:    offset = index_area[index].offset;
-     5072:   91-block  0
-call    0 returned 5072
-     5072:   92:    size = -1;
-     5072:   93:    if((index + 1) < index_area.size()) // 如果是最后一个元素，len=-1
-call    0 returned 5072
-branch  1 taken 5070 (fallthrough)
-branch  2 taken 2
-     5070:   94:        size = index_area[index + 1].offset - offset;
-     5070:   94-block  0
-call    0 returned 5070
+    20385:   91:    offset = index_area[index].offset;
+    20385:   91-block  0
+call    0 returned 20385
+    20385:   92:    size = -1;
+    20385:   93:    if((index + 1) < index_area.size()) // 如果是最后一个元素，len=-1
+call    0 returned 20385
+branch  1 taken 20338 (fallthrough)
+branch  2 taken 47
+    20338:   94:        size = index_area[index + 1].offset - offset;
+    20338:   94-block  0
+call    0 returned 20338
         -:   95:
-     5072:   96:    return true;
-     5072:   96-block  0
+    20385:   96:    return true;
+    20385:   96-block  0
         -:   97:}
         -:   98:
-function _ZNK7SSTable13binary_searchEy called 5072 returned 100% blocks executed 92%
-     5072:   99:int SSTable::binary_search(const uint64_t key) const {
-     5072:  100:    int left = 0;
-     5072:  101:    int right = index_area.size() - 1;
-     5072:  101-block  0
-call    0 returned 5072
+function _ZNK7SSTable13binary_searchEy called 26631 returned 100% blocks executed 100%
+    26631:   99:int SSTable::binary_search(const uint64_t key) const {
+    26631:  100:    int left = 0;
+    26631:  101:    int right = index_area.size() - 1;
+    26631:  101-block  0
+call    0 returned 26631
         -:  102:
-    50707:  103:    while (left <= right) {
-    50707:  103-block  0
-branch  0 taken 50707
-branch  1 taken 0 (fallthrough)
-    50707:  104:        int mid = left + (right - left) / 2;
+   227121:  103:    while (left <= right) {
+   227121:  103-block  0
+branch  0 taken 220875
+branch  1 taken 6246 (fallthrough)
+   220875:  104:        int mid = left + (right - left) / 2;
         -:  105:
-    50707:  106:        if (index_area[mid].key == key) {
-    50707:  106-block  0
-call    0 returned 50707
-branch  1 taken 5072 (fallthrough)
-branch  2 taken 45635
-     5072:  107:            return mid; // 找到了指定的 key 值，返回下标
-     5072:  107-block  0
-    45635:  108:        } else if (index_area[mid].key < key) {
-    45635:  108-block  0
-call    0 returned 45635
-branch  1 taken 22955 (fallthrough)
-branch  2 taken 22680
-    22955:  109:            left = mid + 1; // 在右半部分继续查找
-    22955:  109-block  0
+   220875:  106:        if (index_area[mid].key == key) {
+   220875:  106-block  0
+call    0 returned 220875
+branch  1 taken 20385 (fallthrough)
+branch  2 taken 200490
+    20385:  107:            return mid; // 找到了指定的 key 值，返回下标
+    20385:  107-block  0
+   200490:  108:        } else if (index_area[mid].key < key) {
+   200490:  108-block  0
+call    0 returned 200490
+branch  1 taken 84455 (fallthrough)
+branch  2 taken 116035
+    84455:  109:            left = mid + 1; // 在右半部分继续查找
+    84455:  109-block  0
         -:  110:        } else {
-    22680:  111:            right = mid - 1; // 在左半部分继续查找
-    22680:  111-block  0
+   116035:  111:            right = mid - 1; // 在左半部分继续查找
+   116035:  111-block  0
         -:  112:        }
         -:  113:    }
         -:  114:
-    #####:  115:    return -1; // 没有找到指定的 key 值
-    %%%%%:  115-block  0
+     6246:  115:    return -1; // 没有找到指定的 key 值
+     6246:  115-block  0
         -:  116:}
         -:  117:
 function _ZN7SSTableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEyy called 0 returned 0% blocks executed 0%
@@ -374,7 +375,7 @@ function _ZN7SSTableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEyy 
     %%%%%:  118-block  0
 call    0 never executed
 call    1 never executed
-    #####:  119:    ifstream in(file_path, ios_base::binary | ios_base::in);
+    #####:  119:    ifstream in(file_path, ios::binary | ios::in);
 call    0 never executed
 call    1 never executed
 branch  2 never executed
@@ -411,21 +412,21 @@ branch  1 never executed
 branch  2 never executed
     %%%%%:  125-block  1
 call    3 never executed
-    #####:  126:    in.read((char*)header->time_stamp, 8);
+    #####:  126:    in.read((char*)&header->time_stamp, 8);
 call    0 never executed
 branch  1 never executed
 branch  2 never executed
-    #####:  127:    in.read((char*)header->total_num, 8);
+    #####:  127:    in.read((char*)&header->total_num, 8);
     %%%%%:  127-block  0
 call    0 never executed
 branch  1 never executed
 branch  2 never executed
-    #####:  128:    in.read((char*)header->min_key, 8);
+    #####:  128:    in.read((char*)&header->min_key, 8);
     %%%%%:  128-block  0
 call    0 never executed
 branch  1 never executed
 branch  2 never executed
-    #####:  129:    in.read((char*)header->max_key, 8);
+    #####:  129:    in.read((char*)&header->max_key, 8);
     %%%%%:  129-block  0
 call    0 never executed
 branch  1 never executed
@@ -501,23 +502,23 @@ call    5 never executed
         -:  151: * @param:返回一个包含键值对的vector:data
         -:  152: * @param:is_end:是否是最后一行，最后一行需要删除所有的~DELETE~标记
         -:  153: * */
-function _ZN7SSTable11read_to_memERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIyS5_ESaISA_EEb called 0 returned 0% blocks executed 0%
-    #####:  154:void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end) {
-    #####:  155:    ifstream in(file_path, ios_base::binary | ios_base::in);
-    %%%%%:  155-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    #####:  156:     if (!in.is_open()) {
-    %%%%%:  156-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  156-block  1
-branch  3 never executed
-branch  4 never executed
-    #####:  157:        cout << "open file error: "<<file_path << endl;
+function _ZN7SSTable11read_to_memERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorISt4pairIyS5_ESaISA_EEb called 38 returned 100% blocks executed 68%
+       38:  154:void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data,bool is_end) {
+       38:  155:    ifstream in(file_path, ios::binary | ios::in);
+       38:  155-block  0
+call    0 returned 38
+call    1 returned 38
+branch  2 taken 38 (fallthrough)
+branch  3 taken 0 (throw)
+       38:  156:     if (!in.is_open()) {
+       38:  156-block  0
+call    0 returned 38
+branch  1 taken 38 (fallthrough)
+branch  2 taken 0 (throw)
+       38:  156-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 38
+    #####:  157:        cout << "SSTable::read_to_mem::open file error: "<<file_path << endl;
     %%%%%:  157-block  0
 call    0 never executed
 branch  1 never executed
@@ -533,165 +534,165 @@ branch  8 never executed
     #####:  158:        return;
     %%%%%:  158-block  0
         -:  159:    }
-    #####:  160:    in.seekg(index_area[0].offset, ios_base::beg);
-    %%%%%:  160-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+       38:  160:    in.seekg(index_area[0].offset, ios::beg);
+       38:  160-block  0
+call    0 returned 38
+call    1 returned 38
+branch  2 taken 38 (fallthrough)
+branch  3 taken 0 (throw)
         -:  161:    uint32_t len;
         -:  162:
-    #####:  163:    for (int i = 0; i < header->total_num - 1; ++i) {
-    %%%%%:  163-block  0
-    %%%%%:  163-block  1
-branch  0 never executed
-branch  1 never executed
-    #####:  164:        len = index_area[i + 1].offset - index_area[i].offset;
-    %%%%%:  164-block  0
-call    0 never executed
-call    1 never executed
+    21772:  163:    for (int i = 0; i < header->total_num - 1; ++i) {
+       38:  163-block  0
+    21772:  163-block  1
+branch  0 taken 21734
+branch  1 taken 38 (fallthrough)
+    21734:  164:        len = index_area[i + 1].offset - index_area[i].offset;
+    21734:  164-block  0
+call    0 returned 21734
+call    1 returned 21734
         -:  165://        char *value = new char[len + 1];
         -:  166://        in.read((char*)&value, len);
         -:  167://        value[len] = '\0';
         -:  168://        if(!is_end || strcasecmp(value, "~DELETE~") != 0)
         -:  169://            data.emplace_back(make_pair(index_area[i].key, string(value, len)));
         -:  170://        delete[] value;
-    #####:  171:        string ans(len+1, ' ');
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+    21734:  171:        string ans(len+1, ' ');
+call    0 returned 21734
+call    1 returned 21734
+branch  2 taken 21734 (fallthrough)
+branch  3 taken 0 (throw)
     $$$$$:  171-block  0
-    #####:  172:        in.read(&(*ans.begin()), sizeof(char) * len);
-call    0 never executed
-call    1 never executed
-call    2 never executed
-branch  3 never executed
-branch  4 never executed
+    21734:  172:        in.read(&(*ans.begin()), sizeof(char) * len);
+call    0 returned 21734
+call    1 returned 21734
+call    2 returned 21734
+branch  3 taken 21734 (fallthrough)
+branch  4 taken 0 (throw)
     $$$$$:  172-block  0
-    #####:  173:        ans[len] = '\0';
-    %%%%%:  173-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  174:        if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
-    %%%%%:  174-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:  174-block  1
-call    2 never executed
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  174-block  2
-branch  6 never executed
-branch  7 never executed
-    %%%%%:  174-block  3
+    21734:  173:        ans[len] = '\0';
+    21734:  173-block  0
+call    0 returned 21734
+branch  1 taken 21734 (fallthrough)
+branch  2 taken 0 (throw)
+   21734*:  174:        if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
+    21734:  174-block  0
+branch  0 taken 5662 (fallthrough)
+branch  1 taken 16072
+     5662:  174-block  1
+call    2 returned 5662
+call    3 returned 5662
+branch  4 taken 5662 (fallthrough)
+branch  5 taken 0 (throw)
+     5662:  174-block  2
+branch  6 taken 5662 (fallthrough)
+branch  7 taken 0
+    21734:  174-block  3
     %%%%%:  174-block  4
-    %%%%%:  174-block  5
-branch  8 never executed
-branch  9 never executed
-    #####:  175:            data.emplace_back(make_pair(index_area[i].key, ans));
-    %%%%%:  175-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:  175-block  1
-call    4 never executed
-branch  5 never executed
-branch  6 never executed
-    %%%%%:  175-block  2
-call    7 never executed
+    21734:  174-block  5
+branch  8 taken 21734 (fallthrough)
+branch  9 taken 0
+    21734:  175:            data.emplace_back(make_pair(index_area[i].key, ans));
+    21734:  175-block  0
+call    0 returned 21734
+call    1 returned 21734
+branch  2 taken 21734 (fallthrough)
+branch  3 taken 0 (throw)
+    21734:  175-block  1
+call    4 returned 21734
+branch  5 taken 21734 (fallthrough)
+branch  6 taken 0 (throw)
+    21734:  175-block  2
+call    7 returned 21734
     $$$$$:  175-block  3
 call    8 never executed
     $$$$$:  175-block  4
-    #####:  176:    }
-    %%%%%:  176-block  0
-call    0 never executed
+    21734:  176:    }
+    21734:  176-block  0
+call    0 returned 21734
     $$$$$:  176-block  1
 call    1 never executed
-    #####:  177:    streampos start = in.tellg(); //获取当前位置
-    %%%%%:  177-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  178:    in.seekg(0, std::ios::end); //定位到文件末尾
-    %%%%%:  178-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  179:    streampos end = in.tellg(); //获取当前位置
-    %%%%%:  179-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  180:    len = end - start;
-    %%%%%:  180-block  0
-call    0 never executed
+       38:  177:    streampos start = in.tellg(); //获取当前位置
+       38:  177-block  0
+call    0 returned 38
+branch  1 taken 38 (fallthrough)
+branch  2 taken 0 (throw)
+       38:  178:    in.seekg(0, ios::end); //定位到文件末尾
+       38:  178-block  0
+call    0 returned 38
+branch  1 taken 38 (fallthrough)
+branch  2 taken 0 (throw)
+       38:  179:    streampos end = in.tellg(); //获取当前位置
+       38:  179-block  0
+call    0 returned 38
+branch  1 taken 38 (fallthrough)
+branch  2 taken 0 (throw)
+       38:  180:    len = end - start;
+       38:  180-block  0
+call    0 returned 38
         -:  181://    char *value = new char[len + 1];
         -:  182://    in.read((char*)&value, len);
         -:  183://    value[len] = '\0';
         -:  184://    if(!is_end || strcasecmp(value, "~DELETE~") != 0)
         -:  185://        data.emplace_back(make_pair(index_area[header->total_num - 1].key, string(value, len)));
         -:  186://    delete[] value;
-    #####:  187:    string ans(len+1, ' ');
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+       38:  187:    string ans(len+1, ' ');
+call    0 returned 38
+call    1 returned 38
+branch  2 taken 38 (fallthrough)
+branch  3 taken 0 (throw)
     $$$$$:  187-block  0
-    #####:  188:    in.read(&(*ans.begin()), sizeof(char) * len);
-call    0 never executed
-call    1 never executed
-call    2 never executed
-branch  3 never executed
-branch  4 never executed
+       38:  188:    in.read(&(*ans.begin()), sizeof(char) * len);
+call    0 returned 38
+call    1 returned 38
+call    2 returned 38
+branch  3 taken 38 (fallthrough)
+branch  4 taken 0 (throw)
     $$$$$:  188-block  0
-    #####:  189:    ans[len] = '\0';
-    %%%%%:  189-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  190:    if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
-    %%%%%:  190-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:  190-block  1
-call    2 never executed
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  190-block  2
-branch  6 never executed
-branch  7 never executed
-    %%%%%:  190-block  3
+       38:  189:    ans[len] = '\0';
+       38:  189-block  0
+call    0 returned 38
+branch  1 taken 38 (fallthrough)
+branch  2 taken 0 (throw)
+      38*:  190:    if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
+       38:  190-block  0
+branch  0 taken 6 (fallthrough)
+branch  1 taken 32
+        6:  190-block  1
+call    2 returned 6
+call    3 returned 6
+branch  4 taken 6 (fallthrough)
+branch  5 taken 0 (throw)
+        6:  190-block  2
+branch  6 taken 6 (fallthrough)
+branch  7 taken 0
+       38:  190-block  3
     %%%%%:  190-block  4
-    %%%%%:  190-block  5
-branch  8 never executed
-branch  9 never executed
-    #####:  191:        data.emplace_back(make_pair(index_area[header->total_num - 1].key, ans));
-    %%%%%:  191-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:  191-block  1
-call    4 never executed
-branch  5 never executed
-branch  6 never executed
-    %%%%%:  191-block  2
-call    7 never executed
+       38:  190-block  5
+branch  8 taken 38 (fallthrough)
+branch  9 taken 0
+       38:  191:        data.emplace_back(make_pair(index_area[header->total_num - 1].key, ans));
+       38:  191-block  0
+call    0 returned 38
+call    1 returned 38
+branch  2 taken 38 (fallthrough)
+branch  3 taken 0 (throw)
+       38:  191-block  1
+call    4 returned 38
+branch  5 taken 38 (fallthrough)
+branch  6 taken 0 (throw)
+       38:  191-block  2
+call    7 returned 38
     $$$$$:  191-block  3
 call    8 never executed
     $$$$$:  191-block  4
-    #####:  192:}
-    %%%%%:  192-block  0
-call    0 never executed
-    %%%%%:  192-block  1
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+       38:  192:}
+       38:  192-block  0
+call    0 returned 38
+       38:  192-block  1
+call    1 returned 38
+branch  2 taken 38 (fallthrough)
+branch  3 taken 0
     $$$$$:  192-block  2
 call    4 never executed
     $$$$$:  192-block  3

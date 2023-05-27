@@ -27,26 +27,26 @@
         -:   23:     * @param path directory to be checked.
         -:   24:     * @return ture if directory exists, false otherwise.
         -:   25:     */
-function _ZN5utilsL9dirExistsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 5 returned 100% blocks executed 100%
-        5:   26:    static inline bool dirExists(std::string path){
+function _ZN5utilsL9dirExistsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 20 returned 100% blocks executed 100%
+       20:   26:    static inline bool dirExists(std::string path){
         -:   27:        struct stat st;
-        5:   28:        int ret = stat(path.c_str(), &st);
-        5:   28-block  0
-call    0 returned 5
-call    1 returned 5
-branch  2 taken 5 (fallthrough)
+       20:   28:        int ret = stat(path.c_str(), &st);
+       20:   28-block  0
+call    0 returned 20
+call    1 returned 20
+branch  2 taken 20 (fallthrough)
 branch  3 taken 0 (throw)
-        5:   29:        return ret == 0 && st.st_mode & S_IFDIR;
-        5:   29-block  0
-branch  0 taken 2 (fallthrough)
-branch  1 taken 3
-        2:   29-block  1
-branch  2 taken 2 (fallthrough)
+       20:   29:        return ret == 0 && st.st_mode & S_IFDIR;
+       20:   29-block  0
+branch  0 taken 18 (fallthrough)
+branch  1 taken 2
+       18:   29-block  1
+branch  2 taken 18 (fallthrough)
 branch  3 taken 0
-        2:   29-block  2
-        3:   29-block  3
-        5:   29-block  4
-        5:   29-block  5
+       18:   29-block  2
+        2:   29-block  3
+       20:   29-block  4
+       20:   29-block  5
         -:   30:    }
         -:   31:
         -:   32:    /**
@@ -83,38 +83,38 @@ branch  3 taken 0
         -:   63:    }
         -:   64:#endif
         -:   65:#if defined(__linux__) || defined(__MINGW32__) || defined(__APPLE__)
-function _ZN5utilsL7scanDirENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EE called 3 returned 100% blocks executed 43%
-        3:   66:    static inline int scanDir(std::string path, std::vector<std::string> &ret){
+function _ZN5utilsL7scanDirENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EE called 11 returned 100% blocks executed 74%
+       11:   66:    static inline int scanDir(std::string path, std::vector<std::string> &ret){
         -:   67:        DIR *dir;
         -:   68:        struct dirent *rent;
-        3:   69:        dir = opendir(path.c_str());
-        3:   69-block  0
-call    0 returned 3
-call    1 returned 3
+       11:   69:        dir = opendir(path.c_str());
+       11:   69-block  0
+call    0 returned 11
+call    1 returned 11
         -:   70:        char s[100];
-        3:   71:        while((rent = readdir(dir))){
-        3:   71-block  0
-call    0 returned 3
-branch  1 taken 0
-branch  2 taken 3 (fallthrough)
-    #####:   72:            strcpy(s,rent->d_name);
-    #####:   73:            if (s[0] != '.'){
-    %%%%%:   73-block  0
-branch  0 never executed
-branch  1 never executed
-    #####:   74:                ret.push_back(s);
-    %%%%%:   74-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    %%%%%:   74-block  1
-call    4 never executed
-branch  5 never executed
-branch  6 never executed
-    %%%%%:   74-block  2
-call    7 never executed
-call    8 never executed
+       52:   71:        while((rent = readdir(dir))){
+       52:   71-block  0
+call    0 returned 52
+branch  1 taken 41
+branch  2 taken 11 (fallthrough)
+       41:   72:            strcpy(s,rent->d_name);
+       41:   73:            if (s[0] != '.'){
+       41:   73-block  0
+branch  0 taken 27 (fallthrough)
+branch  1 taken 14
+       27:   74:                ret.push_back(s);
+       27:   74-block  0
+call    0 returned 27
+call    1 returned 27
+branch  2 taken 27 (fallthrough)
+branch  3 taken 0 (throw)
+       27:   74-block  1
+call    4 returned 27
+branch  5 taken 27 (fallthrough)
+branch  6 taken 0 (throw)
+       27:   74-block  2
+call    7 returned 27
+call    8 returned 27
     $$$$$:   74-block  3
 call    9 never executed
     $$$$$:   74-block  4
@@ -123,12 +123,12 @@ call   10 never executed
     $$$$$:   74-block  6
         -:   75:            }
         -:   76:        }
-        3:   77:        closedir(dir);
-        3:   77-block  0
-call    0 returned 3
-        3:   78:        return ret.size();
-call    0 returned 3
-        3:   78-block  0
+       11:   77:        closedir(dir);
+       11:   77-block  0
+call    0 returned 11
+       11:   78:        return ret.size();
+call    0 returned 11
+       11:   78-block  0
         -:   79:    }
         -:   80:#endif
         -:   81:
@@ -137,12 +137,12 @@ call    0 returned 3
         -:   84:     * @param path directory to be created.
         -:   85:     * @return 0 if directory is created successfully, -1 otherwise.
         -:   86:     */
-function _ZN5utilsL6_mkdirEPKc called 2 returned 100% blocks executed 100%
-        2:   87:    static inline int _mkdir(const char *path){
+function _ZN5utilsL6_mkdirEPKc called 1 returned 100% blocks executed 100%
+        1:   87:    static inline int _mkdir(const char *path){
         -:   88:#ifdef _WIN32
-        2:   89:        return ::_mkdir(path);
-        2:   89-block  0
-call    0 returned 2
+        1:   89:        return ::_mkdir(path);
+        1:   89-block  0
+call    0 returned 1
         -:   90:#else
         -:   91:        return ::mkdir(path, 0775);
         -:   92:#endif
@@ -205,16 +205,16 @@ call    3 returned 3
 branch  4 taken 3 (fallthrough)
 branch  5 taken 0 (throw)
         3:  107-block  2
-branch  6 taken 2 (fallthrough)
-branch  7 taken 1
-        2:  107-block  3
-call    8 returned 2
-call    9 returned 2
-branch 10 taken 2 (fallthrough)
+branch  6 taken 1 (fallthrough)
+branch  7 taken 2
+        1:  107-block  3
+call    8 returned 1
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
 branch 11 taken 0 (throw)
-        2:  107-block  4
+        1:  107-block  4
 branch 12 taken 0 (fallthrough)
-branch 13 taken 2
+branch 13 taken 1
     %%%%%:  107-block  5
         3:  107-block  6
         3:  107-block  7
@@ -259,12 +259,12 @@ call    5 never executed
         -:  117:     * @param path directory to be deleted.
         -:  118:     * @return 0 if delete successfully, -1 otherwise.
         -:  119:     */
-function _ZN5utilsL5rmdirEPKc called 0 returned 0% blocks executed 0%
-    #####:  120:    static inline int rmdir(const char *path){
+function _ZN5utilsL5rmdirEPKc called 4 returned 100% blocks executed 100%
+        4:  120:    static inline int rmdir(const char *path){
         -:  121:#ifdef _WIN32
-    #####:  122:        return ::_rmdir(path);
-    %%%%%:  122-block  0
-call    0 never executed
+        4:  122:        return ::_rmdir(path);
+        4:  122-block  0
+call    0 returned 4
         -:  123:#else
         -:  124:        return ::rmdir(path);
         -:  125:#endif
@@ -275,12 +275,12 @@ call    0 never executed
         -:  130:     * @param path file to be deleted.
         -:  131:     * @return 0 if delete successfully, -1 otherwise.
         -:  132:     */
-function _ZN5utilsL6rmfileEPKc called 0 returned 0% blocks executed 0%
-    #####:  133:    static inline int rmfile(const char *path){
+function _ZN5utilsL6rmfileEPKc called 19 returned 100% blocks executed 100%
+       19:  133:    static inline int rmfile(const char *path){
         -:  134:#ifdef _WIN32
-    #####:  135:        return ::_unlink(path);
-    %%%%%:  135-block  0
-call    0 never executed
+       19:  135:        return ::_unlink(path);
+       19:  135-block  0
+call    0 returned 19
         -:  136:#else
         -:  137:        return ::unlink(path);
         -:  138:#endif

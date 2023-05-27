@@ -27,26 +27,26 @@
         -:   23:     * @param path directory to be checked.
         -:   24:     * @return ture if directory exists, false otherwise.
         -:   25:     */
-function _ZN5utilsL9dirExistsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
-    #####:   26:    static inline bool dirExists(std::string path){
+function _ZN5utilsL9dirExistsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 20 returned 100% blocks executed 100%
+       20:   26:    static inline bool dirExists(std::string path){
         -:   27:        struct stat st;
-    #####:   28:        int ret = stat(path.c_str(), &st);
-    %%%%%:   28-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
-    #####:   29:        return ret == 0 && st.st_mode & S_IFDIR;
-    %%%%%:   29-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:   29-block  1
-branch  2 never executed
-branch  3 never executed
-    %%%%%:   29-block  2
-    %%%%%:   29-block  3
-    %%%%%:   29-block  4
-    %%%%%:   29-block  5
+       20:   28:        int ret = stat(path.c_str(), &st);
+       20:   28-block  0
+call    0 returned 20
+call    1 returned 20
+branch  2 taken 20 (fallthrough)
+branch  3 taken 0 (throw)
+       20:   29:        return ret == 0 && st.st_mode & S_IFDIR;
+       20:   29-block  0
+branch  0 taken 14 (fallthrough)
+branch  1 taken 6
+       14:   29-block  1
+branch  2 taken 14 (fallthrough)
+branch  3 taken 0
+       14:   29-block  2
+        6:   29-block  3
+       20:   29-block  4
+       20:   29-block  5
         -:   30:    }
         -:   31:
         -:   32:    /**
@@ -104,12 +104,12 @@ branch  3 never executed
         -:   84:     * @param path directory to be created.
         -:   85:     * @return 0 if directory is created successfully, -1 otherwise.
         -:   86:     */
-function _ZN5utilsL6_mkdirEPKc called 0 returned 0% blocks executed 0%
-    #####:   87:    static inline int _mkdir(const char *path){
+function _ZN5utilsL6_mkdirEPKc called 3 returned 100% blocks executed 100%
+        3:   87:    static inline int _mkdir(const char *path){
         -:   88:#ifdef _WIN32
-    #####:   89:        return ::_mkdir(path);
-    %%%%%:   89-block  0
-call    0 never executed
+        3:   89:        return ::_mkdir(path);
+        3:   89-block  0
+call    0 returned 3
         -:   90:#else
         -:   91:        return ::mkdir(path, 0775);
         -:   92:#endif
@@ -120,78 +120,78 @@ call    0 never executed
         -:   97:     * @param path directory to be created.
         -:   98:     * @return 0 if directory is created successfully, -1 otherwise.
         -:   99:     */
-function _ZN5utilsL5mkdirEPKc called 0 returned 0% blocks executed 0%
-    #####:  100:    static inline int mkdir(const char *path){
-    #####:  101:        std::string currentPath = "";
-    %%%%%:  101-block  0
-call    0 never executed
-call    1 never executed
-branch  2 never executed
-branch  3 never executed
+function _ZN5utilsL5mkdirEPKc called 3 returned 100% blocks executed 61%
+        3:  100:    static inline int mkdir(const char *path){
+        3:  101:        std::string currentPath = "";
+        3:  101-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
     $$$$$:  101-block  1
-    #####:  102:        std::string dirName;
-call    0 never executed
-    #####:  103:        std::stringstream ss(path);
-call    0 never executed
-call    1 never executed
-call    2 never executed
-branch  3 never executed
-branch  4 never executed
-    %%%%%:  103-block  0
-call    5 never executed
-branch  6 never executed
-branch  7 never executed
-call    8 never executed
+        3:  102:        std::string dirName;
+call    0 returned 3
+        6:  103:        std::stringstream ss(path);
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+branch  3 taken 3 (fallthrough)
+branch  4 taken 0 (throw)
+        3:  103-block  0
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+call    8 returned 3
     $$$$$:  103-block  1
     $$$$$:  103-block  2
         -:  104:
-    #####:  105:        while (std::getline(ss, dirName, '/')){
-    %%%%%:  105-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  105-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  105-block  2
-branch  6 never executed
-branch  7 never executed
-    #####:  106:            currentPath += dirName;
-    %%%%%:  106-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####:  107:            if (!dirExists(currentPath) && _mkdir(currentPath.c_str()) != 0){
-    %%%%%:  107-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  107-block  1
-call    3 never executed
-branch  4 never executed
-branch  5 never executed
-    %%%%%:  107-block  2
-branch  6 never executed
-branch  7 never executed
-    %%%%%:  107-block  3
-call    8 never executed
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:  107-block  4
-branch 12 never executed
-branch 13 never executed
+       12:  105:        while (std::getline(ss, dirName, '/')){
+       12:  105-block  0
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:  105-block  1
+call    3 returned 12
+branch  4 taken 12 (fallthrough)
+branch  5 taken 0 (throw)
+       12:  105-block  2
+branch  6 taken 9
+branch  7 taken 3 (fallthrough)
+        9:  106:            currentPath += dirName;
+        9:  106-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+       9*:  107:            if (!dirExists(currentPath) && _mkdir(currentPath.c_str()) != 0){
+        9:  107-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        9:  107-block  1
+call    3 returned 9
+branch  4 taken 9 (fallthrough)
+branch  5 taken 0 (throw)
+        9:  107-block  2
+branch  6 taken 3 (fallthrough)
+branch  7 taken 6
+        3:  107-block  3
+call    8 returned 3
+call    9 returned 3
+branch 10 taken 3 (fallthrough)
+branch 11 taken 0 (throw)
+        3:  107-block  4
+branch 12 taken 0 (fallthrough)
+branch 13 taken 3
     %%%%%:  107-block  5
-    %%%%%:  107-block  6
-    %%%%%:  107-block  7
-branch 14 never executed
-branch 15 never executed
-    %%%%%:  107-block  8
-call   16 never executed
-    %%%%%:  107-block  9
-branch 17 never executed
-branch 18 never executed
+        9:  107-block  6
+        9:  107-block  7
+branch 14 taken 9 (fallthrough)
+branch 15 taken 0
+        9:  107-block  8
+call   16 returned 9
+        9:  107-block  9
+branch 17 taken 0 (fallthrough)
+branch 18 taken 9
     $$$$$:  107-block 10
 branch 19 never executed
 branch 20 never executed
@@ -201,19 +201,19 @@ call   21 never executed
     #####:  108:                return -1;
     %%%%%:  108-block  0
         -:  109:            }
-    #####:  110:            currentPath += "/";
-    %%%%%:  110-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+        9:  110:            currentPath += "/";
+        9:  110-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
         -:  111:        }
-    #####:  112:        return 0;
-    %%%%%:  112-block  0
-    #####:  113:    }
-    %%%%%:  113-block  0
-call    0 never executed
-call    1 never executed
-call    2 never executed
+        3:  112:        return 0;
+        3:  112-block  0
+        3:  113:    }
+        3:  113-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
     $$$$$:  113-block  1
 call    3 never executed
     $$$$$:  113-block  2
@@ -239,12 +239,12 @@ call    5 never executed
         -:  130:     * @param path file to be deleted.
         -:  131:     * @return 0 if delete successfully, -1 otherwise.
         -:  132:     */
-function _ZN5utilsL6rmfileEPKc called 0 returned 0% blocks executed 0%
-    #####:  133:    static inline int rmfile(const char *path){
+function _ZN5utilsL6rmfileEPKc called 38 returned 100% blocks executed 100%
+       38:  133:    static inline int rmfile(const char *path){
         -:  134:#ifdef _WIN32
-    #####:  135:        return ::_unlink(path);
-    %%%%%:  135-block  0
-call    0 never executed
+       38:  135:        return ::_unlink(path);
+       38:  135-block  0
+call    0 returned 38
         -:  136:#else
         -:  137:        return ::unlink(path);
         -:  138:#endif

@@ -141,36 +141,36 @@ call    2 never executed
         -:  132:   */
         -:  133:  template<typename _Tp>
         -:  134:    _GLIBCXX14_CONSTEXPR inline void
-function _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_ called 4077 returned 100% blocks executed 100%
-     4077:  135:    _Destroy(_Tp* __pointer)
+function _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_ called 38145 returned 100% blocks executed 100%
+    38145:  135:    _Destroy(_Tp* __pointer)
         -:  136:    {
         -:  137:#if __cplusplus > 201703L
         -:  138:      std::destroy_at(__pointer);
         -:  139:#else
-     4077:  140:      __pointer->~_Tp();
-     4077:  140-block  0
-call    0 returned 4077
+    38145:  140:      __pointer->~_Tp();
+    38145:  140-block  0
+call    0 returned 38145
         -:  141:#endif
-     4077:  142:    }
+    38145:  142:    }
         -:  143:
         -:  144:  template<bool>
         -:  145:    struct _Destroy_aux
         -:  146:    {
         -:  147:      template<typename _ForwardIterator>
         -:  148:	static _GLIBCXX20_CONSTEXPR void
-function _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_ called 5 returned 100% blocks executed 100%
-        5:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
+function _ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_ called 68 returned 100% blocks executed 100%
+       68:  149:	__destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  150:	{
-     4082:  151:	  for (; __first != __last; ++__first)
-        5:  151-block  0
-     4082:  151-block  1
-branch  0 taken 4077
-branch  1 taken 5 (fallthrough)
-     4077:  152:	    std::_Destroy(std::__addressof(*__first));
-     4077:  152-block  0
-call    0 returned 4077
-call    1 returned 4077
-        5:  153:	}
+    38213:  151:	  for (; __first != __last; ++__first)
+       68:  151-block  0
+    38213:  151-block  1
+branch  0 taken 38145
+branch  1 taken 68 (fallthrough)
+    38145:  152:	    std::_Destroy(std::__addressof(*__first));
+    38145:  152-block  0
+call    0 returned 38145
+call    1 returned 38145
+       68:  153:	}
         -:  154:    };
         -:  155:
         -:  156:  template<>
@@ -197,7 +197,7 @@ function _ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjN9DiskLevel10LEVEL_MODEEE
         -:  168:   */
         -:  169:  template<typename _ForwardIterator>
         -:  170:    _GLIBCXX20_CONSTEXPR inline void
-       11:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
+       74:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  172:    {
         -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  174:                       _Value_type;
@@ -211,12 +211,12 @@ function _ZNSt12_Destroy_auxILb1EE9__destroyIPSt4pairIjN9DiskLevel10LEVEL_MODEEE
         -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
         -:  183:#endif
         -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-       11:  185:	__destroy(__first, __last);
-       11:  186:    }
+       74:  185:	__destroy(__first, __last);
+       74:  186:    }
 ------------------
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_:
-function _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_ called 5 returned 100% blocks executed 100%
-        5:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
+function _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_ called 68 returned 100% blocks executed 100%
+       68:  171:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
         -:  172:    {
         -:  173:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  174:                       _Value_type;
@@ -230,10 +230,10 @@ function _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_
         -:  182:	return _Destroy_aux<false>::__destroy(__first, __last);
         -:  183:#endif
         -:  184:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-        5:  185:	__destroy(__first, __last);
-        5:  185-block  0
-call    0 returned 5
-        5:  186:    }
+       68:  185:	__destroy(__first, __last);
+       68:  185-block  0
+call    0 returned 68
+       68:  186:    }
 ------------------
 _ZSt8_DestroyIPP9DiskLevelEvT_S3_:
 function _ZSt8_DestroyIPP9DiskLevelEvT_S3_ called 3 returned 100% blocks executed 100%

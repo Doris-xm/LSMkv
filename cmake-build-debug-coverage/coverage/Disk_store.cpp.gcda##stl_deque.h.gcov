@@ -97,16 +97,16 @@
         -:   93:#endif
         -:   94:
         -:   95:  _GLIBCXX_CONSTEXPR inline size_t
-function _ZSt16__deque_buf_sizey called 0 returned 0% blocks executed 0%
-    #####:   96:  __deque_buf_size(size_t __size)
+function _ZSt16__deque_buf_sizey called 104 returned 100% blocks executed 80%
+      104:   96:  __deque_buf_size(size_t __size)
         -:   97:  { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
-    #####:   98:	    ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
-    %%%%%:   98-block  0
-branch  0 never executed
-branch  1 never executed
-    %%%%%:   98-block  1
+     104*:   98:	    ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+      104:   98-block  0
+branch  0 taken 104 (fallthrough)
+branch  1 taken 0
+      104:   98-block  1
     %%%%%:   98-block  2
-    %%%%%:   98-block  3
+      104:   98-block  3
         -:   99:
         -:  100:
         -:  101:  /**
@@ -139,11 +139,11 @@ branch  1 never executed
         -:  128:      typedef __ptr_rebind<_Ptr, _Elt_pointer>		   _Map_pointer;
         -:  129:#endif
         -:  130:
-function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_E14_S_buffer_sizeEv called 0 returned 0% blocks executed 0%
-    #####:  131:      static size_t _S_buffer_size() _GLIBCXX_NOEXCEPT
-    #####:  132:      { return __deque_buf_size(sizeof(_Tp)); }
-    %%%%%:  132-block  0
-call    0 never executed
+function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_E14_S_buffer_sizeEv called 60 returned 100% blocks executed 100%
+       60:  131:      static size_t _S_buffer_size() _GLIBCXX_NOEXCEPT
+       60:  132:      { return __deque_buf_size(sizeof(_Tp)); }
+       60:  132-block  0
+call    0 returned 60
         -:  133:
         -:  134:      typedef std::random_access_iterator_tag	iterator_category;
         -:  135:      typedef _Tp				value_type;
@@ -162,9 +162,9 @@ call    0 never executed
         -:  148:      : _M_cur(__x), _M_first(*__y),
         -:  149:	_M_last(*__y + _S_buffer_size()), _M_node(__y) { }
         -:  150:
-function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_EC1Ev called 0 returned 0% blocks executed 0%
-    #####:  151:      _Deque_iterator() _GLIBCXX_NOEXCEPT
-    #####:  152:      : _M_cur(), _M_first(), _M_last(), _M_node() { }
+function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_EC1Ev called 22 returned 100% blocks executed 100%
+       22:  151:      _Deque_iterator() _GLIBCXX_NOEXCEPT
+       22:  152:      : _M_cur(), _M_first(), _M_last(), _M_node() { }
         -:  153:
         -:  154:#if __cplusplus < 201103L
         -:  155:      // Conversion from iterator to const_iterator.
@@ -180,10 +180,10 @@ function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt
         -:  165:       : _M_cur(__x._M_cur), _M_first(__x._M_first),
         -:  166:	 _M_last(__x._M_last), _M_node(__x._M_node) { }
         -:  167:
-function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_EC1ERKSD_ called 0 returned 0% blocks executed 0%
-    #####:  168:      _Deque_iterator(const _Deque_iterator& __x) noexcept
-    #####:  169:       : _M_cur(__x._M_cur), _M_first(__x._M_first),
-    #####:  170:	 _M_last(__x._M_last), _M_node(__x._M_node) { }
+function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_EC1ERKSD_ called 109 returned 100% blocks executed 100%
+      109:  168:      _Deque_iterator(const _Deque_iterator& __x) noexcept
+      109:  169:       : _M_cur(__x._M_cur), _M_first(__x._M_first),
+      109:  170:	 _M_last(__x._M_last), _M_node(__x._M_node) { }
         -:  171:
         -:  172:      _Deque_iterator& operator=(const _Deque_iterator&) = default;
         -:  173:#endif
@@ -193,10 +193,10 @@ function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt
         -:  177:      { return iterator(_M_cur, _M_node); }
         -:  178:
         -:  179:      reference
-function _ZNKSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_EdeEv called 0 returned 0% blocks executed 0%
-    #####:  180:      operator*() const _GLIBCXX_NOEXCEPT
-    #####:  181:      { return *_M_cur; }
-    %%%%%:  181-block  0
+function _ZNKSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_EdeEv called 65 returned 100% blocks executed 100%
+       65:  180:      operator*() const _GLIBCXX_NOEXCEPT
+       65:  181:      { return *_M_cur; }
+       65:  181-block  0
         -:  182:
         -:  183:      pointer
         -:  184:      operator->() const _GLIBCXX_NOEXCEPT
@@ -275,15 +275,15 @@ function _ZNKSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcS
         -:  257:       *  immediately afterwards, based on _M_first and _M_last.
         -:  258:       */
         -:  259:      void
-function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_E11_M_set_nodeEPSC_ called 0 returned 0% blocks executed 0%
-    #####:  260:      _M_set_node(_Map_pointer __new_node) _GLIBCXX_NOEXCEPT
+function _ZNSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_E11_M_set_nodeEPSC_ called 22 returned 100% blocks executed 100%
+       22:  260:      _M_set_node(_Map_pointer __new_node) _GLIBCXX_NOEXCEPT
         -:  261:      {
-    #####:  262:	_M_node = __new_node;
-    #####:  263:	_M_first = *__new_node;
-    #####:  264:	_M_last = _M_first + difference_type(_S_buffer_size());
-    %%%%%:  264-block  0
-call    0 never executed
-    #####:  265:      }
+       22:  262:	_M_node = __new_node;
+       22:  263:	_M_first = *__new_node;
+       22:  264:	_M_last = _M_first + difference_type(_S_buffer_size());
+       22:  264-block  0
+call    0 returned 22
+       22:  265:      }
         -:  266:
         -:  267:      friend bool
         -:  268:      operator==(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
@@ -371,15 +371,15 @@ call    0 never executed
         -:  350:#endif // three-way comparison
         -:  351:
         -:  352:      friend difference_type
-function _ZStmiRKSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_ESF_ called 0 returned 0% blocks executed 0%
-    #####:  353:      operator-(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+function _ZStmiRKSt15_Deque_iteratorISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EERSA_PSA_ESF_ called 38 returned 100% blocks executed 100%
+       38:  353:      operator-(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
         -:  354:      {
-    #####:  355:	return difference_type(_S_buffer_size())
-    %%%%%:  355-block  0
-call    0 never executed
-    #####:  356:	  * (__x._M_node - __y._M_node - int(__x._M_node != 0))
-    #####:  357:	  + (__x._M_cur - __x._M_first)
-    #####:  358:	  + (__y._M_last - __y._M_cur);
+       38:  355:	return difference_type(_S_buffer_size())
+       38:  355-block  0
+call    0 returned 38
+       38:  356:	  * (__x._M_node - __y._M_node - int(__x._M_node != 0))
+       38:  357:	  + (__x._M_cur - __x._M_first)
+       38:  358:	  + (__y._M_last - __y._M_cur);
         -:  359:      }
         -:  360:
         -:  361:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -457,16 +457,16 @@ call    0 never executed
         -:  433:      typedef _Deque_iterator<_Tp, _Tp&, _Ptr>	  iterator;
         -:  434:      typedef _Deque_iterator<_Tp, const _Tp&, _Ptr_const>   const_iterator;
         -:  435:
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EEC2Ev called 0 returned 0% blocks executed 0%
-    #####:  436:      _Deque_base()
-    #####:  437:      : _M_impl()
-    %%%%%:  437-block  0
-call    0 never executed
-    #####:  438:      { _M_initialize_map(0); }
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  438-block  0
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EEC2Ev called 11 returned 100% blocks executed 80%
+       11:  436:      _Deque_base()
+       11:  437:      : _M_impl()
+       11:  437-block  0
+call    0 returned 11
+       11:  438:      { _M_initialize_map(0); }
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+       11:  438-block  0
     $$$$$:  438-block  1
 call    3 never executed
         -:  439:
@@ -524,13 +524,13 @@ call    3 never executed
         -:  491:	iterator _M_start;
         -:  492:	iterator _M_finish;
         -:  493:
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE16_Deque_impl_dataC2Ev called 0 returned 0% blocks executed 0%
-    #####:  494:	_Deque_impl_data() _GLIBCXX_NOEXCEPT
-    #####:  495:	: _M_map(), _M_map_size(), _M_start(), _M_finish()
-    %%%%%:  495-block  0
-call    0 never executed
-call    1 never executed
-    #####:  496:	{ }
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE16_Deque_impl_dataC2Ev called 11 returned 100% blocks executed 100%
+       11:  494:	_Deque_impl_data() _GLIBCXX_NOEXCEPT
+       11:  495:	: _M_map(), _M_map_size(), _M_start(), _M_finish()
+       11:  495-block  0
+call    0 returned 11
+call    1 returned 11
+       11:  496:	{ }
         -:  497:
         -:  498:#if __cplusplus >= 201103L
         -:  499:	_Deque_impl_data(const _Deque_impl_data&) = default;
@@ -557,14 +557,14 @@ call    1 never executed
         -:  520:      struct _Deque_impl
         -:  521:      : public _Tp_alloc_type, public _Deque_impl_data
         -:  522:      {
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE11_Deque_implC1Ev called 0 returned 0% blocks executed 0%
-    #####:  523:	_Deque_impl() _GLIBCXX_NOEXCEPT_IF(
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE11_Deque_implC1Ev called 11 returned 100% blocks executed 100%
+       11:  523:	_Deque_impl() _GLIBCXX_NOEXCEPT_IF(
         -:  524:	  is_nothrow_default_constructible<_Tp_alloc_type>::value)
-    #####:  525:	: _Tp_alloc_type()
-    %%%%%:  525-block  0
-call    0 never executed
-call    1 never executed
-    #####:  526:	{ }
+       11:  525:	: _Tp_alloc_type()
+       11:  525-block  0
+call    0 returned 11
+call    1 returned 11
+       11:  526:	{ }
         -:  527:
         -:  528:	_Deque_impl(const _Tp_alloc_type& __a) _GLIBCXX_NOEXCEPT
         -:  529:	: _Tp_alloc_type(__a)
@@ -584,77 +584,77 @@ call    1 never executed
         -:  543:      };
         -:  544:
         -:  545:      _Tp_alloc_type&
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE19_M_get_Tp_allocatorEv called 0 returned 0% blocks executed 0%
-    #####:  546:      _M_get_Tp_allocator() _GLIBCXX_NOEXCEPT
-    #####:  547:      { return this->_M_impl; }
-    %%%%%:  547-block  0
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE19_M_get_Tp_allocatorEv called 87 returned 100% blocks executed 100%
+       87:  546:      _M_get_Tp_allocator() _GLIBCXX_NOEXCEPT
+       87:  547:      { return this->_M_impl; }
+       87:  547-block  0
         -:  548:
         -:  549:      const _Tp_alloc_type&
-function _ZNKSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE19_M_get_Tp_allocatorEv called 0 returned 0% blocks executed 0%
-    #####:  550:      _M_get_Tp_allocator() const _GLIBCXX_NOEXCEPT
-    #####:  551:      { return this->_M_impl; }
-    %%%%%:  551-block  0
+function _ZNKSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE19_M_get_Tp_allocatorEv called 22 returned 100% blocks executed 100%
+       22:  550:      _M_get_Tp_allocator() const _GLIBCXX_NOEXCEPT
+       22:  551:      { return this->_M_impl; }
+       22:  551-block  0
         -:  552:
         -:  553:      _Map_alloc_type
-function _ZNKSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE20_M_get_map_allocatorEv called 0 returned 0% blocks executed 0%
-    #####:  554:      _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
-    #####:  555:      { return _Map_alloc_type(_M_get_Tp_allocator()); }
-    %%%%%:  555-block  0
-call    0 never executed
-call    1 never executed
+function _ZNKSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE20_M_get_map_allocatorEv called 22 returned 100% blocks executed 100%
+       22:  554:      _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+       22:  555:      { return _Map_alloc_type(_M_get_Tp_allocator()); }
+       22:  555-block  0
+call    0 returned 22
+call    1 returned 22
         -:  556:
         -:  557:      _Ptr
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE16_M_allocate_nodeEv called 0 returned 0% blocks executed 0%
-    #####:  558:      _M_allocate_node()
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE16_M_allocate_nodeEv called 11 returned 100% blocks executed 100%
+       11:  558:      _M_allocate_node()
         -:  559:      {
         -:  560:	typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Traits;
-    #####:  561:	return _Traits::allocate(_M_impl, __deque_buf_size(sizeof(_Tp)));
-    %%%%%:  561-block  0
-call    0 never executed
-call    1 never executed
+       11:  561:	return _Traits::allocate(_M_impl, __deque_buf_size(sizeof(_Tp)));
+       11:  561-block  0
+call    0 returned 11
+call    1 returned 11
         -:  562:      }
         -:  563:
         -:  564:      void
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE18_M_deallocate_nodeEPSA_ called 0 returned 0% blocks executed 0%
-    #####:  565:      _M_deallocate_node(_Ptr __p) _GLIBCXX_NOEXCEPT
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE18_M_deallocate_nodeEPSA_ called 11 returned 100% blocks executed 100%
+       11:  565:      _M_deallocate_node(_Ptr __p) _GLIBCXX_NOEXCEPT
         -:  566:      {
         -:  567:	typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Traits;
-    #####:  568:	_Traits::deallocate(_M_impl, __p, __deque_buf_size(sizeof(_Tp)));
-    %%%%%:  568-block  0
-call    0 never executed
-call    1 never executed
-    #####:  569:      }
+       11:  568:	_Traits::deallocate(_M_impl, __p, __deque_buf_size(sizeof(_Tp)));
+       11:  568-block  0
+call    0 returned 11
+call    1 returned 11
+       11:  569:      }
         -:  570:
         -:  571:      _Map_pointer
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE15_M_allocate_mapEy called 0 returned 0% blocks executed 0%
-    #####:  572:      _M_allocate_map(size_t __n)
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE15_M_allocate_mapEy called 11 returned 100% blocks executed 78%
+       11:  572:      _M_allocate_map(size_t __n)
         -:  573:      {
-    #####:  574:	_Map_alloc_type __map_alloc = _M_get_map_allocator();
-    %%%%%:  574-block  0
-call    0 never executed
-    #####:  575:	return _Map_alloc_traits::allocate(__map_alloc, __n);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  575-block  0
-    %%%%%:  575-block  1
-    #####:  576:      }
-    %%%%%:  576-block  0
-call    0 never executed
+       11:  574:	_Map_alloc_type __map_alloc = _M_get_map_allocator();
+       11:  574-block  0
+call    0 returned 11
+       22:  575:	return _Map_alloc_traits::allocate(__map_alloc, __n);
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+       11:  575-block  0
+       11:  575-block  1
+       11:  576:      }
+       11:  576-block  0
+call    0 returned 11
     $$$$$:  576-block  1
 call    1 never executed
         -:  577:
         -:  578:      void
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE17_M_deallocate_mapEPPSA_y called 0 returned 0% blocks executed 0%
-    #####:  579:      _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE17_M_deallocate_mapEPPSA_y called 11 returned 100% blocks executed 100%
+       11:  579:      _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
         -:  580:      {
-    #####:  581:	_Map_alloc_type __map_alloc = _M_get_map_allocator();
-    %%%%%:  581-block  0
-call    0 never executed
-    #####:  582:	_Map_alloc_traits::deallocate(__map_alloc, __p, __n);
-call    0 never executed
-    #####:  583:      }
-call    0 never executed
+       11:  581:	_Map_alloc_type __map_alloc = _M_get_map_allocator();
+       11:  581-block  0
+call    0 returned 11
+       11:  582:	_Map_alloc_traits::deallocate(__map_alloc, __p, __n);
+call    0 returned 11
+       11:  583:      }
+call    0 returned 11
         -:  584:
         -:  585:      void _M_initialize_map(size_t);
         -:  586:      void _M_create_nodes(_Map_pointer __nstart, _Map_pointer __nfinish);
@@ -666,25 +666,25 @@ call    0 never executed
         -:  592:    };
         -:  593:
         -:  594:  template<typename _Tp, typename _Alloc>
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EED2Ev called 0 returned 0% blocks executed 0%
-    #####:  595:    _Deque_base<_Tp, _Alloc>::
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EED2Ev called 11 returned 100% blocks executed 100%
+       11:  595:    _Deque_base<_Tp, _Alloc>::
         -:  596:    ~_Deque_base() _GLIBCXX_NOEXCEPT
         -:  597:    {
-    #####:  598:      if (this->_M_impl._M_map)
-    %%%%%:  598-block  0
-branch  0 never executed
-branch  1 never executed
+       11:  598:      if (this->_M_impl._M_map)
+       11:  598-block  0
+branch  0 taken 11 (fallthrough)
+branch  1 taken 0
         -:  599:	{
-    #####:  600:	  _M_destroy_nodes(this->_M_impl._M_start._M_node,
-    #####:  601:			   this->_M_impl._M_finish._M_node + 1);
-    %%%%%:  601-block  0
-call    0 never executed
-    #####:  602:	  _M_deallocate_map(this->_M_impl._M_map, this->_M_impl._M_map_size);
-call    0 never executed
+       11:  600:	  _M_destroy_nodes(this->_M_impl._M_start._M_node,
+       11:  601:			   this->_M_impl._M_finish._M_node + 1);
+       11:  601-block  0
+call    0 returned 11
+       11:  602:	  _M_deallocate_map(this->_M_impl._M_map, this->_M_impl._M_map_size);
+call    0 returned 11
         -:  603:	}
-    #####:  604:    }
-    %%%%%:  604-block  0
-call    0 never executed
+       11:  604:    }
+       11:  604-block  0
+call    0 returned 11
         -:  605:
         -:  606:  /**
         -:  607:   *  @brief Layout storage.
@@ -696,35 +696,35 @@ call    0 never executed
         -:  613:  */
         -:  614:  template<typename _Tp, typename _Alloc>
         -:  615:    void
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE17_M_initialize_mapEy called 0 returned 0% blocks executed 0%
-    #####:  616:    _Deque_base<_Tp, _Alloc>::
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE17_M_initialize_mapEy called 11 returned 100% blocks executed 64%
+       11:  616:    _Deque_base<_Tp, _Alloc>::
         -:  617:    _M_initialize_map(size_t __num_elements)
         -:  618:    {
-    #####:  619:      const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
-    %%%%%:  619-block  0
-call    0 never executed
+       11:  619:      const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+       11:  619-block  0
+call    0 returned 11
         -:  620:				  + 1);
         -:  621:
-    #####:  622:      this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
-    #####:  623:					   size_t(__num_nodes + 2));
-call    0 never executed
-    #####:  624:      this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
-call    0 never executed
+       22:  622:      this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+       11:  623:					   size_t(__num_nodes + 2));
+call    0 returned 11
+       11:  624:      this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+call    0 returned 11
         -:  625:
         -:  626:      // For "small" maps (needing less than _M_map_size nodes), allocation
         -:  627:      // starts in the middle elements and grows outwards.  So nstart may be
         -:  628:      // the beginning of _M_map, but for small maps it may be as far in as
         -:  629:      // _M_map+3.
         -:  630:
-    #####:  631:      _Map_pointer __nstart = (this->_M_impl._M_map
-    #####:  632:			       + (this->_M_impl._M_map_size - __num_nodes) / 2);
-    #####:  633:      _Map_pointer __nfinish = __nstart + __num_nodes;
+       11:  631:      _Map_pointer __nstart = (this->_M_impl._M_map
+       11:  632:			       + (this->_M_impl._M_map_size - __num_nodes) / 2);
+       11:  633:      _Map_pointer __nfinish = __nstart + __num_nodes;
         -:  634:
         -:  635:      __try
-    #####:  636:	{ _M_create_nodes(__nstart, __nfinish); }
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
+       11:  636:	{ _M_create_nodes(__nstart, __nfinish); }
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
     =====:  637:      __catch(...)
     $$$$$:  637-block  0
     $$$$$:  637-block  1
@@ -740,38 +740,38 @@ call    0 never executed
 call    0 never executed
         -:  643:	}
         -:  644:
-    #####:  645:      this->_M_impl._M_start._M_set_node(__nstart);
-    %%%%%:  645-block  0
-call    0 never executed
-    #####:  646:      this->_M_impl._M_finish._M_set_node(__nfinish - 1);
-call    0 never executed
-    #####:  647:      this->_M_impl._M_start._M_cur = _M_impl._M_start._M_first;
-    #####:  648:      this->_M_impl._M_finish._M_cur = (this->_M_impl._M_finish._M_first
-    #####:  649:					+ __num_elements
-    #####:  650:					% __deque_buf_size(sizeof(_Tp)));
-call    0 never executed
-    #####:  651:    }
+       11:  645:      this->_M_impl._M_start._M_set_node(__nstart);
+       11:  645-block  0
+call    0 returned 11
+       11:  646:      this->_M_impl._M_finish._M_set_node(__nfinish - 1);
+call    0 returned 11
+       11:  647:      this->_M_impl._M_start._M_cur = _M_impl._M_start._M_first;
+       22:  648:      this->_M_impl._M_finish._M_cur = (this->_M_impl._M_finish._M_first
+       11:  649:					+ __num_elements
+       11:  650:					% __deque_buf_size(sizeof(_Tp)));
+call    0 returned 11
+       11:  651:    }
         -:  652:
         -:  653:  template<typename _Tp, typename _Alloc>
         -:  654:    void
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE15_M_create_nodesEPPSA_SE_ called 0 returned 0% blocks executed 0%
-    #####:  655:    _Deque_base<_Tp, _Alloc>::
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE15_M_create_nodesEPPSA_SE_ called 11 returned 100% blocks executed 55%
+       11:  655:    _Deque_base<_Tp, _Alloc>::
         -:  656:    _M_create_nodes(_Map_pointer __nstart, _Map_pointer __nfinish)
         -:  657:    {
         -:  658:      _Map_pointer __cur;
         -:  659:      __try
         -:  660:	{
-    #####:  661:	  for (__cur = __nstart; __cur < __nfinish; ++__cur)
-    %%%%%:  661-block  0
-    %%%%%:  661-block  1
-branch  0 never executed
-branch  1 never executed
-    #####:  662:	    *__cur = this->_M_allocate_node();
-    %%%%%:  662-block  0
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    %%%%%:  662-block  1
+       22:  661:	  for (__cur = __nstart; __cur < __nfinish; ++__cur)
+       11:  661-block  0
+       22:  661-block  1
+branch  0 taken 11
+branch  1 taken 11 (fallthrough)
+       11:  662:	    *__cur = this->_M_allocate_node();
+       11:  662-block  0
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+       11:  662-block  1
         -:  663:	}
     =====:  664:      __catch(...)
     $$$$$:  664-block  0
@@ -785,25 +785,25 @@ call    0 never executed
     =====:  667:	  __throw_exception_again;
 call    0 never executed
         -:  668:	}
-    #####:  669:    }
-    %%%%%:  669-block  0
+       11:  669:    }
+       11:  669-block  0
         -:  670:
         -:  671:  template<typename _Tp, typename _Alloc>
         -:  672:    void
-function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE16_M_destroy_nodesEPPSA_SE_ called 0 returned 0% blocks executed 0%
-    #####:  673:    _Deque_base<_Tp, _Alloc>::
+function _ZNSt11_Deque_baseISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE16_M_destroy_nodesEPPSA_SE_ called 11 returned 100% blocks executed 100%
+       11:  673:    _Deque_base<_Tp, _Alloc>::
         -:  674:    _M_destroy_nodes(_Map_pointer __nstart,
         -:  675:		     _Map_pointer __nfinish) _GLIBCXX_NOEXCEPT
         -:  676:    {
-    #####:  677:      for (_Map_pointer __n = __nstart; __n < __nfinish; ++__n)
-    %%%%%:  677-block  0
-    %%%%%:  677-block  1
-branch  0 never executed
-branch  1 never executed
-    #####:  678:	_M_deallocate_node(*__n);
-    %%%%%:  678-block  0
-call    0 never executed
-    #####:  679:    }
+       22:  677:      for (_Map_pointer __n = __nstart; __n < __nfinish; ++__n)
+       11:  677-block  0
+       22:  677-block  1
+branch  0 taken 11
+branch  1 taken 11 (fallthrough)
+       11:  678:	_M_deallocate_node(*__n);
+       11:  678-block  0
+call    0 returned 11
+       11:  679:    }
         -:  680:
         -:  681:  /**
         -:  682:   *  @brief  A standard container using fixed-size memory allocation and
@@ -960,10 +960,10 @@ call    0 never executed
         -:  830:       *  @brief  Creates a %deque with no elements.
         -:  831:       */
         -:  832:#if __cplusplus >= 201103L
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EEC1Ev called 0 returned 0% blocks executed 0%
-    #####:  833:      deque() = default;
-    %%%%%:  833-block  0
-call    0 never executed
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EEC1Ev called 11 returned 100% blocks executed 100%
+       11:  833:      deque() = default;
+       11:  833-block  0
+call    0 returned 11
         -:  834:#else
         -:  835:      deque() { }
         -:  836:#endif
@@ -1135,15 +1135,15 @@ call    0 never executed
         -: 1002:       *  themselves are pointers, the pointed-to memory is not touched in any
         -: 1003:       *  way.  Managing the pointer is the user's responsibility.
         -: 1004:       */
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EED1Ev called 0 returned 0% blocks executed 0%
-    #####: 1005:      ~deque()
-    #####: 1006:      { _M_destroy_data(begin(), end(), _M_get_Tp_allocator()); }
-    %%%%%: 1006-block  0
-call    0 never executed
-call    1 never executed
-call    2 never executed
-call    3 never executed
-call    4 never executed
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EED1Ev called 11 returned 100% blocks executed 100%
+       11: 1005:      ~deque()
+       11: 1006:      { _M_destroy_data(begin(), end(), _M_get_Tp_allocator()); }
+       11: 1006-block  0
+call    0 returned 11
+call    1 returned 11
+call    2 returned 11
+call    3 returned 11
+call    4 returned 11
         -: 1007:
         -: 1008:      /**
         -: 1009:       *  @brief  %Deque assignment operator.
@@ -1264,11 +1264,11 @@ call    4 never executed
         -: 1124:       *  %deque.  Iteration is done in ordinary element order.
         -: 1125:       */
         -: 1126:      iterator
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE5beginEv called 0 returned 0% blocks executed 0%
-    #####: 1127:      begin() _GLIBCXX_NOEXCEPT
-    #####: 1128:      { return this->_M_impl._M_start; }
-    %%%%%: 1128-block  0
-call    0 never executed
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE5beginEv called 76 returned 100% blocks executed 100%
+       76: 1127:      begin() _GLIBCXX_NOEXCEPT
+       76: 1128:      { return this->_M_impl._M_start; }
+       76: 1128-block  0
+call    0 returned 76
         -: 1129:
         -: 1130:      /**
         -: 1131:       *  Returns a read-only (constant) iterator that points to the first
@@ -1284,11 +1284,11 @@ call    0 never executed
         -: 1141:       *  element order.
         -: 1142:       */
         -: 1143:      iterator
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE3endEv called 0 returned 0% blocks executed 0%
-    #####: 1144:      end() _GLIBCXX_NOEXCEPT
-    #####: 1145:      { return this->_M_impl._M_finish; }
-    %%%%%: 1145-block  0
-call    0 never executed
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE3endEv called 11 returned 100% blocks executed 100%
+       11: 1144:      end() _GLIBCXX_NOEXCEPT
+       11: 1145:      { return this->_M_impl._M_finish; }
+       11: 1145-block  0
+call    0 returned 11
         -: 1146:
         -: 1147:      /**
         -: 1148:       *  Returns a read-only (constant) iterator that points one past
@@ -1375,11 +1375,11 @@ call    0 never executed
         -: 1229:      // [23.2.1.2] capacity
         -: 1230:      /**  Returns the number of elements in the %deque.  */
         -: 1231:      size_type
-function _ZNKSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE4sizeEv called 0 returned 0% blocks executed 0%
-    #####: 1232:      size() const _GLIBCXX_NOEXCEPT
-    #####: 1233:      { return this->_M_impl._M_finish - this->_M_impl._M_start; }
-    %%%%%: 1233-block  0
-call    0 never executed
+function _ZNKSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE4sizeEv called 38 returned 100% blocks executed 100%
+       38: 1232:      size() const _GLIBCXX_NOEXCEPT
+       38: 1233:      { return this->_M_impl._M_finish - this->_M_impl._M_start; }
+       38: 1233-block  0
+call    0 returned 38
         -: 1234:
         -: 1235:      /**  Returns the size() of the largest possible %deque.  */
         -: 1236:      size_type
@@ -1554,14 +1554,14 @@ call    1 never executed
         -: 1401:       *  element of the %deque.
         -: 1402:       */
         -: 1403:      reference
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE5frontEv called 0 returned 0% blocks executed 0%
-    #####: 1404:      front() _GLIBCXX_NOEXCEPT
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE5frontEv called 65 returned 100% blocks executed 100%
+       65: 1404:      front() _GLIBCXX_NOEXCEPT
         -: 1405:      {
         -: 1406:	__glibcxx_requires_nonempty();
-    #####: 1407:	return *begin();
-    %%%%%: 1407-block  0
-call    0 never executed
-call    1 never executed
+       65: 1407:	return *begin();
+       65: 1407-block  0
+call    0 returned 65
+call    1 returned 65
         -: 1408:      }
         -: 1409:
         -: 1410:      /**
@@ -1649,26 +1649,26 @@ call    1 never executed
         -: 1492:       *  done in constant time.
         -: 1493:       */
         -: 1494:      void
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE9push_backERKSA_ called 0 returned 0% blocks executed 0%
-    #####: 1495:      push_back(const value_type& __x)
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE9push_backERKSA_ called 65 returned 100% blocks executed 80%
+       65: 1495:      push_back(const value_type& __x)
         -: 1496:      {
-    #####: 1497:	if (this->_M_impl._M_finish._M_cur
-    #####: 1498:	    != this->_M_impl._M_finish._M_last - 1)
-    %%%%%: 1498-block  0
-branch  0 never executed
-branch  1 never executed
+       65: 1497:	if (this->_M_impl._M_finish._M_cur
+       65: 1498:	    != this->_M_impl._M_finish._M_last - 1)
+       65: 1498-block  0
+branch  0 taken 65 (fallthrough)
+branch  1 taken 0
         -: 1499:	  {
-    #####: 1500:	    _Alloc_traits::construct(this->_M_impl,
-    %%%%%: 1500-block  0
-call    0 never executed
+       65: 1500:	    _Alloc_traits::construct(this->_M_impl,
+       65: 1500-block  0
+call    0 returned 65
         -: 1501:				     this->_M_impl._M_finish._M_cur, __x);
-    #####: 1502:	    ++this->_M_impl._M_finish._M_cur;
+       65: 1502:	    ++this->_M_impl._M_finish._M_cur;
         -: 1503:	  }
         -: 1504:	else
     #####: 1505:	  _M_push_back_aux(__x);
     %%%%%: 1505-block  0
 call    0 never executed
-    #####: 1506:      }
+       65: 1506:      }
         -: 1507:
         -: 1508:#if __cplusplus >= 201103L
         -: 1509:      void
@@ -1693,28 +1693,28 @@ call    0 never executed
         -: 1528:       *  needed, it should be retrieved before pop_front() is called.
         -: 1529:       */
         -: 1530:      void
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE9pop_frontEv called 0 returned 0% blocks executed 0%
-    #####: 1531:      pop_front() _GLIBCXX_NOEXCEPT
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE9pop_frontEv called 65 returned 100% blocks executed 83%
+       65: 1531:      pop_front() _GLIBCXX_NOEXCEPT
         -: 1532:      {
         -: 1533:	__glibcxx_requires_nonempty();
-    #####: 1534:	if (this->_M_impl._M_start._M_cur
-    #####: 1535:	    != this->_M_impl._M_start._M_last - 1)
-    %%%%%: 1535-block  0
-branch  0 never executed
-branch  1 never executed
+       65: 1534:	if (this->_M_impl._M_start._M_cur
+       65: 1535:	    != this->_M_impl._M_start._M_last - 1)
+       65: 1535-block  0
+branch  0 taken 65 (fallthrough)
+branch  1 taken 0
         -: 1536:	  {
-    #####: 1537:	    _Alloc_traits::destroy(_M_get_Tp_allocator(),
-    %%%%%: 1537-block  0
-call    0 never executed
-call    1 never executed
+       65: 1537:	    _Alloc_traits::destroy(_M_get_Tp_allocator(),
+       65: 1537-block  0
+call    0 returned 65
+call    1 returned 65
         -: 1538:				   this->_M_impl._M_start._M_cur);
-    #####: 1539:	    ++this->_M_impl._M_start._M_cur;
+       65: 1539:	    ++this->_M_impl._M_start._M_cur;
         -: 1540:	  }
         -: 1541:	else
     #####: 1542:	  _M_pop_front_aux();
     %%%%%: 1542-block  0
 call    0 never executed
-    #####: 1543:      }
+       65: 1543:      }
         -: 1544:
         -: 1545:      /**
         -: 1546:       *  @brief  Removes last element.
@@ -2219,21 +2219,21 @@ call    0 never executed
         -: 2041:	{ _M_destroy_data_aux(__first, __last); }
         -: 2042:
         -: 2043:      void
-function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE15_M_destroy_dataESt15_Deque_iteratorISA_RSA_PSA_ESG_RKSB_ called 0 returned 0% blocks executed 0%
-    #####: 2044:      _M_destroy_data(iterator __first, iterator __last,
+function _ZNSt5dequeISt6vectorISt4pairIyNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EESaISA_EE15_M_destroy_dataESt15_Deque_iteratorISA_RSA_PSA_ESG_RKSB_ called 11 returned 100% blocks executed 83%
+       11: 2044:      _M_destroy_data(iterator __first, iterator __last,
         -: 2045:		      const std::allocator<_Tp>&)
         -: 2046:      {
         -: 2047:	if (!__has_trivial_destructor(value_type))
-    #####: 2048:	  _M_destroy_data_aux(__first, __last);
-    %%%%%: 2048-block  0
-call    0 never executed
-call    1 never executed
-call    2 never executed
-branch  3 never executed
-branch  4 never executed
+       11: 2048:	  _M_destroy_data_aux(__first, __last);
+       11: 2048-block  0
+call    0 returned 11
+call    1 returned 11
+call    2 returned 11
+branch  3 taken 11 (fallthrough)
+branch  4 taken 0 (throw)
     $$$$$: 2048-block  1
-    #####: 2049:      }
-    %%%%%: 2049-block  0
+       11: 2049:      }
+       11: 2049-block  0
         -: 2050:
         -: 2051:      // Called by erase(q1, q2).
         -: 2052:      void

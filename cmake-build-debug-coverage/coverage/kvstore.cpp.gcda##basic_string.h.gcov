@@ -6104,20 +6104,20 @@ call    0 never executed
         -: 6091:   */
         -: 6092:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6093:    basic_string<_CharT, _Traits, _Alloc>
-function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_ called 2 returned 100% blocks executed 83%
-        2: 6094:    operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_ called 21 returned 100% blocks executed 83%
+       21: 6094:    operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
         -: 6095:	      const basic_string<_CharT, _Traits, _Alloc>& __rhs)
         -: 6096:    {
-        2: 6097:      basic_string<_CharT, _Traits, _Alloc> __str(__lhs);
-        2: 6097-block  0
-call    0 returned 2
-        2: 6098:      __str.append(__rhs);
-call    0 returned 2
-branch  1 taken 2 (fallthrough)
+       21: 6097:      basic_string<_CharT, _Traits, _Alloc> __str(__lhs);
+       21: 6097-block  0
+call    0 returned 21
+       21: 6098:      __str.append(__rhs);
+call    0 returned 21
+branch  1 taken 21 (fallthrough)
 branch  2 taken 0 (throw)
-        2: 6099:      return __str;
-        2: 6099-block  0
-        2: 6099-block  1
+       21: 6099:      return __str;
+       21: 6099-block  0
+       21: 6099-block  1
     =====: 6100:    }
     $$$$$: 6100-block  0
 call    0 never executed
@@ -6151,20 +6151,20 @@ call    0 never executed
         -: 6128:   */
         -: 6129:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6130:    inline basic_string<_CharT, _Traits, _Alloc>
-function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_ called 0 returned 0% blocks executed 0%
-    #####: 6131:    operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_ called 19 returned 100% blocks executed 83%
+       19: 6131:    operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
         -: 6132:	      const _CharT* __rhs)
         -: 6133:    {
-    #####: 6134:      basic_string<_CharT, _Traits, _Alloc> __str(__lhs);
-    %%%%%: 6134-block  0
-call    0 never executed
-    #####: 6135:      __str.append(__rhs);
-call    0 never executed
-branch  1 never executed
-branch  2 never executed
-    #####: 6136:      return __str;
-    %%%%%: 6136-block  0
-    %%%%%: 6136-block  1
+       19: 6134:      basic_string<_CharT, _Traits, _Alloc> __str(__lhs);
+       19: 6134-block  0
+call    0 returned 19
+       19: 6135:      __str.append(__rhs);
+call    0 returned 19
+branch  1 taken 19 (fallthrough)
+branch  2 taken 0 (throw)
+       19: 6136:      return __str;
+       19: 6136-block  0
+       19: 6136-block  1
     =====: 6137:    }
     $$$$$: 6137-block  0
 call    0 never executed
@@ -6177,21 +6177,21 @@ call    0 never executed
         -: 6144:   */
         -: 6145:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6146:    inline basic_string<_CharT, _Traits, _Alloc>
-function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_ called 5074 returned 100% blocks executed 83%
-     5074: 6147:    operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs, _CharT __rhs)
+function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_ called 20406 returned 100% blocks executed 83%
+    20406: 6147:    operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs, _CharT __rhs)
         -: 6148:    {
         -: 6149:      typedef basic_string<_CharT, _Traits, _Alloc>	__string_type;
         -: 6150:      typedef typename __string_type::size_type		__size_type;
-     5074: 6151:      __string_type __str(__lhs);
-     5074: 6151-block  0
-call    0 returned 5074
-     5074: 6152:      __str.append(__size_type(1), __rhs);
-call    0 returned 5074
-branch  1 taken 5074 (fallthrough)
+    20406: 6151:      __string_type __str(__lhs);
+    20406: 6151-block  0
+call    0 returned 20406
+    20406: 6152:      __str.append(__size_type(1), __rhs);
+call    0 returned 20406
+branch  1 taken 20406 (fallthrough)
 branch  2 taken 0 (throw)
-     5074: 6153:      return __str;
-     5074: 6153-block  0
-     5074: 6153-block  1
+    20406: 6153:      return __str;
+    20406: 6153-block  0
+    20406: 6153-block  1
     =====: 6154:    }
     $$$$$: 6154-block  0
 call    0 never executed
@@ -6199,14 +6199,14 @@ call    0 never executed
         -: 6156:#if __cplusplus >= 201103L
         -: 6157:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6158:    inline basic_string<_CharT, _Traits, _Alloc>
-function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_ called 0 returned 0% blocks executed 0%
-    #####: 6159:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_ called 23 returned 100% blocks executed 100%
+       23: 6159:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
         -: 6160:	      const basic_string<_CharT, _Traits, _Alloc>& __rhs)
-    #####: 6161:    { return std::move(__lhs.append(__rhs)); }
-    %%%%%: 6161-block  0
-call    0 never executed
-call    1 never executed
-call    2 never executed
+       23: 6161:    { return std::move(__lhs.append(__rhs)); }
+       23: 6161-block  0
+call    0 returned 23
+call    1 returned 23
+call    2 returned 23
         -: 6162:
         -: 6163:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6164:    inline basic_string<_CharT, _Traits, _Alloc>
@@ -6216,20 +6216,20 @@ call    2 never executed
         -: 6168:
         -: 6169:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6170:    inline basic_string<_CharT, _Traits, _Alloc>
-function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ called 15222 returned 100% blocks executed 59%
-    15222: 6171:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ called 61428 returned 100% blocks executed 59%
+    61428: 6171:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
         -: 6172:	      basic_string<_CharT, _Traits, _Alloc>&& __rhs)
         -: 6173:    {
         -: 6174:#if _GLIBCXX_USE_CXX11_ABI
         -: 6175:      using _Alloc_traits = allocator_traits<_Alloc>;
-    15222: 6176:      bool __use_rhs = false;
-    15222: 6177:      if _GLIBCXX17_CONSTEXPR (typename _Alloc_traits::is_always_equal{})
-    15222: 6177-block  0
-call    0 returned 15222
-branch  1 taken 15222 (fallthrough)
+    61428: 6176:      bool __use_rhs = false;
+    61428: 6177:      if _GLIBCXX17_CONSTEXPR (typename _Alloc_traits::is_always_equal{})
+    61428: 6177-block  0
+call    0 returned 61428
+branch  1 taken 61428 (fallthrough)
 branch  2 taken 0
-    15222: 6178:	__use_rhs = true;
-    15222: 6178-block  0
+    61428: 6178:	__use_rhs = true;
+    61428: 6178-block  0
     #####: 6179:      else if (__lhs.get_allocator() == __rhs.get_allocator())
     %%%%%: 6179-block  0
 call    0 never executed
@@ -6241,40 +6241,40 @@ branch  5 never executed
 branch  6 never executed
     #####: 6180:	__use_rhs = true;
     %%%%%: 6180-block  0
-    15222: 6181:      if (__use_rhs)
-    15222: 6181-block  0
-branch  0 taken 15222 (fallthrough)
+    61428: 6181:      if (__use_rhs)
+    61428: 6181-block  0
+branch  0 taken 61428 (fallthrough)
 branch  1 taken 0
         -: 6182:#endif
         -: 6183:	{
-    15222: 6184:	  const auto __size = __lhs.size() + __rhs.size();
-    15222: 6184-block  0
-call    0 returned 15222
-call    1 returned 15222
-   15222*: 6185:	  if (__size > __lhs.capacity() && __size <= __rhs.capacity())
-call    0 returned 15222
-branch  1 taken 5074 (fallthrough)
-branch  2 taken 10148
-     5074: 6185-block  0
-call    3 returned 5074
+    61428: 6184:	  const auto __size = __lhs.size() + __rhs.size();
+    61428: 6184-block  0
+call    0 returned 61428
+call    1 returned 61428
+   61428*: 6185:	  if (__size > __lhs.capacity() && __size <= __rhs.capacity())
+call    0 returned 61428
+branch  1 taken 20518 (fallthrough)
+branch  2 taken 40910
+    20518: 6185-block  0
+call    3 returned 20518
 branch  4 taken 0 (fallthrough)
-branch  5 taken 5074
+branch  5 taken 20518
     %%%%%: 6185-block  1
-    15222: 6185-block  2
-    15222: 6185-block  3
+    61428: 6185-block  2
+    61428: 6185-block  3
 branch  6 taken 0 (fallthrough)
-branch  7 taken 15222
+branch  7 taken 61428
     #####: 6186:	    return std::move(__rhs.insert(0, __lhs));
     %%%%%: 6186-block  0
 call    0 never executed
 call    1 never executed
 call    2 never executed
         -: 6187:	}
-    15222: 6188:      return std::move(__lhs.append(__rhs));
-    15222: 6188-block  0
-call    0 returned 15222
-call    1 returned 15222
-call    2 returned 15222
+    61428: 6188:      return std::move(__lhs.append(__rhs));
+    61428: 6188-block  0
+call    0 returned 61428
+call    1 returned 61428
+call    2 returned 61428
         -: 6189:    }
         -: 6190:
         -: 6191:  template<typename _CharT, typename _Traits, typename _Alloc>
@@ -6291,25 +6291,25 @@ call    2 returned 15222
         -: 6202:
         -: 6203:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6204:    inline basic_string<_CharT, _Traits, _Alloc>
-function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_ called 5076 returned 100% blocks executed 100%
-     5076: 6205:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_ called 20535 returned 100% blocks executed 100%
+    20535: 6205:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
         -: 6206:	      const _CharT* __rhs)
-     5076: 6207:    { return std::move(__lhs.append(__rhs)); }
-     5076: 6207-block  0
-call    0 returned 5076
-call    1 returned 5076
-call    2 returned 5076
+    20535: 6207:    { return std::move(__lhs.append(__rhs)); }
+    20535: 6207-block  0
+call    0 returned 20535
+call    1 returned 20535
+call    2 returned 20535
         -: 6208:
         -: 6209:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6210:    inline basic_string<_CharT, _Traits, _Alloc>
-function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_ called 5074 returned 100% blocks executed 100%
-     5074: 6211:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+function _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S5_ called 20634 returned 100% blocks executed 100%
+    20634: 6211:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
         -: 6212:	      _CharT __rhs)
-     5074: 6213:    { return std::move(__lhs.append(1, __rhs)); }
-     5074: 6213-block  0
-call    0 returned 5074
-call    1 returned 5074
-call    2 returned 5074
+    20634: 6213:    { return std::move(__lhs.append(1, __rhs)); }
+    20634: 6213-block  0
+call    0 returned 20634
+call    1 returned 20634
+call    2 returned 20634
         -: 6214:#endif
         -: 6215:
         -: 6216:  // operator ==
@@ -6821,27 +6821,27 @@ branch  7 never executed
         -: 6706:  }
         -: 6707:
         -: 6708:  inline string
-function _ZNSt7__cxx119to_stringEy called 10148 returned 100% blocks executed 71%
-    10148: 6709:  to_string(unsigned long long __val)
+function _ZNSt7__cxx119to_stringEy called 40996 returned 100% blocks executed 71%
+    40996: 6709:  to_string(unsigned long long __val)
         -: 6710:  {
-    10148: 6711:    string __str(__detail::__to_chars_len(__val), '\0');
-    10148: 6711-block  0
-call    0 returned 10148
-call    1 returned 10148
-call    2 returned 10148
-branch  3 taken 10148 (fallthrough)
+    40996: 6711:    string __str(__detail::__to_chars_len(__val), '\0');
+    40996: 6711-block  0
+call    0 returned 40996
+call    1 returned 40996
+call    2 returned 40996
+branch  3 taken 40996 (fallthrough)
 branch  4 taken 0 (throw)
     $$$$$: 6711-block  1
 call    5 never executed
-    10148: 6712:    __detail::__to_chars_10_impl(&__str[0], __str.size(), __val);
-call    0 returned 10148
-call    1 returned 10148
-branch  2 taken 10148 (fallthrough)
+    40996: 6712:    __detail::__to_chars_10_impl(&__str[0], __str.size(), __val);
+call    0 returned 40996
+call    1 returned 40996
+branch  2 taken 40996 (fallthrough)
 branch  3 taken 0 (throw)
-    10148: 6712-block  0
-call    4 returned 10148
-    10148: 6713:    return __str;
-    10148: 6713-block  0
+    40996: 6712-block  0
+call    4 returned 40996
+    40996: 6713:    return __str;
+    40996: 6713-block  0
     =====: 6714:  }
     $$$$$: 6714-block  0
 call    0 never executed

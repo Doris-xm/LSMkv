@@ -212,10 +212,10 @@
         -:  208:      // stored in *this and in the argument.
         -:  209:      /// Subtract position to return offset.
         -:  210:      streamoff
-function _ZNKSt4fposIiEmiERKS0_ called 2 returned 100% blocks executed 100%
-        2:  211:      operator-(const fpos& __other) const
-        2:  212:      { return _M_off - __other._M_off; }
-        2:  212-block  0
+function _ZNKSt4fposIiEmiERKS0_ called 85 returned 100% blocks executed 100%
+       85:  211:      operator-(const fpos& __other) const
+       85:  212:      { return _M_off - __other._M_off; }
+       85:  212-block  0
         -:  213:    };
         -:  214:
         -:  215:  // The standard only requires that operator== must be an
