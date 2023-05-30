@@ -29,8 +29,6 @@ private:
 
         // Test deletions
         for (i = 0; i < max; i+=2) {
-            if(i == 2650)
-                std::cout << "i = " << i << std::endl;
             EXPECT(true, store.del(i));
         }
         // Prepare data for Test Mode
@@ -45,6 +43,8 @@ private:
                     store.put(i, std::string(i+1, 't'));
                     break;
                 case 2:
+//                    if(i == 32526)
+//                        cout << "i = " << i << endl;
                     EXPECT(not_found, store.get(i));
                     break;
                 case 3:
@@ -68,7 +68,6 @@ private:
         std::cout << "Data is ready, please press ctrl-c/ctrl-d to"
                      " terminate this program!" << std::endl;
         std::cout.flush();
-
         while (true) {
             volatile int dummy;
             for (i = 0; i <= 1024; ++i) {
@@ -96,6 +95,9 @@ private:
         uint64_t i;
         // Test data
         for (i = 0; i < max; ++i) {
+//            if(i == 3316) {//19476
+//                cout << "i = " << i << endl;
+//            }
             switch (i & 3) {
                 case 0:
                     EXPECT(std::string(i+1, 't'), store.get(i));
@@ -179,8 +181,7 @@ int main(int argc, char *argv[])
     }
     usage(argv[0], verbose ? "ON" : "OFF",
           testmode ? "Test Mode" : "Preparation Mode");
-verbose = true;
-//testmode = true;
+
     PersistenceTest test("./data", verbose);
 
     test.start_test(static_cast<void *>(&testmode));

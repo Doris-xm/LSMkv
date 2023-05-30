@@ -17,10 +17,10 @@ KVStore::KVStore(const std::string &dir ): KVStoreAPI(dir)
 
 KVStore::~KVStore()
 {
-    if(memtable ) {
+    if(memtable && memtable->get_key_num() > 0) {
         dump();
+        delete memtable;
     }
-    delete memtable;
     delete disk_store;
 }
 
@@ -129,23 +129,33 @@ void KVStore::scan(uint64_t key1, uint64_t key2, std::list<std::pair<uint64_t, s
 void KVStore::init() {
     vector<string> directories;
     utils::scanDir(DATA_PATH, directories);
+    uint64_t curr_serial = 0, curr_time_stamp = 0;
+    // 扫描是否有文件，并找到最大的time_stamp
     for (auto &dir : directories) {
-        string dir_path = DATA_PATH + dir;
+        string dir_path = DATA_PATH +'/'+ dir;
         vector<string> files;
         utils::scanDir(dir_path, files);
-        for (auto &file : files) {
+        uint32_t level;
+        sscanf(dir.c_str(), "level-%u", &level);
+        disk_store->add_level(DiskLevel::TIERING);
+        // 扫描该层所有文件，并记录最大的serial
+        for (auto &file : files) { //files: 一层中的所有文件
             string file_path = dir_path + "/" + file;
-            uint32_t level;
-            sscanf(dir.c_str(), "level-%u", &level);
             uint64_t time_stamp;
             uint64_t serial;
-            sscanf(file.c_str(), "%lu-%lu.sst",&time_stamp, &serial);
+            sscanf(file.c_str(), "%llu-%llu.sst",&time_stamp, &serial);
             SSTable* ssTable = new SSTable(file_path, time_stamp, serial);
+            curr_time_stamp = (time_stamp > curr_time_stamp)? time_stamp : curr_time_stamp;
+            curr_serial = (serial > curr_serial) ? serial : curr_serial;
             bool flag = false;
-            disk_store->add_sstable(ssTable, level,flag);
+            disk_store->read_sstable(ssTable, level);
             //TODO:未检查合并（默认文件无损坏）
         }
+        // 设置该层的当前serial
+        disk_store->init_level_serial(level,curr_serial + 1);
+        curr_serial = 0;
     }
+    timestamp = curr_time_stamp + 1;
 }
 
 /*

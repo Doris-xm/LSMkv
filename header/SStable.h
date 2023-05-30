@@ -50,9 +50,10 @@ struct Header {
     uint64_t total_num; //总的键值对
     uint64_t max_key; //最大的key
     uint64_t min_key; //最小的key
-    Header():time_stamp(0), total_num(0), max_key(0), min_key(0) {}
+    bool toDeleted; //是否被删除
+    Header():time_stamp(0), total_num(0), max_key(0), min_key(0),toDeleted(false) {}
     Header(uint64_t t_s, uint64_t num, uint64_t Max, uint64_t Min):
-        time_stamp(t_s), total_num(num), max_key(Max), min_key(Min) {}
+        time_stamp(t_s), total_num(num), max_key(Max), min_key(Min),toDeleted(false) {}
     ~Header() {}
 };
 
@@ -95,14 +96,18 @@ public:
     uint64_t get_serial() const {
         return Serial;
     }
+    void delete_file(){
+        header->toDeleted = true;
+    }
+    bool isToDeleted() const{
+        return header->toDeleted;
+    }
     uint64_t get_time_stamp() const {
         return header->time_stamp;
     }
-    void read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data);
+    void read_to_mem(const string &file_path, vector< pair <pair<uint64_t, string>,uint64_t> >  &data);
 
 private:
     int binary_search(uint64_t key) const;
-//    string read_file(const uint32_t offset, const uint32_t size) const;
-//    string make_file_name();
 
 };

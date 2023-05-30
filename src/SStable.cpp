@@ -29,6 +29,8 @@ SSTable::SSTable(const vector<pair<uint64_t,string>>& data, const uint64_t time_
     uint32_t offset = 32 + 10240 + header->total_num * 12; // 32: header size, 10240: bloom_filter size, 12 = 8+4: index_area size
     for (auto iter : data) {
         Indexer indexer(iter.first, offset);
+//        if(iter.first == 3316)
+//            cout << "debug" << endl;
         index_area.emplace_back(indexer);
         bloom_filter->insert(iter.first);
         data_area.emplace_back(iter.second);
@@ -66,10 +68,14 @@ void SSTable::save_file(const string &file_name) {
     // write index_area
     for(auto iter : index_area) {
         out.write((char*)&iter.key, 8);
+//        if(iter.key == 3316)
+//            cout<<"debug"<<endl;
         out.write((char*)&iter.offset, 4);
     }
     // write data_area
     for (auto iter : data_area) {
+//        if(iter.size() == 3317)
+//            cout<<"debug"<<endl;
         out.write(iter.c_str(), (long long)iter.size());
     }
     out.close();
@@ -151,7 +157,7 @@ SSTable::SSTable(const string &file_path, uint64_t time_stamp,uint64_t serial) {
  * @param:返回一个包含键值对的vector:data
  * @param:is_end:是否是最后一行，最后一行需要删除所有的~DELETE~标记
  * */
-void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string> > &data) {
+void SSTable::read_to_mem(const string &file_path, vector< pair <pair<uint64_t, string>,uint64_t> >  &data) {
     ifstream in(file_path, ios::binary | ios::in);
      if (!in.is_open()) {
         cout << "SSTable::read_to_mem::open file error: "<<file_path << endl;
@@ -166,7 +172,7 @@ void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string>
         in.read(&(*ans.begin()), sizeof(char) * len);
         ans[len] = '\0';
 //        if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
-            data.emplace_back(make_pair(index_area[i].key, ans));
+            data.emplace_back(make_pair(make_pair(index_area[i].key, ans), header->time_stamp));
     }
     streampos start = in.tellg(); //获取当前位置
     in.seekg(0, ios::end); //定位到文件末尾
@@ -177,8 +183,9 @@ void SSTable::read_to_mem(const string &file_path,vector< pair<uint64_t, string>
     in.read(&(*ans.begin()), sizeof(char) * len);
     ans[len] = '\0';
 //    if(!is_end || strcasecmp(ans.c_str(), "~DELETE~") != 0)
-        data.emplace_back(make_pair(index_area[header->total_num - 1].key, ans));
+        data.emplace_back(make_pair(make_pair(index_area[header->total_num - 1].key, ans), header->time_stamp));
 }
+
 
 
 
