@@ -137,7 +137,7 @@ void KVStore::init() {
         utils::scanDir(dir_path, files);
         uint32_t level;
         sscanf(dir.c_str(), "level-%u", &level);
-        disk_store->add_level(DiskLevel::TIERING);
+        disk_store->add_level(DiskLevel::LEVELING);
         // 扫描该层所有文件，并记录最大的serial
         for (auto &file : files) { //files: 一层中的所有文件
             string file_path = dir_path + "/" + file;

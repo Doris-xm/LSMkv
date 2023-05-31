@@ -111,9 +111,10 @@ void DiskStore::read_sstable(SSTable* sstable, uint32_t level) {
 //    if(level == level_num) {
 //        add_level(DiskLevel::LEVEL_MODE::LEVELING);
 //    }
+    while(level_list.size() <= level)
+        add_level(DiskLevel::LEVEL_MODE::LEVELING);
     DiskLevel* curr_level = level_list[level];
     curr_level->read_sstable(sstable);
-
 }
 
 std::string DiskStore::get(const uint64_t key,const string & dir_prefix) const{
